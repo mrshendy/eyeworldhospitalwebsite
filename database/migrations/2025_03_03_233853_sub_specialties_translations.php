@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('quetion_translations', function (Blueprint $table) {
+        Schema::create('sub_specialtie_translations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('quetion_id');
+            $table->unsignedBigInteger('sub_specialtie_id');
+            $table->foreign('sub_specialtie_id')->references('id')->on('sub_specialties')->onDelete('cascade');
             $table->string('locale')->index();
-            $table->string('quetion');
-            $table->text('answer')->nullable();
-            $table->unique(['quetion_id', 'locale']);
-            $table->foreign('quetion_id')->references('id')->on('quetions')->onDelete('cascade');
+            $table->string('title');
+            $table->unique(['sub_specialtie_id', 'locale']);
             $table->timestamps();
         });
     }

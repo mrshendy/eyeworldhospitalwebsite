@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('quetion_translations', function (Blueprint $table) {
+        Schema::create('about_translations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('quetion_id');
+            $table->unsignedBigInteger('about_id');
             $table->string('locale')->index();
-            $table->string('quetion');
-            $table->text('answer')->nullable();
-            $table->unique(['quetion_id', 'locale']);
-            $table->foreign('quetion_id')->references('id')->on('quetions')->onDelete('cascade');
+            $table->string('title');
+            $table->string('sub_title');
+            $table->text('desc')->nullable();
+            $table->unique(['about_id', 'locale']);
+            $table->foreign('about_id')->references('id')->on('abouts')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -9,6 +9,7 @@
   data-template="vertical-menu-template"
   data-style="light">
   <head>
+    <base href="{{ url('/') }}">
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -30,7 +31,7 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="{{asset('assets/vendor/fonts/remixicon/remixicon.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/vendor/fonts/flag-icons.cs')}}s" />
+    <link rel="stylesheet" href="{{asset('assets/vendor/fonts/flag-icons.css')}}" />
 
     <!-- Menu waves for no-customizer fix -->
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/node-waves/node-waves.css')}}" />

@@ -81,15 +81,15 @@
               <span class="menu-header-text" data-i18n="Apps & Pages">Apps &amp; Pages</span>
             </li>
             <li class="menu-item">
-              <a href="app-email.html" class="menu-link">
+              <a href="{{route('Admin.Quetions.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-mail-open-line"></i>
-                <div data-i18n="Email">Email</div>
+                <div>{{__('system.Quetions')}}</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="app-chat.html" class="menu-link">
+              <a href="{{route('Admin.abouts.edit',\App\Models\About::first()->id)}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-wechat-line"></i>
-                <div data-i18n="Chat">Chat</div>
+                <div>{{__('system.About')}}</div>
               </a>
             </li>
             <li class="menu-item">

@@ -11,6 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         then: function () {
             Route::prefix('Admin')
+                ->name('Admin.')
                 ->group(base_path('routes/Admin.php'));
      
           
