@@ -14,13 +14,19 @@ return [
     'ar' => [
     'quetion'  => 'The question in Arabic',
     'answer'  => 'The answer in Arabic',
+    'title'    => 'title in Arabic',
     'Quetions'    => 'Quetions',
+    'actions'     => 'actions',
 
     ],
 
     'en' => [
         'quetion'  => 'The question in English',
-        'answer'  => 'The answer in English',
+        'answer'   => 'The answer in English',
+        'title'    => 'title in english',
+
     ],
+
+    
 
 ];

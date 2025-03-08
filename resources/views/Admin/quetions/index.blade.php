@@ -210,14 +210,14 @@
 
 
   <x-deleteModal>
-  <x-slot:route>
-      {{route('Admin.Quetions.destroy',0)}}
-  </x-slot>
-   @method('DELETE')
-  <input type="hidden" id="delete_id" name="id" value="">
-  <h3 id="delete_name"></h3>
+    <x-slot:route>
+        {{route('Admin.Quetions.destroy',0)}}
+    </x-slot>
+    @method('DELETE')
+    <input type="hidden" id="delete_id" name="id" value="">
+    <h3 id="delete_name"></h3>
    
-</x-deleteModal>
+  </x-deleteModal>
 
 
 <!-- Button trigger modal -->

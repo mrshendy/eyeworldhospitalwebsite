@@ -82,26 +82,26 @@
             </li>
             <li class="menu-item">
               <a href="{{route('Admin.Quetions.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ri-mail-open-line"></i>
+                <i class="ri-questionnaire-line"></i>
                 <div>{{__('system.Quetions')}}</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="{{route('Admin.abouts.edit',\App\Models\About::first()->id)}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-wechat-line"></i>
-                <div>{{__('system.About')}}</div>
+                <div>{{__('About')}}</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="{{route('Admin.contact-us.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ri-calendar-line"></i>
+                <i class="menu-icon tf-icons ri-mail-open-line"></i>
                 <div >{{__('contact us')}}</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="app-kanban.html" class="menu-link">
+              <a href="{{route('Admin.specialtie.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-drag-drop-line"></i>
-                <div data-i18n="Kanban">Kanban</div>
+                <div>{{__('specialtie')}}</div>
               </a>
             </li>
             <!-- e-commerce-app menu start -->

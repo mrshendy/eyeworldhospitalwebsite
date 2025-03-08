@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('specialtie_id')->references('id')->on('specialties')->onDelete('cascade');
             $table->string('locale')->index();
             $table->string('title');
+            $table->string('subtitle');
             $table->unique(['specialtie_id', 'locale']);
             $table->timestamps();
         });
