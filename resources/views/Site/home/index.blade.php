@@ -11,13 +11,13 @@
                     <div class="slider-details h-100 flex-column">
                         <h4 class="slider-pre-title">
                             <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
-                            <span>مستشفى دنيا العيون - نظرك أمانتك!</span>
+                            <span> {{__('Dunia Al-Oyoun Hospital - Your Vision, Your Trust')}}!</span>
                         </h4>
                         <h2 class="slider-title">
-                            أحدث تقنيات طب العيون بين  <br>يديك مع خبراء متميزين
+                                {{__('The latest ophthalmology techniques')}}  <br> {{__('Your hands are with outstanding experts.')}}
                         </h2>
                         <p class="slider-desc">
-                            نقدم خدمات شاملة ومتخصصة في طب العيون مع فريق من الاستشاريين  <br> وأحدث الأجهزة لتوفير رعاية طبية عالية الجودة لعينيك
+                            {{__('We provide comprehensive and specialized ophthalmology services with a team of consultants.')}}   <br> وأحدث الأجهزة لتوفير رعاية طبية عالية الجودة لعينيك
                         </p>
                     </div>
                 </div>
@@ -27,13 +27,13 @@
                     <div class="slider-details h-100 flex-column">
                         <h4 class="slider-pre-title">
                             <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
-                            <span>رؤيتك مستقبلنا، ودنيا العيون مكانك</span>
+                            <span>     {{__('Your vision is your future, and Dunia Al-Oyoun is your place.')}}</span>
                         </h4>
                         <h2 class="slider-title">
-                            معايير عالمية في علاج أمراض<br> العيون بأيدي خبراء
+                            {{__("Global standards in disease treatment.")}}     <br> {{__("Eyes in the hands of experts.")}}
                         </h2>
                         <p class="slider-desc">
-                            نسواء كنت تبحث عن حلول للمياه البيضاء، الشبكية، أو تصحيح الإبصار، <br>مستشفى دنيا العيون تقدم لك رعاية طبية متكاملة على مدار الساعة
+                           {{__("Whether you're looking for solutions for cataracts, retina issues, or vision correction.")}}  <br> {{__("Dunia Al-Oyoun Hospital provides you with comprehensive medical care around the clock.")}}
                         </p>
                     </div>
                 </div>
@@ -43,13 +43,13 @@
                     <div class="slider-details h-100 flex-column">
                         <h4 class="slider-pre-title">
                             <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
-                            <span>عيونك تستحق الأفضل، ونحن هنا لتحقيقه</span>
+                            <span>{{__("Your eyes deserve the best, and we are here to make it happen.")}} </span>
                         </h4>
                         <h2 class="slider-title">
-                            أفضل فريق طبي للعيون بأحدث<br> تقنيات جراحية متطورة
+                                {{__("The best ophthalmology team with the latest technology.")}}<br>   {{__("Advanced surgical techniques.")}}
                         </h2>
                         <p class="slider-desc">
-                        من الاستشاريين إلى أحدث الأجهزة، نقدم في دنيا العيون  تجربة طبية مميزة <br>تتماشى مع أعلى معايير الجودة والاهتمام الفردي بكل حالة
+                            {{__("From consultants to the latest equipment, we offer a distinguished medical experience at Dunia Al-Oyoun.")}}  <br>  {{__("Aligned with the highest quality standards and personalized care for every case.")}}
                         </p>
                     </div>
                 </div>
@@ -59,13 +59,13 @@
                     <div class="slider-details h-100 flex-column">
                         <h4 class="slider-pre-title">
                             <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
-                            <span>رعايتك البصرية أولويتنا في دنيا العيون</span>
+                            <span>{{__("Your vision care is our priority at Dunia Al-Oyoun.")}}</span>
                         </h4>
                         <h2 class="slider-title">
-                            أكثر من مليون كشف طبي<br> لخدمة رؤيتك بامتياز
+                            {{__("More than one million medical examinations.")}}<br>{{__("Serving your vision with excellence.")}}
                         </h2>
                         <p class="slider-desc">
-                        مستشفى دنيا العيون توفر رعاية طبية متخصصة وشاملة في مجال العيون<br> لتلبية احتياجاتك بدقة وبأعلى جودة ممكنة
+                            {{__("Dunia Al-Oyoun Hospital provides specialized and comprehensive eye care.")}}<br>   {{__("To meet your needs with precision and the highest possible quality.")}}
                         </p>
                     </div>
                 </div>
@@ -88,28 +88,28 @@
                 <div class="col-3 col-sm-6 col-xs-12">
                     <div class="counter-box">
                         <strong class="number">1000+</strong>
-                        <p class="value">عملية جراحية ناجحة</p>
+                        <p class="value">{{__("Successful surgical procedure.")}}</p>
                     </div>
                 </div>				
 
                 <div class="col-3 col-sm-6 col-xs-12">
                     <div class="counter-box">
                         <strong class="number">5000+</strong>
-                        <p class="value"> عملية مياه بيضاء بدقة متناهية</p>
+                        <p class="value"> {{__("Cataract surgery with utmost precision.")}}</p>
                     </div>
                 </div>				
 
                 <div class="col-3 col-sm-6 col-xs-12">
                     <div class="counter-box">
                         <strong class="number">748+</strong>
-                        <p class="value">عملية ليزك لتصحيح الإبصار</p>
+                        <p class="value">{{__("LASIK surgery for vision correction.")}}</p>
                     </div>
                 </div>				
 
                 <div class="col-3 col-sm-6 col-xs-12">
                     <div class="counter-box">
                         <strong class="number">1+</strong>
-                        <p class="value">مليون كشف طبي شامل</p>
+                        <p class="value">{{__("One million comprehensive medical examinations.")}}</p>
                     </div>
                 </div>
             </section>
@@ -146,55 +146,52 @@
             <div class="flex-start pdb align-center">
                 <div class="col-6 col-md-12">
                     <p class="main-para pdl">
-                        خدمات طبية منبسقة من مؤسسة مستشفى دنيا العيون  المتخصصة فى مجال طب وجراحة العيون لتقديم الرعاية الصحيه لمرضى العيون فى مجال الرعاية التشخصيه والعلاجية وخدمات الليزك والليزر والعمليات الجراحية المرتبطة بصحة العين والنظر. 
+                       {{__("Medical services provided by Dunia Al-Oyoun Hospital, specialized in ophthalmology and eye surgery, offering healthcare for eye patients in diagnostic and therapeutic care, LASIK and laser treatments, and surgical procedures related to eye health and vision.")}}
                     </p>
                 </div>
                 <div class="col-6 col-md-12">
                     <p class="main-para pdr">
-                        تضم نخبة من الأساتذة والإستشاريين فى مختلف التخصصات الدقيقة لأمراض العيون مثل المياه البيضاء ، والزرقاء ، جراحة القرنية والحول ، وأمراض الشبكية والقناة الدمعية والجفون والجراحات التجميلية ,أورام العيون و كذلك أورام الشبكية فى الأطفال "Retinoblastoma ".
+                     {{__("It includes a distinguished group of professors and consultants specializing in various ophthalmic fields, such as cataracts, glaucoma, corneal and strabismus surgery, retinal diseases, tear duct and eyelid conditions, cosmetic surgeries, eye tumors, and pediatric retinal tumors (Retinoblastoma).")}}
                     </p>
                 </div>
             </div>
             <h4 class="h4">
-                بالاضافة الى ما ذكر فى مجال طب العيون فان الخدمات الأخرى تتمثل فى:
+                 {{__("In addition to the mentioned ophthalmology services, other services include:")}}
             </h4>
             <ul class="list-unstyled flex-start services-list">
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
-                    جراحات التجميل فى الوجة و الراس
+                    {{__("Cosmetic surgeries for the face and head.")}}
                 </li>					
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
-                    الجراحات التجميلية
+                    {{__("Oral and maxillofacial surgeries")}}
                 </li>					
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
-                    جراحات الفم و الفكيين
+                    {{__("Dermatology and laser services")}}
                 </li>					
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
-                    خدمات الامراض الجلدية و الليزر
+                    {{__("Nutrition services")}}
                 </li>					
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
-                    خدمات  التغذية
-                </li>					
-                <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
-                    خدمات المختبر
+                    {{__("Laboratory services")}}
                 </li>
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
-                    خدمات الصيدلية
+                    {{__("Pharmacy services")}}
                 </li>
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
-                    خدمات الاقامة
+                    {{__("Accommodation services")}}
                 </li>
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
-                    خدمات اخرى
+                    {{__("Other services")}}
                 </li>
+                
             </ul>
         </div>
     </article>
@@ -203,44 +200,45 @@
     <!-- Discover Section -->
     <article class="discover pd">
         <div class="container">
-            <span class="pre-title site-color">استكشف التخصصات الطبية المتنوعة لتلبية احتياجاتك الصحية.</span>
-            <h2 class="main-title"> اختر التخصص الطبي المناسب لاحتياجاتك الصحية من<br> بين تخصصاتنا المتنوعة.</h2>
-            <p class="main-para">Description: نقدم لك مجموعة واسعة من التخصصات الطبية التي تشمل العيون، الأسنان، الجلدية، والجراحة وغيرهم. احصل على رعاية صحية شاملة من متخصصين ذوي خبرة لمساعدتك في الحفاظ على صحتك وعافيتك.</p>
-
+            <span class="pre-title site-color">{{__("Explore various medical specialties to meet your healthcare needs.")}}</span>
+            <h2 class="main-title">{{__("Choose the right medical specialty for your health needs from our diverse specialties.")}}</h2>
+            <p class="main-para">{{__("Description: We offer you a wide range of medical specialties, including ophthalmology, dentistry, dermatology, surgery, and more. Receive comprehensive healthcare from experienced specialists to help you maintain your health and well-being.")}}</p>
+    
             <div class="flex-center discover-row pdt">
                 <div class="col-4 col-sm-6 col-xs-12">
                     <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/1.svg')}})">
                         <div class="discover-box-content">
-                        <span>طب وجراحة العيون</span>
-                            <p>رؤيتك تهمنا! نقدم لك رعاية متكاملة لصحة عيونك، من فحوصات النظر وتصحيح الإبصار إلى جراحات العيون المتقدمة، لنضمن لك رؤية أوضح وحياة أكثر راحة.</p>
-                            <a href="#">اعرف المزيد</a>
+                            <span>{{__("Ophthalmology and Eye Surgery")}}</span>
+                            <p>{{__("Your vision matters! We provide comprehensive eye care, from vision tests and correction to advanced eye surgeries, ensuring you clearer sight and a more comfortable life.")}}</p>
+                            <a href="#">{{__("Learn more")}}</a>
                         </div>
                     </div>
                 </div>				
-
+    
                 <div class="col-4 col-sm-6 col-xs-12">
                     <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/2.svg')}})">
                         <div class="discover-box-content">
-                            <span>الجلدية</span>
-                            <p>استعد لبشرة صحية ومشرقة مع أطباء الجلدية المتخصصين، حيث نقدم أحدث العلاجات لحب الشباب، التصبغات، تساقط الشعر، والأمراض الجلدية، مع تقنيات متطورة لضمان أفضل النتائج لبشرتك.</p>
-                            <a href="#">اعرف المزيد</a>
+                            <span>{{__("Dermatology")}}</span>
+                            <p>{{__("Achieve healthy and radiant skin with specialized dermatologists. We provide the latest treatments for acne, pigmentation, hair loss, and skin diseases, using advanced techniques to ensure the best results for your skin.")}}</p>
+                            <a href="#">{{__("Learn more")}}</a>
                         </div>
                     </div>
                 </div>				
-
+    
                 <div class="col-4 col-sm-6 col-xs-12">
                     <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/3.svg')}})">
                         <div class="discover-box-content">
-                            <span>الأسنان</span>
-                            <p>ابتسامة صحية تبدأ بأسنان قوية! نوفر لك جميع خدمات العناية بالأسنان، من التنظيف والتبييض إلى الزراعة والتقويم، لضمان صحة فموية مثالية وابتسامة مشرقة تدوم طويلاً.</p>
-                            <a href="#">اعرف المزيد</a>
+                            <span>{{__("Dentistry")}}</span>
+                            <p>{{__("A healthy smile starts with strong teeth! We offer all dental care services, from cleaning and whitening to implants and orthodontics, ensuring optimal oral health and a long-lasting bright smile.")}}</p>
+                            <a href="#">{{__("Learn more")}}</a>
                         </div>
                     </div>
                 </div>
             </div>
-
+    
         </div>
     </article>
+    
     <!-- Discover Section -->
 
     <!-- Discover two Section -->
@@ -248,23 +246,23 @@
         <div class="container">
             <div class="flex-between pdb">
                 <div>
-                    <span class="pre-title site-color">استكشف أبرز إنجازاتنا ومشاركاتنا في الفعاليات والمؤتمرات الطبية</span>
-                    <h2 class="main-title">مشاركاتنا وإنجازاتنا المتميزة في أهم الفعاليات <br>والمؤتمرات الطبية والعلمية</h2>
+                    <span class="pre-title site-color">{{__("Explore our key achievements and participation in medical events and conferences.")}}</span>
+                    <h2 class="main-title">{{__("Our outstanding contributions and achievements in major medical")}}<br>{{__("and scientific events and conferences.")}}</h2>
                 </div>
                 <a href="#" class="site-color">
-                    عرض المزيد من الفعاليات
+                    {{__("View more events")}}
                 </a>
             </div>
-            <p class="main-para">نعتز بمشاركاتنا في الفعاليات والمؤتمرات الطبية، حيث نقدم أحدث التقنيات ونشارك خبراتنا مع المجتمع الطبي. نهدف لتبادل المعرفة وإبراز ريادتنا في مجال طب وجراحة العيون من خلال هذه الأحداث المميزة.</p>
-
+            <p class="main-para">{{__("We take pride in our participation in medical events and conferences, where we showcase the latest technologies")}}<br>{{__("and share our expertise with the medical community. Our goal is to exchange knowledge and highlight our leadership")}}<br>{{__("in ophthalmology and eye surgery through these distinguished events.")}}</p>
+    
             <div class="flex-center discover-row pdt">
                 <div class="col-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/4.svg')}})">
                         <div class="discover-box-details">
-                            <h3>مؤتمر التكنولوجيا الحديثة في جراحة العيون 2024</h3>
-                            <p>عرضنا أحدث التقنيات لجراحة العيون بمشاركة نخبة من الأطباء والخبراء.</p>
+                            <h3>{{__("Modern Technology in Eye Surgery Conference 2024")}}</h3>
+                            <p>{{__("We showcased the latest eye surgery techniques")}}<br>{{__("with the participation of elite doctors and experts.")}}</p>
                             <a href="#">
-                                اقرأ المزيد
+                                {{__("Read more")}}
                                 <i class="fa-solid fa-chevron-left"></i>
                             </a>
                         </div>
@@ -273,10 +271,10 @@
                 <div class="col-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/5.svg')}})">
                         <div class="discover-box-details">
-                            <h3>الملتقى العربي لتطوير علاجات أمراض الشبكية</h3>
-                            <p>تدريب متخصصين على أحدث تقنيات الليزر لعلاج وتصحيح الإبصار.</p>
+                            <h3>{{__("The Arab Forum for the Development of Retinal Disease Treatments")}}</h3>
+                            <p>{{__("Specialized training on the latest laser techniques")}}<br>{{__("for vision correction and treatment.")}}</p>
                             <a href="#">
-                                اقرأ المزيد
+                                {{__("Read more")}}
                                 <i class="fa-solid fa-chevron-left"></i>
                             </a>
                         </div>
@@ -285,10 +283,10 @@
                 <div class="col-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/6.svg')}})">
                         <div class="discover-box-details">
-                            <h3>حملة طبية مجانية للكشف عن أمراض العيون</h3>
-                            <p>قدمنا الكشف والعلاج المجاني بالتعاون مع جمعيات خيرية محلية ودولية.</p>
+                            <h3>{{__("Free medical campaign for eye disease screening")}}</h3>
+                            <p>{{__("We provided free check-ups and treatment")}}<br>{{__("in collaboration with local and international charities.")}}</p>
                             <a href="#">
-                                اقرأ المزيد
+                                {{__("Read more")}}
                                 <i class="fa-solid fa-chevron-left"></i>
                             </a>
                         </div>
@@ -297,19 +295,20 @@
                 <div class="col-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/7.svg')}})">
                         <div class="discover-box-details">
-                            <h3>المؤتمر الدولي لعلاج أمراض الأطفال المبتسرين</h3>
-                            <p>شاركنا بأحدث الحلول لعلاج شبكية الأطفال وضمان مستقبل بصري أفضل.</p>
+                            <h3>{{__("International Conference on the Treatment of Premature Infants’ Diseases")}}</h3>
+                            <p>{{__("We participated with the latest solutions for treating pediatric retinal diseases")}}<br>{{__("to ensure a better visual future.")}}</p>
                             <a href="#">
-                                اقرأ المزيد
+                                {{__("Read more")}}
                                 <i class="fa-solid fa-chevron-left"></i>
                             </a>
                         </div>
                     </div>
                 </div>				
-
             </div>
         </div>
     </article>
+    
+
     <!-- Discover two Section -->
 
     <!-- Experience Section -->
@@ -350,7 +349,7 @@
                     <h2 class="main-title">{{__('quetion 2')}}</h2>
                 </div>
                 <a href="#" class="site-color">
-                    عرض المزيد من الأسئلة الشائعة
+                   {{__("View more FAQs")}}
                 </a>
             </div>
             <p class="main-para">{{__('quetion 3')}}</p>
@@ -385,7 +384,7 @@
                     <h2 class="main-title"> {{__('Insurance Partners: Renowned')}}</h2>
                 </div>
                 <a href="#" class="site-color">
-                    عرض المزيد من الشركاء
+                   {{__("View more partners")}}
                 </a>
             </div>
             <p class="main-para">{{__('Our company takes')}}</p>
@@ -412,35 +411,36 @@
 
             <div class="flex-center align-center pdt">
                 <div class="col-6 col-md-6 col-sm-12">
-                    <form class="custom-form" action="">
+                    <form class="custom-form" action="{{route('Site.contact-us')}}" method="post">
+                        @csrf
                         <div class="form-control">
                             <div class="form-field">
-                                <label>اكتب اسمك</label>
+                                <label>{{__('write your name')}} </label>
                                 <div class="field">
                                     <img src="{{asset('siteassets/images/contact/user.svg')}}">
-                                    <input type="text" name="name" placeholder="| برجاء كتابة اسمك هنا">
+                                    <input type="text" name="name" placeholder="| {{__('please write your name hear')}}" required>
                                 </div>
                             </div>			
                             <div class="form-field">
-                                <label>اكتب بريدك الإلكتروني</label>
+                                <label>  {{__('write your email')}}</label>
                                 <div class="field">
                                     <img src="{{asset('siteassets/images/contact/sms.svg')}}">
-                                    <input type="email" name="email" placeholder="| example@email.com">
+                                    <input type="email" name="email" placeholder="| example@email.com" required>
                                 </div>
                             </div>
                         </div>			
                         <div class="form-control">
                             <div class="form-field">
-                                <label>اكتب رسالتك</label>
+                                <label>{{__('write your message')}}</label>
                                 <div class="field">
                                     <img src="{{asset('siteassets/images/contact/message-text.svg')}}">
-                                    <textarea name="msg" placeholder="| على سبيل المثال: أريد التواصل معك"></textarea>
+                                    <textarea name="message" placeholder="{{__('for example : I need to contact with you')}}" required></textarea>
                                 </div>
                             </div>			
                         
                         </div>
                         <div class="form-control">
-                            <input type="submit" class="btn" name="send" value="ارسال">
+                            <input type="submit" class="btn"  value="ارسال">
                         </div>
                     </form>
                 </div>

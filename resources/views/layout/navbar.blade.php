@@ -28,8 +28,20 @@
                     data-bs-toggle="dropdown">
                     <i class="ri-translate-2 ri-22px"></i>
                   </a>
+                  
                   <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
+
+                    
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li class="navi-item">
+                            <a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                              <span class="align-middle">
+                                {{ $properties['native'] }}
+                              </span>
+                            </a>
+                        </li>
+                    @endforeach
+                    {{-- <li>
                       <a class="dropdown-item" href="javascript:void(0);" data-language="en" data-text-direction="ltr">
                         <span class="align-middle">English</span>
                       </a>
@@ -48,7 +60,7 @@
                       <a class="dropdown-item" href="javascript:void(0);" data-language="de" data-text-direction="ltr">
                         <span class="align-middle">German</span>
                       </a>
-                    </li>
+                    </li> --}}
                   </ul>
                 </li>
                 <!--/ Language -->

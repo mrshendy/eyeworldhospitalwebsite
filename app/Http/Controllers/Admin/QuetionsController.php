@@ -56,7 +56,6 @@ class QuetionsController extends Controller
             return view('Admin.quetions.index',compact('html'));
     }
 
-
     public function store(Request $request){
         Quetion::create($request->all());
         return redirect()->back();
@@ -77,7 +76,6 @@ class QuetionsController extends Controller
         $quetion->delete();
         return redirect()->back();
     }
-
 
 
 

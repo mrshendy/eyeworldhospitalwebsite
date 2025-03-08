@@ -93,9 +93,9 @@
               </a>
             </li>
             <li class="menu-item">
-              <a href="app-calendar.html" class="menu-link">
+              <a href="{{route('Admin.contact-us.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-calendar-line"></i>
-                <div data-i18n="Calendar">Calendar</div>
+                <div >{{__('contact us')}}</div>
               </a>
             </li>
             <li class="menu-item">
