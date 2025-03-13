@@ -8,10 +8,12 @@ use App\Models\{Specialtie,SubSpecialtie};
 use Yajra\DataTables\Html\Builder;
 use DataTables;
 use Carbon\Carbon;
+use App\Traits\fileTrait;
 
 class SpecialtieController extends Controller
 {
     //
+    use fileTrait;
     public function index(Request $request,Builder $builder){
            
         if (request()->ajax()) {
@@ -34,6 +36,7 @@ class SpecialtieController extends Controller
                     <a href="#" class="edit_btn" data-bs-toggle="modal" data-bs-target="#editModal"  data-id="'.$row->id.'" '.$data.'">   <i class="ri-edit-line"></i> </a>
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
                     <a href="'.route('Admin.sup-specialtie',$row->id).'"><i class="ri-eye-line"></i></a>
+                    <a href="'.route("Admin.specialtie.detail",$row->id).'"> <i class="ri-information-2-line"></i> </a>
                     ';
             })
             ->rawColumns(['actions'])
@@ -53,21 +56,31 @@ class SpecialtieController extends Controller
          return view('Admin.specialtie.index',compact('html'));
     }
 
+    public function detail($id){
+        $data = Specialtie::find($id);
+        return view('Admin.specialtie.detail',compact('id','data'));
+    }
+
     public function store(Request $request){
         Specialtie::create($request->all());
         return redirect()->back();
     }
 
     public function update(Request $request,$id){
+        
+        if($request->file!=null)
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/specialtie')]);
+        
         $Specialtie =  Specialtie::find($request->id);
-        $Specialtie->update($request->except(['id','_token','_method']));
+        
+        $Specialtie->update($request->except(['id','_token','_method','file']));
         return redirect()->back();
     } 
 
 
     public function destroy(Request $request,$id){
-        $quetion =  Specialtie::find($request->id);
-        $quetion->delete();
+        $Specialtie =  Specialtie::find($request->id);
+        $Specialtie->delete();
         return redirect()->back();
     }
 
@@ -81,16 +94,24 @@ class SpecialtieController extends Controller
                 if ($request->has('search') && !empty($request->input('search')['value'])) {
                     $search = $request->input('search')['value'];
                     $query->whereHas('translation',function ($q) use ($search) {
-                        $q->where('title', 'LIKE', "%{$search}%");
+                        $q->where('main_title', 'LIKE', "%{$search}%");
                     });
                 }
             })
             ->addColumn('actions', function ($row) {
-               
+                $data="";
+                foreach(config('translatable.locales') as $locale){
+                    $data.='data-main_title-'.$locale.' ="'.$row->translate($locale)?->main_title.'"
+                            data-main_subtitle-'.$locale.' ="'.$row->translate($locale)?->main_subtitle.'"
+                            ';
+                }
             
                 return '
-                    <a href="#" class="edit_btn" data-bs-toggle="modal" data-bs-target="#editModal"  data-id="'.$row->id.'">   <i class="ri-edit-line"></i> </a>
+                    <a href="#" class="edit_btn" data-bs-toggle="modal" data-bs-target="#editModal"  data-id="'.$row->id.'" '.$data.'">    <i class="ri-edit-line"></i> </a>
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
+                    <a href="'.route("Admin.sup-specialtie.detail",$row->id).'"> <i class="ri-information-2-line"></i> </a>
+                    <a href="'.route('Admin.sup-specialtie-type',$row->id).'"><i class="ri-eye-line"></i></a>
+
                     ';
             })
             ->rawColumns(['actions'])
@@ -102,13 +123,13 @@ class SpecialtieController extends Controller
 
         $html = $builder->columns([
             ['title' => __('system.id'), 'data' => 'id', 'footer' =>  __('system.id') , 'orderable' => true],
-            ['title' => __('name'), 'data' => 'title', 'footer' =>__('name') , 'searchable' => true],
+            ['title' => __('name'), 'data' => 'main_title', 'footer' =>__('name') , 'searchable' => true],
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' =>  __('system.actions'), 'orderable' => false, 'searchable' => false]
 
         ]);
 
 
-        return view('Admin.specialtie.sub-specialtie.index',compact('html'));
+        return view('Admin.specialtie.sub-specialtie.index',compact('html','id'));
 
     }
 
@@ -116,5 +137,26 @@ class SpecialtieController extends Controller
     public function supSpecialtieStore(Request $request){
         SubSpecialtie::create($request->all());
         return redirect()->back();
+    }
+
+    public function supSpecialtieUpdate(Request $request){
+
+          if($request->file!=null)
+          $request->merge(['img' => $this->MoveImage($request->file,'uploads/specialtie')]);
+
+          $SubSpecialtie = SubSpecialtie::find($request->id);
+          $SubSpecialtie->update($request->except(['id','_token','_method','file']));
+          return redirect()->back();
+    }
+
+    public function destroySubSpecialtie(Request $request){
+        $SubSpecialtie =  SubSpecialtie::find($request->id);
+        $SubSpecialtie->delete();
+        return redirect()->back();
+    }
+
+    public function subSpetialtieDetail($id){
+        $data =  SubSpecialtie::find($id);
+        return view('Admin.specialtie.sub-specialtie.detail',compact('data','id'));
     }
 }

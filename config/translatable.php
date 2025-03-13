@@ -11,8 +11,8 @@ return [
     |
     */
     'locales' => [
-        'en',
         'ar',
+        'en',
         // 'fr',
         // 'es' => [
         //     'MX', // mexican spanish

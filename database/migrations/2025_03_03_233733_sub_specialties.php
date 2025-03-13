@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('specialtie_id');
             $table->foreign('specialtie_id')->references('id')->on('specialties')->onDelete('cascade');
+            $table->string('img')->nullable();
             $table->boolean('activation')->default(true);
             $table->timestamps();
         });

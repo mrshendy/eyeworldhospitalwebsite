@@ -46,10 +46,10 @@ class SpecialtieSeeder extends Seeder
          SubSpecialtie::create([
             'specialtie_id'=>1,
             'ar'=>[
-               'title'  => "أورام العيون",
+               'main_title'  => "أورام العيون",
             ],
             'en'=>[
-               'title'  => "Eye tumors",
+               'main_title'  => "Eye tumors",
              ]
          ]);
 
@@ -57,20 +57,20 @@ class SpecialtieSeeder extends Seeder
          SubSpecialtie::create([
             'specialtie_id'=>1,
             'ar'=>[
-               'title'  => "المياه البيضاء",
+               'main_title'  => "المياه البيضاء",
             ],
             'en'=>[
-               'title'  => "white color",
+               'main_title'  => "white color",
              ]
          ]);
 
          SubSpecialtie::create([
             'specialtie_id'=>1,
             'ar'=>[
-               'title'  => "الليزك",
+               'main_title'  => "الليزك",
             ],
             'en'=>[
-               'title'  => "lyzik",
+               'main_title'  => "lyzik",
              ]
          ]);
     }

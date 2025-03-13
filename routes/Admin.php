@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\{QuetionsController,AboutController,ContactUsController,SpecialtieController};
+use App\Http\Controllers\Admin\{QuetionsController,AboutController,ContactUsController,SpecialtieController,SpecialtieTypeController};
 
 Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -12,8 +12,21 @@ Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect',
         'specialtie'=> SpecialtieController::class
     ]);
 
+    Route::get('specialtie/detail/{id}' ,[SpecialtieController::class, 'detail'])->name('specialtie.detail');
+
+
     Route::get('sup-specialtie/{id}' ,[SpecialtieController::class, 'supSpecialtie'])->name('sup-specialtie');
     Route::post('sup-specialtie/store' ,[SpecialtieController::class, 'supSpecialtieStore'])->name('sup-specialtie.store');
+    Route::put('sup-specialtie/update' ,[SpecialtieController::class, 'supSpecialtieUpdate'])->name('sup-specialtie.update');
+    Route::post('sup-specialtie/destroy' ,[SpecialtieController::class, 'destroySubSpecialtie'])->name('sup-specialtie.destroy');
+    Route::get('sup-specialtie/detail/{id}' ,[SpecialtieController::class, 'subSpetialtieDetail'])->name('sup-specialtie.detail');
+
+
+
+    Route::get('sup-specialtie-type/{id}' ,[SpecialtieTypeController::class, 'supSpecialtieType'])->name('sup-specialtie-type');
+    Route::post('sup-specialtie-type/store' ,[SpecialtieTypeController::class, 'supSpecialtieTypeStore'])->name('sup-specialtie-type.store');
+    Route::put('sup-specialtie-type/update' ,[SpecialtieTypeController::class, 'supSpecialtieTypeUpdate'])->name('sup-specialtie-type.update');
+    Route::post('sup-specialtie-type/destroy' ,[SpecialtieTypeController::class, 'destroySubSpecialtieType'])->name('sup-specialtie-type.destroy');
 
  });
 

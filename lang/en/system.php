@@ -18,12 +18,26 @@ return [
     'Quetions'    => 'Quetions',
     'actions'     => 'actions',
 
+    'main_title'      => 'Main Title in Arabic',
+    'main_subtitle'   => 'Main Subtitle in Arabic',
+    'detail_title'    => 'Detailed Title in Arabic',
+    'detail_title'    => 'Detailed Title in Arabic', // (Duplicate key, consider removing one)
+    'detail_subtitle' => 'Detailed Subtitle in Arabic',
+    'desc'            => 'Description in Arabic',
+
     ],
 
     'en' => [
         'quetion'  => 'The question in English',
         'answer'   => 'The answer in English',
         'title'    => 'title in english',
+
+        'main_title'      => 'Main Title in English',
+        'main_subtitle'   => 'Main Subtitle in English',
+        'detail_title'    => 'Detailed Title in English',
+        'detail_title'    => 'Detailed Title in English', // (Duplicate key, consider removing one)
+        'detail_subtitle' => 'Detailed Subtitle in English',
+        'desc'            => 'Description in English',
 
     ],
 

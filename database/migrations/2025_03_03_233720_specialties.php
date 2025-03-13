@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('specialties', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('activation')->default(true);
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }

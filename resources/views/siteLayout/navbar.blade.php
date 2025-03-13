@@ -13,9 +13,10 @@
 						<li class="menu-item has-children">
 							<a href="#">تخصصاتنا</a>
 							<ul class="sub-menu list-unstyled">
-								<li><a href="{{asset('siteassets/Home&doctor profile/specializations.html')}}">طب و جراحة العيون</a></li>
-								<li><a href="#">الجلدية</a></li>
-								<li><a href="#">الاسنان</a></li>
+								@foreach (\App\Models\Specialtie::get() as $row)
+							     	<li><a href="{{route('Site.specialtie',$row->id)}}">{{$row->title}}</a></li>
+								@endforeach
+							
 							</ul>
 						</li>
 						<li class="menu-item  has-children">

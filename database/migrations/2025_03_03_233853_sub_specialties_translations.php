@@ -17,7 +17,12 @@ return new class extends Migration
             $table->unsignedBigInteger('sub_specialtie_id');
             $table->foreign('sub_specialtie_id')->references('id')->on('sub_specialties')->onDelete('cascade');
             $table->string('locale')->index();
-            $table->string('title');
+            $table->string('main_title')->nullable();
+            $table->string('main_subtitle')->nullable();
+            $table->string('detail_title')->nullable();
+            $table->string('detail_subtitle')->nullable();
+            $table->text('desc')->nullable();
+
             $table->unique(['sub_specialtie_id', 'locale']);
             $table->timestamps();
         });

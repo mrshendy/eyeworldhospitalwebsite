@@ -8,11 +8,13 @@ use App\Models\Quetion;
 use DataTables;
 use Yajra\DataTables\Html\Builder;
 use Carbon\Carbon;
+use App\Traits\fileTrait;
 
 class QuetionsController extends Controller
 {
     //
-
+    use fileTrait;
+    
     public function index(Builder $builder,Request $request){
 
             if (request()->ajax()) {
