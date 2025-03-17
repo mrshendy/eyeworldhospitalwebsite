@@ -1,9 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\{QuetionsController,AboutController,ContactUsController,SpecialtieController,SpecialtieTypeController};
+use App\Http\Controllers\Admin\{QuetionsController,AboutController,
+    ContactUsController,SpecialtieController,SpecialtieTypeController,
+    AuthController};
 
-Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
+
+ Route::get('login' ,[AuthController::class, 'index'])->name('login.index');
+ Route::post('login' ,[AuthController::class, 'login'])->name('login');
+ Route::get('logout' ,[AuthController::class, 'logout'])->name('logout');
+
+//  Route::middleware('auth:admin')->group(function(){
+// Route::group(['middleware' => 'auth:admin'], function() {
+// Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
     Route::resources([
         'Quetions'  => QuetionsController::class,
@@ -28,7 +37,10 @@ Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect',
     Route::put('sup-specialtie-type/update' ,[SpecialtieTypeController::class, 'supSpecialtieTypeUpdate'])->name('sup-specialtie-type.update');
     Route::post('sup-specialtie-type/destroy' ,[SpecialtieTypeController::class, 'destroySubSpecialtieType'])->name('sup-specialtie-type.destroy');
 
- });
+    //  });
+
+// });
+
 
 
 
