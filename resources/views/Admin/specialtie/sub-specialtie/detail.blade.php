@@ -3,6 +3,9 @@
 @section('styles')
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css')}}" />
 
+<link rel="stylesheet" href="{{asset('dropify/dist/css/demo.css')}}">
+<link rel="stylesheet" href="{{asset('dropify/dist/css/dropify.min.css')}}">
+
 @endsection
 
 @section('content')
@@ -11,8 +14,9 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
 
-            <li class="breadcrumb-item"><a href="#">{{__('specialties')}}</a></li>
-            <li class="breadcrumb-item"><a href="#">{{__('sub specialties')}}</a></li>
+            <li class="breadcrumb-item"><a href="{{route('Admin.specialtie.index')}}">{{__('specialties')}}</a></li>
+            <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('sub specialties')}}</a></li>
+            <li class="breadcrumb-item"><a href="{{url()->current()}}">{{$data->main_title}}</a></li>
             <li class="breadcrumb-item"><a href="#">{{__('details')}}</a></li>
         </ol>
     </nav>
@@ -25,12 +29,8 @@
                 @csrf
                 <input type="hidden" name="id" value="{{$id}}">
 
-                <div class="col-12">
-                    <div class="card mb-6">
-                    <h5 class="card-header">Basic</h5>
-                    <input name="file" type="file" />
-                    </div>
-                </div>
+                <label for="input-file-max-fs">{{__('img')}}</label>
+                <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
 
                 @foreach (config('translatable.locales') as $locale)
 
@@ -54,5 +54,50 @@
 @endsection
 
 @section('scripts')
+<script src="{{asset('dropify/dist/js/dropify.min.js')}}"></script>
+
+
+<script>
+    $(document).ready(function(){
+        // Basic
+        $('.dropify').dropify();
+  
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove:  'Supprimer',
+                error:   'Désolé, le fichier trop volumineux'
+            }
+        });
+  
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+  
+        drEvent.on('dropify.beforeClear', function(event, element){
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+  
+        drEvent.on('dropify.afterClear', function(event, element){
+            alert('File deleted');
+        });
+  
+        drEvent.on('dropify.errors', function(event, element){
+            console.log('Has Errors');
+        });
+  
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function(e){
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+    });
+  </script>
 
 @endsection

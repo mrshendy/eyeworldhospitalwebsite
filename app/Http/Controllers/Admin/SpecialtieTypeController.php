@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\SubSpecialtieType;
+use App\Models\{SubSpecialtieType,SubSpecialtie};
 use Yajra\DataTables\Html\Builder;
 use DataTables;
 use Carbon\Carbon;
@@ -54,9 +54,10 @@ class SpecialtieTypeController extends Controller
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' =>  __('system.actions'), 'orderable' => false, 'searchable' => false]
 
         ]);
+        
+        $SubSpecialtie = SubSpecialtie::where('id',$id)->first();
 
-
-        return view('Admin.specialtie.sub-specialtie-type.index',compact('html','id'));
+        return view('Admin.specialtie.sub-specialtie-type.index',compact('html','id','SubSpecialtie'));
 
     }
 
