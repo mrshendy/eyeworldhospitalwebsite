@@ -6,17 +6,29 @@
 @endsection
 
 @section('content')
+<div class="container">
 
-<div class="row">
-    <div class="col-3">
-     <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
-       {{__('system.add')}}
-     </button>
-    </div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">{{__('specialties')}}</a></li>
+  </ol>
+</nav>
+
+
+<div class="card">
+  <div class="card-body">
+
+    <div class="row">
+        <div class="col-3">
+        <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
+          {{__('system.add')}}
+        </button>
+        </div>
+    </div>  
+
+    {!! $html->table(['class' => 'table table-bordered'], true) !!}
+  </div>
 </div>  
-
-{!! $html->table(['class' => 'table table-bordered'], true) !!}
-
 
   <x-addModal>
     <x-slot:title>
@@ -71,6 +83,7 @@
    
   </x-deleteModal>
 
+</div>  
 @endsection
 
 @section('scripts')

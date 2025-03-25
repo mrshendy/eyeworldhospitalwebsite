@@ -112,9 +112,24 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="app-ecommerce-dashboard.html" class="menu-link">
+                  <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('Info about your eye health')}}</div>
                   </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.eye-health-detail')}}" class="menu-link">
+                        <div>{{__('details')}}</div>
+                      </a>
+                    </li>
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.articles.index')}}" class="menu-link">
+                        <div>{{__('articles')}}</div>
+                      </a>
+                    </li>
+
+                  </ul>
                 </li>
                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link">

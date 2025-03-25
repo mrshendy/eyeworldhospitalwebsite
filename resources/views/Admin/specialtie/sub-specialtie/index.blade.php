@@ -8,18 +8,33 @@
 @section('content')
 
 
-<div class="row">
-    <div class="col-3">
-     <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
-       {{__('system.add')}}
-     </button>
-    </div>
-</div> 
+<div class="container">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">{{__('specialties')}}</a></li>
+      <li class="breadcrumb-item"><a href="#">{{__('sub specialties')}}</a></li>
+
+    </ol>
+  </nav>
+
+
+  <div class="card">
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-3">
+            <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
+              {{__('system.add')}}
+            </button>
+            </div>
+        </div> 
 
 
 
-{!! $html->table(['class' => 'table table-bordered'], true) !!}
-
+         {!! $html->table(['class' => 'table table-bordered'], true) !!}
+    </div>     
+  </div>
 
 
 <x-addModal>
@@ -84,7 +99,7 @@
   </x-deleteModal>
 
 
-
+</div>  
 @endsection
 
 @section('scripts')

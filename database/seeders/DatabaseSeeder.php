@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
             QuetionSeeder::class,
             AboutSeeder::class,
             SpecialtieSeeder::class,
-            AdminSeeder::class
+            AdminSeeder::class,
+            EyeInfoSeeder::class,
+            ArticleSeeder::class
         ]);
     }
 }

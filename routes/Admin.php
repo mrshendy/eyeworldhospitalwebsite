@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
-    AuthController};
+    AuthController,EyeHealthInfoController,ArticleController};
 
 
  Route::get('login' ,[AuthController::class, 'index'])->name('login.index');
@@ -18,7 +18,8 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
         'Quetions'  => QuetionsController::class,
         'abouts'    => AboutController::class,
         'contact-us'=> ContactUsController::class,
-        'specialtie'=> SpecialtieController::class
+        'specialtie'=> SpecialtieController::class,
+        'articles'  => ArticleController::class
     ]);
 
     Route::get('specialtie/detail/{id}' ,[SpecialtieController::class, 'detail'])->name('specialtie.detail');
@@ -36,6 +37,15 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     Route::post('sup-specialtie-type/store' ,[SpecialtieTypeController::class, 'supSpecialtieTypeStore'])->name('sup-specialtie-type.store');
     Route::put('sup-specialtie-type/update' ,[SpecialtieTypeController::class, 'supSpecialtieTypeUpdate'])->name('sup-specialtie-type.update');
     Route::post('sup-specialtie-type/destroy' ,[SpecialtieTypeController::class, 'destroySubSpecialtieType'])->name('sup-specialtie-type.destroy');
+
+
+
+    Route::get('eye-health-detail' ,[EyeHealthInfoController::class, 'detail'])->name('eye-health-detail');
+    Route::post('eye-health-detail-update' ,[EyeHealthInfoController::class, 'update'])->name('eye-health-detail.update');
+
+
+  //  Route::get('articles' ,[ArticleController::class, 'index'])->name('articles.index');
+
 
     //  });
 

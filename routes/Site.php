@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Site\{HomeController,SpecialtieController};
+use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
     Route::resources([
         'home' => HomeController::class,
+        'EyeHealthInfo' => EyeHealthInfoController::class
     ]);
     Route::post('contact-us' ,[HomeController::class, 'contactUs'])->name('contact-us');
 

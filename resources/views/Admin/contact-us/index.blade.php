@@ -6,8 +6,24 @@
 @endsection
 
 @section('content')
-{!! $html->table(['class' => 'table table-bordered'], true) !!}
 
+<div class="container">
+
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">{{__('contact us')}}</a></li>
+      </ol>
+    </nav>
+    
+
+  <div class="card">
+      <div class="card-body">
+        {!! $html->table(['class' => 'table table-bordered'], true) !!}
+      </div>
+  </div>    
+
+</div>  
 @endsection
 
 @section('scripts')

@@ -17,6 +17,8 @@ return [
     'title'    => 'title in Arabic',
     'Quetions'    => 'Quetions',
     'actions'     => 'actions',
+    "abouts"      => "abouts",
+
 
     'main_title'      => 'Main Title in Arabic',
     'main_subtitle'   => 'Main Subtitle in Arabic',

@@ -44,7 +44,21 @@
 
 @section('content')
 
+
+
+
 <div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">{{__('specialties')}}</a></li>
+      <li class="breadcrumb-item"><a href="#">{{__('details')}}</a></li>
+    </ol>
+  </nav>
+
+  <div class="card">
+
+    
+    <div class="card-body">
     <h3 class="mb-4">{{ __('specialitie details') }}</h3>
     <form action="{{route('Admin.specialtie.update',0)}}"  method="post"  id="dropzone-basic" enctype="multipart/form-data">
         @method('put')
@@ -71,8 +85,9 @@
         <div>
             <button type="submit" class="btn btn-primary mt-4">{{__('system.edit')}}</button>
         </div>               
-</div>    
-
+     </form>
+    </div>     
+  </div>
 @endsection
 
 @section('scripts')
