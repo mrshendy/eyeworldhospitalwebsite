@@ -13,12 +13,6 @@ return new class extends Migration
     {
         Schema::create('eye_health_videos', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('subtitle')->nullable();
-            $table->text('desc')->nullable();
-            $table->string('detail_title')->nullable();
-            $table->string('detail_subtitle')->nullable();
-            $table->string('detail_desc')->nullable();
             $table->string('img')->nullable();
             $table->timestamps();
         });
