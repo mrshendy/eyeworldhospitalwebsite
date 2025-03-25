@@ -8,23 +8,41 @@
 @section('content')
 
 
-<div class="row">
-    <div class="col-3">
-     <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
-       {{__('system.add')}}
-     </button>
-    </div>
-</div> 
+  <div class="container">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{route('Admin.specialtie.index')}}">{{__('specialties')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('Admin.sup-specialtie',$SubSpecialtie->specialtie_id)}}">{{__('sub specialties')}}</a></li>
+        <li class="breadcrumb-item"><a href="{{route('Admin.sup-specialtie',$SubSpecialtie->specialtie_id)}}">{{$SubSpecialtie->main_title}}</a></li>
+        <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('Types')}}</a></li>
+
+      </ol>
+    </nav>
+
+    <div class="card">
+
+        
+        <div class="card-body">
+          <div class="row">
+              <div class="col-3">
+              <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
+                {{__('system.add')}}
+              </button>
+              </div>
+          </div> 
 
 
+          {!! $html->table(['class' => 'table table-bordered'], true) !!}
+        </div>
 
-{!! $html->table(['class' => 'table table-bordered'], true) !!}
-
-
+    </div>    
+   
+  </div>  
 
 <x-addModal>
     <x-slot:title>
-        {{__('sup-specialtie')}}
+        {{__('sup-specialtie')}} - {{$SubSpecialtie->main_title}}
     </x-slot>
     <x-slot:route>
         {{route('Admin.sup-specialtie-type.store')}}

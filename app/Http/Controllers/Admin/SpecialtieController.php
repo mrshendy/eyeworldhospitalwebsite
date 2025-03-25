@@ -128,8 +128,10 @@ class SpecialtieController extends Controller
 
         ]);
 
+        $Specialtie = Specialtie::find($id);
 
-        return view('Admin.specialtie.sub-specialtie.index',compact('html','id'));
+
+        return view('Admin.specialtie.sub-specialtie.index',compact('html','id','Specialtie'));
 
     }
 

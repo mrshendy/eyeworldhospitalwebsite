@@ -12,12 +12,12 @@
     <form action="{{route('Admin.eye-health-detail.update')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card-body">
-        <div class="col-12">
+        {{-- <div class="col-12">
             <div class="card mb-6">
               <h5 class="card-header">Basic</h5>
               <input name="file" type="file" />
             </div>
-        </div>
+        </div> --}}
  
         @foreach (config('translatable.locales') as $locale)
 

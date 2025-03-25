@@ -12,9 +12,9 @@
 
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">{{__('specialties')}}</a></li>
-      <li class="breadcrumb-item"><a href="#">{{__('sub specialties')}}</a></li>
-
+      <li class="breadcrumb-item"><a href="{{route('Admin.specialtie.index')}}">{{__('specialties')}}</a></li>
+      <li class="breadcrumb-item"><a href="{{url()->current()}}">{{$Specialtie->title}}</a></li>
+      <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('sub specialties')}}</a></li>
     </ol>
   </nav>
 

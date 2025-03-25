@@ -50,7 +50,7 @@
 <div class="container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">{{__('specialties')}}</a></li>
+      <li class="breadcrumb-item"><a href="{{route('Admin.specialtie.index')}}">{{__('specialties')}}</a></li>
       <li class="breadcrumb-item"><a href="#">{{__('details')}}</a></li>
     </ol>
   </nav>
