@@ -1,0 +1,69 @@
+@extends('temp')
+
+@section('styles')
+@endsection
+
+
+@section('content')
+
+<div class="container">
+
+
+     <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('services')}}</a></li>
+          <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('eye  Videos')}}</a></li>
+          <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('Customer experience videos')}}</a></li>  
+        </ol>
+      </nav>
+
+
+    <h3 class="mb-4">{{ __('Customer experience videos') }}</h3>
+    <div class="card">
+    <form action="{{route('Admin.customer-video.update')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="card-body">
+        {{-- <div class="col-12">
+            <div class="card mb-6">
+              <h5 class="card-header">Basic</h5>
+              <input name="file" type="file" />
+            </div>
+        </div> --}}
+ 
+        @foreach (config('translatable.locales') as $locale)
+
+            <label>{{ __('system.'.$locale.'.title') }}</label>
+            <input class="form-control" name="{{$locale}}[title]"   value="{{ isset($data) ? $data->translateOrNew($locale)->title : old($locale . '.title')  }}" type="text" required>
+    
+            <label>{{ __('system.'.$locale.'.subtitle') }}</label>
+            <input class="form-control" name="{{$locale}}[subtitle]"   value="{{ isset($data) ? $data->translateOrNew($locale)->subtitle : old($locale . '.subtitle')  }}" type="text" required>
+    
+            <label>{{ __('system.'.$locale.'.desc') }}</label>
+            <textarea class="form-control" name="{{$locale}}[desc]" rows="3"  value="" type="text" required>{{ isset($data) ? $data->translateOrNew($locale)->desc : old($locale . '.desc')  }} </textarea>
+      
+            {{-- <label>{{ __('system.'.$locale.'.detail_title') }}</label>
+            <input class="form-control" name="{{$locale}}[detail_title]"   value="{{ isset($data) ? $data->translateOrNew($locale)->detail_title : old($locale . '.detail_title')  }}" type="text" required>
+    
+            <label>{{ __('system.'.$locale.'.detail_subtitle') }}</label>
+            <input class="form-control" name="{{$locale}}[detail_subtitle]"   value="{{ isset($data) ? $data->translateOrNew($locale)->detail_subtitle : old($locale . '.detail_subtitle')  }}" type="text" required>
+    
+            <label>{{ __('system.'.$locale.'.detail_desc') }}</label>
+            <textarea class="form-control" name="{{$locale}}[detail_desc]" rows="3"  value="" type="text" required>{{ isset($data) ? $data->translateOrNew($locale)->detail_desc : old($locale . '.detail_desc')  }} </textarea> --}}
+      
+      
+        @endforeach
+        <div>
+            <button type="submit" class="btn btn-primary mt-4">{{__('system.edit')}}</button>
+        </div>           
+        </div>
+    </form>
+    </div>        
+</div>    
+
+
+@endsection
+
+
+@section('scripts')
+
+@endsection

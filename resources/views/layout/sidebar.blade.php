@@ -131,16 +131,73 @@
 
                   </ul>
                 </li>
+
+
                 <li class="menu-item">
-                  <a href="javascript:void(0);" class="menu-link">
+                  <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('videos about your eye health')}}</div>
                   </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.eye-health-video')}}" class="menu-link">
+                        <div>{{__('details')}}</div>
+                      </a>
+                    </li>
+
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.Topics','videos')}}" class="menu-link">
+                        <div>{{__('topics')}}</div>
+                      </a>
+                    </li>
+
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.videos.index')}}" class="menu-link">
+                        <div>{{__('Videos')}}</div>
+                      </a>
+                    </li>
+
+
+           
+                  </ul>
                 </li>
+
+
+
+               
                 <li class="menu-item">
-                  <a href="javascript:void(0);" class="menu-link">
-                    <div data-i18n="Order">{{__('Insurance partners')}}</div>
+                  <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
+                    <div>{{__('Customer experience videos')}}</div>
                   </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.customer-video-detail')}}" class="menu-link">
+                        <div>{{__('details')}}</div>
+                      </a>
+                    </li>
+
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.Topics','videos')}}" class="menu-link">
+                        <div>{{__('topics')}}</div>
+                      </a>
+                    </li>
+
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.videos.index')}}" class="menu-link">
+                        <div>{{__('Videos')}}</div>
+                      </a>
+                    </li>
+
+
+           
+                  </ul>
                 </li>
+
 
                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link">

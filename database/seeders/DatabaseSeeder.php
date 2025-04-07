@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
             SpecialtieSeeder::class,
             AdminSeeder::class,
             EyeInfoSeeder::class,
-            ArticleSeeder::class
+            ArticleSeeder::class,
+            EyeHealthVideoSeeder::class,
+            CustomerVideoInfoSeeder::class
         ]);
     }
 }

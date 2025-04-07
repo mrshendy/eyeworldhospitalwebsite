@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
-    AuthController,EyeHealthInfoController,ArticleController};
+    AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
+    CustomerVideoController};
 
 
  Route::get('login' ,[AuthController::class, 'index'])->name('login.index');
@@ -19,7 +20,8 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
         'abouts'    => AboutController::class,
         'contact-us'=> ContactUsController::class,
         'specialtie'=> SpecialtieController::class,
-        'articles'  => ArticleController::class
+        'articles'  => ArticleController::class,
+        'videos'    => VideosController::class
     ]);
 
     Route::get('specialtie/detail/{id}' ,[SpecialtieController::class, 'detail'])->name('specialtie.detail');
@@ -42,6 +44,20 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
 
     Route::get('eye-health-detail' ,[EyeHealthInfoController::class, 'detail'])->name('eye-health-detail');
     Route::post('eye-health-detail-update' ,[EyeHealthInfoController::class, 'update'])->name('eye-health-detail.update');
+
+
+    Route::get('eye-health-video' ,[EyeHealthVideoController::class, 'detail'])->name('eye-health-video');
+    Route::post('eye-health-video-update' ,[EyeHealthVideoController::class, 'update'])->name('eye-health-video.update');
+
+    Route::get('topics/{id}' ,[TopicController::class, 'index'])->name('Topics');
+    Route::post('topic/store' ,[TopicController::class, 'store'])->name('Topic.store');
+    Route::post('topic/update/{type}' ,[TopicController::class, 'update'])->name('Topic.update');
+    Route::post('topic/destroy/{type}' ,[TopicController::class, 'destroy'])->name('Topic.destroy');
+
+
+    Route::get('customer-video' ,[CustomerVideoController::class, 'detail'])->name('customer-video-detail');
+    Route::post('customer-info-video-update' ,[CustomerVideoController::class, 'update'])->name('customer-video.update');
+
 
 
   //  Route::get('articles' ,[ArticleController::class, 'index'])->name('articles.index');

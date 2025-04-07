@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Article,Quetion};
+use App\Models\{Video,Topic};
 use DataTables;
 use Yajra\DataTables\Html\Builder;
 use Carbon\Carbon;
 use App\Traits\fileTrait;
 
-class ArticleController extends Controller
+class VideosController extends Controller
 {
     //
     use fileTrait;
@@ -18,7 +18,7 @@ class ArticleController extends Controller
 
 
         if (request()->ajax()) {
-            return DataTables::of(Article::query())
+            return DataTables::of(Video::query())
             ->filter(function ($query) use ($request) {
                 if ($request->has('search') && !empty($request->input('search')['value'])) {
                     $search = $request->input('search')['value'];
@@ -35,7 +35,7 @@ class ArticleController extends Controller
              
             
                 return '
-                    <a href="'.route('Admin.articles.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
+                    <a href="'.route('Admin.videos.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
 
                     ';
@@ -52,15 +52,15 @@ class ArticleController extends Controller
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false]
         ]);
 
-        return view('Admin.article.index',compact('html'));
+        return view('Admin.videos.index',compact('html'));
     }
 
     public function create(){
-        return view('Admin.article.create');
+        $topics = Topic::where('type','videos')->get();
+        return view('Admin.videos.create',compact('topics'));
     }
 
     public function store(Request $request){
-
 
         if($request->img!=null){
           $img =  $this->MoveImage($request->img,'uploads/articles');
@@ -68,30 +68,30 @@ class ArticleController extends Controller
 
         }
 
-        Article::create($request->all());
-        return redirect()->route('Admin.articles.index');
+        Video::create($request->all());
+        return redirect()->route('Admin.videos.index');
     }
 
 
     public function edit($id){
-       $data = Article::find($id);
-       return view('Admin.article.edit',compact('data'));
+       $data = Video::find($id);
+       $topics = Topic::where('type','videos')->get();
+       return view('Admin.videos.edit',compact('data','topics'));
     }
 
     public function update(Request $request,$id){
         if($request->img!=null)
         $request->merge(['img' => $this->MoveImage($request->img,'uploads/articles')]);
 
-        $Article =  Article::find($id);
+        $Article =  Video::find($id);
         $Article->update($request->except(['id','_token','_method']));
         return redirect()->back();
     }
 
 
     public function destroy(Request $request,$id){
-        $article = Article::find($request->id);
-        $article->delete();
-        return redirect()->route('Admin.articles.index');
+        $Video = Video::find($request->id);
+        $Video->delete();
+        return redirect()->route('Admin.videos.index');
     }
-
 }
