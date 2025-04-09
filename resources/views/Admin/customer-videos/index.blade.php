@@ -27,7 +27,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('services')}}</a></li>
-          <li class="breadcrumb-item"><a href="{{route('Admin.videos.index',$type)}}">{{__('Videos')}}</a></li>
+          <li class="breadcrumb-item"><a href="{{route('Admin.videos.index')}}">{{__('Videos')}}</a></li>
         </ol>
       </nav>
 
@@ -35,7 +35,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-3">
-            <a href="{{route('Admin.videos.create',$type)}}" class="btn btn-primary"> {{__('system.add')}}</a>
+            <a href="{{route('Admin.videos.create')}}" class="btn btn-primary"> {{__('system.add')}}</a>
           </div>
         </div>  
 

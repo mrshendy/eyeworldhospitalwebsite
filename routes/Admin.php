@@ -21,8 +21,14 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
         'contact-us'=> ContactUsController::class,
         'specialtie'=> SpecialtieController::class,
         'articles'  => ArticleController::class,
-        'videos'    => VideosController::class
     ]);
+
+    Route::resource('videos', VideosController::class)->except([
+        'index' ,'show','create'
+    ]);
+    Route::get('videos/{type}' ,[VideosController::class, 'index'])->name('videos.index');
+    Route::get('videos/create/{type}' ,[VideosController::class, 'create'])->name('videos.create');
+
 
     Route::get('specialtie/detail/{id}' ,[SpecialtieController::class, 'detail'])->name('specialtie.detail');
 

@@ -16,7 +16,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('services')}}</a></li>
-          <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('Videos')}}</a></li>
+          <li class="breadcrumb-item"><a href="{{route('Admin.videos.index')}}">{{__('Videos')}}</a></li>
           <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('create')}}</a></li>  
         </ol>
       </nav>
@@ -26,8 +26,8 @@
         <div class="card-body">
         <form method="post" action="{{route('Admin.videos.store')}}" enctype="multipart/form-data">
             @csrf
-            
-            <input type="hidden" name="type" value="{{$type}}">
+
+      
             <div class="card-body">
 
               <label for="input-file-max-fs">{{__('img')}}</label>

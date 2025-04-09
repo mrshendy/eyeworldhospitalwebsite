@@ -154,7 +154,7 @@
 
 
                     <li class="menu-item">
-                      <a href="{{route('Admin.videos.index')}}" class="menu-link">
+                      <a href="{{route('Admin.videos.index','health')}}" class="menu-link">
                         <div>{{__('Videos')}}</div>
                       </a>
                     </li>
@@ -169,7 +169,7 @@
                
                 <li class="menu-item">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
-                    <div>{{__('Customer experience videos')}}</div>
+                    <div>{{__('Customer experiments videos')}}</div>
                   </a>
 
                   <ul class="menu-sub">
@@ -181,14 +181,14 @@
 
 
                     <li class="menu-item">
-                      <a href="{{route('Admin.Topics','videos')}}" class="menu-link">
+                      <a href="{{route('Admin.Topics','experiments')}}" class="menu-link">
                         <div>{{__('topics')}}</div>
                       </a>
                     </li>
 
 
                     <li class="menu-item">
-                      <a href="{{route('Admin.videos.index')}}" class="menu-link">
+                      <a href="{{route('Admin.videos.index','experiments')}}" class="menu-link">
                         <div>{{__('Videos')}}</div>
                       </a>
                     </li>

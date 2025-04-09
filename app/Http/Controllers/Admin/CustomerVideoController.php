@@ -27,5 +27,4 @@ class CustomerVideoController extends Controller
 
     }
 
-
 }

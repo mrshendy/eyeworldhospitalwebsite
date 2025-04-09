@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('link')->nullable();
             $table->unsignedBigInteger('topic_id')->nullable();
             $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
+            $table->enum('type',['health','experiments'])->default('health');  // 
             $table->timestamps();
         });
     }

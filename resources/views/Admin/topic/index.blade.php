@@ -23,7 +23,7 @@
 
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">{{__($type)}}</a></li>
+        <li class="breadcrumb-item"><a href="#">@if($type=='experiments')  {{__('Customer experiments videos')}}  @else  {{__($type)}}  @endif</a></li>
 
         <li class="breadcrumb-item"><a href="#">{{__('topics')}}</a></li>
 

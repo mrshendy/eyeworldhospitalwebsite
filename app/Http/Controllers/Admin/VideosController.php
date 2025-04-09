@@ -14,11 +14,12 @@ class VideosController extends Controller
 {
     //
     use fileTrait;
-    public function index(Builder $builder,Request $request){
+    public function index(Builder $builder,Request $request ,$type){
 
 
         if (request()->ajax()) {
-            return DataTables::of(Video::query())
+            $query = Video::query();
+            return DataTables::of($query->where('type',$type))
             ->filter(function ($query) use ($request) {
                 if ($request->has('search') && !empty($request->input('search')['value'])) {
                     $search = $request->input('search')['value'];
@@ -52,12 +53,12 @@ class VideosController extends Controller
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false]
         ]);
 
-        return view('Admin.videos.index',compact('html'));
+        return view('Admin.videos.index',compact('html','type'));
     }
 
-    public function create(){
-        $topics = Topic::where('type','videos')->get();
-        return view('Admin.videos.create',compact('topics'));
+    public function create($type){
+        $topics = Topic::where('type',$type)->get();
+        return view('Admin.videos.create',compact('topics','type'));
     }
 
     public function store(Request $request){
@@ -69,7 +70,7 @@ class VideosController extends Controller
         }
 
         Video::create($request->all());
-        return redirect()->route('Admin.videos.index');
+        return redirect()->route('Admin.videos.index',$request->type);
     }
 
 
