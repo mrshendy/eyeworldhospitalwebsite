@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
-    CustomerVideoController};
+    CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController};
 
 
  Route::get('login' ,[AuthController::class, 'index'])->name('login.index');
@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
         'contact-us'=> ContactUsController::class,
         'specialtie'=> SpecialtieController::class,
         'articles'  => ArticleController::class,
+        'rates'     => RateController::class
     ]);
 
     Route::resource('videos', VideosController::class)->except([
@@ -63,6 +64,16 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
 
     Route::get('customer-video' ,[CustomerVideoController::class, 'detail'])->name('customer-video-detail');
     Route::post('customer-info-video-update' ,[CustomerVideoController::class, 'update'])->name('customer-video.update');
+
+
+    Route::get('customer-rate-info' ,[CustomerRateInfoController::class, 'detail'])->name('customer-rate-info-detail');
+    Route::post('customer-rate-info-update' ,[CustomerRateInfoController::class, 'update'])->name('customer-rate-info.update');
+
+
+    Route::get('customer-right-info' ,[RightInfoController::class, 'detail'])->name('customer-right-info-detail');
+    Route::post('customer-right-info-update' ,[RightInfoController::class, 'update'])->name('customer-right-info.update');
+
+    
 
 
 

@@ -27,7 +27,10 @@ class DatabaseSeeder extends Seeder
             EyeInfoSeeder::class,
             ArticleSeeder::class,
             EyeHealthVideoSeeder::class,
-            CustomerVideoInfoSeeder::class
+            CustomerVideoInfoSeeder::class,
+            CustomerRateInfoSeeder::class,
+            RateSeeder::class,
+            RightInfoSeeder::class
         ]);
     }
 }

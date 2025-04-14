@@ -46,7 +46,7 @@
 
 
 
-    <x-deleteModal>
+    <x-delete-modal>
       <x-slot:route>
           {{route('Admin.videos.destroy',0)}}
       </x-slot>
@@ -54,7 +54,7 @@
       <input type="hidden" id="delete_id" name="id" value="">
       <h3 id="delete_name"></h3>
     
-    </x-deleteModal>
+    </x-delete-modal>
   </div>
 @endsection
 

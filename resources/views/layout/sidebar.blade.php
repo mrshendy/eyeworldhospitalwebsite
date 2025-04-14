@@ -55,7 +55,7 @@
                   </svg>
                 </span>
               </span>
-              <span class="app-brand-text demo menu-text fw-semibold ms-2">Materialize</span>
+              <span class=" demo menu-text fw-semibold ms-2">{{__('eye world hospital')}}</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -200,9 +200,51 @@
 
 
                 <li class="menu-item">
-                  <a href="javascript:void(0);" class="menu-link">
-                    <div data-i18n="Order">{{__('Customer experiences videos')}}</div>
+                  <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
+                    <div>{{__('customers rates')}}</div>
                   </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.customer-rate-info-detail')}}" class="menu-link">
+                        <div>{{__('details')}}</div>
+                      </a>
+                    </li>
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.rates.index')}}" class="menu-link">
+                        <div>{{__('rates')}}</div>
+                      </a>
+                    </li>
+
+
+           
+                  </ul>
+                </li>
+
+
+
+                <li class="menu-item">
+                  <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
+                    <div>{{__('Patient rights and responsibilities')}}</div>
+                  </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.customer-right-info-detail')}}" class="menu-link">
+                        <div>{{__('details')}}</div>
+                      </a>
+                    </li>
+
+                    {{-- <li class="menu-item">
+                      <a href="{{route('Admin.right.index')}}" class="menu-link">
+                        <div>{{__('rates')}}</div>
+                      </a>
+                    </li> --}}
+
+
+           
+                  </ul>
                 </li>
 
 

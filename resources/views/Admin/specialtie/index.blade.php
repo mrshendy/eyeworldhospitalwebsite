@@ -30,7 +30,7 @@
   </div>
 </div>  
 
-  <x-addModal>
+  <x-add-modal>
     <x-slot:title>
         {{__('specialtie')}}
     </x-slot>
@@ -48,10 +48,10 @@
         </div>
     @endforeach
 
-  </x-addModal>
+  </x-add-modal>
 
 
-  <x-editModal>
+  <x-edit-modal>
     <x-slot:title>
         {{__('system.edit')}}
     </x-slot>
@@ -70,10 +70,10 @@
         </div>
     @endforeach
 
-  </x-editModal>
+  </x-edit-modal>
  
 
-  <x-deleteModal>
+  <x-delete-modal>
     <x-slot:route>
         {{route('Admin.specialtie.destroy',0)}}
     </x-slot>
@@ -81,7 +81,7 @@
     <input type="hidden" id="delete_id" name="id" value="">
     <h3 id="delete_name"></h3>
    
-  </x-deleteModal>
+  </x-delete-modal>
 
 </div>  
 @endsection

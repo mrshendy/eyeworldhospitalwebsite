@@ -23,10 +23,7 @@
 
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">@if($type=='experiments')  {{__('Customer experiments videos')}}  @else  {{__($type)}}  @endif</a></li>
-
-        <li class="breadcrumb-item"><a href="#">{{__('topics')}}</a></li>
-
+        <li class="breadcrumb-item"><a href="#">{{__('rates')}}</a></li>
       </ol>
     </nav>
       
@@ -52,52 +49,56 @@
 
       <x-add-modal>
         <x-slot:title>
-            {{__('Add')}}
+            {{__('add')}}
         </x-slot>
         <x-slot:route>
-            {{route('Admin.Topic.store')}}
+            {{route('Admin.rates.store')}}
         </x-slot>
-         <input type="hidden" name="type" value="{{$type}}">
-        @foreach (config('translatable.locales') as $locale)
-            <div class="col-12">
-                <div>
-                    <label>{{ __('system.'.$locale.'.title') }}</label>
-                    <input class="form-control" name="{{$locale}}[title]"   value="" type="text" required>
-                  </div>
-            </div>
-        @endforeach
+
+        <div class="col-12">
+            <div>
+                <label>{{ __('user name') }}</label>
+                <input class="form-control" name="user name"   value="" type="text" required>
+        
+                <label>{{ __('comment') }}</label>
+                <textarea class="form-control" name="comment" rows="3"  value="" type="text" required> </textarea>
+              </div>
+        </div>
 
       </x-add-modal>
 
 
 
-      <x-edit-modal>
+      {{-- <x-editModal>
         <x-slot:title>
             {{__('system.edit')}}
         </x-slot>
         <x-slot:route>
-            {{route('Admin.Topic.update',$type)}}
+            {{route('Admin.Quetions.update',0)}}
         </x-slot>
+        @method('put')
         <input type="hidden" name="id" id="id" value="">
-        <input type="hidden" name="type" value="{{$type}}">
         @foreach (config('translatable.locales') as $locale)
             <div class="col-12">
                 <div>
-                    <label>{{ __('system.'.$locale.'.title') }}</label>
-                    <input class="form-control" name="{{$locale}}[title]"  id="title_{{$locale}}"  value="" type="text" required>
+                    <label>{{ __('system.'.$locale.'.quetion') }}</label>
+                    <input class="form-control" name="{{$locale}}[quetion]"  id="quetion_{{$locale}}"  value="" type="text" required>
+            
+                    <label>{{ __('system.'.$locale.'.answer') }}</label>
+                    <textarea class="form-control" name="{{$locale}}[answer]" id="answer_{{$locale}}"  rows="3"  value="" type="text" required> </textarea>
                   </div>
             </div>
         @endforeach
 
-      </x-editModal>
+      </x-editModal> --}}
     
 
 
       <x-delete-modal>
         <x-slot:route>
-            {{route('Admin.Topic.destroy',$type)}}
+            {{route('Admin.rates.destroy',0)}}
         </x-slot>
-    
+        @method('DELETE')
         <input type="hidden" id="delete_id" name="id" value="">
         <h3 id="delete_name"></h3>
       
@@ -123,8 +124,11 @@
 
        $('#id').val($(this).attr("data-id"));
         for(locale of locales){
-          var title = $(this).attr("data-title-"+locale);
-          $('#title_'+locale).val(title);
+          var quetion = $(this).attr("data-quetion-"+locale);
+          $('#quetion_'+locale).val(quetion);
+
+          var answer = $(this).attr("data-answer-"+locale);
+          $('#answer_'+locale).val(answer);
         }
     });
 
