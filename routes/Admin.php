@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
-    CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController};
+    CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
+    InsurancePartnerInfoController,PartnerController};
 
 
  Route::get('login' ,[AuthController::class, 'index'])->name('login.index');
@@ -21,7 +22,9 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
         'contact-us'=> ContactUsController::class,
         'specialtie'=> SpecialtieController::class,
         'articles'  => ArticleController::class,
-        'rates'     => RateController::class
+        'rates'     => RateController::class,
+        'rights'    => RightController::class,
+        'partners' => PartnerController::class
     ]);
 
     Route::resource('videos', VideosController::class)->except([
@@ -29,6 +32,12 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ]);
     Route::get('videos/{type}' ,[VideosController::class, 'index'])->name('videos.index');
     Route::get('videos/create/{type}' ,[VideosController::class, 'create'])->name('videos.create');
+
+    Route::resource('rights', RightController::class)->except([
+        'index'
+    ]);
+    Route::get('patient-rights/{type}' ,[RightController::class, 'index'])->name('rights.index');
+
 
 
     Route::get('specialtie/detail/{id}' ,[SpecialtieController::class, 'detail'])->name('specialtie.detail');
@@ -72,6 +81,9 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
 
     Route::get('customer-right-info' ,[RightInfoController::class, 'detail'])->name('customer-right-info-detail');
     Route::post('customer-right-info-update' ,[RightInfoController::class, 'update'])->name('customer-right-info.update');
+
+    Route::get('Insurance-partner-info' ,[InsurancePartnerInfoController::class, 'detail'])->name('Insurance-partner-detail');
+    Route::post('Insurance-partner-info-update' ,[InsurancePartnerInfoController::class, 'update'])->name('Insurance-partner.update');
 
     
 

@@ -7,9 +7,20 @@
 @section('content')
 
 <div class="container">
-    <h3 class="mb-4">{{ __('Patient rights and responsibilities') }}</h3>
+
+
+     <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('services')}}</a></li>
+          <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('eye  Videos')}}</a></li>
+          <li class="breadcrumb-item"><a href="{{url()->current()}}">{{__('details')}}</a></li>  
+        </ol>
+      </nav>
+
+
+    <h3 class="mb-4">{{ __('eye  Videos details') }}</h3>
     <div class="card">
-    <form action="{{route('Admin.customer-right-info.update')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('Admin.eye-health-video.update')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card-body">
         {{-- <div class="col-12">

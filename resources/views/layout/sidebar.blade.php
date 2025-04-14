@@ -236,11 +236,17 @@
                       </a>
                     </li>
 
-                    {{-- <li class="menu-item">
-                      <a href="{{route('Admin.right.index')}}" class="menu-link">
-                        <div>{{__('rates')}}</div>
+                    <li class="menu-item">
+                      <a href="{{route('Admin.rights.index','right')}}" class="menu-link">
+                        <div>{{__('rights')}}</div>
                       </a>
-                    </li> --}}
+                    </li>
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.rights.index','dutie')}}" class="menu-link">
+                        <div>{{__('duties')}}</div>
+                      </a>
+                    </li>
 
 
            
@@ -249,10 +255,31 @@
 
 
                 <li class="menu-item">
-                  <a href="javascript:void(0);" class="menu-link">
-                    <div data-i18n="Order">{{__('customers reviews')}}</div>
+                  <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
+                    <div>{{__('Insurance partners')}}</div>
                   </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.Insurance-partner-detail')}}" class="menu-link">
+                        <div>{{__('details')}}</div>
+                      </a>
+                    </li>
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.partners.index')}}" class="menu-link">
+                        <div>{{__('partners')}}</div>
+                      </a>
+                    </li>
+
+                  
+
+           
+                  </ul>
                 </li>
+
+
+            
               </ul>
             </li>
             <!-- e-commerce-app menu end -->
