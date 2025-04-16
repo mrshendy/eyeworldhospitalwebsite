@@ -9,6 +9,10 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
         'home' => HomeController::class,
         'EyeHealthInfo' => EyeHealthInfoController::class
     ]);
+
+
+    Route::get('/' ,[HomeController::class, 'index'])->name('home.index');
+    
     Route::post('contact-us' ,[HomeController::class, 'contactUs'])->name('contact-us');
 
     Route::get('specialtie/{id}' ,[SpecialtieController::class, 'index'])->name('specialtie');

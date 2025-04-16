@@ -28,17 +28,17 @@
                             <h3>{{$row->main_title}}</h3>
                             <p> {{$row->main_subtitle}}</p>
                             <div class="images">
-                                <img src="../images/specializations/avatar/1.svg">
-                                <img src="../images/specializations/avatar/2.svg">
-                                <img src="../images/specializations/avatar/3.svg">
-                                <img src="../images/specializations/avatar/4.svg">
-                                <img src="../images/specializations/avatar/5.svg">
-                                <img src="../images/specializations/avatar/6.svg">
-                                <img src="../images/specializations/avatar/7.svg">
-                                <img src="../images/specializations/avatar/8.svg">
+                                <img src="{{asset('siteassets//images/specializations/avatar/1.svg')}}">
+                                <img src="{{asset('siteassets//images/specializations/avatar/2.svg')}}">
+                                <img src="{{asset('siteassets//images/specializations/avatar/3.svg')}}">
+                                <img src="{{asset('siteassets//images/specializations/avatar/4.svg')}}">
+                                <img src="{{asset('siteassets//images/specializations/avatar/5.svg')}}">
+                                <img src="{{asset('siteassets//images/specializations/avatar/6.svg')}}">
+                                <img src="{{asset('siteassets//images/specializations/avatar/7.svg')}}">
+                                <img src="{{asset('siteassets//images/specializations/avatar/8.svg')}}">
                                 <span>+5</span>
                             </div>
-                            <a class="site-color" href="{{route('Site.specialtie-detail',$row->id)}}">اعرف المزيد  <img src="../images/specializations/arrow.svg"></a>
+                            <a class="site-color" href="{{route('Site.specialtie-detail',$row->id)}}">اعرف المزيد  <img src="{{asset('siteassets/images/specializations/arrow.svg')}}"></a>
                         </div>
                         
                     </div>

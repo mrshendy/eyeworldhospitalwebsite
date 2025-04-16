@@ -12,8 +12,8 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
  Route::post('login' ,[AuthController::class, 'login'])->name('login');
  Route::get('logout' ,[AuthController::class, 'logout'])->name('logout');
 
-//  Route::middleware('auth:admin')->group(function(){
-// Route::group(['middleware' => 'auth:admin'], function() {
+// Route::middleware('auth:admin')->group(function(){
+Route::group(['middleware' => 'auth:admin'], function() {
 // Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
     Route::resources([
@@ -94,7 +94,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
 
     //  });
 
-// });
+});
 
 
 

@@ -1,46 +1,12 @@
 @extends('temp')
 
 @section('styles')
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css')}}" />
 
-
-<link rel="icon" type="image/x-icon" href="{{asset('assets/img/favicon/favicon.ico')}}" />
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
-  rel="stylesheet" />
-
-<!-- Icons -->
-<link rel="stylesheet" href="{{asset('assets/vendor/fonts/remixicon/remixicon.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/fonts/flag-icons.css')}}" />
-
-<!-- Menu waves for no-customizer fix -->
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/node-waves/node-waves.css')}}" />
-
-<!-- Core CSS -->
-<link rel="stylesheet" href="{{asset('assets/vendor/css/rtl/core.css" class="template-customizer-core-css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css')}}" />
-<link rel="stylesheet" href="{{asset('assets/css/demo.css')}}" />
-
-<!-- Vendors CSS -->
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/typeahead-js/typeahead.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/dropzone/dropzone.css')}}" />
-
-<!-- Page CSS -->
-
-<!-- Helpers -->
-<script src="{{asset('assets/vendor/js/helpers.js')}}"></script>
-<!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-<!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-<script src="{{asset('assets/vendor/js/template-customizer.js')}}"></script>
-<!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-<script src="{{asset('assets/js/config.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('dropify/dist/css/demo.css')}}">
+    <link rel="stylesheet" href="{{asset('dropify/dist/css/dropify.min.css')}}">
 
 @endsection
+
 
 @section('content')
 
@@ -64,12 +30,10 @@
         @method('put')
         @csrf
         <input type="hidden" name="id" value="{{$id}}">
-        <div class="col-12">
-            <div class="card mb-6">
-              <h5 class="card-header">Basic</h5>
-              <input name="file" type="file" />
-            </div>
-        </div>
+
+        <label for="input-file-max-fs">{{__('img')}}</label>
+        <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="12M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
+
 
         @foreach (config('translatable.locales') as $locale)
 
@@ -93,22 +57,54 @@
 @section('scripts')
 
 
-    <script src="{{asset('assets/vendor/libs/jquery/jquery.js')}}"></script>
-    <script src="{{asset('assets/vendor/libs/popper/popper.js')}}"></script>
-    <script src="{{asset('assets/vendor/js/bootstrap.js')}}"></script>
-    <script src="{{asset('assets/vendor/libs/node-waves/node-waves.js')}}"></script>
-    <script src="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-    <script src="{{asset('assets/vendor/libs/hammer/hammer.js')}}"></script>
-    <script src="{{asset('assets/vendor/libs/i18n/i18n.js')}}"></script>
-    <script src="{{asset('assets/vendor/libs/typeahead-js/typeahead.js')}}"></script>
-    <script src="{{asset('assets/vendor/js/menu.js')}}"></script>
 
-    <script src="{{asset('assets/vendor/libs/dropzone/dropzone.js')}}"></script>
 
-    <!-- Main JS -->
+
     <script src="{{asset('assets/js/main.js')}}"></script>
-    <!-- Page JS -->
-    <script src="{{asset('assets/js/forms-file-upload.js')}}"></script>
+    <script src="{{asset('dropify/dist/js/dropify.min.js')}}"></script>
+
+<script>
+  $(document).ready(function(){
+      // Basic
+      $('.dropify').dropify();
+
+      // Translated
+      $('.dropify-fr').dropify({
+          messages: {
+              default: 'Glissez-déposez un fichier ici ou cliquez',
+              replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+              remove:  'Supprimer',
+              error:   'Désolé, le fichier trop volumineux'
+          }
+      });
+
+      // Used events
+      var drEvent = $('#input-file-events').dropify();
+
+      drEvent.on('dropify.beforeClear', function(event, element){
+          return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+      });
+
+      drEvent.on('dropify.afterClear', function(event, element){
+          alert('File deleted');
+      });
+
+      drEvent.on('dropify.errors', function(event, element){
+          console.log('Has Errors');
+      });
+
+      var drDestroy = $('#input-file-to-destroy').dropify();
+      drDestroy = drDestroy.data('dropify')
+      $('#toggleDropify').on('click', function(e){
+          e.preventDefault();
+          if (drDestroy.isDropified()) {
+              drDestroy.destroy();
+          } else {
+              drDestroy.init();
+          }
+      })
+  });
+</script>
 
 
     

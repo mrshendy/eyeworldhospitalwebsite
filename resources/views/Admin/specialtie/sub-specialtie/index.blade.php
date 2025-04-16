@@ -75,13 +75,13 @@
     @foreach (config('translatable.locales') as $locale)
         <div class="col-12">
               <div>
-                <label>{{ __('system.'.$locale.'.title') }}</label>
-                <input class="form-control" name="{{$locale}}[title]"  id="title_{{$locale}}"  value="" type="text" required>
+                <label>{{ __('system.'.$locale.'.main_title') }}</label>
+                <input class="form-control" name="{{$locale}}[main_title]"  id="main_title-{{$locale}}"  value="" type="text" required>
               </div>
 
               <div>
-                <label>{{ __('system.'.$locale.'.desc') }}</label>
-                <textarea class="form-control" name="{{$locale}}[desc]"  id="desc_{{$locale}}" rows="3"  value="" type="text" required></textarea>
+                <label>{{ __('system.'.$locale.'.main_subtitle') }}</label>
+                <textarea class="form-control" name="{{$locale}}[main_subtitle]"  id="main_subtitle-{{$locale}}" rows="3"  value="" type="text" required></textarea>
               </div>
         </div>
     @endforeach
@@ -118,11 +118,11 @@
 
        $('#id').val($(this).attr("data-id"));
         for(locale of locales){
-          var title = $(this).attr("data-title-"+locale);
-          $('#title_'+locale).val(title);
+          var main_title = $(this).attr("data-main_title-"+locale);
+          $('#main_title-'+locale).val(main_title);
 
-          var desc = $(this).attr("data-desc-"+locale);
-          $('#desc_'+locale).val(desc);
+          var main_subtitle = $(this).attr("data-main_subtitle-"+locale);
+          $('#main_subtitle-'+locale).val(main_subtitle);
         }
     });
 

@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="flex-start align-center">
 				<figure class="logo">
-					<a href="">
+					<a href="{{route('Site.home.index')}}">
 						<img src="{{asset('siteassets/images/logo.svg')}}" alt="webiste logo">
 					</a>
 				</figure>
@@ -51,12 +51,17 @@
 					</ul>
 				</nav>
 
-				<div class="languages">
-					<select name="lang">
-						<option selected>En</option>
-						<option>عربي</option>
-					</select>
-				</div>
+				<ul class="list-group collapse" id="myList">
+					@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+						<li class="list-group-item">
+								<a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+								  <span class="align-middle">
+									{{ $properties['native'] }}
+								  </span>
+								</a>
+							</li>
+						@endforeach
+				</ul>		
 
 			
 

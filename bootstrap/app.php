@@ -11,6 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         then: function () {
             Route::prefix(LaravelLocalization::setLocale().'/Admin')
+               ->middleware(['web'])
                 ->name('Admin.')
                 ->group(base_path('routes/Admin.php'));
 
@@ -29,7 +30,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
             'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
             'Alert'                   => RealRashid\SweetAlert\Facades\Alert::class,
-        ])->redirectGuestsTo(fn () => route('Admin.login'));
+        ])
+        ->redirectGuestsTo(fn () => route('Admin.login'));
 
     })
     ->withExceptions(function (Exceptions $exceptions) {
