@@ -26,7 +26,7 @@
 								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/videos.html')}}">{{__('Videos about your eye health')}}</a></li>
 								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Medical-Insurance-parteners.html')}}">{{__('Insurance partners')}}</a></li>
 								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Customer-Reviews-Videos.html')}}">فيديوهات تجارب العملاء</a></li>
-								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Customer-Reviews-Text.html')}}">اراء العملاء</a></li>
+								<li><a href="{{route('Site.rate.index')}}"> {{__('customer rates')}}</a></li>
 								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Patient-rights-and-duties.html')}}">حقوق و واجبات المريض</a></li>
 							</ul>
 						</li>

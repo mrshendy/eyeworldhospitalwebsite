@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController};
+use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,RateController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -18,6 +18,10 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('specialtie/{id}' ,[SpecialtieController::class, 'index'])->name('specialtie');
 
     Route::get('specialtie-detail/{id}' ,[SpecialtieController::class, 'subSpecialtieDetail'])->name('specialtie-detail');
+
+
+    Route::get('/customers-reviews' ,[RateController::class, 'index'])->name('rate.index');
+
 
 });
 
