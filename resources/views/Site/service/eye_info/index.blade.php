@@ -62,8 +62,8 @@
                                 <div class="doctor-dtl">
                                     <h3>{{$article->title}}</h3>
                                     <p>{{$article->desc}}</p>
-                                    <a href="#">
-                                        إقرأ المزيد
+                                    <a href="{{route('Site.article.detail',$article->id)}}">
+                                           {{__('read more')}}
                                     </a>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@
 
 
     <!-- Content Section -->
-    <article class="content-section pd">
+    {{-- <article class="content-section pd">
         <div class="container text-center">
             <span class="pre-title site-color">تمتع بأحدث الأجهزة الطبية لتشخيص وعلاج أورام العين بدقة عالية، نحن نقدم لك أحدث الابتكارات التقنية لضمان صحتك</span>
             <h2 class="main-title">أحدث أجهزة التكنولوجيا الطبية المتطورة لتشخيص وعلاج أورام العين بدقة عالية لتوفير أفضل العناية الصحية</h2>
@@ -212,11 +212,11 @@
             </section>
             <!-- About  -->
         </div>
-    </article>
+    </article> --}}
     <!-- Content Section -->
 
     <!-- Success Stories section -->
-    <article class="success-stories  text-center pd">
+    {{-- <article class="success-stories  text-center pd">
         <div class="container">
             <span class="pre-title site-color">قصص نجاح ملهمة لأشخاص تغلبوا على تحديات أورام العين، تجد هنا الأمل والتشجيع في كل تجربة</span>
             <h2 class="main-title">تجارب مرضى أورام العين الملهمة، كيف تغلبوا على التحديات الصحية واستعادوا حياتهم الطبيعية بعد العلاج</h2>
@@ -238,11 +238,11 @@
             </div>
 
         </div>
-    </article>
+    </article> --}}
     <!-- Success Stories section -->
 
     <!-- Contact us Section -->
-    <article class="contact-us pd">
+    {{-- <article class="contact-us pd">
         <div class="container">
             <span class="pre-title site-color">نحن هنا للاستماع إليك ومساعدتك في كل ما تحتاجه!</span>
             <h2 class="main-title">اتصل بنا الآن لتحصل على الدعم والمساعدة في أي وقت  <br>يناسبك تمامًا</h2>
@@ -289,7 +289,12 @@
                 </div>
             </div>
         </div>
-    </article>
+    </article> --}}
+
+
+    @include('components.contact-us')
+
+
     <!-- Contact us Section -->
 
 

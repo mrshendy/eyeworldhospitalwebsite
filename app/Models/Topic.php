@@ -14,5 +14,10 @@ class Topic extends Model implements TranslatableContract
     public $translatedAttributes = ['title'];
     protected $guarded=[];
     protected $hidden = ['translations'];
+
+    public function videos(){
+        return $this->hasMany(Video::class);
+    }
+
 }
 

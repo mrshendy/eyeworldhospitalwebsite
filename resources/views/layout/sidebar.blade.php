@@ -103,14 +103,14 @@
 
 
                     <li class="menu-item">
-                      <a href="{{route('Admin.Topics','videos')}}" class="menu-link">
+                      <a href="{{route('Admin.Topics','health-video')}}" class="menu-link">
                         <div>{{__('topics')}}</div>
                       </a>
                     </li>
 
 
                     <li class="menu-item">
-                      <a href="{{route('Admin.videos.index','health')}}" class="menu-link">
+                      <a href="{{route('Admin.videos.index','health-video')}}" class="menu-link">
                         <div>{{__('Videos')}}</div>
                       </a>
                     </li>

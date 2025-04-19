@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->boolean('activation')->default(true);
-            $table->enum('type',['experiments','opinions','videos']);
+            $table->enum('type',['experiments','opinions','health-video'])->default('health-video');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ class Video extends Model  implements TranslatableContract
     protected function img(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => asset('uploads/articles/' . $value)
+            get: fn (?string $value) => asset('uploads/videos/' . $value)
         );
     }
 }

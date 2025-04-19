@@ -63,13 +63,10 @@ class VideosController extends Controller
 
     public function store(Request $request){
 
-        if($request->img!=null){
-          $img =  $this->MoveImage($request->img,'uploads/articles');
-          $request->merge(['img' => $img]);
+        if($request->file!=null)
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/videos')]);
 
-        }
-
-        Video::create($request->all());
+        Video::create($request->except(['file']));
         return redirect()->route('Admin.videos.index',$request->type);
     }
 
@@ -81,11 +78,11 @@ class VideosController extends Controller
     }
 
     public function update(Request $request,$id){
-        if($request->img!=null)
-        $request->merge(['img' => $this->MoveImage($request->img,'uploads/articles')]);
+        if($request->file!=null)
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/videos')]);
 
         $Article =  Video::find($id);
-        $Article->update($request->except(['id','_token','_method']));
+        $Article->update($request->except(['id','_token','_method','file']));
         return redirect()->back();
     }
 

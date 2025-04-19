@@ -22,4 +22,7 @@ class Article extends Model  implements TranslatableContract
             get: fn (?string $value) => asset('uploads/articles/' . $value)
         );
     }
+
+
+    
 }

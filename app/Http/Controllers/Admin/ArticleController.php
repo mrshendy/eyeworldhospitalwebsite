@@ -60,15 +60,11 @@ class ArticleController extends Controller
     }
 
     public function store(Request $request){
+        
+        if($request->file!=null)
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/articles')]);
 
-
-        if($request->img!=null){
-          $img =  $this->MoveImage($request->img,'uploads/articles');
-          $request->merge(['img' => $img]);
-
-        }
-
-        Article::create($request->all());
+        Article::create($request->except(['file']));
         return redirect()->route('Admin.articles.index');
     }
 
@@ -79,11 +75,11 @@ class ArticleController extends Controller
     }
 
     public function update(Request $request,$id){
-        if($request->img!=null)
-        $request->merge(['img' => $this->MoveImage($request->img,'uploads/articles')]);
+        if($request->file!=null)
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/articles')]);
 
         $Article =  Article::find($id);
-        $Article->update($request->except(['id','_token','_method']));
+        $Article->update($request->except(['id','_token','_method','file']));
         return redirect()->back();
     }
 

@@ -14,4 +14,11 @@ class EyeHealthInfoController extends Controller
         $articles = Article::orderby('id','desc')->get()->take(8);
         return view('Site.service.eye_info.index',compact('data','articles'));
     }
+
+
+    public function getArticle($id){
+       $article = Article::find($id);
+       $articles = Article::orderBy('id','desc')->get()->take(4);
+       return view('Site.service.articles.detail',compact('article','articles'));
+    }
 }

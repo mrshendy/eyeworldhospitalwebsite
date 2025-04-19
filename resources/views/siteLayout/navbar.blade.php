@@ -9,7 +9,7 @@
 				</figure>
 				<nav class="flex-1">
 					<ul class="main-menu list-unstyled flex-center">
-						<li class="menu-item selected"><a href="#">الرئيسية</a></li>
+						<li class="menu-item selected"><a href="{{route('Site.home.index')}}">الرئيسية</a></li>
 						<li class="menu-item has-children">
 							<a href="#">تخصصاتنا</a>
 							<ul class="sub-menu list-unstyled">
@@ -23,9 +23,13 @@
 							<a href="#">خدماتنا</a>
 							<ul class="sub-menu list-unstyled">
 								<li><a href="{{route('Site.EyeHealthInfo.index')}}">{{__('Information about your eye health')}}</a></li>
-								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/videos.html')}}">{{__('Videos about your eye health')}}</a></li>
+								@php  use App\Models\Topic;
+                              	 Topic::where('type','health-video')->whereHas('videos')->orderby('id','desc')->latest()->first() @endphp
+								<li><a href="{{route('Site.video.health',$topic?->id ?? 0)}}">{{__('Videos about your eye health')}}</a></li>
 								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Medical-Insurance-parteners.html')}}">{{__('Insurance partners')}}</a></li>
-								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Customer-Reviews-Videos.html')}}">فيديوهات تجارب العملاء</a></li>
+								@php  
+                              	 Topic::where('type','experiments')->whereHas('videos')->orderby('id','desc')->latest()->first() @endphp
+								<li><a href="{{route('Site.video.experiments',$topic?->id ?? 0)}}"> {{__('Customer experiments videos')}}</a></li>
 								<li><a href="{{route('Site.rate.index')}}"> {{__('customer rates')}}</a></li>
 								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Patient-rights-and-duties.html')}}">حقوق و واجبات المريض</a></li>
 							</ul>

@@ -52,7 +52,7 @@
             <div class="card-body">
 
               <label for="input-file-max-fs">{{__('img')}}</label>
-              <input type="file" name="img" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
+              <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
 
               @foreach (config('translatable.locales') as $locale)
                   <div class="col-12">
