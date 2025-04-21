@@ -16,6 +16,7 @@ class VideoSeeder extends Seeder
         //
         Video::create([
             'topic_id' =>1,
+            'img'=>'1.svg',
             'link'     =>'https://www.youtube.com/watch?v=jL0BXwnkx3g&list=RDbW3GMh5_m1c&index=10',
             'ar' => [
                 'title' => 'نصائح للعناية اليومية بالعين',
@@ -28,6 +29,7 @@ class VideoSeeder extends Seeder
         
         Video::create([
             'topic_id' =>2,
+            'img'=>'1.svg',
             'link'     =>'https://www.youtube.com/watch?v=jL0BXwnkx3g&list=RDbW3GMh5_m1c&index=10',
             'ar' => [
                 'title' => 'التغذيه وصحه العين',
@@ -40,6 +42,7 @@ class VideoSeeder extends Seeder
         
         Video::create([
             'topic_id' =>3,
+            'img'=>'1.svg',
             'link'     =>'https://www.youtube.com/watch?v=jL0BXwnkx3g&list=RDbW3GMh5_m1c&index=10',
             'ar' => [
                 'title' => 'امراض العيون الشائعه',
@@ -54,6 +57,8 @@ class VideoSeeder extends Seeder
 
         Video::create([
             'topic_id' =>4,
+            'img'=>'1.svg',
+            'type'=>'experiments',
             'link'     =>'https://www.youtube.com/watch?v=jL0BXwnkx3g&list=RDbW3GMh5_m1c&index=10',
             'ar' => [
                 'title' => 'امراض العيون الشائعه',
@@ -66,6 +71,8 @@ class VideoSeeder extends Seeder
         ]);
         Video::create([
             'topic_id' =>4,
+            'img'=>'1.svg',
+            'type'=>'experiments',
             'link'     =>'https://www.youtube.com/watch?v=jL0BXwnkx3g&list=RDbW3GMh5_m1c&index=10',
             'ar' => [
                 'title' => 'امراض العيون الشائعه',
@@ -80,6 +87,8 @@ class VideoSeeder extends Seeder
 
         Video::create([
             'topic_id' =>5,
+            'img'=>'1.svg',
+            'type'=>'experiments',
             'link'     =>'https://www.youtube.com/watch?v=jL0BXwnkx3g&list=RDbW3GMh5_m1c&index=10',
             'ar' => [
                 'title' => 'امراض العيون الشائعه',
@@ -92,6 +101,8 @@ class VideoSeeder extends Seeder
         ]);
         Video::create([
             'topic_id' =>5,
+            'img'=>'1.svg',
+            'type'=>'experiments',
             'link'     =>'https://www.youtube.com/watch?v=jL0BXwnkx3g&list=RDbW3GMh5_m1c&index=10',
             'ar' => [
                 'title' => 'امراض العيون الشائعه',

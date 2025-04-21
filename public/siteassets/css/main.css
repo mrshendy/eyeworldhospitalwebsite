@@ -95,8 +95,30 @@ a.login-btn i {
 
 .languages {
     margin-inline-end: 20px;
+    position: relative;
 }
-
+.current-lang i {
+    margin-inline-end:10px;
+    font-size:11px
+}
+.lang {
+    position: absolute;
+    left: 0;
+    width: 70px;
+    background: #fff;
+    top: 26px;
+    padding: 9px;
+    font-size: 14px;
+    box-shadow: var(--shadow);
+    border-radius: 4px;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+}
+.languages:hover .lang {
+    visibility:visible;
+    opacity:1
+}
 li.menu-item.has-children:after {
     content: url(../images/arrow-down.svg);
     display: inline-block;
@@ -701,7 +723,8 @@ article.footer-bottom {
 
 article.banner img {
     display: block;
-    width: 100vw;
+    width: 100%;
+    max-height: 500px;
 }
 .row-gap-15 {
     margin:0 -15px

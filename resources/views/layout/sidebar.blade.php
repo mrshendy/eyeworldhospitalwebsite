@@ -61,19 +61,23 @@
               </a>
             </li>
             <!-- e-commerce-app menu start -->
-            <li class="menu-item">
+            <li class="menu-item @if (checkServiceUrl()==true)
+              open
+            @endif">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ri-shopping-bag-3-line"></i>
                 <div>{{__('our services')}}</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item @if (Route::currentRouteName()=='Admin.eye-health-detail' || Route::currentRouteName()=='Admin.articles.index' )
+                     open
+                @endif">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('Info about your eye health')}}</div>
                   </a>
 
                   <ul class="menu-sub">
-                    <li class="menu-item">
+                    <li class="menu-item ">
                       <a href="{{route('Admin.eye-health-detail')}}" class="menu-link">
                         <div>{{__('details')}}</div>
                       </a>
@@ -89,7 +93,10 @@
                 </li>
 
 
-                <li class="menu-item">
+                <li class="menu-item @if (
+                Route::currentRouteName()=='Admin.eye-health-video')
+                     open
+                @endif">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('videos about your eye health')}}</div>
                   </a>
@@ -123,7 +130,9 @@
 
 
                
-                <li class="menu-item">
+                <li class="menu-item  @if (Route::currentRouteName()=='Admin.customer-video-detail')
+                     open
+                @endif">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('Customer experiments videos')}}</div>
                   </a>
@@ -155,7 +164,11 @@
                 </li>
 
 
-                <li class="menu-item">
+                <li class="menu-item @if (Route::currentRouteName()=='Admin.customer-rate-info-detail'
+                  || Route::currentRouteName() =='Admin.rates.index'
+                )
+                     open
+                @endif ">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('customers rates')}}</div>
                   </a>
@@ -180,7 +193,13 @@
 
 
 
-                <li class="menu-item">
+                <li class="menu-item  @if (Route::currentRouteName()=='Admin.customer-right-info-detail'
+                  || Route::currentRouteName() =='Admin.rights.index'
+                )
+                     open
+                @endif
+                
+                ">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('Patient rights and responsibilities')}}</div>
                   </a>
@@ -210,7 +229,11 @@
                 </li>
 
 
-                <li class="menu-item">
+                <li class="menu-item   @if (Route::currentRouteName()=='Admin.Insurance-partner-detail'
+                  || Route::currentRouteName() =='Admin.partners.index'
+                )
+                     open
+                @endif ">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('Insurance partners')}}</div>
                   </a>

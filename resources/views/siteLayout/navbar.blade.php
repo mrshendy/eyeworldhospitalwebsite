@@ -26,7 +26,7 @@
 								@php  use App\Models\Topic;
                               	 Topic::where('type','health-video')->whereHas('videos')->orderby('id','desc')->latest()->first() @endphp
 								<li><a href="{{route('Site.video.health',$topic?->id ?? 0)}}">{{__('Videos about your eye health')}}</a></li>
-								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Medical-Insurance-parteners.html')}}">{{__('Insurance partners')}}</a></li>
+								<li><a href="{{route('Site.partners.index')}}">{{__('Insurance partners')}}</a></li>
 								@php  
                               	 Topic::where('type','experiments')->whereHas('videos')->orderby('id','desc')->latest()->first() @endphp
 								<li><a href="{{route('Site.video.experiments',$topic?->id ?? 0)}}"> {{__('Customer experiments videos')}}</a></li>

@@ -46,7 +46,7 @@
                 <div class="col-3 col-md-6 col-sm-12">
                     <div class="aside-tabs">
                         @foreach ($topics as $topic)
-                            <a href="" class="aside-tab flex-between align-center @if ($topic->id == $topic_id)
+                            <a href="{{route('Site.video.health',$topic->id)}}" class="aside-tab flex-between align-center @if ($topic->id == $topic_id)
                                  active
                             @endif">
                                 <div class="flex-1">
