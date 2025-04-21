@@ -18,6 +18,8 @@ function checkServiceUrl(){
       ||$currentRouteName=='Admin.rates.index'
       ||$currentRouteName=='Admin.partners.index'
       ||$currentRouteName=='Admin.articles.index'
+      ||$currentRouteName=='Admin.partners.create'
+      ||$currentRouteName=='Admin.partners.show'
      ){
         return true;
      }

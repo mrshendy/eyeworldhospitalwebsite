@@ -24,7 +24,7 @@
 
         <div class="row">
             <div class="col-3">
-            <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
+            <button type="button" class="btn  add_btn" style="background-color: #267B26 ; color:white" data-bs-toggle="modal" data-bs-target="#addModal">
               {{__('system.add')}}
             </button>
             </div>
@@ -91,7 +91,7 @@
 
   <x-delete-modal>
     <x-slot:route>
-        {{route('Admin.sup-specialtie-type.destroy')}}
+        {{route('Admin.sup-specialtie.destroy',0)}}
     </x-slot>
     <input type="hidden" id="delete_id" name="id" value="">
     <h3 id="delete_name"></h3>
@@ -129,6 +129,8 @@
     $('#dataTableBuilder').on('click','.delete_btn',function (){
       $('#delete_id').val($(this).attr("data-id"));
     });
+
+
 
 </script>
 

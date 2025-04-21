@@ -26,7 +26,7 @@
         <div class="card-body">
           <div class="row">
               <div class="col-3">
-              <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
+              <button type="button" class="btn  add_btn" style="background-color: #267B26 ; color:white" data-bs-toggle="modal" data-bs-target="#addModal">
                 {{__('system.add')}}
               </button>
               </div>

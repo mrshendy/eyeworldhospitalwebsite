@@ -42,7 +42,7 @@
       
         @endforeach
         <div>
-            <button type="submit" class="btn btn-primary mt-4">{{__('system.edit')}}</button>
+            <button type="submit" class="btn  mt-4" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>
         </div>           
         </div>
     </form>

@@ -31,7 +31,7 @@
                               	 Topic::where('type','experiments')->whereHas('videos')->orderby('id','desc')->latest()->first() @endphp
 								<li><a href="{{route('Site.video.experiments',$topic?->id ?? 0)}}"> {{__('Customer experiments videos')}}</a></li>
 								<li><a href="{{route('Site.rate.index')}}"> {{__('customer rates')}}</a></li>
-								<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Patient-rights-and-duties.html')}}">حقوق و واجبات المريض</a></li>
+								<li><a href="{{route('Site.rights.index')}}">حقوق و واجبات المريض</a></li>
 							</ul>
 						</li>
 						<li class="menu-item  has-children">

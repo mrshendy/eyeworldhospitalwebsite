@@ -64,7 +64,7 @@ class RightController extends Controller
 
     public function store(Request $request){
         Right::create($request->all());
-        return redirect()->route('Admin.partners.index',$request->type);
+        return redirect()->route('Admin.rights.index',$request->type);
     }
 
 

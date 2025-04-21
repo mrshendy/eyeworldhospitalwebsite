@@ -8,12 +8,13 @@ use App\Models\InsurancePartner;
 use DataTables;
 use Yajra\DataTables\Html\Builder;
 use Carbon\Carbon;
+use App\Traits\fileTrait;
 
 
 class PartnerController extends Controller
 {
     //
-
+        use fileTrait;
         public function index(Builder $builder,Request $request){
 
                 if (request()->ajax()) {
@@ -36,8 +37,8 @@ class PartnerController extends Controller
                         }
                     
                         return '
-                            <a href="#" class="edit_btn" data-bs-toggle="modal" data-bs-target="#editModal"  data-id="'.$row->id.'" '.$data.'>   <i class="ri-edit-line"></i> </a>
-                            <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
+                            <a href="'.route('Admin.partners.update',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
+                    <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
 
                             ';
                     })
@@ -47,26 +48,41 @@ class PartnerController extends Controller
 
                 $html = $builder->columns([
                     ['title' => __('system.id'), 'data' => 'id', 'footer' => 'Id' , 'orderable' => true],
-                    ['title' => __('system.title'), 'data' => 'title', 'footer' => 'title' , 'searchable' => true],
-                    ['title' => __('system.created_at') ,'data' => 'created_at', 'footer' => 'Created At'],
-                    ['title' => __('system.actions'), 'data' => 'actions', 'footer' => 'Actions', 'orderable' => false, 'searchable' => false]
+                    ['title' => __('title'), 'data' => 'title', 'footer' => __('title') , 'searchable' => true],
+                    ['title' => __('system.created_at') ,'data' => 'created_at', 'footer' => __('system.created_at')],
+                    ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false]
                 ]);
 
                 return view('Admin.partners.index',compact('html'));
         }
 
         public function store(Request $request){
-            InsurancePartner::create($request->all());
-            return redirect()->back();
+            if($request->file!=null)
+            $request->merge(['img' => $this->MoveImage($request->file,'uploads/partners')]);
+
+            InsurancePartner::create($request->except(['file']));
+            return redirect()->route('Admin.partners.index');
         }
 
-        public function edit($id){
-            return InsurancePartner::find($id);
+        public function create(){
+            return view('Admin.partners.create');
+        }
+
+
+
+        public function show($id){
+             $data =  InsurancePartner::find($id);
+             return view('Admin.partners.edit',compact('data'));
         }
 
         public function update(Request $request,$id){
+
+            if($request->file!=null)
+            $request->merge(['img' => $this->MoveImage($request->file,'uploads/partners')]);
+        
             $InsurancePartner =  InsurancePartner::find($request->id);
-            $InsurancePartner->update($request->except(['id','_token','_method']));
+
+            $InsurancePartner->update($request->except(['id','_token','_method','file']));
             return redirect()->back();
         } 
 

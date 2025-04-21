@@ -18,7 +18,7 @@
 
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">{{__('system.add')}}</button>
+                            <button type="submit" class="btn " style="background-color: #267B26 ; color:white">{{__('system.add')}}</button>
                         </div>
                 </form>
             </div>

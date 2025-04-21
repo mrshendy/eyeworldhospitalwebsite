@@ -26,7 +26,7 @@
   <div class="card">
     <div class="card-body">
 
-       <form method="post" action="{{route('Admin.videos.update',$data->id)}}" enctype="multipart/form-data">
+       <form method="post" action="{{route('Admin.partner.update',$data->id)}}" enctype="multipart/form-data">
            @csrf
            @method('put')
         
@@ -63,7 +63,7 @@
     
 
         
-          <button type="submit" class="btn btn-primary mt-2">{{__('system.edit')}}</button>  
+          <button type="submit" class="btn  mt-2" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>  
         </form>   
     </div>
   </div>

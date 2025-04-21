@@ -230,7 +230,7 @@
 
 
                 <li class="menu-item   @if (Route::currentRouteName()=='Admin.Insurance-partner-detail'
-                  || Route::currentRouteName() =='Admin.partners.index'
+                  || Route::currentRouteName() =='Admin.partners.index' || Route::currentRouteName() =='Admin.partners.create' || Route::currentRouteName()=='Admin.partners.show'
                 )
                      open
                 @endif ">

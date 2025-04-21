@@ -34,7 +34,7 @@
         <div class="row">
           <div class="col-3">
           
-            <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
+            <button type="button" class="btn  add_btn" data-bs-toggle="modal" data-bs-target="#addModal" style="background-color: #267B26 ; color:white">
               {{__('system.add')}}
             </button>
             

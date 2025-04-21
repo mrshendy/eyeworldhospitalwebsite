@@ -35,7 +35,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-3">
-            <a href="{{route('Admin.videos.create',$type)}}" class="btn btn-primary"> {{__('system.add')}}</a>
+            <a href="{{route('Admin.videos.create',$type)}}" class="btn " style="background-color: #267B26 ; color:white"> {{__('system.add')}}</a>
           </div>
         </div>  
 

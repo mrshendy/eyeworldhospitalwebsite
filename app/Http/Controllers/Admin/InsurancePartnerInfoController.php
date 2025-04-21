@@ -18,7 +18,7 @@ class InsurancePartnerInfoController extends Controller
     public function update(Request $request){
        
         if($request->file!=null)
-        $request->merge(['img' => $this->MoveImage($request->file,'uploads/eye-info')]);
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/partners')]);
 
         $healthInfo = InsurancePartnerInfo::first();
         $healthInfo->update($request->except(['file','_token','_method']));

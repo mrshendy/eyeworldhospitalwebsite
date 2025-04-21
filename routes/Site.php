@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
-    RateController,VideoController,PartnerController};
+    RateController,VideoController,PartnerController,RightController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -29,6 +29,8 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('/videos/experiments/{topic}' ,[VideoController::class, 'experimentsVideo'])->name('video.experiments');
 
     Route::get('partners' ,[PartnerController::class, 'index'])->name('partners.index');
+    Route::get('rights' ,[RightController::class, 'index'])->name('rights.index');
+
 
 });
 

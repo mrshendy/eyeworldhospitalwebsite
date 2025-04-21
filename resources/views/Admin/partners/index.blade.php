@@ -17,6 +17,10 @@
    <link rel="stylesheet" href="{{asset('assets/vendor/libs/@form-validation/form-validation.css')}}" />
 
 
+   <link rel="stylesheet" href="{{asset('dropify/dist/css/demo.css')}}">
+   <link rel="stylesheet" href="{{asset('dropify/dist/css/dropify.min.css')}}">
+
+
 @endsection
 @section('content')
   <div class="container">
@@ -30,15 +34,9 @@
 
     <div class="card">
       <div class="card-body">
-
         <div class="row">
           <div class="col-3">
-          
-            <button type="button" class="btn btn-primary add_btn" data-bs-toggle="modal" data-bs-target="#addModal">
-              {{__('system.add')}}
-            </button>
-            
-          
+            <a href="{{route('Admin.partners.create')}}" class="btn" style="background-color: #267B26 ; color:white"> {{__('system.add')}}</a>
           </div>
         </div>  
 
@@ -47,62 +45,17 @@
     </div>
 
 
-      <x-add-modal>
-        <x-slot:title>
-            {{__('add')}}
-        </x-slot>
-        <x-slot:route>
-            {{route('Admin.rights.store')}}
-        </x-slot>
-              @foreach (config('translatable.locales') as $locale)
-              <div class="col-12">
-                  <div>
-                      <label>{{ __('system.'.$locale.'.title') }}</label>
-                      <input class="form-control" name="{{$locale}}[title]"   value="" type="text" required>
-              
-                   
-                    </div>
-              </div>
-          @endforeach
-
-      </x-add-modal>
 
 
-
-      <x-edit-modal>
-        <x-slot:title>
-            {{__('system.edit')}}
-        </x-slot>
-        <x-slot:route>
-            {{route('Admin.rights.update',0)}}
-        </x-slot>
-        @method('put')
-        <input type="hidden" name="id" id="id" value="">
-        @foreach (config('translatable.locales') as $locale)
-            <div class="col-12">
-                <div>
-                    <label>{{ __('system.'.$locale.'.title') }}</label>
-                    <input class="form-control" name="{{$locale}}[title]"  id="title-{{$locale}}"  value="" type="text" required>
-            
-                
-                  </div>
-            </div>
-        @endforeach
-
-      </x-edit-modal>
+    <x-delete-modal>
+      <x-slot:route>
+          {{route('Admin.partners.destroy',0)}}
+      </x-slot>
+      @method('DELETE')
+      <input type="hidden" id="delete_id" name="id" value="">
+      <h3 id="delete_name"></h3>
     
-
-
-      <x-delete-modal>
-        <x-slot:route>
-            {{route('Admin.rights.destroy',0)}}
-        </x-slot>
-        @method('DELETE')
-        <input type="hidden" id="delete_id" name="id" value="">
-        <h3 id="delete_name"></h3>
-      
-      </x-delete-modal>
-
+    </x-delete-modal>
 
     <!-- Button trigger modal -->
   </div>
@@ -116,25 +69,15 @@
 
 {!! $html->scripts() !!}
 
-<script>
+  <!-- Main JS -->
+  <script src="{{asset('assets/js/main.js')}}"></script>
 
-   var locales = {!!json_encode(config('translatable.locales'))!!};
-    $('#dataTableBuilder').on('click','.edit_btn',function (){
-
-       $('#id').val($(this).attr("data-id"));
-        for(locale of locales){
-          var title = $(this).attr("data-title-"+locale);
-          $('#title-'+locale).val(title);
-        }
-    });
-
-
+  <script>
     $('#dataTableBuilder').on('click','.delete_btn',function (){
       $('#delete_id').val($(this).attr("data-id"));
     });
+</script>  
 
-</script>
+  
 
-
-
-@endsection
+  @endsection
