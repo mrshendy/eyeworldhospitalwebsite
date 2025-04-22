@@ -71,7 +71,7 @@
 
 
 
-      <x-editModal>
+      <x-edit-modal>
         <x-slot:title>
             {{__('system.edit')}}
         </x-slot>
@@ -93,7 +93,7 @@
             </div>
         @endforeach
 
-      </x-editModal>
+      </x-edit-modal>
     
 
 
