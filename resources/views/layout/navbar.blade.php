@@ -501,7 +501,7 @@
                     <li>
                       <div class="d-grid px-4 pt-2 pb-1">
                         <a class="btn btn-sm btn-danger d-flex" href="{{route('Admin.logout')}}">
-                          <small class="align-middle">Logout</small>
+                          <small class="align-middle">{{__('log out')}}</small>
                           <i class="ri-logout-box-r-line ms-2 ri-16px"></i>
                         </a>
                       </div>

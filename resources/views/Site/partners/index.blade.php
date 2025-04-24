@@ -6,7 +6,7 @@
 		
     <!-- Banner -->
     <article class="banner">
-        <img src="../images/specializations/main.svg">
+        <img src="{{asset('siteassets/images/specializations/main.svg')}}">
     </article>
     <!-- Banner -->
 
@@ -18,14 +18,14 @@
             <section class="about flex-start  text-right align-center">
                 <div class="col-6 col-md-6 col-sm-12">
                     <div class="about-desc">
-                        <span class="pre-title site-color">شركاؤنا الموثوقون يعكسون التزامنا بتقديم أفضل الخدمات لعملائنا دائمًا</span>
-                        <h2 class="main-title">شركاء التأمين: أسماء لامعة تقدم الدعم والخبرة لتعزيز خدماتنا</h2>
-                        <p class="main-para">تفخر شركتنا بشراكات استراتيجية مع جهات رائدة في مختلف الصناعات. هذه الشراكات تمثل أساس نجاحنا وتؤكد التزامنا بتقديم خدمات متفوقة تلبي توقعات عملائنا. استكشف معنا أبرز شركائنا الذين ساهموا في تحقيق رؤيتنا المشتركة والابتكار المستدام</p>
+                        <span class="pre-title site-color">{{$info->title}} </span>
+                        <h2 class="main-title"> {{$info->subtitle}}</h2>
+                        <p class="main-para">{{$info->desc}}</p>
                     </div>	
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="../images/videos/medical/parteners/main.svg" alt="">
+                        <img src="{{asset('siteassets/images/videos/medical/parteners/main.svg')}}" alt="">
                     </figure>
                 </div>
             </section>
@@ -134,7 +134,7 @@
                                 <h4>{{$row->title}}</h4>
                                 
                                 <a href="#" class="show-profile">
-                                    احجز موعدك الآن
+                                     {{__('Book your appointment now')}}
                                 </a>
                             </div>
                         </div>

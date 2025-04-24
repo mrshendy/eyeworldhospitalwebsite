@@ -11,7 +11,6 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        App::setLocale('ar');
         $about    = About::first();
         $quetions = Quetion::get();
         return view('Site.home.index',compact('about','quetions'));
