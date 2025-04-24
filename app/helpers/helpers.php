@@ -20,6 +20,10 @@ function checkServiceUrl(){
       ||$currentRouteName=='Admin.articles.index'
       ||$currentRouteName=='Admin.partners.create'
       ||$currentRouteName=='Admin.partners.show'
+      ||$currentRouteName=='Admin.articles.create'
+      ||$currentRouteName=='Admin.articles.show'
+
+
      ){
         return true;
      }

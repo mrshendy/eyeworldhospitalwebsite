@@ -69,7 +69,7 @@
                 <div>{{__('our services')}}</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item @if (Route::currentRouteName()=='Admin.eye-health-detail' || Route::currentRouteName()=='Admin.articles.index' )
+                <li class="menu-item @if (Route::currentRouteName()=='Admin.eye-health-detail' || Route::currentRouteName()=='Admin.articles.index' || Route::currentRouteName()=='Admin.articles.create' || Route::currentRouteName()=='Admin.articles.show' )
                      open
                 @endif">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
