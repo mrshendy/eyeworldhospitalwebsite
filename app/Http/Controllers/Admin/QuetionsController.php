@@ -49,10 +49,10 @@ class QuetionsController extends Controller
 
             $html = $builder->columns([
                 ['title' => __('system.id'), 'data' => 'id', 'footer' => 'Id' , 'orderable' => true],
-                ['title' => __('system.quetion'), 'data' => 'quetion', 'footer' => 'quetion' , 'searchable' => true],
-                ['title' => __('system.answer'), 'data' => 'answer', 'footer' => 'answer' , 'searchable' => true],
-                ['title' => __('system.created_at') ,'data' => 'created_at', 'footer' => 'Created At'],
-                ['title' => __('system.actions'), 'data' => 'actions', 'footer' => 'Actions', 'orderable' => false, 'searchable' => false]
+                ['title' => __('system.quetion'), 'data' => 'quetion', 'footer' => __('system.quetion') , 'searchable' => true],
+                ['title' => __('system.answer'), 'data' => 'answer', 'footer' => __('system.answer') , 'searchable' => true],
+                ['title' => __('system.created_at') ,'data' => 'created_at', 'footer' => __('system.created_at')],
+                ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false]
             ]);
 
             return view('Admin.quetions.index',compact('html'));

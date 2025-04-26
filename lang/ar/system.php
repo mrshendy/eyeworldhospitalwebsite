@@ -11,7 +11,7 @@ return [
     'delete'      => 'حذف',
     'close'       => 'اغلاق', 
     'sure'        => 'تأكيد',
-    'Quetions'    => 'الاسئله',
+    'Questions'    => 'الاسئله',
     'actions'     => 'الاجرائات',
     "abouts"      => "مذا عنا",
 

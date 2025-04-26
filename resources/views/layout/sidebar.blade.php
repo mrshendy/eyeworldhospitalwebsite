@@ -39,7 +39,7 @@
             <li class="menu-item">
               <a href="{{route('Admin.Quetions.index')}}" class="menu-link">
                 <i class="ri-questionnaire-line"></i>
-                <div>{{__('system.Quetions')}}</div>
+                <div>{{__('system.Questions')}}</div>
               </a>
             </li>
             <li class="menu-item">
