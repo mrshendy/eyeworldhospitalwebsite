@@ -9,9 +9,9 @@
 				</figure>
 				<nav class="flex-1">
 					<ul class="main-menu list-unstyled flex-center">
-						<li class="menu-item selected"><a href="{{route('Site.home.index')}}">الرئيسية</a></li>
+						<li class="menu-item selected"><a href="{{route('Site.home.index')}}">{{__('Main')}}</a></li>
 						<li class="menu-item has-children">
-							<a href="#">تخصصاتنا</a>
+							<a href="#">{{__('our specialties')}}</a>
 							<ul class="sub-menu list-unstyled">
 								@foreach (\App\Models\Specialtie::get() as $row)
 							     	<li><a href="{{route('Site.specialtie',$row->id)}}">{{$row->title}}</a></li>
@@ -20,7 +20,7 @@
 							</ul>
 						</li>
 						<li class="menu-item  has-children">
-							<a href="#">خدماتنا</a>
+							<a href="#">{{__('our services')}}</a>
 							<ul class="sub-menu list-unstyled">
 								<li><a href="{{route('Site.EyeHealthInfo.index')}}">{{__('Information about your eye health')}}</a></li>
 								@php  use App\Models\Topic;
@@ -35,11 +35,11 @@
 							</ul>
 						</li>
 						<li class="menu-item  has-children">
-							<a href="#">فريقنا</a>
+							<a href="#">{{__('our teams')}}</a>
 								<ul class="sub-menu list-unstyled">
-									<li><a href="{{asset('siteassets/Events&medical team&medical tourism/Medical-Team.html')}}">طب و جراحة العيون</a></li>
-									<li><a href="#">الجلدية</a></li>
-									<li><a href="#">الاسنان</a></li>
+									@foreach (\App\Models\Specialtie::get() as $row)
+										<li><a href="{{route('Site.specialtie',$row->id)}}">{{$row->title}}</a></li>
+									@endforeach
 								</ul>
 							</li>
 						<li class="menu-item"><a href="#">أحدث الأجهزة الطبية</a></li>
@@ -55,7 +55,7 @@
 					</ul>
 				</nav>
 
-				<ul class="list-group collapse" id="myList">
+				{{-- <ul class="list-group collapse" id="myList">
 					@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
 						<li class="list-group-item">
 								<a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
@@ -65,7 +65,26 @@
 								</a>
 							</li>
 						@endforeach
-				</ul>		
+				</ul>		 --}}
+
+				<div class="languages">
+					<span class="current-lang">
+						<i class="fa-solid fa-chevron-down"></i>
+						Ar
+					</span>
+					<ul class="lang list-unstyled">
+						@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+							<li class="active" data-lang="{{$localeCode}}"> 
+								<a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+								<span class="align-middle">
+								{{ $properties['native'] }}
+								</span>
+							</a>
+							</li>
+						@endforeach
+					</ul>
+			
+				</div>
 
 			
 

@@ -42,6 +42,17 @@
                 <div>{{__('system.Questions')}}</div>
               </a>
             </li>
+
+
+            <li class="menu-item">
+              <a href="{{route('Admin.doctors.index')}}" class="menu-link">
+                <i class="ri-nurse-line"></i>
+                   <div>{{__('doctors')}}</div>
+              </a>
+            </li>
+
+
+
             <li class="menu-item">
               <a href="{{route('Admin.abouts.edit',\App\Models\About::first()->id)}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-wechat-line"></i>

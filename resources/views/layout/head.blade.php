@@ -50,6 +50,7 @@
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/cards-statistics.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/cards-analytics.css')}}" />
+
     @yield('styles')
     <!-- Helpers -->
     <script src="{{asset('assets/vendor/js/helpers.js')}}"></script>
@@ -58,4 +59,5 @@
     <script src="{{asset('assets/vendor/js/template-customizer.js')}}"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('assets/js/config.js')}}"></script>
+
   </head>

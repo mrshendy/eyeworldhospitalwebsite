@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
-    InsurancePartnerInfoController,PartnerController};
+    InsurancePartnerInfoController,PartnerController,DoctorController};
 
 
  Route::get('login' ,[AuthController::class, 'index'])->name('login.index');
@@ -24,7 +24,8 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'articles'  => ArticleController::class,
         'rates'     => RateController::class,
         'rights'    => RightController::class,
-        'partners' => PartnerController::class
+        'partners'  => PartnerController::class,
+        'doctors'   => DoctorController::class
     ]);
 
     Route::resource('videos', VideosController::class)->except([
