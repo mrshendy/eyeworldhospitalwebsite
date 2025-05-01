@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\SocialMedia;
 
 function checkServiceUrl(){
     $currentRouteName = Route::currentRouteName();
@@ -29,4 +30,9 @@ function checkServiceUrl(){
      }
 
      return false;
+}
+
+
+function media(){
+     return SocialMedia::get();
 }

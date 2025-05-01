@@ -36,7 +36,7 @@
                     
                     </div>
                     <div class="form-control">
-                        <input type="submit" class="btn"  value="ارسال">
+                        <input type="submit" class="btn"  value="{{__('send')}}">
                     </div>
                 </form>
             </div>

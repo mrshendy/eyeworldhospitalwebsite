@@ -9,7 +9,7 @@ use DataTables;
 use Yajra\DataTables\Html\Builder;
 use Carbon\Carbon;
 use App\Traits\fileTrait;
-
+use Alert;
 
 class SocialMediaController extends Controller
 {
@@ -34,7 +34,7 @@ class SocialMediaController extends Controller
               
             
                 return '
-                    <a href="'.route('Admin.doctors.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
+                    <a href="'.route('Admin.socialmedia.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
 
 
@@ -62,14 +62,27 @@ class SocialMediaController extends Controller
 
     public function store(Request $request){
         if($request->file!=null)
-        $request->merge(['img' => $this->MoveImage($request->file,'uploads/articles')]);
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/socialMedia')]);
 
         SocialMedia::create($request->except(['file']));
+        Alert::success(__('Success'), __('your request sent seccessfuly'));
+
         return redirect()->route('Admin.socialmedia.index');
     }
 
-    public function update(Request $request){
-        
+    public function edit($id){
+        $data = SocialMedia::find($id);
+        return view('Admin.socialMedia.edit',compact('data'));
+     }
+ 
+
+    public function update(Request $request,$id){
+        if($request->file!=null)
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/socialMedia')]);
+
+        $Article =  SocialMedia::find($id);
+        $Article->update($request->except(['id','_token','_method','file']));
+        return redirect()->back();
     }
 
 

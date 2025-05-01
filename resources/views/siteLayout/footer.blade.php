@@ -78,13 +78,11 @@
 <!-- Footer Bottom -->
 <article class="footer-bottom">
     <div class="container flex-between align-center">
-        <p class="copyright">جميع حقوق النشر محفوظة لدي دنيا العيون @ 2025</p>
+        <p class="copyright">  {{__('All rights reserved to Dunya Al Oyoun')}}     @ 2025</p>
         <div class="socials flex-center align-center">
-            <a href="#"><img src="{{asset('siteassets/images/footer/youtube.svg')}}"></a>
-            <a href="#"><img src="{{asset('siteassets/images/footer/instagram.svg')}}"></a>
-            <a href="#"><img src="{{asset('siteassets/images/footer/snap.svg')}}"></a>
-            <a href="#"><img src="{{asset('siteassets/images/footer/twitter.svg')}}"></a>
-            <a href="#"><img src="{{asset('siteassets/images/footer/facebook.svg')}}"></a>
+             @foreach (media() as $row)
+               <a href="{{$row->url}}"><img src="{{$row->img}}"></a>
+             @endforeach
         </div>
     </div>
 </article>
@@ -103,5 +101,8 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{asset('siteassets/js/owl.carousel.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('siteassets/js/main.js')}}"></script>
+<script type="text/javascript" src="{{asset('/vendor/sweetalert/sweetalert.all.js')}}"></script>
+
+    
 </body>
 </html>

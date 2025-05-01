@@ -11,7 +11,7 @@
 
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">{{__('social Media')}}</a></li>
+        <li class="breadcrumb-item"><a href="#">{{__('social media')}}</a></li>
       </ol>
     </nav>
       

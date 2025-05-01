@@ -277,7 +277,7 @@
 
             <li class="menu-item">
               <a href="{{route('Admin.socialmedia.index')}}" class="menu-link">
-                <i class="ri-nurse-line"></i>
+                <i class="ri-spy-fill"></i>
                    <div>{{__('Social Media')}}</div>
               </a>
             </li>
