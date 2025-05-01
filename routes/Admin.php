@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
-    InsurancePartnerInfoController,PartnerController,DoctorController};
+    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController};
 
 
  Route::get('login' ,[AuthController::class, 'index'])->name('login.index');
@@ -17,15 +17,16 @@ Route::group(['middleware' => 'auth:admin'], function() {
 // Route::group(['middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
     Route::resources([
-        'Quetions'  => QuetionsController::class,
-        'abouts'    => AboutController::class,
-        'contact-us'=> ContactUsController::class,
-        'specialtie'=> SpecialtieController::class,
-        'articles'  => ArticleController::class,
-        'rates'     => RateController::class,
-        'rights'    => RightController::class,
-        'partners'  => PartnerController::class,
-        'doctors'   => DoctorController::class
+        'Quetions'    => QuetionsController::class,
+        'abouts'      => AboutController::class,
+        'contact-us'  => ContactUsController::class,
+        'specialtie'  => SpecialtieController::class,
+        'articles'    => ArticleController::class,
+        'rates'       => RateController::class,
+        'rights'      => RightController::class,
+        'partners'    => PartnerController::class,
+        'doctors'     => DoctorController::class,
+        'socialmedia' => SocialMediaController::class
     ]);
 
     Route::resource('videos', VideosController::class)->except([

@@ -11,7 +11,7 @@
 					<ul class="main-menu list-unstyled flex-center">
 						<li class="menu-item selected"><a href="{{route('Site.home.index')}}">{{__('Main')}}</a></li>
 						<li class="menu-item has-children">
-							<a href="#">{{__('our specialties')}}</a>
+							<a href="#">{{__('specialties')}}</a>
 							<ul class="sub-menu list-unstyled">
 								@foreach (\App\Models\Specialtie::get() as $row)
 							     	<li><a href="{{route('Site.specialtie',$row->id)}}">{{$row->title}}</a></li>
@@ -20,7 +20,7 @@
 							</ul>
 						</li>
 						<li class="menu-item  has-children">
-							<a href="#">{{__('our services')}}</a>
+							<a href="#">{{__('services')}}</a>
 							<ul class="sub-menu list-unstyled">
 								<li><a href="{{route('Site.EyeHealthInfo.index')}}">{{__('Information about your eye health')}}</a></li>
 								@php  use App\Models\Topic;
@@ -35,17 +35,17 @@
 							</ul>
 						</li>
 						<li class="menu-item  has-children">
-							<a href="#">{{__('our teams')}}</a>
+							<a href="#">{{__('teams')}}</a>
 								<ul class="sub-menu list-unstyled">
 									@foreach (\App\Models\Specialtie::get() as $row)
 										<li><a href="{{route('Site.specialtie',$row->id)}}">{{$row->title}}</a></li>
 									@endforeach
 								</ul>
 							</li>
-						<li class="menu-item"><a href="#">أحدث الأجهزة الطبية</a></li>
-						<li class="menu-item"><a href="#">السياحة العلاجية</a></li>
+						<li class="menu-item"><a href="#"> {{__('medical devices')}}</a></li>
+						<li class="menu-item"><a href="#">{{__('Medical tourism')}}</a></li>
 						<li class="menu-item has-children">
-							<a href="#">الأطباء</a>
+							<a href="#">{{__('doctors')}}</a>
 								<ul class="sub-menu list-unstyled">
 									<li><a href="{{asset('siteassets/Academy and conference/Book-Categories.html')}}">الكتب</a></li>
 									<li><a href="{{asset('siteassets/Academy and conference/Medical-Academy.html')}}">الاكاديمية الطبية</a></li>
@@ -70,7 +70,7 @@
 				<div class="languages">
 					<span class="current-lang">
 						<i class="fa-solid fa-chevron-down"></i>
-						Ar
+						{{App::getLocale()}}
 					</span>
 					<ul class="lang list-unstyled">
 						@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
@@ -90,7 +90,7 @@
 
 				<div class="login-btns">
 					<a class="login-btn btn" href="">
-						<span>تسجيل الدخول</span>
+						<span>{{__('login')}}</span>
 						<i class="fa-solid fa-right-to-bracket"></i>
 					</a>
 				</div>
@@ -100,13 +100,18 @@
 				<div class="user-logged-in flex-start">
 					<a href="" class="head-icon flex-start align-center">
 						<img src="{{asset('siteassets/images/bag.svg')}}">
-						<span>السلة</span>
+						<span>{{__('cart')}}</span>
 					</a>					
 
+					@auth
 					<a href="" class="head-icon flex-start align-center">
 						<img src="{{asset('siteassets/images/profile-circle.svg')}}">
 						<span>مرحبا ندى</span>
 					</a>
+					@endauth
+						
+				
+					
 				</div>
 			</div>
 		</div>

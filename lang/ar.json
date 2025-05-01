@@ -162,8 +162,14 @@
     "job title":"المسمى الوظيفي",
     "breif":"ملخص",
     "sub title":"العنوان الفرعي",
-
     "Main":"الرئيسيه",
-    "our specialties":"تخصصاتنا",
-    "our teams":"فريقنا"
+    "specialties":"تخصصاتنا",
+    "teams":"فريقنا",
+    "medical devices":"الاجهزه الطبيه",
+    "Medical tourism":"السياحه العلاجيه",
+    "cart":"السله",
+    "login":"تسجيل الدخول",
+    "Success":"تم بنجاح",
+    "your request sent seccessfuly":"تم ارسال طلبك بنجاح",
+    "Social Media":"التواصل الاجتماعي"
 }

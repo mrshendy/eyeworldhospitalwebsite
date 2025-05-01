@@ -34,7 +34,8 @@ class DatabaseSeeder extends Seeder
             RightSeeder::class,
             InsurancePartnerSeeder::class,
             TopicSeeder::class,
-            VideoSeeder::class
+            VideoSeeder::class,
+            SocialMediaSeeder::class
         ]);
     }
 }

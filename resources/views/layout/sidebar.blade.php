@@ -273,6 +273,14 @@
               </ul>
             </li>
             <!-- e-commerce-app menu end -->
+
+
+            <li class="menu-item">
+              <a href="{{route('Admin.socialmedia.index')}}" class="menu-link">
+                <i class="ri-nurse-line"></i>
+                   <div>{{__('Social Media')}}</div>
+              </a>
+            </li>
          
          
        

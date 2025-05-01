@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{About,Quetion,ContactUs};
 use App;
+use Alert;
 
 class HomeController extends Controller
 {
@@ -17,9 +18,9 @@ class HomeController extends Controller
     }
 
     public function contactUs(Request $request){
-       
-
+    
         ContactUs::create($request->all());
+        Alert::success(__('Success'), __('your request sent seccessfuly'));
         return redirect()->back();
     }
 }
