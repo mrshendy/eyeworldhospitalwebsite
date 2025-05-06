@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Doctor,Specialtie,SubSpecialtie};
+use App\Models\{Doctor,Specialtie,SubSpecialtie,DoctorInfo,DoctorSpecialtie,DoctorSubSpecialtie};
 use DataTables;
 use Yajra\DataTables\Html\Builder;
 use Carbon\Carbon;
+use App\Traits\fileTrait;
 
 class DoctorController extends Controller
 {
     //
+    use fileTrait;
     public function index(Builder $builder,Request $request){
          
 
@@ -26,6 +28,9 @@ class DoctorController extends Controller
             })
             ->editColumn('created_at', function ($row) {
                 return Carbon::parse($row->created_at)->format('d-m-Y'); 
+            })
+            ->addColumn('job_title', function ($row) {
+                return $row->info?->job_title; 
             })
             ->addColumn('actions', function ($row) {
                 $data="";
@@ -56,14 +61,29 @@ class DoctorController extends Controller
 
     public function create(){
          $specialties = Specialtie::get();
-         $subspecialties = SubSpecialtie::get();
+         $subspecialties = SubSpecialtie::where('specialtie_id',$specialties[0]->id)->get();
          return view('Admin.doctors.create',compact('specialties','subspecialties'));
     } 
 
     public function store(Request $request){
 
-        Doctor::create($request->name);
-        return redirect()->back();
+        if($request->file!=null)
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/articles')]);
+
+        $doctor=Doctor::create([
+            'name' =>$request->name,
+            'img' =>$request->img,
+        ]);
+        $request->merge(['doctor_id' => $doctor->id]);
+        DoctorInfo::create($request->only(['job_title','title','sub_title','breif','doctor_id']));
+        DoctorSpecialtie::create($request->only(['specialtie_id','doctor_id']));
+        foreach($request->sub_specialtie_ids as $sub_specialtie_id){
+            DoctorSubSpecialtie::create([
+                 'doctor_id'=>$doctor->id,
+                 'sub_specialtie_id'=>$sub_specialtie_id
+            ]);
+        }
+        return redirect()->route('Admin.doctors.index');
 
     }
 
@@ -75,6 +95,16 @@ class DoctorController extends Controller
 
     }
 
+    public function destroy(Request $request,$id){
+        $data = Doctor::find($request->id);
+        $data->delete();
+        return redirect()->route('Admin.doctors.index');
+    }
 
 
+    public function subSpecialtie($id){
+
+       
+        
+    }
 }

@@ -5,6 +5,10 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+
+<link rel="stylesheet" href="{{asset('dropify/dist/css/demo.css')}}">
+<link rel="stylesheet" href="{{asset('dropify/dist/css/dropify.min.css')}}">
+
 @endsection
 
 
@@ -32,6 +36,8 @@
                     <div class="row">
 
 
+                        <label for="input-file-max-fs">{{__('img')}}</label>
+                        <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
                       
 
                         <div class="form-group col-6">
@@ -87,7 +93,7 @@
                         <div class="form-group col-6">
                     
                             <label>{{ __('specialtie') }}</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" id="specialty" name="specialtie_id" aria-label="Default select example">
                                 @foreach ($specialties as $row)
                                       <option value="{{$row->id}}">{{$row->title}}</option>
                                 @endforeach
@@ -97,11 +103,11 @@
 
                         <div class="form-group col-6">
                             <label>  {{__('sub specialties')}} </label>    
-                                <select name="sub_specialtie_id[]" class="select2" multiple="multiple">
-                                    @foreach ($specialties as $row)
-                                    <option value="{{$row->id}}">{{$row->title}}</option>
-                              @endforeach
-                            </select>
+                                <select name="sub_specialtie_ids[]" id="subSpecialties" class="select2" multiple="multiple">
+                                    @foreach ($subspecialties as $row)
+                                        <option value="{{$row->id}}">{{$row->main_title}}</option>
+                                    @endforeach
+                                </select>
                         </div>
 
 
@@ -130,7 +136,6 @@
 
 @section('scripts')
 
-{{-- <link href="{{asset('select2/js/select2.js')}}">
 
 
 <script>
@@ -140,10 +145,77 @@
     });
     
   });
-</script>     --}}
-
+</script>    
+    {{-- <link href="{{asset('select2/js/select2.js')}}"> --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{asset('dropify/dist/js/dropify.min.js')}}"></script>
 
+<script>
+  $(document).ready(function(){
+      // Basic
+      $('.dropify').dropify();
+
+      // Translated
+      $('.dropify-fr').dropify({
+          messages: {
+              default: 'Glissez-déposez un fichier ici ou cliquez',
+              replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+              remove:  'Supprimer',
+              error:   'Désolé, le fichier trop volumineux'
+          }
+      });
+
+      // Used events
+      var drEvent = $('#input-file-events').dropify();
+
+      drEvent.on('dropify.beforeClear', function(event, element){
+          return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+      });
+
+      drEvent.on('dropify.afterClear', function(event, element){
+          alert('File deleted');
+      });
+
+      drEvent.on('dropify.errors', function(event, element){
+          console.log('Has Errors');
+      });
+
+      var drDestroy = $('#input-file-to-destroy').dropify();
+      drDestroy = drDestroy.data('dropify')
+      $('#toggleDropify').on('click', function(e){
+          e.preventDefault();
+          if (drDestroy.isDropified()) {
+              drDestroy.destroy();
+          } else {
+              drDestroy.init();
+          }
+      })
+  });
+</script>
+
+
+<script>
+    $('#specialty').change(function () {
+        var specialty_id = $("#specialty option:selected").val();
+        var SITEURL ={!!json_encode(url('/'))!!};
+        $.ajax({
+            url: SITEURL + "/Admin/ajax/subSpecialties/" + specialty_id,
+            type: "GET", //send it through get method
+            success: function (response) {
+
+                var option = '';
+                for (const item of response) {
+                    option += '<option value="' + item.id + '">' + item.main_title + '</obtion>';
+                }
+                $("#subSpecialties").html(option);
+
+            },
+            error: function (response) {
+                console.log('fdfd');
+            }
+        });
+    })
+</script>
 
 
 @endsection

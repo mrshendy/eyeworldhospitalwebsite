@@ -32,6 +32,19 @@
     </div>
 </div>
 
+
+<x-delete-modal>
+  <x-slot:route>
+      {{route('Admin.doctors.destroy',0)}}
+  </x-slot>
+  @method('DELETE')
+  <input type="hidden" id="delete_id" name="id" value="">
+  <h3 id="delete_name"></h3>
+
+</x-delete-modal>
+
+
+
 @endsection
 
 

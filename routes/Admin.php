@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
-    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController};
+    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController};
 
 
  Route::get('login' ,[AuthController::class, 'index'])->name('login.index');
@@ -89,7 +89,10 @@ Route::group(['middleware' => 'auth:admin'], function() {
 
     
 
-
+    // ajax
+    Route::group(['prefix' => 'ajax' , 'name'=>'ajax'], function() {
+        Route::get('subSpecialties/{id}' ,[AjaxController::class, 'subSpecialties'])->name('sup-specialtie');
+    });
 
   //  Route::get('articles' ,[ArticleController::class, 'index'])->name('articles.index');
 
