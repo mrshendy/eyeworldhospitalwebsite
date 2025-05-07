@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Doctor,Specialtie,SubSpecialtie,DoctorInfo,DoctorSpecialtie,DoctorSubSpecialtie};
+use App\Models\{Doctor,Specialtie,SubSpecialtie,DoctorInfo,DoctorSpecialtie,DoctorSubSpecialtie,InsurancePartner,DoctorInsurancePartner,DoctorServiceInfo};
 use DataTables;
 use Yajra\DataTables\Html\Builder;
 use Carbon\Carbon;
@@ -62,11 +62,12 @@ class DoctorController extends Controller
     public function create(){
          $specialties = Specialtie::get();
          $subspecialties = SubSpecialtie::where('specialtie_id',$specialties[0]->id)->get();
-         return view('Admin.doctors.create',compact('specialties','subspecialties'));
+         $InsurancePartners = InsurancePartner::get();
+         return view('Admin.doctors.create',compact('specialties','subspecialties','InsurancePartners'));
     } 
 
     public function store(Request $request){
-
+         
         if($request->file!=null)
         $request->merge(['img' => $this->MoveImage($request->file,'uploads/articles')]);
 
@@ -75,12 +76,33 @@ class DoctorController extends Controller
             'img' =>$request->img,
         ]);
         $request->merge(['doctor_id' => $doctor->id]);
-        DoctorInfo::create($request->only(['job_title','title','sub_title','breif','doctor_id']));
+
+
+        foreach (config('translatable.locales') as $locale){
+            DoctorInfo::create([
+                'doctor_id'=>$doctor->id,
+                $locale =>[
+                    'job_title' =>$request->$locale['job_title'],
+                    'title' =>$request->$locale['title'],
+                    'sub_title' =>$request->$locale['sub_title'],
+                    'breif' =>$request->$locale['breif'],
+                    'desc' =>$request->$locale['desc'],
+                ]
+            ]);
+        }
+       
         DoctorSpecialtie::create($request->only(['specialtie_id','doctor_id']));
         foreach($request->sub_specialtie_ids as $sub_specialtie_id){
             DoctorSubSpecialtie::create([
                  'doctor_id'=>$doctor->id,
                  'sub_specialtie_id'=>$sub_specialtie_id
+            ]);
+        }
+
+        foreach($request->partner_ids as $partner_id){
+            DoctorInsurancePartner::create([
+                 'doctor_id'=>$doctor->id,
+                 'partner_id'=>$partner_id
             ]);
         }
         return redirect()->route('Admin.doctors.index');

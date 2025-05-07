@@ -46,45 +46,52 @@
                             <input class="form-control" name="name"   value="{{old('name')}}" type="text" required>
                         
                         </div>   
+                        <div class="col-6">
+                        </div>
+
+                           @foreach (config('translatable.locales') as $locale)
+                            <div class="col-6">
+                                <div>
+                                 
+
+                                    <label>{{ __('system.'.$locale.'.job_title') }}</label>
+                                    <input class="form-control" name="{{$locale}}[job_title]"   value="{{old('job_title')}}" type="text" required>
+
+
+                                    <label>{{ __('system.'.$locale.'.title') }}</label>
+                                    <input class="form-control" name="{{$locale}}[title]"   value="{{old('title')}}" type="text" required>
+
+                                    <label>{{ __('system.'.$locale.'.subtitle') }}</label>
+                                    <input class="form-control" name="{{$locale}}[sub_title]"   value="{{old('sub_title')}}" type="text" required>
+
+                                    <label>{{ __('system.'.$locale.'.breif') }}</label>
+                                    <textarea class="form-control" name="{{$locale}}[breif]"  row="3"  value="" type="text" required>{{old('job_title')}} </textarea>
+
+                                    <label>{{ __('system.'.$locale.'.desc') }}</label>
+                                    <textarea class="form-control" name="{{$locale}}[desc]"  row="3"  value="" type="text" required>{{old('desc')}} </textarea>
+                            
+                                 
+                                </div>
+                            </div>
+                            @endforeach
+
+                  
+
+
+             
 
 
                         <div class="form-group col-6">
                     
-                            <label>{{ __('job title') }}</label>
-                            <input class="form-control" name="job_title"   value="{{old('job_title')}}" type="text" required>
+                          
                         
                         </div>   
 
 
-                        <div class="form-group col-6">
-                    
-                            <label>{{ __('title') }}</label>
-                            <input class="form-control" name="title"   value="{{old('title')}}" type="text" required>
-                        
-                        </div>   
-
-
-                        <div class="form-group col-6">
-                    
-                            <label>{{ __('sub title') }}</label>
-                            <input class="form-control" name="sub title"   value="{{old('sub_title')}}" type="text" required>
-                        
-                        </div>   
-
-
-                        <div class="form-group col-6">
-                    
-                            <label>{{ __('breif') }}</label>
-                            <textarea class="form-control" name="breif"  row="3"  value="" type="text" required>{{old('job_title')}} </textarea>
-                        
-                        </div>   
-
-
                         
                         <div class="form-group col-6">
                     
-                            <label>{{ __('desc') }}</label>
-                            <textarea class="form-control" name="breif"  row="3"  value="" type="text" required>{{old('desc')}} </textarea>
+                       
                         
                         </div>   
 
@@ -110,6 +117,52 @@
                                 </select>
                         </div>
 
+
+                        <div class="form-group col-6">
+                            <label>  {{__('Insurance partners')}} </label>    
+                                <select name="partner_ids[]"  class="select2" multiple="multiple">
+                                    @foreach ($InsurancePartners  as $row)
+                                        <option value="{{$row->id}}">{{$row->title}}</option>
+                                    @endforeach
+                                </select>
+                        </div>
+
+                        <div class="form-group col-6">
+
+                        </div>
+
+
+                        <div class="row col-12 mt-2">
+                            <div class="row  col-12" id="info_div">
+
+
+
+                                <label>{{ __('doctor service info') }}</label>
+                                @foreach (config('translatable.locales') as $locale)
+                                    <div class="form-group col-4" >
+                        
+                                        <label>{{ __('system.'.$locale.'.info') }}</label>
+                                        <textarea class="form-control" name="{{$locale}}[info][]"  row="2"  value="" type="text" required>{{old('desc')}} </textarea>
+                    
+                                    </div>   
+                                @endforeach
+                            
+                            </div>
+                          
+
+                            <div class="col-lg-3 col-md-12 " style="display: flex; align-items: flex-end;">
+                                <button class="btn" id="add_info">
+                                  +  @lang('add other')
+                                </button>
+                            </div>
+
+                        </div>
+
+
+                                  
+
+
+                       
 
 
 
@@ -146,6 +199,8 @@
     
   });
 </script>    
+
+  
     {{-- <link href="{{asset('select2/js/select2.js')}}"> --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{asset('dropify/dist/js/dropify.min.js')}}"></script>
@@ -216,6 +271,55 @@
         });
     })
 </script>
+
+
+{{-- add info script --}}
+
+<script>
+
+let inputcount = 1;
+$('#add_info').click(function(){
+    inputcount += 1;
+    $('#info_div').append(`
+
+   <div class="row" id="info${inputcount}">
+        <div class="form-group col-4 m-2">
+                    
+            <textarea class="form-control" name="ar[info][]"  row="2"  value="" type="text" required>{{old('desc')}} </textarea>
+
+        </div>   
+
+        <div class="form-group col-4 m-2" >
+
+            <textarea class="form-control" name="en[info][]"  row="2"  value="" type="text" required>{{old('desc')}} </textarea>
+
+        </div>   
+
+      <div class="col-3 mt-4">
+            <div class="InputWithlabel">
+                <i class="ri-delete-bin-5-line delete_info" data-id="${inputcount}"></i>
+
+            </div>
+     </div>
+
+    </div> 
+
+`);
+});
+
+$(document).on('click', '.delete_info', function () {
+
+    var index = $(this).attr("data-id");
+    // alert(index);
+    $('#info' + index).remove();
+    //  inputcount-=1;
+
+});
+
+</script>
+
+
+
 
 
 @endsection

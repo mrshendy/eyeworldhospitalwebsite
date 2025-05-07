@@ -26,6 +26,10 @@ return [
     'detail_title'    => 'Detailed Title in Arabic', // (Duplicate key, consider removing one)
     'detail_subtitle' => 'Detailed Subtitle in Arabic',
     'desc'            => 'Description in Arabic',
+    'job_title'       => 'job title on arabic',
+    'breif'           => 'breif on Arabic',
+    'info'           => 'info on Arabic',
+
 
     ],
 
@@ -40,6 +44,9 @@ return [
         'detail_title'    => 'Detailed Title in English', // (Duplicate key, consider removing one)
         'detail_subtitle' => 'Detailed Subtitle in English',
         'desc'            => 'Description in English',
+        'job_title'       => 'job title on English',
+        'breif'           => 'breif on English',
+        'info'           => 'info on English',
 
     ],
 
