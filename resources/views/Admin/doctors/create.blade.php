@@ -42,8 +42,7 @@
 
                         <div class="form-group col-6">
                     
-                            <label>{{ __('name') }}</label>
-                            <input class="form-control" name="name"   value="{{old('name')}}" type="text" required>
+                           
                         
                         </div>   
                         <div class="col-6">
@@ -52,7 +51,9 @@
                            @foreach (config('translatable.locales') as $locale)
                             <div class="col-6">
                                 <div>
-                                 
+
+                                    <label>{{ __('system.'.$locale.'.name') }}</label>
+                                    <input class="form-control" name="{{$locale}}[name]"   value="{{old('name')}}" type="text" required>
 
                                     <label>{{ __('system.'.$locale.'.job_title') }}</label>
                                     <input class="form-control" name="{{$locale}}[job_title]"   value="{{old('job_title')}}" type="text" required>
@@ -71,6 +72,8 @@
                                     <textarea class="form-control" name="{{$locale}}[desc]"  row="3"  value="" type="text" required>{{old('desc')}} </textarea>
                             
                                  
+                                    <label>{{ __('system.'.$locale.'.desc') }}</label>
+                                    <textarea class="form-control" name="{{$locale}}[sasasa]"  row="3"  value="" type="text" required>{{old('desc')}} </textarea>
                                 </div>
                             </div>
                             @endforeach
@@ -142,7 +145,7 @@
                                     <div class="form-group col-4" >
                         
                                         <label>{{ __('system.'.$locale.'.info') }}</label>
-                                        <textarea class="form-control" name="{{$locale}}[info][]"  row="2"  value="" type="text" required>{{old('desc')}} </textarea>
+                                        <textarea class="form-control" name="info[0][{{$locale}}]"  row="2"  value="" type="text" required></textarea>
                     
                                     </div>   
                                 @endforeach
@@ -151,8 +154,8 @@
                           
 
                             <div class="col-lg-3 col-md-12 " style="display: flex; align-items: flex-end;">
-                                <button class="btn" id="add_info">
-                                  +  @lang('add other')
+                                <button type="button" class="btn" id="add_info">
+                                    +  @lang('add other')
                                 </button>
                             </div>
 
@@ -277,7 +280,7 @@
 
 <script>
 
-let inputcount = 1;
+let inputcount = 0;
 $('#add_info').click(function(){
     inputcount += 1;
     $('#info_div').append(`
@@ -285,13 +288,13 @@ $('#add_info').click(function(){
    <div class="row" id="info${inputcount}">
         <div class="form-group col-4 m-2">
                     
-            <textarea class="form-control" name="ar[info][]"  row="2"  value="" type="text" required>{{old('desc')}} </textarea>
+            <textarea class="form-control" name="info[${inputcount}][ar]"  row="2"  value="" type="text" required> </textarea>
 
         </div>   
 
         <div class="form-group col-4 m-2" >
 
-            <textarea class="form-control" name="en[info][]"  row="2"  value="" type="text" required>{{old('desc')}} </textarea>
+            <textarea class="form-control" name="info[${inputcount}][en]"  row="2"  value="" type="text" required> </textarea>
 
         </div>   
 
@@ -303,8 +306,7 @@ $('#add_info').click(function(){
      </div>
 
     </div> 
-
-`);
+  `);
 });
 
 $(document).on('click', '.delete_info', function () {

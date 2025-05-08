@@ -13,6 +13,6 @@ class DoctorInfo extends Model implements TranslatableContract
      use Translatable;
     protected $guarded=[];
     protected $hidden = ['translations'];
-    public $translatedAttributes = ['job_title','title','sub_title','breif','desc'];
+    public $translatedAttributes = ['job_title','title','sub_title','breif','desc','name'];
     protected $translationForeignKey = 'info_id';
 }

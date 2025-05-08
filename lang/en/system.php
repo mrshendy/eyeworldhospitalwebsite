@@ -29,7 +29,7 @@ return [
     'job_title'       => 'job title on arabic',
     'breif'           => 'breif on Arabic',
     'info'           => 'info on Arabic',
-
+    'name'           => 'name on Arabic'
 
     ],
 
@@ -47,6 +47,7 @@ return [
         'job_title'       => 'job title on English',
         'breif'           => 'breif on English',
         'info'           => 'info on English',
+        'name'           => 'name on English'
 
     ],
 

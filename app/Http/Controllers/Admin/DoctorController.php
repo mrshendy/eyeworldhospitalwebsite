@@ -23,7 +23,11 @@ class DoctorController extends Controller
             ->filter(function ($query) use ($request) {
                 if ($request->has('search') && !empty($request->input('search')['value'])) {
                     $search = $request->input('search')['value'];
-                    $query->where('name', 'LIKE', "%{$search}%");
+                    $query->whereHas('info',function ($q) use ($search) {
+                        $q->whereHas('translation',function ($q) use ($search) {
+                            $q->where('title', 'LIKE', "%{$search}%");
+                        });
+                    });
                 }
             })
             ->editColumn('created_at', function ($row) {
@@ -31,6 +35,9 @@ class DoctorController extends Controller
             })
             ->addColumn('job_title', function ($row) {
                 return $row->info?->job_title; 
+            })
+            ->addColumn('name', function ($row) {
+                return $row->info?->name; 
             })
             ->addColumn('actions', function ($row) {
                 $data="";
@@ -67,28 +74,40 @@ class DoctorController extends Controller
     } 
 
     public function store(Request $request){
-         
+
         if($request->file!=null)
         $request->merge(['img' => $this->MoveImage($request->file,'uploads/articles')]);
 
         $doctor=Doctor::create([
-            'name' =>$request->name,
             'img' =>$request->img,
         ]);
         $request->merge(['doctor_id' => $doctor->id]);
-
-
+      
+        $infodata=[];  $serviceInfo=[]; $serviceInfos=[];
+        $infodata['doctor_id'] = $doctor->id;
+        $serviceInfo['doctor_id'] = $doctor->id;
         foreach (config('translatable.locales') as $locale){
-            DoctorInfo::create([
-                'doctor_id'=>$doctor->id,
-                $locale =>[
-                    'job_title' =>$request->$locale['job_title'],
-                    'title' =>$request->$locale['title'],
-                    'sub_title' =>$request->$locale['sub_title'],
-                    'breif' =>$request->$locale['breif'],
-                    'desc' =>$request->$locale['desc'],
-                ]
-            ]);
+            $infodata[$locale]=[
+                'name'     =>$request->$locale['name'],
+                'job_title' =>$request->$locale['job_title'],
+                'title' =>$request->$locale['title'],
+                'sub_title' =>$request->$locale['sub_title'],
+                'breif' =>$request->$locale['breif'],
+                'desc' =>$request->$locale['desc'],
+            ];
+        }
+        foreach($request->info as $info){
+            foreach (config('translatable.locales') as $locale){
+                $serviceInfo[$locale]=[
+                    'info' =>$info[$locale]
+                ];
+            }
+            $serviceInfos[]=$serviceInfo;
+        }
+        DoctorInfo::create($infodata);
+        foreach($serviceInfos as $info){
+            DoctorServiceInfo::create($info);
+
         }
        
         DoctorSpecialtie::create($request->only(['specialtie_id','doctor_id']));
@@ -98,18 +117,34 @@ class DoctorController extends Controller
                  'sub_specialtie_id'=>$sub_specialtie_id
             ]);
         }
-
-        foreach($request->partner_ids as $partner_id){
-            DoctorInsurancePartner::create([
-                 'doctor_id'=>$doctor->id,
-                 'partner_id'=>$partner_id
-            ]);
+      
+        if($request->partner_ids!=null){
+            foreach($request->partner_ids as $partner_id){
+                DoctorInsurancePartner::create([
+                     'doctor_id'=>$doctor->id,
+                     'partner_id'=>$partner_id
+                ]);
+            }
         }
+     
         return redirect()->route('Admin.doctors.index');
 
     }
 
     public function show($id){
+
+    }
+
+
+    public function edit(Doctor $doctor){
+
+        $doctor->load(['info','serviceinfo','partners','specialties','subspecialties']);
+
+        $data = DoctorInfo::where('doctor_id',$doctor->id)->first();
+        $specialties = Specialtie::get();
+        $subspecialties = SubSpecialtie::where('specialtie_id',$specialties[0]->id)->get();
+        $InsurancePartners = InsurancePartner::get();
+        return view('Admin.doctors.edit',compact('doctor','specialties','subspecialties','InsurancePartners','data'));
 
     }
 

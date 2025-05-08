@@ -14,6 +14,24 @@ class Doctor extends Model
         return $this->hasOne(DoctorInfo::class);
     }
 
+    public function serviceinfo(){
+        return $this->hasOne(DoctorServiceInfo::class);
+    }
+   
+    public function partners(){
+        return $this->hasOne(DoctorInsurancePartner::class);
+    }
+
+    public function specialties(){
+        return $this->hasOne(DoctorSpecialtie::class);
+    }
+
+
+    public function subspecialties(){
+        return $this->hasOne(DoctorSubSpecialtie::class);
+    }
+
+
     protected function img(): Attribute
     {
         return Attribute::make(
