@@ -76,7 +76,7 @@ class DoctorController extends Controller
     public function store(Request $request){
 
         if($request->file!=null)
-        $request->merge(['img' => $this->MoveImage($request->file,'uploads/articles')]);
+        $request->merge(['img' => $this->MoveImage($request->file,'uploads/doctors')]);
 
         $doctor=Doctor::create([
             'img' =>$request->img,
@@ -138,7 +138,7 @@ class DoctorController extends Controller
 
     public function edit(Doctor $doctor){
 
-        $doctor->load(['info','serviceinfo','partners','specialties','subspecialties']);
+        $doctor->load(['info','serviceinfo','partners','specialty','subspecialties']);
 
         $data = DoctorInfo::where('doctor_id',$doctor->id)->first();
         $specialties = Specialtie::get();
@@ -148,7 +148,86 @@ class DoctorController extends Controller
 
     }
 
-    public function update(Request $request,$id){
+    public function update(Request $request,Doctor $doctor){
+
+        if($request->file!=null){
+            $request->merge(['img' => $this->MoveImage($request->file,'uploads/doctors')]);
+            $doctor->img = $request->img();
+        }
+
+        $doctor->save();
+        $infodata=[];  $serviceInfo=[]; $serviceInfos=[];
+
+        // update doctor info
+        $infodata['doctor_id'] = $doctor->id;
+        $serviceInfo['doctor_id'] = $doctor->id;
+        foreach (config('translatable.locales') as $locale){
+            $infodata[$locale]=[
+                'name'     =>$request->$locale['name'],
+                'job_title' =>$request->$locale['job_title'],
+                'title' =>$request->$locale['title'],
+                'sub_title' =>$request->$locale['sub_title'],
+                'breif' =>$request->$locale['breif'],
+                'desc' =>$request->$locale['desc'],
+            ];
+        }
+        $doctorinfo = DoctorInfo::where('doctor_id',$doctor->id)->first();
+        $doctorinfo->update($infodata);
+
+        
+        // update doctor service info 
+        DoctorServiceInfo::where('doctor_id',$doctor->id)->delete();
+        foreach($request->info as $info){
+            foreach (config('translatable.locales') as $locale){
+                $serviceInfo[$locale]=[
+                    'info' =>$info[$locale]
+                ];
+            }
+            $serviceInfos[]=$serviceInfo;
+        }
+        foreach($serviceInfos as $info){
+            DoctorServiceInfo::create($info);
+        }
+
+        $partners_ids = DoctorInsurancePartner::select('partner_id')->where('doctor_id',$doctor->id)->pluck('partner_id');
+        $request_partner_ids = collect($request->partner_ids);
+
+        // i use collection teqnie decause i wan't delete existing partern and add it again
+        // add new partner
+            $new_partners =  $request_partner_ids->diff($partners_ids);
+            foreach($new_partners as $partner_id){
+                DoctorInsurancePartner::create([
+                    'doctor_id'=>$doctor->id,
+                    'partner_id'=>$partner_id
+            ]);
+            }
+        // delete un existing partner
+            $deleteing_partner =  $partners_ids->diff($request_partner_ids);
+
+            foreach($deleteing_partner as $partner_id){
+                DoctorInsurancePartner::where([
+                    'doctor_id'=>$doctor->id,
+                    'partner_id'=>$partner_id
+            ])->delete();
+            }
+
+        // update specialtie    
+        DoctorSpecialtie::where('doctor_id',$doctor->id)->update([
+            'specialtie_id' =>$request->specialtie_id
+        ]);
+
+
+        DoctorSubSpecialtie::where('doctor_id',$doctor->id)->delete();
+
+        foreach($request->sub_specialtie_ids as $sub_specialtie_id){
+            DoctorSubSpecialtie::create([
+                 'doctor_id'=>$doctor->id,
+                 'sub_specialtie_id'=>$sub_specialtie_id
+            ]);
+        }
+        
+
+        return redirect()->back();
 
     }
 

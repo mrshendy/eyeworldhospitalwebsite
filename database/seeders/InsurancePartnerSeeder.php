@@ -42,21 +42,21 @@ class InsurancePartnerSeeder extends Seeder
 
             InsurancePartner::create([
                 'ar' =>[
-                    'title'=>'first partner'
+                    'title'=>'seconde partner'
                 ],
 
                 'en' =>[
-                   'title'=>'first partner'
+                   'title'=>'seconde partner'
                 ],
             ]);
 
             InsurancePartner::create([
                 'ar' =>[
-                    'title'=>'first partner'
+                    'title'=>'third partner'
                 ],
 
                 'en' =>[
-                   'title'=>'first partner'
+                   'title'=>'third partner'
                 ],
             ]);
     }

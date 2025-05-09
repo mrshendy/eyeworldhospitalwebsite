@@ -32,7 +32,7 @@
 
                 <form method="post" action="{{route('Admin.doctors.update',$doctor->id)}}" enctype="multipart/form-data">
                     @csrf
-
+                    @method('put')
                     <div class="row">
 
 
@@ -40,18 +40,14 @@
                         <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
                       
 
-                        <div class="form-group col-6">
-                    
-                            <label>{{ __('name') }}</label>
-                            <input class="form-control" name="name"   value="{{old('name')}}" type="text" required>
-                        
-                        </div>   
-                        <div class="col-6">
-                        </div>
+                     
 
                            @foreach (config('translatable.locales') as $locale)
                             <div class="col-6">
                                 <div>
+
+                                    <label>{{ __('system.'.$locale.'.name') }}</label>
+                                    <input class="form-control" name="{{$locale}}[name]"   value="{{ isset($doctor) ? $doctor->info->translateOrNew($locale)->name : old($locale . '.name')  }}" type="text" required>
                                  
 
                                     <label>{{ __('system.'.$locale.'.job_title') }}</label>
@@ -112,7 +108,10 @@
                             <label>  {{__('sub specialties')}} </label>    
                                 <select name="sub_specialtie_ids[]" id="subSpecialties" class="select2" multiple="multiple">
                                     @foreach ($subspecialties as $row)
-                                        <option value="{{$row->id}}">{{$row->main_title}}</option>
+                                        <option value="{{$row->id}}"
+                                            @if($doctor->specialty->id == $row->id) selected @endif
+                                            
+                                            >{{$row->main_title}}</option>
                                     @endforeach
                                 </select>
                         </div>
@@ -122,7 +121,12 @@
                             <label>  {{__('Insurance partners')}} </label>    
                                 <select name="partner_ids[]"  class="select2" multiple="multiple">
                                     @foreach ($InsurancePartners  as $row)
-                                        <option value="{{$row->id}}">{{$row->title}}</option>
+                                        <option value="{{$row->id}}" 
+                                            @foreach ($doctor->partners as $partner)
+                                              @if($partner->id == $row->id) selected @endif
+                                            @endforeach
+                                             
+                                             >{{$row->title}}</option>
                                     @endforeach
                                 </select>
                         </div>
@@ -138,17 +142,24 @@
 
 
                                 <label>{{ __('doctor service info') }}</label>
-                                @foreach (config('translatable.locales') as $locale)
-                                    <div class="form-group col-4" >
-                        
-                                        <label>{{ __('system.'.$locale.'.info') }}</label>
-                                        <textarea class="form-control" name="{{$locale}}[info][]"  row="2"  value="" type="text" required></textarea>
-                    
-                                    </div>   
-                                @endforeach
-                            
+                                  @foreach ($doctor->serviceinfo as $key=>$info)
+                                   @foreach (config('translatable.locales') as $locale)
+                                        <div class="form-group col-5" >
+                                            <label>{{ __('system.'.$locale.'.info') }}</label>
+                                            <textarea class="form-control" name="info[{{$key}}][{{$locale}}]"   row="2"   type="text" required>{{$doctor->serviceinfo[0]->translateOrNew($locale)->info}}</textarea>
+                                        </div>   
+                                       
+                                        
+                                    @endforeach
+                                  @endforeach
+                               
+                                 
+                              
+                          
                             </div>
                           
+
+
 
                             <div class="col-lg-3 col-md-12 " style="display: flex; align-items: flex-end;">
                                 <button type="button" class="btn" id="add_info">
@@ -159,23 +170,8 @@
                         </div>
 
 
-                                  
-
-
-                       
-
-
-
-
                     </div>    
-
-                 
-
-                    <button type="submit" class="btn  mt-2" style="background-color: #267B26 ; color:white">{{__('system.add')}}</button>  
-
-
-
-
+                    <button type="submit" class="btn  mt-2" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>  
 
                 </form>    
 
@@ -277,25 +273,25 @@
 
 <script>
 
-let inputcount = 1;
+let inputcount = {!!json_encode($doctor->serviceinfo->count())!!};
 $('#add_info').click(function(){
     inputcount += 1;
     $('#info_div').append(`
 
    <div class="row" id="info${inputcount}">
-        <div class="form-group col-4 m-2">
+        <div class="form-group col-5 mt-2">
                     
-            <textarea class="form-control" name="ar[info][]"  row="2"  value="" type="text" required> </textarea>
+            <textarea class="form-control" name="info[${inputcount}][ar]"  row="2"  value="" type="text" required> </textarea>
 
         </div>   
 
-        <div class="form-group col-4 m-2" >
+        <div class="form-group col-5 mt-2" >
 
-            <textarea class="form-control" name="en[info][]"  row="2"  value="" type="text" required> </textarea>
+            <textarea class="form-control" name="info[${inputcount}][en]"  row="2"  value="" type="text" required> </textarea>
 
         </div>   
 
-      <div class="col-3 mt-4">
+      <div class="col-2 mt-4">
             <div class="InputWithlabel">
                 <i class="ri-delete-bin-5-line delete_info" data-id="${inputcount}"></i>
 

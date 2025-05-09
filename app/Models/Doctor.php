@@ -15,20 +15,20 @@ class Doctor extends Model
     }
 
     public function serviceinfo(){
-        return $this->hasOne(DoctorServiceInfo::class);
+        return $this->hasMany(DoctorServiceInfo::class);
     }
    
     public function partners(){
-        return $this->hasOne(DoctorInsurancePartner::class);
+        return $this->hasMany(DoctorInsurancePartner::class);
     }
 
-    public function specialties(){
+    public function specialty(){
         return $this->hasOne(DoctorSpecialtie::class);
     }
 
 
     public function subspecialties(){
-        return $this->hasOne(DoctorSubSpecialtie::class);
+        return $this->hasMany(DoctorSubSpecialtie::class);
     }
 
 
