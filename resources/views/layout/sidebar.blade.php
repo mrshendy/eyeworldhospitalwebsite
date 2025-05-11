@@ -44,12 +44,43 @@
             </li>
 
 
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a href="{{route('Admin.doctors.index')}}" class="menu-link">
                 <i class="ri-nurse-line"></i>
                    <div>{{__('doctors')}}</div>
               </a>
-            </li>
+            </li> --}}
+
+                
+
+
+              <li class="menu-item   @if (Route::currentRouteName()=='Admin.doctors'
+                  || Route::currentRouteName() =='Admin.doctors.index' || Route::currentRouteName() =='Admin.doctors.create' || Route::currentRouteName()=='Admin.doctors.show'  || Route::currentRouteName()=='Admin.team-info-detail'
+                )
+                     open
+                @endif ">
+                   <a href="{{route('Admin.doctors.index')}}" class="menu-link menu-toggle">
+                    <i class="ri-nurse-line"></i>
+                      <div>{{__('doctors')}}</div>
+                  </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.team-info-detail')}}" class="menu-link">
+                        <div>{{__('details')}}</div>
+                      </a>
+                    </li>
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.doctors.index')}}" class="menu-link">
+                        <div>{{__('doctors')}}</div>
+                      </a>
+                    </li>           
+                  </ul>
+                </li>
+
+
+
 
 
 

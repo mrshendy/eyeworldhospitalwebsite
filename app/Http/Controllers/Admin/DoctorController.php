@@ -138,7 +138,7 @@ class DoctorController extends Controller
 
     public function edit(Doctor $doctor){
 
-        $doctor->load(['info','serviceinfo','partners','specialty','subspecialties']);
+        $doctor->load(['info','serviceinfo','partners','specialtie','subspecialties']);
 
         $data = DoctorInfo::where('doctor_id',$doctor->id)->first();
         $specialties = Specialtie::get();

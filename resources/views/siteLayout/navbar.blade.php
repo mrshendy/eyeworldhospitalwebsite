@@ -38,7 +38,7 @@
 							<a href="#">{{__('teams')}}</a>
 								<ul class="sub-menu list-unstyled">
 									@foreach (\App\Models\Specialtie::get() as $row)
-										<li><a href="{{route('Site.specialtie',$row->id)}}">{{$row->title}}</a></li>
+										<li><a href="{{route('Site.teams.index',$row->id)}}">{{$row->title}}</a></li>
 									@endforeach
 								</ul>
 							</li>

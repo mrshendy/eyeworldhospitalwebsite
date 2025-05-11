@@ -22,7 +22,7 @@ class Doctor extends Model
         return $this->hasMany(DoctorInsurancePartner::class);
     }
 
-    public function specialty(){
+    public function specialtie(){
         return $this->hasOne(DoctorSpecialtie::class);
     }
 

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
-    RateController,VideoController,PartnerController,RightController};
+    RateController,VideoController,PartnerController,RightController,TeamController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -30,6 +30,8 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
     Route::get('partners' ,[PartnerController::class, 'index'])->name('partners.index');
     Route::get('rights' ,[RightController::class, 'index'])->name('rights.index');
+    Route::get('teams/{specialty_id}' ,[TeamController::class, 'index'])->name('teams.index');
+
 
 
 });

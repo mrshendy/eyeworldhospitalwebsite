@@ -109,7 +109,7 @@
                                 <select name="sub_specialtie_ids[]" id="subSpecialties" class="select2" multiple="multiple">
                                     @foreach ($subspecialties as $row)
                                         <option value="{{$row->id}}"
-                                            @if($doctor->specialty->id == $row->id) selected @endif
+                                            @if($doctor->specialtie->id == $row->id) selected @endif
                                             
                                             >{{$row->main_title}}</option>
                                     @endforeach
