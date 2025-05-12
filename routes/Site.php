@@ -31,6 +31,7 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('partners' ,[PartnerController::class, 'index'])->name('partners.index');
     Route::get('rights' ,[RightController::class, 'index'])->name('rights.index');
     Route::get('teams/{specialty_id}' ,[TeamController::class, 'index'])->name('teams.index');
+    Route::get('profile/{doctor_id}/{specialtie_id}' ,[TeamController::class, 'profile'])->name('teams.profile');
 
 
 

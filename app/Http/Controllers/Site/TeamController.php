@@ -17,6 +17,12 @@ class TeamController extends Controller
         $doctors = Doctor::whereHas('specialtie',function($q)use($id){
             $q->where('specialtie_id',$id);
         })->get();
-        return view('Site.teams.index',compact('info','Specialties','Specialtie','doctors'));
+        return view('Site.teams.index',compact('info','Specialties','Specialtie','doctors','id'));
+    }
+
+    public function profile($doctor_id, $specialtie_id){
+        $Specialtie = Specialtie::find($specialtie_id);
+        $doctor = Doctor::with(['info','partners','subspecialties','partners','serviceinfo'])->find($doctor_id);
+        return view('Site.teams.profile',compact('doctor','Specialtie'));
     }
 }

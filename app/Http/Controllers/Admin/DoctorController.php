@@ -111,12 +111,15 @@ class DoctorController extends Controller
         }
        
         DoctorSpecialtie::create($request->only(['specialtie_id','doctor_id']));
-        foreach($request->sub_specialtie_ids as $sub_specialtie_id){
-            DoctorSubSpecialtie::create([
-                 'doctor_id'=>$doctor->id,
-                 'sub_specialtie_id'=>$sub_specialtie_id
-            ]);
+        if($request->sub_specialtie_ids!=null){
+            foreach($request->sub_specialtie_ids as $sub_specialtie_id){
+                DoctorSubSpecialtie::create([
+                    'doctor_id'=>$doctor->id,
+                    'sub_specialtie_id'=>$sub_specialtie_id
+                ]);
+            }
         }
+        
       
         if($request->partner_ids!=null){
             foreach($request->partner_ids as $partner_id){
@@ -218,13 +221,16 @@ class DoctorController extends Controller
 
 
         DoctorSubSpecialtie::where('doctor_id',$doctor->id)->delete();
-
-        foreach($request->sub_specialtie_ids as $sub_specialtie_id){
-            DoctorSubSpecialtie::create([
-                 'doctor_id'=>$doctor->id,
-                 'sub_specialtie_id'=>$sub_specialtie_id
-            ]);
+        
+        if($request->sub_specialtie_ids!=null){
+            foreach($request->sub_specialtie_ids as $sub_specialtie_id){
+                DoctorSubSpecialtie::create([
+                    'doctor_id'=>$doctor->id,
+                    'sub_specialtie_id'=>$sub_specialtie_id
+                ]);
+            }
         }
+      
         
 
         return redirect()->back();

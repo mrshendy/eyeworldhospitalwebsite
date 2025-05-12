@@ -35,7 +35,7 @@ class Doctor extends Model
     protected function img(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => asset('uploads/articles/' . $value)
+            get: fn (?string $value) => asset('uploads/doctors/' . $value)
         );
     }
 }

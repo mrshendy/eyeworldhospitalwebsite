@@ -8,4 +8,8 @@ class DoctorInsurancePartner extends Model
 {
     //
     protected $guarded=[];
+
+    public function partner(){
+        return $this->belongsTo(InsurancePartner::class,'partner_id');
+    }
 }
