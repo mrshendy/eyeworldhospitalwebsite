@@ -77,7 +77,7 @@
 
     "Dermatology": "الجلدية",
     "Achieve healthy and radiant skin with specialized dermatologists. We provide the latest treatments for acne, pigmentation, hair loss, and skin diseases, using advanced techniques to ensure the best results for your skin.": "استعد لبشرة صحية ومشرقة مع أطباء الجلدية المتخصصين، حيث نقدم أحدث العلاجات لحب الشباب، التصبغات، تساقط الشعر، والأمراض الجلدية، مع تقنيات متطورة لضمان أفضل النتائج لبشرتك.",
-    
+
     "Dentistry": "الأسنان",
     "A healthy smile starts with strong teeth! We offer all dental care services, from cleaning and whitening to implants and orthodontics, ensuring optimal oral health and a long-lasting bright smile.": "ابتسامة صحية تبدأ بأسنان قوية! نوفر لك جميع خدمات العناية بالأسنان، من التنظيف والتبييض إلى الزراعة والتقويم، لضمان صحة فموية مثالية وابتسامة مشرقة تدوم طويلاً.",
 
@@ -173,5 +173,9 @@
     "your request sent seccessfuly":"تم ارسال طلبك بنجاح",
     "Social Media":"التواصل الاجتماعي",
     "All rights reserved to Dunya Al Oyoun":"جميع حقوق النشر محفوظة لدي دنيا العيون",
-    "send":"ارسال"
+    "send":"ارسال",
+    "medical_devices": "الاجهزه الطبيه",
+    "description": "الوصف",
+    "Choose Specialty" : "اختر التخصص",
+    "Specialty" : "التخصص"
 }

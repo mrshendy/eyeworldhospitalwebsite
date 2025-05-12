@@ -15,7 +15,7 @@ class SpecialtieController extends Controller
     //
     use fileTrait;
     public function index(Request $request,Builder $builder){
-           
+
         if (request()->ajax()) {
             return DataTables::of(Specialtie::query())
             ->filter(function ($query) use ($request) {
@@ -31,7 +31,7 @@ class SpecialtieController extends Controller
                     foreach(config('translatable.locales') as $locale){
                         $data.='data-title-'.$locale.' ="'.$row->translate($locale)?->title.'"';
                     }
-            
+
                 return '
                     <a href="#" class="edit_btn" data-bs-toggle="modal" data-bs-target="#editModal"  data-id="'.$row->id.'" '.$data.'">   <i class="ri-edit-line"></i> </a>
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
@@ -41,7 +41,7 @@ class SpecialtieController extends Controller
             })
             ->rawColumns(['actions'])
             ->editColumn('created_at', function ($row) {
-                return Carbon::parse($row->created_at)->format('d-m-Y'); 
+                return Carbon::parse($row->created_at)->format('d-m-Y');
             })
             ->toJson();
         }
@@ -67,15 +67,15 @@ class SpecialtieController extends Controller
     }
 
     public function update(Request $request,$id){
-        
+
         if($request->file!=null)
         $request->merge(['img' => $this->MoveImage($request->file,'uploads/specialtie')]);
-        
+
         $Specialtie =  Specialtie::find($request->id);
-        
+
         $Specialtie->update($request->except(['id','_token','_method','file']));
         return redirect()->back();
-    } 
+    }
 
 
     public function destroy(Request $request,$id){
@@ -105,7 +105,7 @@ class SpecialtieController extends Controller
                             data-main_subtitle-'.$locale.' ="'.$row->translate($locale)?->main_subtitle.'"
                             ';
                 }
-            
+
                 return '
                     <a href="#" class="edit_btn" data-bs-toggle="modal" data-bs-target="#editModal"  data-id="'.$row->id.'" '.$data.'">    <i class="ri-edit-line"></i> </a>
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
@@ -116,7 +116,7 @@ class SpecialtieController extends Controller
             })
             ->rawColumns(['actions'])
             ->editColumn('created_at', function ($row) {
-                return Carbon::parse($row->created_at)->format('d-m-Y'); 
+                return Carbon::parse($row->created_at)->format('d-m-Y');
             })
             ->toJson();
         }

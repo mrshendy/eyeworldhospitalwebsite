@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     'id'          =>'id',
@@ -9,8 +9,8 @@ return [
     'Add_quetion'=> 'اضافه سؤال',
     'edit'       => 'edit',
     'delete'     => 'delete',
-    'close'      => 'close', 
-    'sure'       => 'sure',   
+    'close'      => 'close',
+    'sure'       => 'sure',
     'ar' => [
     'quetion'  => 'The question in Arabic',
     'answer'  => 'The answer in Arabic',
@@ -27,6 +27,9 @@ return [
     'detail_subtitle' => 'Detailed Subtitle in Arabic',
     'desc'            => 'Description in Arabic',
 
+    "medical_devices" => "Medical Devices",
+
+
     ],
 
     'en' => [
@@ -41,8 +44,10 @@ return [
         'detail_subtitle' => 'Detailed Subtitle in English',
         'desc'            => 'Description in English',
 
+        "medical_devices" => "Medical Devices",
+
     ],
 
-    
+
 
 ];

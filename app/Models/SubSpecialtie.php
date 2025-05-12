@@ -22,5 +22,11 @@ class SubSpecialtie  extends Model implements TranslatableContract
             get: fn (?string $value) => asset('uploads/specialtie/' . $value)
         );
     }
-    
+
+
+    public function medicalDevices()
+    {
+        return $this->belongsToMany(MedicalDevice::class, 'medical_device_sub_specialty', 'sub_specialty_id', 'medical_device_id');
+    }
+
 }

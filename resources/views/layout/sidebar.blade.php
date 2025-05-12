@@ -30,7 +30,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
-           
+
 
             <!-- Apps & Pages -->
             <li class="menu-header mt-5">
@@ -51,6 +51,12 @@
               </a>
             </li>
 
+            <li class="menu-item">
+                <a href="{{route('Admin.medical-devices.index')}}" class="menu-link">
+                  <i class="ri-nurse-line"></i>
+                     <div>{{__('medical_devices')}}</div>
+                </a>
+            </li>
 
 
             <li class="menu-item">
@@ -134,13 +140,13 @@
                     </li>
 
 
-           
+
                   </ul>
                 </li>
 
 
 
-               
+
                 <li class="menu-item  @if (Route::currentRouteName()=='Admin.customer-video-detail')
                      open
                 @endif">
@@ -170,7 +176,7 @@
                     </li>
 
 
-           
+
                   </ul>
                 </li>
 
@@ -198,7 +204,7 @@
                     </li>
 
 
-           
+
                   </ul>
                 </li>
 
@@ -209,7 +215,7 @@
                 )
                      open
                 @endif
-                
+
                 ">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('Patient rights and responsibilities')}}</div>
@@ -235,7 +241,7 @@
                     </li>
 
 
-           
+
                   </ul>
                 </li>
 
@@ -262,14 +268,14 @@
                       </a>
                     </li>
 
-                  
 
-           
+
+
                   </ul>
                 </li>
 
 
-            
+
               </ul>
             </li>
             <!-- e-commerce-app menu end -->
@@ -281,9 +287,9 @@
                    <div>{{__('Social Media')}}</div>
               </a>
             </li>
-         
-         
-       
+
+
+
 
             <!-- Charts & Maps -->
           </ul>
@@ -294,4 +300,3 @@
         <div class="layout-page">
           <!-- Navbar -->
 
-         
