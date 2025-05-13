@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
-    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController, MedicalDeviceController};
+    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController, MedicalDeviceController, MedicalDeviceInfoController};
 
 
  Route::get('login' ,[AuthController::class, 'index'])->name('login.index');
@@ -88,6 +88,10 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::post('Insurance-partner-info-update' ,[InsurancePartnerInfoController::class, 'update'])->name('Insurance-partner.update');
 
     Route::resource('medical-devices', MedicalDeviceController::class);
+
+
+    Route::get('medical-device-info' ,[MedicalDeviceInfoController::class, 'detail'])->name('medical-device-info-detail');
+    Route::post('medical-device-info-update' ,[MedicalDeviceInfoController::class ,'update'])->name('medical-device-info.update');
 
 
 

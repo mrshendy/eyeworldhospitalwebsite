@@ -26,6 +26,11 @@ class MedicalDevice extends Model implements TranslatableContract
         return $this->belongsToMany(SubSpecialtie::class, 'medical_device_sub_specialty', 'medical_device_id', 'sub_specialty_id');
     }
 
+    public function specialties()
+    {
+        return $this->belongsToMany(Specialtie::class, 'medical_device_specialty', 'medical_device_id', 'spec_id');
+    }
+
 }
 
 

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
-    RateController,VideoController,PartnerController,RightController};
+    RateController,VideoController,PartnerController,RightController, MedicalDeviceController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -13,7 +13,7 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
 
     Route::get('/' ,[HomeController::class, 'index'])->name('home.index');
-    
+
     Route::post('contact-us' ,[HomeController::class, 'contactUs'])->name('contact-us');
 
     Route::get('specialtie/{id}' ,[SpecialtieController::class, 'index'])->name('specialtie');
@@ -30,6 +30,11 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
     Route::get('partners' ,[PartnerController::class, 'index'])->name('partners.index');
     Route::get('rights' ,[RightController::class, 'index'])->name('rights.index');
+
+    Route::get('medical-devices', [MedicalDeviceController::class, 'index'])->name('medicalDevices.index');
+    Route::get('medical-devices/{id}', [MedicalDeviceController::class, 'show'])->name('medicalDevices.show');
+    Route::get('/medical-devices/get-devices-by-specialty', [MedicalDeviceController::class, 'getDevicesBySpecialty'])->name('getMedicalDevicesBySpecialty');
+
 
 
 });

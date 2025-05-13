@@ -63,6 +63,7 @@
 
          <label>{{ __('system.'.$locale.'.description') }}</label>
          <textarea class="form-control" name="{{$locale}}[description]" rows="3"  value="" type="text" required>{{ isset($data) ? $data->translateOrNew($locale)->description : old($locale . '.description')  }} </textarea>
+
         @endforeach
         <div>
             <button type="submit" class="btn  mt-4" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>

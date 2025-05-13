@@ -58,6 +58,12 @@
                 </a>
             </li>
 
+            <li class="menu-item">
+                <a href="{{route('Admin.medical-device-info-detail')}}" class="menu-link">
+                  <i class="ri-nurse-line"></i>
+                     <div>{{__('medical_devices_info')}}</div>
+                </a>
+            </li>
 
             <li class="menu-item">
               <a href="{{route('Admin.abouts.edit',\App\Models\About::first()->id)}}" class="menu-link">
