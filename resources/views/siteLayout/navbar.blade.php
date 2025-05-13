@@ -16,7 +16,7 @@
 								@foreach (\App\Models\Specialtie::get() as $row)
 							     	<li><a href="{{route('Site.specialtie',$row->id)}}">{{$row->title}}</a></li>
 								@endforeach
-							
+
 							</ul>
 						</li>
 						<li class="menu-item  has-children">
@@ -27,7 +27,7 @@
                               	 Topic::where('type','health-video')->whereHas('videos')->orderby('id','desc')->latest()->first() @endphp
 								<li><a href="{{route('Site.video.health',$topic?->id ?? 0)}}">{{__('Videos about your eye health')}}</a></li>
 								<li><a href="{{route('Site.partners.index')}}">{{__('Insurance partners')}}</a></li>
-								@php  
+								@php
                               	 Topic::where('type','experiments')->whereHas('videos')->orderby('id','desc')->latest()->first() @endphp
 								<li><a href="{{route('Site.video.experiments',$topic?->id ?? 0)}}"> {{__('Customer experiments videos')}}</a></li>
 								<li><a href="{{route('Site.rate.index')}}"> {{__('customer rates')}}</a></li>
@@ -42,7 +42,8 @@
 									@endforeach
 								</ul>
 							</li>
-						<li class="menu-item"><a href="#"> {{__('medical devices')}}</a></li>
+
+						<li class="menu-item"><a href="{{route('Site.medicalDevices.index')}}"> {{__('medical devices')}}</a></li>
 						<li class="menu-item"><a href="#">{{__('Medical tourism')}}</a></li>
 						<li class="menu-item has-children">
 							<a href="#">{{__('doctors')}}</a>
@@ -74,7 +75,7 @@
 					</span>
 					<ul class="lang list-unstyled">
 						@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-							<li class="active" data-lang="{{$localeCode}}"> 
+							<li class="active" data-lang="{{$localeCode}}">
 								<a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
 								<span class="align-middle">
 								{{ $properties['native'] }}
@@ -83,10 +84,10 @@
 							</li>
 						@endforeach
 					</ul>
-			
+
 				</div>
 
-			
+
 
 				<div class="login-btns">
 					<a class="login-btn btn" href="">
@@ -101,7 +102,7 @@
 					<a href="" class="head-icon flex-start align-center">
 						<img src="{{asset('siteassets/images/bag.svg')}}">
 						<span>{{__('cart')}}</span>
-					</a>					
+					</a>
 
 					@auth
 					<a href="" class="head-icon flex-start align-center">
@@ -109,9 +110,9 @@
 						<span>مرحبا ندى</span>
 					</a>
 					@endauth
-						
-				
-					
+
+
+
 				</div>
 			</div>
 		</div>

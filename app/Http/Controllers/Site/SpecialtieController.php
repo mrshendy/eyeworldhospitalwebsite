@@ -20,6 +20,6 @@ class SpecialtieController extends Controller
         $SubSpecialtie    = SubSpecialtie::find($id);
         $specialtie       = Specialtie::find($SubSpecialtie->specialtie_id);
         $SubSpecialtieTypes = SubSpecialtieType::where('sub_specialtie_id',$id)->get();
-        return view('Site.specialtie.sub-specialtie-detail',compact('SubSpecialtie','SubSpecialtieTypes','specialtie'));   
+        return view('Site.specialtie.sub-specialtie-detail',compact('SubSpecialtie','SubSpecialtieTypes','specialtie'));
     }
 }

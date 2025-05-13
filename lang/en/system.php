@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     'id'          =>'id',
@@ -9,8 +9,8 @@ return [
     'Add_quetion'=> 'اضافه سؤال',
     'edit'       => 'edit',
     'delete'     => 'delete',
-    'close'      => 'close', 
-    'sure'       => 'sure',   
+    'close'      => 'close',
+    'sure'       => 'sure',
     'ar' => [
     'quetion'  => 'The question in Arabic',
     'answer'  => 'The answer in Arabic',
@@ -29,7 +29,10 @@ return [
     'job_title'       => 'job title on arabic',
     'breif'           => 'breif on Arabic',
     'info'           => 'info on Arabic',
-    'name'           => 'name on Arabic'
+    'name'           => 'name on Arabic',
+
+    "medical_devices" => "Medical Devices",
+
 
     ],
 
@@ -47,10 +50,12 @@ return [
         'job_title'       => 'job title on English',
         'breif'           => 'breif on English',
         'info'           => 'info on English',
-        'name'           => 'name on English'
+        'name'           => 'name on English',
+
+        "medical_devices" => "Medical Devices",
 
     ],
 
-    
+
 
 ];

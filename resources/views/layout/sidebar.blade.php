@@ -30,7 +30,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
-           
+
 
             <!-- Apps & Pages -->
             <li class="menu-header mt-5">
@@ -81,8 +81,31 @@
 
 
 
+                
+              <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-devices'
+                  || Route::currentRouteName() =='Admin.medical-devices.index' || Route::currentRouteName() =='Admin.medical-devices.create' || Route::currentRouteName()=='Admin.medical-devices.show'  || Route::currentRouteName()=='Admin.medical-device-info-detail'
+                )
+                     open
+                @endif ">
+                   <a href="#" class="menu-link menu-toggle">
+                    <i class="ri-nurse-line"></i>
+                     <div>{{__('medical_devices')}}</div>
+                  </a>
 
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.medical-device-info-detail')}}" class="menu-link">
+                          <div>{{__('details')}}</div>
+                      </a>
+                    </li>
 
+                    <li class="menu-item">
+                      <a href="{{route('Admin.medical-devices.index')}}" class="menu-link">
+                         <div>{{__('medical_devices')}}</div>
+                      </a>
+                    </li>           
+                  </ul>
+                </li>
 
             <li class="menu-item">
               <a href="{{route('Admin.abouts.edit',\App\Models\About::first()->id)}}" class="menu-link">
@@ -165,13 +188,13 @@
                     </li>
 
 
-           
+
                   </ul>
                 </li>
 
 
 
-               
+
                 <li class="menu-item  @if (Route::currentRouteName()=='Admin.customer-video-detail')
                      open
                 @endif">
@@ -201,7 +224,7 @@
                     </li>
 
 
-           
+
                   </ul>
                 </li>
 
@@ -229,7 +252,7 @@
                     </li>
 
 
-           
+
                   </ul>
                 </li>
 
@@ -240,7 +263,7 @@
                 )
                      open
                 @endif
-                
+
                 ">
                   <a href="app-ecommerce-dashboard.html" class="menu-link menu-toggle">
                     <div>{{__('Patient rights and responsibilities')}}</div>
@@ -266,7 +289,7 @@
                     </li>
 
 
-           
+
                   </ul>
                 </li>
 
@@ -293,14 +316,14 @@
                       </a>
                     </li>
 
-                  
 
-           
+
+
                   </ul>
                 </li>
 
 
-            
+
               </ul>
             </li>
             <!-- e-commerce-app menu end -->
@@ -312,9 +335,9 @@
                    <div>{{__('Social Media')}}</div>
               </a>
             </li>
-         
-         
-       
+
+
+
 
             <!-- Charts & Maps -->
           </ul>
@@ -325,4 +348,3 @@
         <div class="layout-page">
           <!-- Navbar -->
 
-         
