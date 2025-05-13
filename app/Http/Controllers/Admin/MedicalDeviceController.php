@@ -36,12 +36,11 @@ class MedicalDeviceController extends Controller
                 $data .= ' data-spec-id="'.$row->spec_id.'"';
 
                 return '
-                    <a href="#" class="edit_btn" data-bs-toggle="modal" data-bs-target="#editModal"  data-id="'.$row->id.'" '.$data.'>
-                        <i class="ri-edit-line"></i>
-                    </a>
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">
                         <i class="ri-delete-bin-6-line"></i>
                     </a>
+                    <a href="'.route('Admin.medical-devices.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
+
                     <a href="'.route("Admin.medical-devices.show",$row->id).'"> <i class="ri-information-2-line"></i> </a>
 
                 ';
@@ -67,6 +66,14 @@ class MedicalDeviceController extends Controller
     }
 
 
+    public function create()
+    {
+        $specialists = Specialtie::all();
+        $sub_specialists = SubSpecialtie::all();
+
+        return view('Admin.medical-devices.create', compact('specialists', 'sub_specialists'));
+    }
+
     public function store(Request $request)
     {
         $data = $request->except('sub_specialty_ids');
@@ -89,18 +96,20 @@ class MedicalDeviceController extends Controller
     }
 
 
-    public function edit(string $id)
-    {
-        //
-    }
+    public function edit($id){
+        $data = MedicalDevice::find($id);
+        $specialists = Specialtie::all();
+        $sub_specialists = SubSpecialtie::all();
+        return view('Admin.medical-devices.edit',compact('data', 'specialists', 'sub_specialists'));
+     }
 
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         if($request->file!=null)
             $request->merge(['img' => $this->MoveImage($request->file,'uploads/medical-devices')]);
 
-        $medical_device =  MedicalDevice::find($request->id);
+        $medical_device =  MedicalDevice::find($id);
 
         $medical_device->update($request->except(['id','_token','_method', 'sub_specialties', 'file']));
         $medical_device->subSpecialties()->sync($request->sub_specialties);

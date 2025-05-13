@@ -16,16 +16,10 @@
             <!-- About  -->
             <section class="about flex-start  text-right align-center">
                 <div class="col-6 col-md-6 col-sm-12">
-                    <figure class="about-image">
-                        <img src="{{ asset('uploads/medical-devices/'.$medical_device->img) }}">
-                    </figure>
-                </div>
-
-                <div class="col-6 col-md-6 col-sm-12">
                     <div class="about-desc">
                         <span class="pre-title site-color">{{$medical_device->title}}</span>
                         <h2 class="main-title">{{$medical_device->sub_title}}</h2>
-                        <p class="main-para"> {{$medical_device->description}}  </p>
+                        <p class="main-para"> {!! $medical_device->description !!}  </p>
                     </div>
                 </div>
             </section>
