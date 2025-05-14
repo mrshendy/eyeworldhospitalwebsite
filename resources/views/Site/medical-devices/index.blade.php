@@ -1,7 +1,5 @@
 @extends('site')
-@section('styles')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-@endsection
+
 @section('content')
 
 
@@ -14,72 +12,77 @@
     <!-- Banner -->
 
     <!-- Specialization blocks -->
-    <article class="specializations-blocks pd">
+    <article class="achievement pd">
         <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-6">
-                    <span class="pre-title site-color">{{$medical_device_info->title}}</span>
-                    <h2 class="main-title">{{$medical_device_info->sub_title}}</h2>
-                    <p class="main-para">{{$medical_device_info->description}}</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="{{asset('uploads/medical-devices/' . $medical_device_info->img)}}" class="img-fluid" alt="">
-                </div>
-            </div>
 
-            <div class="row mt-5">
-                <div class="col-md-12">
-                    <span class="pre-title site-color">{{$medical_device_info->title}}</span>
-                    <h2 class="main-title">{{$medical_device_info->sub_title}}</h2>
-                    <p class="main-para">{{$medical_device_info->description}}</p>
-                </div>
-            </div>
-
-            <div class="container py-4 my-5">
-                <div class="row flex-row">
-                    <!-- Sidebar -->
-                    <div class="col-md-3 mb-4">
-                        <div class="card shadow-sm">
-                            <ul class="list-group list-group-flush">
-                                @foreach ($specialties as $specialty)
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-decoration-none text-dark specialty-link" data-id="{{ $specialty->id }}">
-                                            {{ $specialty->title }}
-                                        </a>
-
-                                    </li>
-
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Cards Section -->
-                    <div class="col-md-9">
-                        <div class="row" id="medical-device-cards">
-                            @foreach ($medical_devices as $row)
-                                <div class="col-md-4 col-sm-6 mb-4">
-                                    <div class="card h-100 text-center shadow-sm">
-                                        <img src="{{asset('uploads/medical-devices/' . $row->img)}}" class="img-fluid" alt="">
-                                        <div class="card-body d-flex flex-column">
-                                            <h5 class="card-title fw-bold">{{ $row->title }}</h5>
-                                            <p class="card-text">{{ $row->sub_title }}</p>
-                                            <a href="{{ route('Site.medicalDevices.show', $row->id) }}" class="btn btn-outline-info mt-auto">
-                                                اقرأ المزيد
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
+            <!-- About  -->
+            <section class="about flex-start text-right align-center">
+                <div class="col-6 col-md-6 col-sm-12">
+                    <div class="about-desc">
+                        <span class="pre-title site-color">{{$medical_device_info->title}}</span>
+                        <h2 class="main-title">{{$medical_device_info->sub_title}}</h2>
+                        <p class="main-para">{{$medical_device_info->description}}</p>
                     </div>
                 </div>
-            </div>
-
+                <div class="col-6 col-md-6 col-sm-12">
+                    <figure class="about-image">
+                        <img src="{{asset('uploads/medical-devices/' . $medical_device_info->img)}}" class="img-fluid" alt="">
+                    </figure>
+                </div>
+            </section>
+            <!-- About  -->
         </div>
     </article>
 
+    <article class="videos-section pd">
+        <div class="container">
+            <span class="pre-title site-color">
+                {{$medical_device_info->secondary_title}}
+            </span>
+            <h2 class="main-title">
+                {{$medical_device_info->secondary_sub_title}}
+            </h2>
+            <p class="main-para">
+                {{$medical_device_info->secondary_description}}
+            </p>
+            <div class="flex-start">
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="aside-tabs">
+                        @foreach ($specialties as $specialty)
+                            <a href="{{ route('Site.specialtie', $specialty->id) }}"
+                                class="aside-tab flex-between align-center {{ $loop->first ? 'active' : '' }}">
+                                <div class="flex-1">
+                                    <h3>{{ $specialty->title }}</h3>
+                                </div>
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
 
+                <div class="col-9 col-md-6 col-sm-12">
+                    <div class="all-videos-holder height-auto flex-center row-gab-15">
+                        @foreach ($medical_devices as $row)
+                            <div class="col-4 col-md-6 col-sm-12">
+                                <div class="text-box text-center">
+                                    <div class="device-image">
+                                        <img src="{{asset('uploads/medical-devices/' . $row->img)}}" class="img-fluid" alt="">
+                                    </div>
+                                    <h4>{{ $row->title }}</h4>
+                                    <p class="feedback"> {{ $row->sub_title }}</p>
+
+                                    <a href="{{ route('Site.medicalDevices.show', $row->id) }}" class="show-profile">
+                                        اقرأ المزيد
+                                    </a>
+
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
     <!-- Specialization blocks -->
 
     <!-- Contact us Section -->
