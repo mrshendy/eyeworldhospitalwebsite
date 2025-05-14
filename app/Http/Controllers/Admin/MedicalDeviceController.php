@@ -76,12 +76,17 @@ class MedicalDeviceController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->except('sub_specialty_ids');
-        $medical_device = MedicalDevice::create($data);
 
+        if($request->file!=null)
+            $request->merge(['img' => $this->MoveImage($request->file,'uploads/medical-devices')]);
+
+
+        $data = $request->except('sub_specialty_ids', 'file');
+        $medical_device = MedicalDevice::create($data);
         if ($request->has('sub_specialty_ids')) {
             $medical_device->subSpecialties()->sync($request->sub_specialty_ids);
         }
+
 
         return redirect()->route('Admin.medical-devices.index');
     }
