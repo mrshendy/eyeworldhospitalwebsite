@@ -41,8 +41,6 @@ class MedicalDeviceController extends Controller
                     </a>
                     <a href="'.route('Admin.medical-devices.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
 
-                    <a href="'.route("Admin.medical-devices.show",$row->id).'"> <i class="ri-information-2-line"></i> </a>
-
                 ';
             })
             ->editColumn('created_at', function ($row) {
