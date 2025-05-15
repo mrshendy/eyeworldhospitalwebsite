@@ -54,7 +54,7 @@ return [
 
         "medical_devices" => "Medical Devices",
         "medical_devices" => "Medical Tourisms",
-
+        "medical_tourisms_service" => "Medical Tourism Services"
     ],
 
 

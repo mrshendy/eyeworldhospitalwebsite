@@ -106,7 +106,8 @@
                   </ul>
             </li>
 
-            <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-device-info-detail') open @endif ">
+            <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-devices'
+                  || Route::currentRouteName() =='Admin.medical-tourism-services.index' || Route::currentRouteName() ==' Admin.medical-tourism-services.create' || Route::currentRouteName()==' Admin.medical-tourism-services.show' || Route::currentRouteName()=='Admin.medical-tourism-info-detail') open @endif ">
                 <a href="#" class="menu-link menu-toggle">
                     <i class="ri-nurse-line"></i>
                     <div>{{__('medical_tourisms')}}</div>
@@ -118,6 +119,11 @@
                           <div>{{__('details')}}</div>
                       </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="{{route('Admin.medical-tourism-services.index')}}" class="menu-link">
+                           <div>{{__('medical_tourisms_service')}}</div>
+                        </a>
+                      </li>
 
                   </ul>
             </li>
