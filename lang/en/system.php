@@ -53,6 +53,7 @@ return [
         'name'           => 'name on English',
 
         "medical_devices" => "Medical Devices",
+        "medical_devices" => "Medical Tourisms",
 
     ],
 

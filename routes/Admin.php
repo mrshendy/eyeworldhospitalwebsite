@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
-    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalDeviceInfoController};
+    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController};
 
 
 
@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'rights'      => RightController::class,
         'partners'    => PartnerController::class,
         'doctors'     => DoctorController::class,
-        'socialmedia' => SocialMediaController::class
+        'socialmedia' => SocialMediaController::class,
     ]);
 
     Route::resource('videos', VideosController::class)->except([
@@ -101,6 +101,10 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::group(['prefix' => 'ajax' , 'name'=>'ajax'], function() {
         Route::get('subSpecialties/{id}' ,[AjaxController::class, 'subSpecialties'])->name('sup-specialtie');
     });
+
+    Route::resource('medical-tourism-services', MedicalTourismServiceController::class);
+    Route::get('medical-tourism-info' ,[MedicalTourismInfoController::class, 'detail'])->name('medical-tourism-info-detail');
+    Route::post('medical-tourism-info-update' ,[MedicalTourismInfoController::class ,'update'])->name('medical-tourism-info.update');
 
   //  Route::get('articles' ,[ArticleController::class, 'index'])->name('articles.index');
 

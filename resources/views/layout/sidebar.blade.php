@@ -51,7 +51,7 @@
               </a>
             </li> --}}
 
-                
+
 
 
               <li class="menu-item   @if (Route::currentRouteName()=='Admin.doctors'
@@ -75,14 +75,13 @@
                       <a href="{{route('Admin.doctors.index')}}" class="menu-link">
                         <div>{{__('doctors')}}</div>
                       </a>
-                    </li>           
+                    </li>
                   </ul>
                 </li>
 
 
 
-                
-              <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-devices'
+            <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-devices'
                   || Route::currentRouteName() =='Admin.medical-devices.index' || Route::currentRouteName() =='Admin.medical-devices.create' || Route::currentRouteName()=='Admin.medical-devices.show'  || Route::currentRouteName()=='Admin.medical-device-info-detail'
                 )
                      open
@@ -103,9 +102,25 @@
                       <a href="{{route('Admin.medical-devices.index')}}" class="menu-link">
                          <div>{{__('medical_devices')}}</div>
                       </a>
-                    </li>           
+                    </li>
                   </ul>
-                </li>
+            </li>
+
+            <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-device-info-detail') open @endif ">
+                <a href="#" class="menu-link menu-toggle">
+                    <i class="ri-nurse-line"></i>
+                    <div>{{__('medical_tourisms')}}</div>
+                </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.medical-tourism-info-detail')}}" class="menu-link">
+                          <div>{{__('details')}}</div>
+                      </a>
+                    </li>
+
+                  </ul>
+            </li>
 
             <li class="menu-item">
               <a href="{{route('Admin.abouts.edit',\App\Models\About::first()->id)}}" class="menu-link">

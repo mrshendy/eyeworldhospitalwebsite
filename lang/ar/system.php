@@ -64,7 +64,7 @@ return [
         'medical_devices' => "الأجهزة الطبية",
         "Choose Specialty" => "اختر التخصص",
         "Specialty" => "التخصص",
-
+        "medical_tourisms" => "السياحه العلاجيه"
 
     ]
 
