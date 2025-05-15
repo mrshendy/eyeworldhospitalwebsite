@@ -8,4 +8,8 @@ class DoctorSpecialtie extends Model
 {
     //
     protected $guarded=[];
+
+    public function specialtie(){
+        return $this->belongsTo(Specialtie::class);
+    }
 }

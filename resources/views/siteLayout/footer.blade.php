@@ -103,6 +103,7 @@
 <script type="text/javascript" src="{{asset('siteassets/js/main.js')}}"></script>
 <script type="text/javascript" src="{{asset('/vendor/sweetalert/sweetalert.all.js')}}"></script>
 
+@yield('scripts')
     
 </body>
 </html>

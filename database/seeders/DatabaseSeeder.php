@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
+            DaySeeder::class,
+            CountrySeeder::class,
             QuetionSeeder::class,
             AboutSeeder::class,
             SpecialtieSeeder::class,
@@ -36,11 +38,8 @@ class DatabaseSeeder extends Seeder
             TopicSeeder::class,
             VideoSeeder::class,
             SocialMediaSeeder::class,
-<<<<<<< HEAD
-            TeamInfoSeeder::class
-=======
-            MedicalDeviceInfoSeeder::class,
->>>>>>> d656225d509531a742e737ea03ee313380a97d65
+            TeamInfoSeeder::class,
+            MedicalDeviceInfoSeeder::class
         ]);
     }
 }
