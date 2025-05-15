@@ -24,6 +24,7 @@ class MedicalDeviceController extends Controller
     {
 
         $data['medical_device'] = MedicalDevice::findOrFail($id);
+        $data['medical_devices'] = MedicalDevice::get();
         return view('Site.medical-devices.show')->with($data);
     }
 
