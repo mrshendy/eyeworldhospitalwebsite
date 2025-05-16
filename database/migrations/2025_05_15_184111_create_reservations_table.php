@@ -26,10 +26,9 @@ return new class extends Migration
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('SET NULL');
             $table->enum('payment_method',['cash','visa','apple_pay'])->default('cash');
-            $table->text('name');
-            $table->time('time_from');
-            $table->time('time_to');
-            $table->date('date');
+            $table->time('time_from')->nullable();
+            $table->time('time_to')->nullable();
+            $table->date('date')->nullable();
             $table->double('price')->default(0);
             $table->enum('payment_status',['paid','pending'])->default('pending');
             $table->timestamps();

@@ -5,7 +5,8 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
-    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalDeviceInfoController};
+    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController,
+    ReservationController};
 
 
 
@@ -27,7 +28,8 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'rights'      => RightController::class,
         'partners'    => PartnerController::class,
         'doctors'     => DoctorController::class,
-        'socialmedia' => SocialMediaController::class
+        'socialmedia' => SocialMediaController::class,
+        'reservations'=> ReservationController::class
     ]);
 
     Route::resource('videos', VideosController::class)->except([

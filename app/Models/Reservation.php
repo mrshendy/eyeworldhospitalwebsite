@@ -8,4 +8,8 @@ class Reservation extends Model
 {
     //  
     protected $guarded=[];
+
+    public function doctor(){
+        return $this->belongsTo(Doctor::class);
+    }
 }

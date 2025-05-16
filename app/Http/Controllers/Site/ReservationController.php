@@ -17,16 +17,14 @@ class ReservationController extends Controller
     }
 
 
-    public function store(Request $request){
-      
+    public function store(Request $request){      
         Reservation::create([
              'doctor_id'     => $request->doctor_id,
              'specialtie_id' => $request->specialtie_id,
              'urgent'        => $request->urgent,
-             'name'          => $request->urgent,
+             'patient_name'   => $request->name,
              'country_id'    => $request->country_id
         ]);
-
         return redirect()->back();
     }
 }

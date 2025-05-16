@@ -158,7 +158,7 @@
 										<div class="form-field">
 											<label>الاسم</label>
 											<div class="field">
-												<input type="text" name="name" placeholder="محمد الشريف" >
+												<input type="text" name="name" placeholder="محمد الشريف" required>
 											</div>
 										</div>			
 									</div>
@@ -167,7 +167,7 @@
 										<div class="form-field">
 											<label>البريد الإلكترونى</label>
 											<div class="field">
-												<input type="email" name="" placeholder="example@gmail.com" >
+												<input type="email" name="email" placeholder="example@gmail.com" required>
 											</div>
 										</div>			
 									</div>	
@@ -185,7 +185,7 @@
 										<div class="form-field">
 											<label>رقم الهاتف</label>
 											<div class="field">
-												<input type="text" name="" placeholder="+201012345678" >
+												<input type="text" name="phone" placeholder="+201012345678" required>
 											</div>
 										</div>			
 									</div>	
