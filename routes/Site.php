@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
-    RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController};
+    RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController, ConferenceController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -39,6 +39,10 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('/medical-devices/get-devices-by-specialty', [MedicalDeviceController::class, 'getDevicesBySpecialty'])->name('getMedicalDevicesBySpecialty');
 
     Route::get('medical-tourism', [MedicalTourismController::class, 'index'])->name('medicalTourism.index');
+
+    Route::get('conferences', [ConferenceController::class, 'index'])->name('conference.index');
+    Route::get('conferences/{id}', [ConferenceController::class, 'show'])->name('conference.show');
+
 
 
 

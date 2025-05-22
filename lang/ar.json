@@ -184,6 +184,14 @@
     "Choose Specialty" : "اختر التخصص",
     "Specialty" : "التخصص",
     "medical_tourisms" : "السياحه العلاجيه",
-    "medical_tourisms_service" : "خدمات السياجة العلاجية"
+    "medical_tourisms_service" : "خدمات السياجة العلاجية",
+    "medical_conferences" : "المؤتمرات الطبية",
+    "create conference" : "انشاء مؤتمر",
+    "medical_conference" : "المؤتمر الطبي",
+    "create_medical_conference" : "انشاء مؤتمر طبي",
+    "show_details": "عرض التفاصيل",
+    "detail_description" : "الوصف التفصيلي",
+    "Start Date" : "تاريخ البدء",
+    "End Date" : "تاريخ الانتهاء"
 
 }

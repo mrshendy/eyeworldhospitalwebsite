@@ -13,5 +13,13 @@
     "app 3":"Discover a comprehensive medical experience through our innovative app, where you can book appointments, inquire about services, and track test results with a single tap. The app offers a user-friendly interface and exceptional services to meet your medical needs efficiently and accurately—anytime, anywhere.",
     "medical_devices": "Medical Devices",
     "medical_tourisms": "Medical Tourism",
-    "medical_tourisms_service" : "Medical Tourism Services"
+    "medical_tourisms_service" : "Medical Tourism Services",
+    "medical_conferences" : "Medical Conferences",
+    "create conference" : "Create Conference",
+    "medical_conference" : " Medical Conference",
+    "create_medical_conference" : "Create Medical Conference",
+    "show_details" : "Show Details",
+    "detail_description" : "Detailed Description",
+    "Start Date" : "Start Date",
+    "End Date" : "End Date"
 }

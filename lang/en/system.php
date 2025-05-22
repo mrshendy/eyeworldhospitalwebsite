@@ -30,6 +30,7 @@ return [
     'breif'           => 'breif on Arabic',
     'info'           => 'info on Arabic',
     'name'           => 'name on Arabic',
+    "detail_description"     => 'Detailed Description in Arabic',
 
     "medical_devices" => "Medical Devices",
 
@@ -54,7 +55,9 @@ return [
 
         "medical_devices" => "Medical Devices",
         "medical_devices" => "Medical Tourisms",
-        "medical_tourisms_service" => "Medical Tourism Services"
+        "medical_tourisms_service" => "Medical Tourism Services",
+        "detail_description"     => 'Detailed Description in English',
+
     ],
 
 

@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             TeamInfoSeeder::class,
             MedicalDeviceInfoSeeder::class,
             MedicalTourismInfoSeeder::class,
+            ConferenceInfoSeeder::class
         ]);
     }
 }

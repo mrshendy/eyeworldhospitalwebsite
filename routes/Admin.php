@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
-    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController};
+    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController, ConferenceInfoController, ConferenceController};
 
 
 
@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'partners'    => PartnerController::class,
         'doctors'     => DoctorController::class,
         'socialmedia' => SocialMediaController::class,
+        "conferences" => ConferenceController::class,
     ]);
 
     Route::resource('videos', VideosController::class)->except([
@@ -105,6 +106,9 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::resource('medical-tourism-services', MedicalTourismServiceController::class);
     Route::get('medical-tourism-info' ,[MedicalTourismInfoController::class, 'detail'])->name('medical-tourism-info-detail');
     Route::post('medical-tourism-info-update' ,[MedicalTourismInfoController::class ,'update'])->name('medical-tourism-info.update');
+
+    Route::get('conference-info' ,[ConferenceInfoController::class, 'detail'])->name('conference-info-detail');
+    Route::post('conference-info-update' ,[ConferenceInfoController::class ,'update'])->name('conference-info.update');
 
   //  Route::get('articles' ,[ArticleController::class, 'index'])->name('articles.index');
 

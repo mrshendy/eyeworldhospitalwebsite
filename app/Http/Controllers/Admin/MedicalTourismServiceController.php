@@ -57,9 +57,6 @@ class MedicalTourismServiceController extends Controller
 
     public function store(Request $request)
     {
-
-
-
         $data = $request->all();
         $medical_tourism = MedicalTourismService::create($data);
         return redirect()->route('Admin.medical-tourism-services.index');
