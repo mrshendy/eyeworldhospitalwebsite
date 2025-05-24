@@ -26,6 +26,10 @@ class Doctor extends Model
         return $this->hasOne(DoctorSpecialtie::class);
     }
 
+     public function price(){
+        return $this->hasOne(DoctorPrice::class);
+    }
+
 
     public function subspecialties(){
         return $this->hasMany(DoctorSubSpecialtie::class);

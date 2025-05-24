@@ -19,7 +19,10 @@ return new class extends Migration
             $table->unsignedInteger('day_id')->nullable();
             $table->foreign('day_id')->references('id')->on('days')->onDelete('cascade');
             $table->time('time_from');
-            $table->time('time_to');
+            $table->time('time_to')->nullable();
+            $table->integer('avilable_count')->nullable();
+            $table->boolean('stop_on_complete')->default(true);
+            $table->enum('timing',['am','pm']);
             $table->timestamps();
         });
     }

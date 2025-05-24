@@ -8,6 +8,49 @@
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">	
+	 <style>
+    .time-picker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 400px;
+      margin: 20px auto;
+      justify-content: center;
+    }
+
+    .time-option {
+      position: relative;
+    }
+
+    .time-option input {
+      display: none;
+    }
+
+    .time-option label {
+      display: inline-block;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: white;
+      transition: 0.2s;
+    }
+
+    /* Active (selected) style */
+    .time-option input:checked + label {
+      background-color: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+
+    /* Disabled style */
+    .time-option input:disabled + label {
+      background-color: #eee;
+      color: #999;
+      border-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
 @endsection
 @section('content')
 	<main id="main">
@@ -19,10 +62,11 @@
 				<p class="main-para">احصل على موعدك مع الخبراء في طب العيون واحصل على العناية التي تحتاجها بلمسة واحدة.</p>
 				<div class="pdt">
 					<div class="doctor-info flex-start align-center">
-						<img src="../images/doctors/book/avatar.svg" alt="" width="48" height="48">
+						<img src="{{$doctor->img}}" alt="" width="48" height="48">
 						<div class="flex-1">
-							<h3>إيهاب سعد عثمان</h3>
-							<p>استشاري شبكية عيون الأطفال</p>
+							<h3>{{$doctor->info->name}}</h3>
+							<p>{{$doctor->info->title}}</p>
+							<p>{{$doctor->specialtie->specialtie->title}}</p>
 						</div>
 					</div>
 				</div>
@@ -212,48 +256,28 @@
 											</div>			
 										</div>	
 									</div>
-									<div class="col-6 col-md-6 col-sm-12">
+									<div class="col-6 col-md-6 col-sm-12" id="appointments">
 										<div class="appoints">
 											<h4>المواعيد المتاحة في الصباح</h4>
-											<div class="am-times  times-spans  flex-center">
-												<input type="hidden" name="am_time">
-												<span>04:00 AM</span>
-												<span class="active">04:00 AM</span>
-												<span>04:00 AM</span>
-												<span class="disable">04:00 AM</span>
-												<span>04:00 AM</span>
-												<span>04:00 AM</span>
-												<span>04:00 AM</span>
-												<span class="disable">04:00 AM</span>
-												<span class="disable">04:00 AM</span>
-												<span>04:00 AM</span>
-												<span>04:00 AM</span>
-												<span>04:00 AM</span>
-												<span>04:00 AM</span>
-												<span>04:00 AM</span>
-												<span>04:00 AM</span>
+											<div class="pm-times times-spans flex-center">
+													@foreach ($appointments->where('timing','am') as $row)
+														<div class="time-option">
+																<input type="radio" name="time_from" id="time{{$row->id}}" value="{{$row->time_from}}">
+                                                                <label for="time{{$row->id}}">{{ \Carbon\Carbon::createFromFormat('H:i:s', $row->time_from)->format('h:i A') }}</label>
+														</div>
+													@endforeach
 											</div>
 										</div>						
 
 										<div class="appoints">
 											<h4>المواعيد المتاحة في المساء</h4>
 											<div class="pm-times times-spans flex-center">
-												<input type="hidden" name="am_time">
-												<span>04:00 PM</span>
-												<span class="active">04:00 PM</span>
-												<span>04:00 PM</span>
-												<span class="disable">04:00 PM</span>
-												<span>04:00 PM</span>
-												<span>04:00 PM</span>
-												<span>04:00 PM</span>
-												<span class="disable">04:00 PM</span>
-												<span class="disable">04:00 PM</span>
-												<span>04:00 PM</span>
-												<span>04:00 PM</span>
-												<span>04:00 PM</span>
-												<span>04:00 PM</span>
-												<span>04:00 PM</span>
-												<span>04:00 PM</span>
+													@foreach ($appointments->where('timing','pm') as $row)
+														<div class="time-option">
+																<input type="radio" name="time_from" id="time{{$row->id}}" value="{{$row->time_from}}">
+                                                                <label for="time{{$row->id}}">{{ \Carbon\Carbon::createFromFormat('H:i:s', $row->time_from)->format('h:i A') }}</label>
+														</div>
+													@endforeach
 											</div>
 										</div>
 									</div>
@@ -280,11 +304,13 @@
 									</div>
 									<div class="flex-between step-bar align-center">
 										<p class="flex-start align-center">
-											<img src="../images/doctors/book/calendar.svg" width="24">
-										29/11/2023 - 12:35 ص</p>
+											<img src="{{asset('siteassets//images/doctors/book/calendar.svg')}}" width="24">
+									 <span id="time">  </span> -	<span id="date">   </span> 
+									
+									</p>
 										<p>
-											<span>حجز عادى:</span>
-											<span class="site-color">980 ج.م</span>
+											<span id="">حجز عادى:</span>
+											<span class="site-color" id="price">{{$price->price}} ج.م</span>
 										</p>
 									</div>
 								</div>
@@ -294,21 +320,21 @@
 
 									<div class="payment-box">
 										<input type="radio" name="payment" checked>
-										<img src="../images/doctors/book/whatsapp.svg" width="24">
-										<span>واتساب</span>
+										<img src="{{asset('siteassets/images/doctors/book/whatsapp.svg')}}" width="24">
+										<span>cash</span>
 									</div>									
 
 									<div class="payment-box">
 										<input type="radio" name="payment">
-										<img src="../images/doctors/book/visa.svg" width="24">
+										<img src="{{asset('siteassets/images/doctors/book/visa.svg')}}" width="24">
 										<span>Visa</span>
 									</div>									
 
-									<div class="payment-box">
+									{{-- <div class="payment-box">
 										<input type="radio" name="payment">
-										<img src="../images/doctors/book/pay.svg" width="24">
+										<img src="{{asset('siteassets/images/doctors/book/pay.svg')}}" width="24">
 										<span>Apple Pay</span>
-									</div>
+									</div> --}}
 
 								</div>
 
@@ -342,7 +368,69 @@
 	        locale: "ar"
 	    });
 	</script>
+    {{-- price script --}}
+    <script>
+		var price        = {!!json_encode($price->price)!!};
+	    var urgent_price = {!!json_encode($price->urgent_price)!!};
+    $('select[name="urgent"]').on('change', function () {
+        const selectedValue = $(this).val();
+		if(selectedValue==1){
+           $('#price').html(urgent_price);
+		}
+    });
+	</script>
 
 
+    {{-- get appointment scripts --}}
+	<script>
+		$(document).ready(function () {
+			// Detect when a date is selected
+			var doctor_id = {!!json_encode($doctor->id)!!};
+			var SITEURL ={!!json_encode(url('/'))!!};
+
+			$('#calendar').on('change', function () {
+				const selectedDate = $(this).val();
+				$.ajax({
+					url: SITEURL + "/reservation/" + doctor_id+'/'+selectedDate,
+					type: "GET", //send it through get method
+					success: function (response) {
+
+					  $('#appointments').html(response);
+					  $('#date').html(response);
+					},
+					error: function (response) {
+
+					}
+				});
+			});
+		});
+    </script>
+    {{-- get chosen time script --}}
+	<script>
+		 function formatTimeToAmPm(timeStr) {
+			const [hour, minute] = timeStr.split(':');
+			const h = parseInt(hour);
+			const suffix = h >= 12 ? 'PM' : 'AM';
+			const hour12 = h % 12 === 0 ? 12 : h % 12;
+			return `${hour12}:${minute} ${suffix}`;
+		}
+		
+	    $(document).on('change', 'input[name="time_from"]', function () {
+			const selectedTime = formatTimeToAmPm(this.value);
+			$('#time').html(selectedTime);
+		});
+	</script>
+	{{-- get date when page is reloaded --}}
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const today = new Date();
+
+			// Format: "May 24, 2025"
+			const options = { year: 'numeric', month: 'long', day: 'numeric' };
+			const formattedDate = today.toLocaleDateString('en-US', options);
+
+			document.getElementById('date').textContent = formattedDate;
+		});
+</script>
 @endsection
 

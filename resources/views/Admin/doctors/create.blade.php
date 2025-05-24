@@ -85,18 +85,16 @@
 
 
                         <div class="form-group col-6">
-                    
-                          
-                        
+                                <label>{{ __('urgent price') }}</label>
+                                <input class="form-control" name="urgent_price"   value="{{old('urgent_price')}}" type="number" required>
                         </div>   
 
 
                         
-                        <div class="form-group col-6">
-                    
-                       
-                        
-                        </div>   
+                         <div class="form-group col-6">
+                                <label>{{ __('price') }}</label>
+                                <input class="form-control" name="price"   value="{{old('urgent_price')}}" type="number" required>
+                        </div>      
 
 
 

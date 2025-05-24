@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Doctor,Specialtie,SubSpecialtie,DoctorInfo,DoctorSpecialtie,DoctorSubSpecialtie,InsurancePartner,DoctorInsurancePartner,DoctorServiceInfo};
+use App\Models\{Doctor,Specialtie,SubSpecialtie,DoctorInfo,DoctorSpecialtie,DoctorSubSpecialtie,InsurancePartner
+    ,DoctorInsurancePartner,DoctorServiceInfo,DoctorPrice};
 use DataTables;
 use Yajra\DataTables\Html\Builder;
 use Carbon\Carbon;
@@ -19,6 +20,7 @@ class DoctorController extends Controller
 
 
         if (request()->ajax()) {
+            
             return DataTables::of(Doctor::query())
             ->filter(function ($query) use ($request) {
                 if ($request->has('search') && !empty($request->input('search')['value'])) {
@@ -45,8 +47,12 @@ class DoctorController extends Controller
                 return '
                     <a href="'.route('Admin.doctors.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
+                    <a href="'.route("Admin.appointments.index",$row->id).'"> <i class="ri-information-2-line"></i> </a>
 
                     ';
+            })
+           ->orderColumn('id', function ($query, $order) {
+                $query->orderBy('id', $order);
             })
             ->rawColumns(['actions'])
             ->toJson();
@@ -58,6 +64,8 @@ class DoctorController extends Controller
             ['title' => __('job title'), 'data' => 'job_title', 'footer' => __('job title') , 'searchable' => true],
             ['title' => __('system.created_at') ,'data' => 'created_at', 'footer' => __('system.created_at')],
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false]
+        ])->parameters([
+            'order' => [[0, 'desc']],
         ]);
 
         return view('Admin.doctors.index',compact('html'));
@@ -129,9 +137,14 @@ class DoctorController extends Controller
                 ]);
             }
         }
+         
+        DoctorPrice::create([
+            'doctor_id'   => $doctor->id,
+            'price'       => $request->price,
+            'urgent_price'=> $request->urgent_price
+        ]);
      
         return redirect()->route('Admin.doctors.index');
-
     }
 
     public function show($id){
@@ -231,7 +244,11 @@ class DoctorController extends Controller
             }
         }
       
-        
+         DoctorPrice::where(['doctor_id'=>$doctor->id])->update([
+            'doctor_id'   => $doctor->id,
+            'price'       => $request->price,
+            'urgent_price'=> $request->urgent_price
+        ]);
 
         return redirect()->back();
 

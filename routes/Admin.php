@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
     InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController,
-    ReservationController};
+    ReservationController,DoctorAppointmentController};
 
 
 
@@ -29,7 +29,8 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'partners'    => PartnerController::class,
         'doctors'     => DoctorController::class,
         'socialmedia' => SocialMediaController::class,
-        'reservations'=> ReservationController::class
+        'reservations'=> ReservationController::class,
+        'appointments'=> DoctorAppointmentController::class
     ]);
 
     Route::resource('videos', VideosController::class)->except([
@@ -41,7 +42,14 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::resource('rights', RightController::class)->except([
         'index'
     ]);
+
+     Route::resource('appointments', DoctorAppointmentController::class)->except([
+        'index','create'
+    ]);
     Route::get('patient-rights/{type}' ,[RightController::class, 'index'])->name('rights.index');
+
+    Route::get('/appointments/index/{doctor_id}' ,[DoctorAppointmentController::class, 'index'])->name('appointments.index');
+    Route::get('/appointments/create/{doctor_id}' ,[DoctorAppointmentController::class, 'create'])->name('appointments.create');
 
 
 
