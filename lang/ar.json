@@ -192,6 +192,9 @@
     "show_details": "عرض التفاصيل",
     "detail_description" : "الوصف التفصيلي",
     "Start Date" : "تاريخ البدء",
-    "End Date" : "تاريخ الانتهاء"
+    "End Date" : "تاريخ الانتهاء",
+    "conference_advantages" : "مميزات المؤتمر",
+    "add_advantage" : "اضافة ميزة",
+    "remove" : "ازالة العنصر"
 
 }

@@ -20,4 +20,14 @@ class Conference extends Model
             get: fn (?string $value) => asset('uploads/conferences/' . $value)
         );
     }
+
+    public function advantages()
+    {
+        return $this->hasMany(ConferenceAdvantge::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ConferenceImage::class);
+    }
 }

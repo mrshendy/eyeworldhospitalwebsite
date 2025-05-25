@@ -1,5 +1,20 @@
 @extends('site')
 
+
+@section('styles')
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>One conference</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+
 @section('content')
 
 
@@ -29,221 +44,107 @@
 			</div>
 		</article>
 
-		<!-- current conferences Section -->
+        <article class="patients-rights pd">
+            <div class="container">
+                <h2 class="main-title">من خدماتنا المميزة</h2>
+                <div class="pdt flex-start row-gap-15">
+                    @foreach ($conference->advantages as $advantage)
+                        <div class="col-4 col-md-6 col-sm-12">
+                            <div class="rights-box flex-start">
+                                <img src="{{ asset('uploads/conferences/emoji-normal.png') }}" width="24" height="24" alt="">
+                                <div class="flex-1">
+                                    <h4>{{ $advantage->advantage_title }}</h4>
+                                    <p>{{ $advantage->advantage_description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </article>
 
-		<article class="videos-section pd">
+        <article class="slider">
+			<div class="owl-slider owl-carousel">
+            @foreach ($conference->images as $img)
+
+				<div class="item" style="background-image:url(../images/slider/1.jpg)">
+					<div class="container h-100">
+						<div class="slider-details h-100 flex-column">
+                            <img src="{{ asset('uploads/conferences/' . $img->image) }}" class="img-fluid" alt="" style="width:100%; height:auto;">
+						</div>
+					</div>
+				</div>
+            @endforeach
+
+			</div>
+		</article>
+
+
+        <article class="videos-section pd">
 			<div class="container">
 
 				<h2 class="main-title">
-					من المؤتمرات العلمية الحالية
+                من المؤسسات الداعمة
 				</h2>
 
-
-
 				<div class="all-videos-holder height-auto flex-center row-gab-15">
-
-					<div class="col-4 col-md-6 col-sm-12">
-						<div class="text-box ">
-							<div class="device-image">
-								<img src="../images/medical/conferences/1.svg" alt="">
-							</div>
-							<h4>دور الذكاء الاصطناعي في الطب الحديث</h4>
-							<p class="feedback">
-								يناقش المؤتمر تطبيقات الذكاء الاصطناعي في الطب، وكيفية استخدامه لتحسين تشخيص الأمراض
-								وتخصيص العلاجات.
-							</p>
-							<p class="time-date">
-								<img src="../images/medical/conferences/calendar.svg" alt="" width="32">
-								<span>15-17 يناير 2025</span>
-							</p>
-							<a href="#" class="show-profile">
-							عرض الكتب
-							</a>
-						</div>
-					</div>
-
-					<div class="col-4 col-md-6 col-sm-12">
-						<div class="text-box ">
-							<div class="device-image">
-								<img src="../images/medical/conferences/2.svg" alt="">
-							</div>
-							<h4>مستقبل الجراحة بالروبوت والتكنولوجيا الحديثة</h4>
-							<p class="feedback">
-								مؤتمر يتناول التطورات الحديثة في الجراحة الروبوتية وكيفية تحسين دقة العمليات الجراحية باستخدام أحدث التقنيات.
-							</p>
-							<p class="time-date">
-								<img src="../images/medical/conferences/calendar.svg" alt="" width="32">
-								<span>15-17 يناير 2025</span>
-							</p>
-							<a href="#" class="show-profile">
-							عرض الكتب
-							</a>
-						</div>
-					</div>
-
-					<div class="col-4 col-md-6 col-sm-12">
-						<div class="text-box">
-							<div class="device-image">
-								<img src="../images/medical/conferences/3.svg" alt="">
-							</div>
-							<h4>
-								الابتكارات في علاج الأمراض العصبية
-							</h4>
-							<p class="feedback">
-								يسلط المؤتمر الضوء على الأبحاث الحديثة في علاج الأمراض العصبية وكيفية استخدام التقنيات الحديثة لتحسين العلاجات المتاحة.
-							</p>
-							<p class="time-date">
-								<img src="../images/medical/conferences/calendar.svg" alt="" width="32">
-								<span>15-17 يناير 2025</span>
-							</p>
-							<a href="#" class="show-profile">
-							عرض الكتب
-							</a>
-						</div>
-					</div>
-
+                        <div class="col-2">
+                            <div class="text-box ">
+                                <div class="device-image">
+                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="text-box ">
+                                <div class="device-image">
+                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="text-box ">
+                                <div class="device-image">
+                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="text-box ">
+                                <div class="device-image">
+                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="text-box ">
+                                <div class="device-image">
+                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="text-box ">
+                                <div class="device-image">
+                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
+                                </div>
+                            </div>
+                        </div>
 				</div>
-
 
 			</div>
 		</article>
-		<!-- current conferences Section -->
-
-		<!-- previous conferences Section -->
-
-		<article class="videos-section pd">
-			<div class="container">
-
-				<h2 class="main-title">
-					من المؤتمرات العلمية السابقة
-				</h2>
-
-
-
-				<div class="all-videos-holder height-auto flex-center row-gab-15">
-
-					<div class="col-4 col-md-6 col-sm-12">
-						<div class="text-box ">
-							<div class="device-image">
-								<img src="../images/medical/conferences/4.svg" alt="">
-							</div>
-							<h4>علاج السرطان: التوجهات المستقبلية</h4>
-							<p class="feedback">
-								استعرض المؤتمر أحدث الأساليب في علاج السرطان وكيفية دمج العلاجات التقليدية مع الابتكارات الطبية الحديثة.
-							</p>
-							<p class="time-date">
-								<img src="../images/medical/conferences/calendar.svg" alt="" width="32">
-								<span>15-17 يناير 2025</span>
-							</p>
-							<a href="#" class="show-profile">
-							عرض الكتب
-							</a>
-						</div>
-					</div>
-
-					<div class="col-4 col-md-6 col-sm-12">
-						<div class="text-box ">
-							<div class="device-image">
-								<img src="../images/medical/conferences/5.svg" alt="">
-							</div>
-							<h4>جراحة القلب: الابتكارات والتقنيات الجديدة</h4>
-							<p class="feedback">
-								كان هذا المؤتمر منصة للتبادل العلمي حول أحدث تقنيات جراحة القلب وكيفية تحسين نتائج العمليات الجراحية. 
-							</p>
-							<p class="time-date">
-								<img src="../images/medical/conferences/calendar.svg" alt="" width="32">
-								<span>15-17 يناير 2025</span>
-							</p>
-							<a href="#" class="show-profile">
-							عرض الكتب
-							</a>
-						</div>
-					</div>
-
-					<div class="col-4 col-md-6 col-sm-12">
-						<div class="text-box">
-							<div class="device-image">
-								<img src="../images/medical/conferences/6.svg" alt="">
-							</div>
-							<h4>
-								مستقبل الطب الشخصي: الجينات والعلاج
-							</h4>
-							<p class="feedback">
-							تناول المؤتمر موضوع الطب الشخصي باستخدام تقنيات الجينات لتخصيص العلاجات حسب احتياجات كل مريض.
-							</p>
-							<p class="time-date">
-								<img src="../images/medical/conferences/calendar.svg" alt="" width="32">
-								<span>15-17 يناير 2025</span>
-							</p>
-							<a href="#" class="show-profile">
-							عرض الكتب
-							</a>
-						</div>
-					</div>
-
-				</div>
-
-
-			</div>
-		</article>
-
-		<!-- previous conferences Section -->
-
-
-		<!-- Contact us Section -->
-		<article class="contact-us pd">
-			<div class="container">
-				<span class="pre-title site-color">نحن هنا للاستماع إليك ومساعدتك في كل ما تحتاجه!</span>
-				<h2 class="main-title">اتصل بنا الآن لتحصل على الدعم والمساعدة في أي وقت  <br>يناسبك تمامًا</h2>
-				<p class="main-para">فريقنا المتخصص في خدمتك دائمًا. إذا كانت لديك أي استفسارات أو تحتاج إلى مساعدة، نحن هنا للرد على جميع أسئلتك وتقديم الدعم الكامل. سواء عبر الهاتف أو البريد الإلكتروني أو من خلال تطبيقنا، نحن متاحون لضمان راحتك وتحقيق أفضل تجربة ممكنة.</p>
-
-				<div class="flex-center align-center pdt">
-					<div class="col-6 col-md-6 col-sm-12">
-						<form class="custom-form" action="">
-							<div class="form-control">
-								<div class="form-field">
-									<label>اكتب اسمك</label>
-									<div class="field">
-										<img src="../images/contact/user.svg">
-										<input type="text" name="name" placeholder="| برجاء كتابة اسمك هنا">
-									</div>
-								</div>
-								<div class="form-field">
-									<label>اكتب بريدك الإلكتروني</label>
-									<div class="field">
-										<img src="../images/contact/sms.svg">
-										<input type="email" name="email" placeholder="| example@email.com">
-									</div>
-								</div>
-							</div>
-							<div class="form-control">
-								<div class="form-field">
-									<label>اكتب رسالتك</label>
-									<div class="field">
-										<img src="../images/contact/message-text.svg">
-										<textarea name="msg" placeholder="| على سبيل المثال: أريد التواصل معك"></textarea>
-									</div>
-								</div>
-
-							</div>
-							<div class="form-control">
-								<input type="submit" class="btn" name="send" value="ارسال">
-							</div>
-						</form>
-					</div>
-					<div class="col-6 col-md-6 col-sm-12">
-						<figure class="contact-image">
-							<img src="../images/contact/main.svg" alt="">
-						</figure>
-					</div>
-				</div>
-			</div>
-		</article>
-		<!-- Contact us Section -->
-
-
 	</main>
 
     @include('components.contact-us')
+
+@endsection
+
+@section('scripts')
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
 
 @endsection

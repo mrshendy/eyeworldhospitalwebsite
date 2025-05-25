@@ -20,6 +20,10 @@
     "create_medical_conference" : "Create Medical Conference",
     "show_details" : "Show Details",
     "detail_description" : "Detailed Description",
+    "detail_title" : "Advantage Title",
     "Start Date" : "Start Date",
-    "End Date" : "End Date"
+    "End Date" : "End Date",
+    "conference_advantages" : "Conference Advantages",
+    "add_advantage" : "Add Advantage",
+    "remove" : "Remove Item"
 }

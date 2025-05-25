@@ -36,7 +36,8 @@ return [
         'medical_devices' => "الأجهزة الطبية",
         "sub_title" => "العنوان الفرعى باللغة العربية",
         "description" => "الوصف باللغة العربية",
-        "detail_description"     => 'الوصف التفصيلي باللغة العربية',
+        "advantage_title" => 'عنوان الميزة بالعربية',
+        "advantage_description"    => 'الوصف التفصيلي باللغة العربية',
 
     ],
 
@@ -67,7 +68,8 @@ return [
         "Specialty" => "التخصص",
         "medical_tourisms" => "السياحه العلاجيه",
         "medical_tourisms_service" => "خدمات السياحة العلاجية",
-        "detail_description"     => 'الوصف التفصيلي باللغة الانجليزية',
+        "advantage_title" => 'عنوان الميزة بالانجليزيه',
+        "advantage_description"     => 'الوصف التفصيلي  للميزة باللغة الانجليزية',
 
 
     ]

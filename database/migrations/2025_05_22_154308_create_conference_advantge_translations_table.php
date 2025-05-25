@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('conference_advantge_translations', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nulable();
-            $table->text('description')->nullable();
+            $table->string('advantage_title')->nulable();
+            $table->text('advantage_description')->nullable();
             $table->unsignedBigInteger('conference_advantge_id');
             $table->foreign('conference_advantge_id')->references('id')->on('conference_advantges')->onDelete('cascade');
             $table->string('locale')->index();

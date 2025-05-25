@@ -58,6 +58,28 @@
                 <input type="text" id="end_date" name="end_date" class="form-control flatpickr" placeholder="YYYY-MM-DD" value="{{ old('end_date', $conference->end_date ?? '') }}" required>
 
             </div>
+
+            <div class="form-group">
+                <label>{{ __('conference_advantages') }}</label>
+                <div id="advantages-wrapper">
+                    @foreach ($conference->advantages as $index => $advantage)
+                        <div class="advantage-item mb-3 border rounded p-2">
+                            @foreach (config('translatable.locales') as $locale)
+                                <div class="mb-2">
+                                    <label>{{ __('system.'.$locale.'.advantage_title') }}</label>
+                                    <input type="text" name="advantages[{{ $index }}][{{ $locale }}][advantage_title]" class="form-control" value="{{ $advantage->translateOrNew($locale)->advantage_title }}" required>
+
+                                    <label>{{ __('system.'.$locale.'.advantage_description') }}</label>
+                                    <textarea name="advantages[{{ $index }}][{{ $locale }}][advantage_description]" class="form-control" required>{{ $advantage->translateOrNew($locale)->advantage_description }}</textarea>
+                                </div>
+                            @endforeach
+                            <button type="button" class="btn btn-danger btn-sm remove-advantage mt-2">{{ __('remove') }}</button>
+                        </div>
+                    @endforeach
+                </div>
+                <button type="button" class="btn btn-success mt-2" id="add-advantage"><i class="fa fa-plus"></i> {{ __('add_advantage') }}</button>
+            </div>
+
         </div>
 
 
@@ -136,4 +158,40 @@
         dateFormat: "Y-m-d",
     });
 </script>
+
+<script>
+    $(document).ready(function () {
+        let advantageIndex = {{ $conference->advantages->count() ?? 1 }};
+        const locales = @json(config('translatable.locales'));
+
+        $('#add-advantage').click(function () {
+            let html = `<div class="advantage-item mb-3 border rounded p-2">`;
+
+            locales.forEach(function(locale) {
+                html += `
+                    <div class="col-12">
+                        <div>
+                            <label>{{ __('system.'.$locale.'.advantage_title') }}</label>
+                            <input type="text" name="advantages[${advantageIndex}][${locale}][advantage_title]" class="form-control" required>
+
+                            <label>{{ __('system.'.$locale.'.advantage_description') }}</label>
+                            <textarea name="advantages[${advantageIndex}][${locale}][advantage_description]" class="form-control" required></textarea>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `<button type="button" class="btn btn-danger btn-sm remove-advantage mt-2">{{ __('remove') }}</button></div>`;
+            $('#advantages-wrapper').append(html);
+            advantageIndex++;
+        });
+
+        $('#advantages-wrapper').on('click', '.remove-advantage', function () {
+            $(this).closest('.advantage-item').remove();
+        });
+    });
+</script>
+
+
+
 @endsection

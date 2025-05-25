@@ -8,6 +8,8 @@ use DataTables;
 use Yajra\DataTables\Html\Builder;
 use App\Traits\fileTrait;
 use App\Models\Conference;
+use App\Models\ConferenceAdvantge;
+use App\Models\ConferenceImage;
 
 class ConferenceController extends Controller
 {
@@ -75,10 +77,34 @@ class ConferenceController extends Controller
     {
         if($request->file!=null)
             $request->merge(['img' => $this->MoveImage($request->file,'uploads/conferences')]);
-        $data = $request->except(['file']);
-        $medical_conferences = Conference::create($data);
-        return redirect()->route('Admin.conferences.index');
+
+        $data = $request->except('advantages', 'file', 'images');
+        $conference = Conference::create($data);
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $fileName = $this->MoveImage($image, 'uploads/conferences');
+                ConferenceImage::create([
+                    'conference_id' => $conference->id,
+                    'image' => $fileName
+                ]);
+            }
+        }
+        // Loop through advantages input array
+        foreach ($request->advantages as $advantageData) {
+            $translations = [];
+
+            foreach (config('translatable.locales') as $locale) {
+                $translations[$locale] = [
+                    'advantage_title' => $advantageData[$locale]['advantage_title'] ?? '',
+                    'advantage_description' => $advantageData[$locale]['advantage_description'] ?? '',                            ];
+            }
+            $conference->advantages()->create($translations);
+        }
+
+        return redirect()->route('Admin.conferences.index')->with('success', 'Conference created successfully!');
     }
+
 
     /**
      * Display the specified resource.
@@ -105,8 +131,38 @@ class ConferenceController extends Controller
         if($request->file!=null)
             $request->merge(['img' => $this->MoveImage($request->file,'uploads/conferences')]);
 
-        $data =  Conference::findOrFail($id);
-        $data->update($request->except(['id','_token','_method', 'file']));
+        $conference =  Conference::findOrFail($id);
+        $conference->update($request->except(['id', '_token', '_method', 'file', 'advantages']));
+
+        $submittedIds = [];
+
+        if ($request->has('advantages')) {
+            foreach ($request->advantages as $advantageData) {
+                $translations = [];
+
+                foreach (config('translatable.locales') as $locale) {
+                    $translations[$locale] = [
+                        'advantage_title' => $advantageData[$locale]['advantage_title'] ?? '',
+                        'advantage_description' => $advantageData[$locale]['advantage_description'] ?? '',
+                    ];
+                }
+
+                if (!empty($advantageData['id'])) {
+                    $adv = $conference->advantages()->find($advantageData['id']);
+                    if ($adv) {
+                        $adv->update($translations);
+                        $submittedIds[] = $advantageData['id'];
+                    }
+                } else {
+                    $new = $conference->advantages()->create($translations);
+                    $submittedIds[] = $new->id;
+                }
+            }
+        }
+
+        //Delete any old advantages not in submitted form
+        $conference->advantages()->whereNotIn('id', $submittedIds)->delete();
+
         return redirect()->back();
     }
 
