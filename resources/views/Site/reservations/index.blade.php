@@ -5,8 +5,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('siteassets/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('siteassets/css/main.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">	
 	 <style>
     .time-picker {
@@ -127,6 +127,10 @@
 					<div class="col-9 col-md-12">
 						<form class="steps-holder" action="{{route('Site.reservation.store')}}" method="POST">
                            @csrf
+
+						    <input type="hidden" name="price" value="{{$price->price}}">
+							<input type="hidden" name="urgent_price" value="{{$price->urgent_price}}">
+
 							<div class="step-content active">
 
 								<div class="flex-between align-center">
@@ -396,7 +400,7 @@
 					success: function (response) {
 
 					  $('#appointments').html(response);
-					  $('#date').html(response);
+					  	document.getElementById('date').textContent = selectedDate;
 					},
 					error: function (response) {
 
@@ -424,13 +428,22 @@
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
 			const today = new Date();
-
 			// Format: "May 24, 2025"
 			const options = { year: 'numeric', month: 'long', day: 'numeric' };
 			const formattedDate = today.toLocaleDateString('en-US', options);
-
 			document.getElementById('date').textContent = formattedDate;
 		});
 </script>
+
+
+@if (session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Your action was successful.'
+    });
+</script>
+@endif
 @endsection
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{Doctor,Country,Reservation,Day,DoctorAppointMent,DoctorPrice};
 use Carbon\Carbon;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ReservationController extends Controller
 {
@@ -24,14 +25,19 @@ class ReservationController extends Controller
 
 
     public function store(Request $request){      
+
         Reservation::create([
              'doctor_id'     => $request->doctor_id,
              'specialtie_id' => $request->specialtie_id,
              'urgent'        => $request->urgent,
              'patient_name'   => $request->name,
-             'country_id'    => $request->country_id
+             'country_id'    => $request->country_id,
+             'price'      => ($request->urgent == 0) ? $request->price : $request->urgent_price
         ]);
-        return redirect()->back();
+     session()->flash('success', 'This is a flash message!');
+
+      return redirect()->route('Site.reservation.index',$request->doctor_id)
+                     ->with('success', 'Reservation submitted successfully!');
     }
 
 

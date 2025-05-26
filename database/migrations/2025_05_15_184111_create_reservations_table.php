@@ -26,6 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('SET NULL');
             $table->enum('payment_method',['cash','visa','apple_pay'])->default('cash');
+            $table->enum('type',['onlin','normal','Expat_visit'])->default('normal');
             $table->time('time_from')->nullable();
             $table->time('time_to')->nullable();
             $table->date('date')->nullable();
