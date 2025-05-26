@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
             $table->double('price')->defult(0);
-            $table->double('argent_price')->defult(0);
+            $table->double('urgent_price')->defult(0);
             $table->timestamps();
         });
     }
