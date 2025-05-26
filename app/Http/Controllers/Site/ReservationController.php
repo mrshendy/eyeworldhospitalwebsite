@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Doctor,Country,Reservation,Day,DoctorAppointMent,DoctorPrice};
+use App\Models\{Doctor,Country,Reservation,Day,DoctorAppointment,DoctorPrice};
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -18,7 +18,7 @@ class ReservationController extends Controller
         $price      = DoctorPrice::where('doctor_id',$doctor_id)->first();
         $dayName  = Carbon::now()->format('l');
         $day =Day::where('name',$dayName)->first();
-        $appointments = DoctorAppointMent::where('day_id',$day->id)->where(['doctor_id'=>$doctor_id ,'day_id'=>$day->id])->get();
+        $appointments = DoctorAppointment::where('day_id',$day->id)->where(['doctor_id'=>$doctor_id ,'day_id'=>$day->id])->get();
        
         return view('Site.reservations.index',compact('doctor','country','appointments','price'));
     }
@@ -46,7 +46,7 @@ class ReservationController extends Controller
             $dayName = Carbon::parse($date)->format('l');
             $day =Day::where('name',$dayName)->first();
           
-            $appointments = DoctorAppointMent::where('day_id',$day->id)->where(['doctor_id'=>$doctor_id ,'day_id'=>$day->id])->get();
+            $appointments = DoctorAppointment::where('day_id',$day->id)->where(['doctor_id'=>$doctor_id ,'day_id'=>$day->id])->get();
             return view('Site.componants.appointments',compact('appointments'));
         }
 }
