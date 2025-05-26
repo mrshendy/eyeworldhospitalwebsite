@@ -79,6 +79,14 @@
                   </ul>
                 </li>
 
+             
+            <li class="menu-item">
+              <a href="{{route('Admin.reservations.index')}}" class="menu-link">
+                <i class="ri-body-scan-fill"></i>
+                <div>{{__('reservations')}}</div>
+              </a>
+            </li>
+
 
 
             <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-devices'
@@ -87,7 +95,7 @@
                      open
                 @endif ">
                    <a href="#" class="menu-link menu-toggle">
-                    <i class="ri-nurse-line"></i>
+                   <i class="ri-dashboard-3-line"></i>
                      <div>{{__('medical_devices')}}</div>
                   </a>
 
@@ -134,6 +142,7 @@
                 <div>{{__('About')}}</div>
               </a>
             </li>
+            
             <li class="menu-item">
               <a href="{{route('Admin.contact-us.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-mail-open-line"></i>

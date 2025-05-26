@@ -184,6 +184,14 @@
     "Choose Specialty" : "اختر التخصص",
     "Specialty" : "التخصص",
     "medical_tourisms" : "السياحه العلاجيه",
-    "medical_tourisms_service" : "خدمات السياجة العلاجية"
+    "medical_tourisms_service" : "خدمات السياجة العلاجية",
+    "reservations":"الحجوزات",
+    "appointments":"المواعيد",
+    "day":"اليوم",
+    "timing":"التوقيت",
+    "stop on complete":"وقف عند الاكتمال",
+    "avilable count":"العدد المتاح",
+    "urgent price":"السعر المستعجل",
+    "price":"السعر"
 
 }

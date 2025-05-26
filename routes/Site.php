@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
-    RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController};
+    RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController,ReservationController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -41,6 +41,11 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('medical-tourism', [MedicalTourismController::class, 'index'])->name('medicalTourism.index');
 
 
+
+    Route::get('reservation/{doctor_id}', [ReservationController::class, 'index'])->name('reservation.index');
+    Route::post('reservation', [ReservationController::class, 'store'])->name('reservation.store');
+    
+    Route::get('reservation/{doctor_id}/{date}', [ReservationController::class, 'doctorAppointment'])->name('reservation.Appointment');
 
 });
 
