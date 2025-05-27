@@ -25,5 +25,8 @@
     "End Date" : "End Date",
     "conference_advantages" : "Conference Advantages",
     "add_advantage" : "Add Advantage",
-    "remove" : "Remove Item"
+    "remove" : "Remove Item",
+    "conference_images" : "Conference Images",
+    "existing_images" : "Existing Images",
+    "add_images" : "Add Images"
 }

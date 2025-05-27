@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link rel="stylesheet" href="{{asset('dropify/dist/css/demo.css')}}">
 <link rel="stylesheet" href="{{asset('dropify/dist/css/dropify.min.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 
 @endsection
 
@@ -53,12 +56,22 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 col-6">
-                        <label>{{ __('Conference Images') }}</label>
+                    <div class="form-group col-12">
+                        <label>  {{__('Charities Supports')}} </label>
+                        <select name="charities_ids[]" id="charities" class="select2" multiple="multiple">
+                            @foreach ($charities as $charity)
+                                <option value="{{$charity->id}}">{{$charity->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <label>{{ __('conference_images') }}</label>
                         <input type="file" name="images[]" class="form-control" multiple>
                     </div>
-
-
+                </div>
 
                 <div class="form-group">
                     <label>{{ __('conference_advantages') }}</label>
@@ -101,7 +114,6 @@
 <script src="{{asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
 <script src="{{asset('assets/js/tables-datatables-basic.js')}}"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function(){
         // Basic
@@ -153,7 +165,14 @@
         minDate: "today"
     });
 </script>
+<script>
+    $(document).ready(function() {
+      $('.select2').select2({
+        width: "100%"
+      });
 
+    });
+  </script>
 <script>
     $(document).ready(function () {
         let advantageIndex = 1;
@@ -186,6 +205,7 @@
         });
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 @endsection
 

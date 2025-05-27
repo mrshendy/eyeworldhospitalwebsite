@@ -27,7 +27,10 @@ class ConferenceController extends Controller
 
     public function show($id)
     {
-        $data['conference'] = Conference::with('advantages')->with('images')->findOrFail($id);
+        $data['conference'] = Conference::with('advantages')
+                            ->with('images')
+                            ->with('charities')
+                            ->findOrFail($id);
         return view('Site.conferences.show')->with($data);
     }
 }

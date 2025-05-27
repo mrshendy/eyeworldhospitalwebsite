@@ -3,9 +3,10 @@
 
 @section('styles')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
 <link rel="stylesheet" href="{{asset('dropify/dist/css/demo.css')}}">
 <link rel="stylesheet" href="{{asset('dropify/dist/css/dropify.min.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 @endsection
 
@@ -59,6 +60,41 @@
 
             </div>
 
+            <div class="row">
+                <label for="charities_ids">{{ __('Charities Supporters') }}</label>
+                <select name="charities_ids[]" id="charities_ids" class="form-control select2" multiple>
+                    @foreach ($charities as $charity)
+                        <option value="{{ $charity->id }}"
+                            @if(isset($conference) && $conference->charities->contains('id', $charity->id)) selected @endif>
+                            {{ $charity->title }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div id="existing-images">
+                <div class="row">
+                    <label>{{ __('conference_images') }}</label>
+                    <label for="">{{ __('existing_images') }}</label>
+                    @foreach($conference->images as $key => $image)
+                        <div class="mb-2 mt-4 col-3 old-image" data-id="{{ $image->id }}">
+                            <img src="{{ asset('uploads/conferences/' . $image->image) }}" class="me-2" width="100" alt="image">
+                            <input type="hidden" name="old_images[]" value="{{ $image->id }}">
+                            <button type="button" class="btn btn-outline-danger btn-sm remove-old-image">
+                                <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <!-- New Image Inputs -->
+            <div id="new-images"></div>
+            <button type="button" class="btn btn-outline-primary btn-sm my-2" id="add-image">
+                + {{ __('add_image') }}
+            </button>
+
+
             <div class="form-group">
                 <label>{{ __('conference_advantages') }}</label>
                 <div id="advantages-wrapper">
@@ -92,22 +128,13 @@
 @endsection
 
 @section('scripts')
-
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="{{asset('dropify/dist/js/dropify.min.js')}}"></script>
-
-<!-- Vendors JS -->
-<script src="{{asset('assets/vendor/libs/quill/katex.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/quill/quill.js')}}"></script>
-<!-- Main JS -->
-<script src="{{asset('assets/js/main.js')}}"></script>
-
-<script src="{{asset('assets/js/forms-editors.js')}}"></script>
-
-<script src="{{asset('Ck_editor5/ckeditor.js')}}"></script>
-<script src="{{asset('dropify/dist/js/dropify.min.js')}}"></script>
-
-
+<script>
+    $(document).ready(function() {
+      $('.select2').select2({
+        width: "100%"
+      });
+    });
+  </script>
 <script>
     $(document).ready(function(){
         // Basic
@@ -193,5 +220,38 @@
 </script>
 
 
+<script>
+    $(document).ready(function () {
+        // Add new image input
+        $('#add-image').on('click', function () {
+            $('#new-images').append(`
+                <div class="mb-2 mt-4 d-flex align-items-center new-image">
+                    <input type="file" name="images[]" class="form-control me-2" required>
+                    <button type="button" class="btn btn-outline-danger btn-sm remove-new-image">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            `);
+        });
+
+        // Remove newly added image input
+        $(document).on('click', '.remove-new-image', function () {
+            $(this).closest('.new-image').remove();
+        });
+
+        // Remove existing image (mark for deletion)
+        $(document).on('click', '.remove-old-image', function () {
+            const container = $(this).closest('.old-image');
+            const id = container.data('id');
+            $('#existing-images').append(`
+                <input type="hidden" name="deleted_images[]" value="${id}">
+            `);
+            container.remove(); // visually remove
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 @endsection

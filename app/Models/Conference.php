@@ -30,4 +30,9 @@ class Conference extends Model
     {
         return $this->hasMany(ConferenceImage::class);
     }
+
+    public function charities()
+    {
+        return $this->hasMany(Chairity::class);
+    }
 }

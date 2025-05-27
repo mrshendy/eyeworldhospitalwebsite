@@ -63,21 +63,23 @@
             </div>
         </article>
 
-        <article class="slider">
-			<div class="owl-slider owl-carousel">
-            @foreach ($conference->images as $img)
+        <div class="container">
+            <h2 class="main-title">من صور المؤتمر</h2>
+            <article class="slider">
+                    <div class="owl-slider owl-carousel">
+                    @foreach ($conference->images as $img)
+                        <div class="item" style="background-image:url(../images/slider/1.jpg)">
+                            <div class="container h-100">
+                                <div class="slider-details h-100 flex-column">
+                                    <img src="{{ asset('uploads/conferences/' . $img->image) }}" class="img-fluid" alt="" style="width:100%; height:auto;">
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
 
-				<div class="item" style="background-image:url(../images/slider/1.jpg)">
-					<div class="container h-100">
-						<div class="slider-details h-100 flex-column">
-                            <img src="{{ asset('uploads/conferences/' . $img->image) }}" class="img-fluid" alt="" style="width:100%; height:auto;">
-						</div>
-					</div>
-				</div>
-            @endforeach
-
-			</div>
-		</article>
+            </article>
+        </div>
 
 
         <article class="videos-section pd">
@@ -88,48 +90,15 @@
 				</h2>
 
 				<div class="all-videos-holder height-auto flex-center row-gab-15">
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
+                    <div class="all-videos-holder height-auto flex-center row-gab-15">
+                        @foreach ($conference->charities as $charity)
+                            <div class="col-2">
+                                <div class="text-box ">
+                                        <img src="{{ $charity->img }}" class="img-fluid" alt="" style="width:100%; height:auto;">
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                    </div>
 				</div>
 
 			</div>

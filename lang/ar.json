@@ -195,6 +195,10 @@
     "End Date" : "تاريخ الانتهاء",
     "conference_advantages" : "مميزات المؤتمر",
     "add_advantage" : "اضافة ميزة",
-    "remove" : "ازالة العنصر"
+    "remove" : "ازالة العنصر",
+    "conference_images" : "صور المؤتمر",
+    "existing_images" : "الصور الموجودة",
+    "add_image" : "اضافة صورة",
+    "Charities Supports" : "المؤسسات الداعمة"
 
 }

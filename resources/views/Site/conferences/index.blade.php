@@ -98,9 +98,6 @@
 				<h2 class="main-title">
 					من المؤتمرات العلمية السابقة
 				</h2>
-
-
-
 				<div class="all-videos-holder height-auto flex-center row-gab-15">
 
                     @forelse ($previousConferences as $conference)
@@ -148,61 +145,6 @@
 			</div>
 		</article>
 
-
-        <article class="videos-section pd">
-			<div class="container">
-
-				<h2 class="main-title">
-                من المؤسسات الداعمة
-				</h2>
-
-				<div class="all-videos-holder height-auto flex-center row-gab-15">
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="text-box ">
-                                <div class="device-image">
-                                    <img src={{ asset('uploads/conferences/charity.png') }} alt="">
-                                </div>
-                            </div>
-                        </div>
-				</div>
-
-			</div>
-		</article>
         @include('components.contact-us')
 
 	</main>

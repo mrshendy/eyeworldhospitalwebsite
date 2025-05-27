@@ -10,6 +10,7 @@ use App\Traits\fileTrait;
 use App\Models\Conference;
 use App\Models\ConferenceAdvantge;
 use App\Models\ConferenceImage;
+use App\Models\Chairity;
 
 class ConferenceController extends Controller
 {
@@ -67,7 +68,8 @@ class ConferenceController extends Controller
      */
     public function create()
     {
-        return view('Admin.conferences.create');
+        $data['charities'] = Chairity::all();
+        return view('Admin.conferences.create')->with($data);
     }
 
     /**
@@ -78,8 +80,9 @@ class ConferenceController extends Controller
         if($request->file!=null)
             $request->merge(['img' => $this->MoveImage($request->file,'uploads/conferences')]);
 
-        $data = $request->except('advantages', 'file', 'images');
+        $data = $request->except('advantages', 'file', 'images', 'charities_ids');
         $conference = Conference::create($data);
+
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
@@ -102,6 +105,11 @@ class ConferenceController extends Controller
             $conference->advantages()->create($translations);
         }
 
+        if ($request->has('charities_ids')) {
+            Chairity::whereIn('id', $request->charities_ids)
+                ->update(['conference_id' => $conference->id]);
+        }
+
         return redirect()->route('Admin.conferences.index')->with('success', 'Conference created successfully!');
     }
 
@@ -120,6 +128,7 @@ class ConferenceController extends Controller
     public function edit(string $id)
     {
         $data['conference'] = Conference::findOrFail($id);
+        $data['charities'] = Chairity::all();
         return view('Admin.conferences.edit')->with($data);
     }
 
@@ -132,7 +141,7 @@ class ConferenceController extends Controller
             $request->merge(['img' => $this->MoveImage($request->file,'uploads/conferences')]);
 
         $conference =  Conference::findOrFail($id);
-        $conference->update($request->except(['id', '_token', '_method', 'file', 'advantages']));
+        $conference->update($request->except(['id', '_token', '_method', 'file', 'advantages', "images", "deleted_images", 'charities_ids', 'old_images']));
 
         $submittedIds = [];
 
@@ -162,6 +171,36 @@ class ConferenceController extends Controller
 
         //Delete any old advantages not in submitted form
         $conference->advantages()->whereNotIn('id', $submittedIds)->delete();
+
+        // 🗑️ Handle deleted old images
+        if ($request->has('deleted_images')) {
+            foreach ($request->deleted_images as $imageId) {
+                $image = ConferenceImage::find($imageId);
+                if ($image) {
+                    \Storage::delete('uploads/conferences/' . $image->image);
+                    $image->delete();
+                }
+            }
+        }
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $fileName = $this->MoveImage($image, 'uploads/conferences');
+                ConferenceImage::create([
+                    'conference_id' => $conference->id,
+                    'image' => $fileName,
+                ]);
+            }
+        }
+
+        Chairity::where('conference_id', $conference->id)
+        ->whereNotIn('id', $request->charities_ids ?? [])
+        ->update(['conference_id' => null]);
+
+        if ($request->has('charities_ids')) {
+        Chairity::whereIn('id', $request->charities_ids)
+            ->update(['conference_id' => $conference->id]);
+        }
 
         return redirect()->back();
     }

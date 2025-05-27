@@ -144,7 +144,13 @@
                         <a href="{{route('Admin.conferences.index')}}" class="menu-link">
                            <div>{{__('medical_conferences')}}</div>
                         </a>
-                      </li>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{route('Admin.charities.index')}}" class="menu-link">
+                           <div>{{__('Charities Supports')}}</div>
+                        </a>
+                    </li>
 
                   </ul>
             </li>

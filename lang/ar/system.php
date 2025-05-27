@@ -38,6 +38,7 @@ return [
         "description" => "الوصف باللغة العربية",
         "advantage_title" => 'عنوان الميزة بالعربية',
         "advantage_description"    => 'الوصف التفصيلي باللغة العربية',
+        "detail_description" => 'الوصف التفصيلي بالعربيه',
 
     ],
 
@@ -70,6 +71,7 @@ return [
         "medical_tourisms_service" => "خدمات السياحة العلاجية",
         "advantage_title" => 'عنوان الميزة بالانجليزيه',
         "advantage_description"     => 'الوصف التفصيلي  للميزة باللغة الانجليزية',
+        "detail_description" => 'الوصف التفصيلي بالانجليزيه',
 
 
     ]
