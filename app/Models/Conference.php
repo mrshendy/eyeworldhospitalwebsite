@@ -35,4 +35,19 @@ class Conference extends Model
     {
         return $this->hasMany(Chairity::class);
     }
+    public function guests()
+    {
+        return $this->belongsToMany(Guest::class)->withPivot([
+            'employer', 'doctor_type', 'participation_type', 'attendance_details'
+        ])->withTimestamps();
+    }
+
+    public function doctors()
+    {
+        return $this->belongsToMany(Doctor::class)
+                    ->withPivot(['role', 'doctor_type'])
+                    ->withTimestamps();
+    }
+
+
 }

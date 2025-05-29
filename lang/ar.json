@@ -199,6 +199,30 @@
     "conference_images" : "صور المؤتمر",
     "existing_images" : "الصور الموجودة",
     "add_image" : "اضافة صورة",
-    "Charities Supports" : "المؤسسات الداعمة"
-
+    "Charities Supports" : "المؤسسات الداعمة",
+    "Attend Conference" : "سجّل اهتمامك الآن لتبقى على اطلاع بكل جديد عن المؤتمر!",
+    "Register your interest in the conference on the role of artificial intelligence in modern medicine" : "سجّل اهتمامك فى مؤتمر دور الذكاء الاصطناعي في الطب الحديث",
+    "Join the latest scientific conferences specializing in various medical fields, and receive the latest information and research that will contribute to developing your medical practice." : "انضم إلى أحدث المؤتمرات العلمية المتخصصة في مجالات طبية متنوعة، واحصل على أحدث المعلومات والأبحاث التي تساهم في تطوير ممارساتك الطبية.",
+    "Country" : "الدولة",
+    "Phone" : "الهاتف",
+    "Age" : "العمر",
+    "Choose" : "اختار",
+    "Doctor" : "الدكتور",
+    "Employer" : "جهة العمل",
+    "Select Attendance Details" : "اختر تفاصيل الحضور",
+    "Particinpantion Type" : "نوع المشاركة",
+    "Conference Attendance" : "حضور المؤتمر",
+    "Paticipant as Speaker" : "شارك كمتحدث",
+    "Conference Attendance Only" : "حضور المؤتمر فقط",
+    "Paticipant as Speaker Only" : "شارك كمتحدث فقط",
+    "Paticipant as speaker and something esle" : "شارك كمتحدث وشيء آخر",
+    "Specialist Doctor" : "طبيب متخصص",
+    "Consultant Doctor" : "طبيب استشاري",
+    "General Practitioner" : "طبيب عام",
+    "Medical Student" : "طالب طب",
+    "You have successfully registered for the conference" : "لقد قمت بالتسجيل بنجاح في المؤتمر",
+    "Doctors Attendances" : "الاطباء الحاضرين",
+    "Local Doctors" : "من الأطباء المحليين",
+    "Global Doctors" : "من الأطباء العالميين"
 }
+

@@ -61,6 +61,18 @@
             </div>
 
             <div class="row">
+                <label for="doctor_ids">{{ __('Doctors') }}</label>
+                <select name="doctor_ids[]" id="doctor_ids" class="form-control select2" multiple>
+                    @foreach ($doctors as $doctor)
+                        <option value="{{ $doctor->id }}"
+                            @if(isset($conference) && $conference->doctors->contains('id', $doctor->id)) selected @endif>
+                            {{ $doctor->doctorInfo->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="row">
                 <label for="charities_ids">{{ __('Charities Supporters') }}</label>
                 <select name="charities_ids[]" id="charities_ids" class="form-control select2" multiple>
                     @foreach ($charities as $charity)
@@ -71,6 +83,7 @@
                     @endforeach
                 </select>
             </div>
+
 
             <div id="existing-images">
                 <div class="row">

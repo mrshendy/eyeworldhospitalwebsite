@@ -32,6 +32,10 @@
 							<p class="main-para">
                                 {{ $conference->detail_description }}
                             </p>
+                            <a href="{{ route('Site.conference.booking', $conference->id) }}" class="show-profile">
+                                {{ __('Attend Conference') }}
+                            </a>
+
 						</div>
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
@@ -80,6 +84,45 @@
 
             </article>
         </div>
+
+        <article class="patients-rights pd">
+            <div class="container">
+                <h2 class="main-title">{{ __('Global Doctors') }}</h2>
+
+                <div class="pdt flex-start row-gap-15">
+                    @foreach ($conference->guests as $guest)
+                        <div class="col-4 col-md-6 col-sm-12">
+                            <div class="rights-box flex-start">
+                                <img src="{{ asset('uploads/conferences/emoji-normal.png') }}" width="24" height="24" alt="">
+                                <div class="flex-1">
+                                    <h4>{{ $guest->name }}</h4>
+                                    <p>{{ $guest->pivot->doctor_type }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </article>
+
+        <article class="patients-rights pd">
+            <div class="container">
+                <h2 class="main-title">{{ __('Local Doctors') }}</h2>
+                <div class="pdt flex-start row-gap-15">
+                    @foreach ($conference->doctors as $doctor)
+                        <div class="col-4 col-md-6 col-sm-12">
+                            <div class="rights-box flex-start">
+                                <img src="{{ $doctor->img }}" width="96" height="96" alt="">
+                                <div class="flex-1">
+                                    <h4>{{ $doctor->doctorInfo->name }}</h4>
+                                    <p>{{ $doctor->doctorInfo->title }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </article>
 
 
         <article class="videos-section pd">

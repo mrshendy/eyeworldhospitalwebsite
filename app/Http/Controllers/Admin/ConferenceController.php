@@ -11,6 +11,7 @@ use App\Models\Conference;
 use App\Models\ConferenceAdvantge;
 use App\Models\ConferenceImage;
 use App\Models\Chairity;
+use App\Models\Doctor;
 
 class ConferenceController extends Controller
 {
@@ -44,6 +45,7 @@ class ConferenceController extends Controller
                         <i class="ri-delete-bin-6-line"></i>
                     </a>
                     <a href="'.route('Admin.conferences.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
+                    <a href="'.route('Admin.conferences.show',$row->id).'" class="edit_btn">   <i class="ri-eye-line"></i> </a>
 
                 ';
             })
@@ -69,6 +71,7 @@ class ConferenceController extends Controller
     public function create()
     {
         $data['charities'] = Chairity::all();
+        $data['doctors'] = Doctor::all();
         return view('Admin.conferences.create')->with($data);
     }
 
@@ -80,7 +83,7 @@ class ConferenceController extends Controller
         if($request->file!=null)
             $request->merge(['img' => $this->MoveImage($request->file,'uploads/conferences')]);
 
-        $data = $request->except('advantages', 'file', 'images', 'charities_ids');
+        $data = $request->except('advantages', 'file', 'images', 'charities_ids', 'doctor_ids', 'doctor_roles', 'doctor_types');
         $conference = Conference::create($data);
 
 
@@ -93,7 +96,6 @@ class ConferenceController extends Controller
                 ]);
             }
         }
-        // Loop through advantages input array
         foreach ($request->advantages as $advantageData) {
             $translations = [];
 
@@ -110,6 +112,18 @@ class ConferenceController extends Controller
                 ->update(['conference_id' => $conference->id]);
         }
 
+        if ($request->has('doctor_ids')) {
+            $syncData = [];
+
+            foreach ($request->doctor_ids as $doctorId) {
+                $syncData[$doctorId] = [
+                    'role' => $request->doctor_roles[$doctorId] ?? 'Speaker',
+                    'doctor_type' => $request->doctor_types[$doctorId] ?? 'Expert',
+                ];
+            }
+
+            $conference->doctors()->sync($syncData);
+        }
         return redirect()->route('Admin.conferences.index')->with('success', 'Conference created successfully!');
     }
 
@@ -119,7 +133,10 @@ class ConferenceController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('Admin.conferences.show', [
+            'conference' => Conference::with(['advantages', 'images', 'charities', "guests"])->findOrFail($id)
+        ]);
+
     }
 
     /**
@@ -129,6 +146,7 @@ class ConferenceController extends Controller
     {
         $data['conference'] = Conference::findOrFail($id);
         $data['charities'] = Chairity::all();
+        $data['doctors'] = Doctor::all();
         return view('Admin.conferences.edit')->with($data);
     }
 
@@ -141,7 +159,7 @@ class ConferenceController extends Controller
             $request->merge(['img' => $this->MoveImage($request->file,'uploads/conferences')]);
 
         $conference =  Conference::findOrFail($id);
-        $conference->update($request->except(['id', '_token', '_method', 'file', 'advantages', "images", "deleted_images", 'charities_ids', 'old_images']));
+        $conference->update($request->except(['id', '_token', '_method', 'file', 'advantages', "images", "deleted_images", 'charities_ids', 'old_images', 'doctor_ids']));
 
         $submittedIds = [];
 
@@ -200,6 +218,20 @@ class ConferenceController extends Controller
         if ($request->has('charities_ids')) {
         Chairity::whereIn('id', $request->charities_ids)
             ->update(['conference_id' => $conference->id]);
+        }
+
+        if ($request->has('doctor_ids') && count($request->doctor_ids)) {
+            $syncData = [];
+
+            foreach ($request->doctor_ids as $doctorId) {
+                $syncData[$doctorId] = [
+                    'role' => $request->doctor_roles[$doctorId] ?? 'Speaker',
+                    'doctor_type' => $request->attendance_types[$doctorId] ?? 'Expert',
+                ];
+            }
+            $conference->doctors()->sync($syncData);
+        } else {
+            $conference->doctors()->detach();
         }
 
         return redirect()->back();

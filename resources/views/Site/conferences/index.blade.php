@@ -130,7 +130,7 @@
 
                             <span>{{ $startDay }}-{{ $endDay }} {{ $month }} {{ $year }}</span>
                             </p>
-                            <a href="#" class="show-profile">
+                            <a href="{{ route('Site.conference.show', $conference->id) }}" class="show-profile">
                                 {{ __('show_details') }}
                             </a>
                         </div>

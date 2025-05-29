@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Conference;
 use App\Models\ConferenceInfo;
 use Carbon\Carbon;
+Use App\Models\Guest;
 
 class ConferenceController extends Controller
 {
@@ -30,7 +31,49 @@ class ConferenceController extends Controller
         $data['conference'] = Conference::with('advantages')
                             ->with('images')
                             ->with('charities')
+                            ->with('doctors')
+                            ->with('guests')
                             ->findOrFail($id);
         return view('Site.conferences.show')->with($data);
     }
+
+    public function booking_conference($id)
+    {
+        $conference = Conference::findOrFail($id);
+        return view('Site.conferences.booking', compact('conference'));
+    }
+
+    public function store_booking(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|string',
+            'country' => 'required|string',
+            'age' => 'nullable|integer',
+            'employer' => 'nullable|string',
+            'doctor_type' => 'nullable|string',
+            'participation_type' => 'nullable|string',
+            'attendance_details' => 'nullable|string',
+        ]);
+
+        $guest = Guest::firstOrCreate(
+            ['email' => $request->email],
+            $request->only(['name', 'phone', 'country', 'age'])
+        );
+
+        $conference = Conference::findOrFail($id);
+
+        $conference->guests()->syncWithoutDetaching([
+            $guest->id => [
+                'employer' => $request->employer,
+                'doctor_type' => $request->doctor_type,
+                'participation_type' => $request->participation_type,
+                'attendance_details' => $request->attendance_details,
+            ]
+        ]);
+
+        return redirect()->back()->with('success', __('You have successfully registered for the conference'));
+    }
+
 }
