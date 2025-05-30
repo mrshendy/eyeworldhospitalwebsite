@@ -130,6 +130,8 @@
 
 						    <input type="hidden" name="price" value="{{$price->price}}">
 							<input type="hidden" name="urgent_price" value="{{$price->urgent_price}}">
+                            <input type="hidden" name="type" value="{{$reservationType}}">
+
 
 							<div class="step-content active">
 
@@ -256,7 +258,7 @@
 									<div class="col-6 col-md-6 col-sm-12">
 										<div class="form-control">
 											<div class="form-field">
-												<input type="text" style="display: none;" id="calendar" placeholder="اختر التاريخ">
+												<input type="date" name="date"  id="calendar" placeholder="اختر التاريخ">
 											</div>			
 										</div>	
 									</div>
@@ -325,12 +327,12 @@
 									<div class="payment-box">
 										<input type="radio" name="payment" checked>
 										<img src="{{asset('siteassets/images/doctors/book/whatsapp.svg')}}" width="24">
-										<span>cash</span>
+										<span>{{__('cash')}}</span>
 									</div>									
 
 									<div class="payment-box">
 										<input type="radio" name="payment">
-										<img src="{{asset('siteassets/images/doctors/book/visa.svg')}}" width="24">
+										<img src="{{asset('siteassets/images/doctors/book/visa.svg')}}" width="24" disabled>
 										<span>Visa</span>
 									</div>									
 
@@ -361,9 +363,9 @@
 
 
 	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	{{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../js/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script> --}}
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script>
 	    flatpickr("#calendar", {
@@ -395,7 +397,7 @@
 			$('#calendar').on('change', function () {
 				const selectedDate = $(this).val();
 				$.ajax({
-					url: SITEURL + "/reservation/" + doctor_id+'/'+selectedDate,
+					url: SITEURL + "/reservation/appoint_ment/" + doctor_id+'/'+selectedDate,
 					type: "GET", //send it through get method
 					success: function (response) {
 
@@ -428,15 +430,16 @@
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
 			const today = new Date();
-			// Format: "May 24, 2025"
+
 			const options = { year: 'numeric', month: 'long', day: 'numeric' };
 			const formattedDate = today.toLocaleDateString('en-US', options);
 			document.getElementById('date').textContent = formattedDate;
+			
 		});
 </script>
 
 
-@if (session('success'))
+{{-- @if (session('success'))
 <script>
     Swal.fire({
         icon: 'success',
@@ -444,6 +447,6 @@
         text: 'Your action was successful.'
     });
 </script>
-@endif
+@endif  --}}
 @endsection
 
