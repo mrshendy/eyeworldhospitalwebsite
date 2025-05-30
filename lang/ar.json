@@ -192,6 +192,24 @@
     "stop on complete":"وقف عند الاكتمال",
     "avilable count":"العدد المتاح",
     "urgent price":"السعر المستعجل",
-    "price":"السعر"
+    "price":"السعر",
+    "info about service of doctor":"معلومات عن خدمه الطبيب",
+    "reservation doctor":"حجز الطبيب",
+    "online discussion":"مناقشه عبر الانترنت",
+    "Booking a medical visit for expatriates":"حجز زياره علاجيه للمغتربين",
+    "cash":"نقدي",
+    "doctor":"الطبيب",
+    "patient":"المريض",
+    "Normal":"عادي",
+    "onlin":"عبر الانترنت",
+    "type":"النوع",
+    "time from":"الوقت من",
+    "time to":"الوقت الى",
+    "reservation detail":"تفاصيل الحجز ",
+    "urgent":"مستعجل",
+    "patient phone":"هاتف المريض",
+    "payment method":"طريقه الدفع",
+    "date":"التاريخ",
+    "created at":"تاريخ الانشاء"
 
 }

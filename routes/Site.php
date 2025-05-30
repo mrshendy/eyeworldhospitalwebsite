@@ -40,10 +40,10 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
 
 
-    Route::get('reservation/{doctor_id}', [ReservationController::class, 'index'])->name('reservation.index');
+    Route::get('reservation/{doctor_id}/{reservationType}', [ReservationController::class, 'index'])->name('reservation.index');
     Route::post('reservation', [ReservationController::class, 'store'])->name('reservation.store');
     
-    Route::get('reservation/{doctor_id}/{date}', [ReservationController::class, 'doctorAppointment'])->name('reservation.Appointment');
+    Route::get('reservation/appoint_ment/{doctor_id}/{date}', [ReservationController::class, 'doctorAppointment'])->name('reservation.Appointment');
 
 });
 

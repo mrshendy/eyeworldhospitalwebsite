@@ -8,7 +8,7 @@
 
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">{{__('quetions')}}</a></li>
+        <li class="breadcrumb-item"><a href="#">{{__('reservations')}}</a></li>
       </ol>
     </nav>
       

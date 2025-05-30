@@ -85,7 +85,7 @@
 
 				<!-- About  -->
 				<div class="pdt text-right">
-					<h2 class="main-title">معلومات عن خدمات الطبيب</h2>
+					<h2 class="main-title">{{__('info about service of doctor')}}</h2>
 				</div>
 				<section class="about nopd flex-start  text-right align-center">
 					<div class="col-6 col-md-6 col-sm-12">
@@ -113,9 +113,9 @@
 					</div> --}}
 					<div class="col-12">
 						<div class="doctor-links pdt">
-							<a href="{{route('Site.reservation.index',$doctor->id)}}" class="reserve"> حجز الطبيب</a>
-							<a href="#" class="discuss">مناقشة عبر الإنترنت</a>
-							<a href="#" class="visit">حجز زيارة علاجية (للمغتربين)</a>
+							<a href="{{route('Site.reservation.index',[$doctor->id,'normal'])}}" class="reserve">{{__('reservation doctor')}}</a>
+							<a href="{{route('Site.reservation.index',[$doctor->id,'onlin'])}}" class="discuss"> {{__('online discussion')}}</a>
+							<a href="{{route('Site.reservation.index',[$doctor->id,'Expat_visit'])}}" class="visit">{{__('Booking a medical visit for expatriates')}}</a>
 						</div>
 					</div>
 				</section>
