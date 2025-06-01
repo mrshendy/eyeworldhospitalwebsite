@@ -210,6 +210,8 @@
     "patient phone":"هاتف المريض",
     "payment method":"طريقه الدفع",
     "date":"التاريخ",
-    "created at":"تاريخ الانشاء"
+    "created at":"تاريخ الانشاء",
+    "patients":"المرضى",
+    "users":"المستخدمين "
 
 }

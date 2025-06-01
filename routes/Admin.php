@@ -6,7 +6,8 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
     InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController,
-    ReservationController,DoctorAppointmentController};
+    ReservationController,DoctorAppointmentController
+   ,UserController};
 
 
 
@@ -30,8 +31,10 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'doctors'     => DoctorController::class,
         'socialmedia' => SocialMediaController::class,
         'reservations'=> ReservationController::class,
-        'appointments'=> DoctorAppointmentController::class
+        'appointments'=> DoctorAppointmentController::class,
     ]);
+
+
 
     Route::resource('videos', VideosController::class)->except([
         'index' ,'show','create'
@@ -115,6 +118,10 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::resource('medical-tourism-services', MedicalTourismServiceController::class);
     Route::get('medical-tourism-info' ,[MedicalTourismInfoController::class, 'detail'])->name('medical-tourism-info-detail');
     Route::post('medical-tourism-info-update' ,[MedicalTourismInfoController::class ,'update'])->name('medical-tourism-info.update');
+
+
+
+    Route::get('users/{type}' ,[UserController::class, 'index'])->name('users.type');
 
   //  Route::get('articles' ,[ArticleController::class, 'index'])->name('articles.index');
 

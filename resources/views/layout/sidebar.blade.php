@@ -88,6 +88,30 @@
             </li>
 
 
+              <li class="menu-item   @if (Route::currentRouteName()=='Admin.users.type')
+                     open
+                @endif ">
+                   <a href="{{route('Admin.users.type','patient')}}" class="menu-link menu-toggle">
+                      <i class="ri-group-3-line"></i>
+                      <div>{{__('users')}}</div>
+                  </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.users.type','patient')}}" class="menu-link">
+                        <div>{{__('patients')}}</div>
+                      </a>
+                    </li>
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.users.type','doctor')}}" class="menu-link">
+                        <div>{{__('doctors')}}</div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+
 
             <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-devices'
                   || Route::currentRouteName() =='Admin.medical-devices.index' || Route::currentRouteName() =='Admin.medical-devices.create' || Route::currentRouteName()=='Admin.medical-devices.show'  || Route::currentRouteName()=='Admin.medical-device-info-detail'

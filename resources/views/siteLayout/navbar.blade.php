@@ -90,7 +90,7 @@
 
 
 				<div class="login-btns">
-					<a class="login-btn btn" href="">
+					<a href="{{route('Site.register.index')}}" class="login-btn btn" href="">
 						<span>{{__('login')}}</span>
 						<i class="fa-solid fa-right-to-bracket"></i>
 					</a>
