@@ -1,323 +1,411 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Eye World</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="{{asset('siteassets/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('siteassets//css/main.css')}}">
-</head>
-<body>
-	
-	<!-- Header Section -->
-	<header>
-		<div class="container">
-			<div class="flex-start align-center">
-				<figure class="logo">
-					<a href="">
-						<img src="../images/logo.svg" alt="webiste logo">
-					</a>
-				</figure>
-				<nav class="flex-1">
-					<ul class="main-menu list-unstyled flex-center">
-						<li class="menu-item selected"><a href="#">الرئيسية</a></li>
-						<li class="menu-item has-children">
-							<a href="#">تخصصاتنا</a>
-							<ul class="sub-menu list-unstyled">
-								<li><a href="#">طب و جراحة العيون</a></li>
-								<li><a href="#">الجلدية</a></li>
-								<li><a href="#">الاسنان</a></li>
-							</ul>
-						</li>
-						<li class="menu-item"><a href="#">خدماتنا</a></li>
-						<li class="menu-item"><a href="#">فريقنا</a></li>
-						<li class="menu-item"><a href="#">أحدث الأجهزة الطبية</a></li>
-						<li class="menu-item"><a href="#">السياحة العلاجية</a></li>
-						<li class="menu-item"><a href="#">الأطباء</a></li>
-					</ul>
-				</nav>
-
-				<div class="languages">
-					<select name="lang">
-						<option selected>En</option>
-						<option>عربي</option>
-					</select>
-				</div>
+@extends('site')
+@section('content')
 
 
-				<div class="login-btns">
-					<a class="login-btn btn" href="">
-						<span>تسجيل الدخول</span>
-						<i class="fa-solid fa-right-to-bracket"></i>
-					</a>
-				</div>
-				
-				<div class="bars">
-					<i class="fa-solid fa-bars"></i>
-				</div>
+<main id="main">
+    <!-- Slider Section -->
+    <article class="slider">
+        <div class="owl-slider owl-carousel">
+            <div class="item" style="background-image:url({{asset('siteassets/images/slider/1.jpg')}})">
+                <div class="container h-100">
+                    <div class="slider-details h-100 flex-column">
+                        <h4 class="slider-pre-title">
+                            <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
+                            <span> {{__('Dunia Al-Oyoun Hospital - Your Vision, Your Trust')}}!</span>
+                        </h4>
+                        <h2 class="slider-title">
+                                {{__('The latest ophthalmology techniques')}}  <br> {{__('Your hands are with outstanding experts.')}}
+                        </h2>
+                        <p class="slider-desc">
+                            {{__('We provide comprehensive and specialized ophthalmology services with a team of consultants.')}}   <br> وأحدث الأجهزة لتوفير رعاية طبية عالية الجودة لعينيك
+                        </p>
+                    </div>
+                </div>
+            </div>				
+            <div class="item" style="background-image:url({{asset('siteassets/images/slider/2.jpg')}})">
+                <div class="container h-100">
+                    <div class="slider-details h-100 flex-column">
+                        <h4 class="slider-pre-title">
+                            <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
+                            <span>     {{__('Your vision is your future, and Dunia Al-Oyoun is your place.')}}</span>
+                        </h4>
+                        <h2 class="slider-title">
+                            {{__("Global standards in disease treatment.")}}     <br> {{__("Eyes in the hands of experts.")}}
+                        </h2>
+                        <p class="slider-desc">
+                           {{__("Whether you're looking for solutions for cataracts, retina issues, or vision correction.")}}  <br> {{__("Dunia Al-Oyoun Hospital provides you with comprehensive medical care around the clock.")}}
+                        </p>
+                    </div>
+                </div>
+            </div>				
+            <div class="item" style="background-image:url({{asset('siteassets/images/slider/3.jpg')}})">
+                <div class="container h-100">
+                    <div class="slider-details h-100 flex-column">
+                        <h4 class="slider-pre-title">
+                            <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
+                            <span>{{__("Your eyes deserve the best, and we are here to make it happen.")}} </span>
+                        </h4>
+                        <h2 class="slider-title">
+                                {{__("The best ophthalmology team with the latest technology.")}}<br>   {{__("Advanced surgical techniques.")}}
+                        </h2>
+                        <p class="slider-desc">
+                            {{__("From consultants to the latest equipment, we offer a distinguished medical experience at Dunia Al-Oyoun.")}}  <br>  {{__("Aligned with the highest quality standards and personalized care for every case.")}}
+                        </p>
+                    </div>
+                </div>
+            </div>				
+            <div class="item" style="background-image:url({{asset('siteassets/images/slider/4.jpg')}})">
+                <div class="container h-100">
+                    <div class="slider-details h-100 flex-column">
+                        <h4 class="slider-pre-title">
+                            <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
+                            <span>{{__("Your vision care is our priority at Dunia Al-Oyoun.")}}</span>
+                        </h4>
+                        <h2 class="slider-title">
+                            {{__("More than one million medical examinations.")}}<br>{{__("Serving your vision with excellence.")}}
+                        </h2>
+                        <p class="slider-desc">
+                            {{__("Dunia Al-Oyoun Hospital provides specialized and comprehensive eye care.")}}<br>   {{__("To meet your needs with precision and the highest possible quality.")}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-numbers">04-01</div>
+        <div class="owl-thumbnails"></div> <!-- Custom Dots Container -->
+    </article>
+    <!-- Slider Section -->
 
-				<div class="user-logged-in flex-start">
-					<a href="" class="head-icon flex-start align-center">
-						<img src="../images/bag.svg">
-						<span>السلة</span>
-					</a>					
+    <!-- Achievement Section -->
+    <article class="achievement text-center pd">
+        <div class="container">
+            <span class="pre-title site-color">{{__('Our achievements speak for our leadership in the field of ophthalmology.')}}</span>
+            <h2 class="main-title">{{__('Amazing statistics prove our position as pioneers in medical eye care services.')}}</h2>
+            <p class="main-para">{{__('Since its establishment in 2004, Dunya Eye Hospital has achieved record-breaking milestones in the field of ophthalmology. We constantly strive for excellence through thousands of successful surgeries and medical examinations. These achievements reflect our commitment to providing top-quality medical services and making a positive impact on our patients\' lives.')}}</p>
 
-					<a href="" class="head-icon flex-start align-center">
-						<img src="../images/profile-circle.svg">
-						<span>مرحبا ندى</span>
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- Header Section -->
+            <!-- Counter -->
+            <section class="counter flex-center pdt">
+                <div class="col-3 col-sm-6 col-xs-12">
+                    <div class="counter-box">
+                        <strong class="number">1000+</strong>
+                        <p class="value">{{__("Successful surgical procedure.")}}</p>
+                    </div>
+                </div>				
 
+                <div class="col-3 col-sm-6 col-xs-12">
+                    <div class="counter-box">
+                        <strong class="number">5000+</strong>
+                        <p class="value"> {{__("Cataract surgery with utmost precision.")}}</p>
+                    </div>
+                </div>				
 
-	<main id="main">
-		
-		<!-- sign section -->
-		<article class="sign pd">
+                <div class="col-3 col-sm-6 col-xs-12">
+                    <div class="counter-box">
+                        <strong class="number">748+</strong>
+                        <p class="value">{{__("LASIK surgery for vision correction.")}}</p>
+                    </div>
+                </div>				
 
-			<div class="container">
+                <div class="col-3 col-sm-6 col-xs-12">
+                    <div class="counter-box">
+                        <strong class="number">1+</strong>
+                        <p class="value">{{__("One million comprehensive medical examinations.")}}</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Counter -->
 
-				<span class="pre-title site-color">ابدأ الآن في إنشاء حسابك لتكون دائمًا قريبًا من رعاية صحية عالية الجودة، ولتتمكن من إدارة مواعيدك الصحية بسهولة تامة.</span>
-				<h2 class="main-title">قم بإنشاء حساب كمريض للوصول السريع إلى أفضل خدمات الرعاية الصحية والتشخيصية التي تناسب احتياجاتك وتضمن لك أفضل رعاية طبية.</h2>
-				<p class="main-para"> يسعدنا أن نرحب بك في منصتنا الطبية! قم بإنشاء حساب كمريض لتتمكن من الوصول إلى أفضل الخدمات الصحية المتكاملة. بمجرد إنشاء حسابك، يمكنك حجز المواعيد، متابعة استشاراتك الطبية، والاستفادة من العروض والخدمات الصحية المتميزة. نحن هنا لتوفير الرعاية الصحية بأعلى المعايير لك ولعائلتك.</p>
+            <!-- About  -->
+            <section class="about flex-start  text-right align-center">
+                <div class="col-6 col-md-6 col-sm-12">
+                    <div class="about-desc">
+                        <span class="pre-title site-color">{{$about->title}}</span>
+                        <h2 class="main-title">{{$about->sub_title}}</h2>
+                        <p class="main-para">
+                                 {{$about->desc}}
+                        </p>
+                    </div>	
+                </div>
+                <div class="col-6 col-md-6 col-sm-12">
+                    <figure class="about-image">
+                        <img src="{{asset('siteassets/images/about.svg')}}" alt="">
+                    </figure>
+                </div>
+            </section>
+            <!-- About  -->
 
-				<section class="login pdt">
+        </div>
+    </article>
+    <!-- Achievement Section -->
 
-					<div class="tabs flex-center">
-						<div data-class=".log-patient" class="active">التسجيل كمريض</div>
-						<div data-class=".log-doctor">التسجيل كطبيب</div>
-					</div>
-					<div class="sign-box-title">
-						<h2> سجل الدخول عبر</h2>
-						<div class="social-login">
-							<a href="#"><img src="../images/login/facebook.svg"></a>
-							<a href="#"><img src="../images/login/google.svg"></a>
-						</div>
-					</div>
+    <!-- Service Section -->
+    <article class="services pd">
+        <div class="bk" style="background-image:url({{asset('siteassets/images/services.svg')}})"></div>
+        <div class="container">
+            <h2 class="main-title site-color">خدمات  TOP CARE </h2>
+            <div class="flex-start pdb align-center">
+                <div class="col-6 col-md-12">
+                    <p class="main-para pdl">
+                       {{__("Medical services provided by Dunia Al-Oyoun Hospital, specialized in ophthalmology and eye surgery, offering healthcare for eye patients in diagnostic and therapeutic care, LASIK and laser treatments, and surgical procedures related to eye health and vision.")}}
+                    </p>
+                </div>
+                <div class="col-6 col-md-12">
+                    <p class="main-para pdr">
+                     {{__("It includes a distinguished group of professors and consultants specializing in various ophthalmic fields, such as cataracts, glaucoma, corneal and strabismus surgery, retinal diseases, tear duct and eyelid conditions, cosmetic surgeries, eye tumors, and pediatric retinal tumors (Retinoblastoma).")}}
+                    </p>
+                </div>
+            </div>
+            <h4 class="h4">
+                 {{__("In addition to the mentioned ophthalmology services, other services include:")}}
+            </h4>
+            <ul class="list-unstyled flex-start services-list">
+                <li>
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    {{__("Cosmetic surgeries for the face and head.")}}
+                </li>					
+                <li>
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    {{__("Oral and maxillofacial surgeries")}}
+                </li>					
+                <li>
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    {{__("Dermatology and laser services")}}
+                </li>					
+                <li>
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    {{__("Nutrition services")}}
+                </li>					
+                <li>
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    {{__("Laboratory services")}}
+                </li>
+                <li>
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    {{__("Pharmacy services")}}
+                </li>
+                <li>
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    {{__("Accommodation services")}}
+                </li>
+                <li>
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    {{__("Other services")}}
+                </li>
+                
+            </ul>
+        </div>
+    </article>
+    <!-- Service Section -->
 
-					<div class="or">
-						<span>أو</span>
-					</div>
+    <!-- Discover Section -->
+    <article class="discover pd">
+        <div class="container">
+            <span class="pre-title site-color">{{__("Explore various medical specialties to meet your healthcare needs.")}}</span>
+            <h2 class="main-title">{{__("Choose the right medical specialty for your health needs from our diverse specialties.")}}</h2>
+            <p class="main-para">{{__("Description: We offer you a wide range of medical specialties, including ophthalmology, dentistry, dermatology, surgery, and more. Receive comprehensive healthcare from experienced specialists to help you maintain your health and well-being.")}}</p>
+    
+            <div class="flex-center discover-row pdt">
+                <div class="col-4 col-sm-6 col-xs-12">
+                    <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/1.svg')}})">
+                        <div class="discover-box-content">
+                            <span>{{__("Ophthalmology and Eye Surgery")}}</span>
+                            <p>{{__("Your vision matters! We provide comprehensive eye care, from vision tests and correction to advanced eye surgeries, ensuring you clearer sight and a more comfortable life.")}}</p>
+                            <a href="#">{{__("Learn more")}}</a>
+                        </div>
+                    </div>
+                </div>				
+    
+                <div class="col-4 col-sm-6 col-xs-12">
+                    <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/2.svg')}})">
+                        <div class="discover-box-content">
+                            <span>{{__("Dermatology")}}</span>
+                            <p>{{__("Achieve healthy and radiant skin with specialized dermatologists. We provide the latest treatments for acne, pigmentation, hair loss, and skin diseases, using advanced techniques to ensure the best results for your skin.")}}</p>
+                            <a href="#">{{__("Learn more")}}</a>
+                        </div>
+                    </div>
+                </div>				
+    
+                <div class="col-4 col-sm-6 col-xs-12">
+                    <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/3.svg')}})">
+                        <div class="discover-box-content">
+                            <span>{{__("Dentistry")}}</span>
+                            <p>{{__("A healthy smile starts with strong teeth! We offer all dental care services, from cleaning and whitening to implants and orthodontics, ensuring optimal oral health and a long-lasting bright smile.")}}</p>
+                            <a href="#">{{__("Learn more")}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </article>
+    
+    <!-- Discover Section -->
 
-					<div class="form-holder">
-						<div class="log-doctor">
-							<form class="custom-form text-right" action="">
-												
+    <!-- Discover two Section -->
+    <article class="discover pd">
+        <div class="container">
+            <div class="flex-between pdb">
+                <div>
+                    <span class="pre-title site-color">{{__("Explore our key achievements and participation in medical events and conferences.")}}</span>
+                    <h2 class="main-title">{{__("Our outstanding contributions and achievements in major medical")}}<br>{{__("and scientific events and conferences.")}}</h2>
+                </div>
+                <a href="#" class="site-color">
+                    {{__("View more events")}}
+                </a>
+            </div>
+            <p class="main-para">{{__("We take pride in our participation in medical events and conferences, where we showcase the latest technologies")}}<br>{{__("and share our expertise with the medical community. Our goal is to exchange knowledge and highlight our leadership")}}<br>{{__("in ophthalmology and eye surgery through these distinguished events.")}}</p>
+    
+            <div class="flex-center discover-row pdt">
+                <div class="col-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/4.svg')}})">
+                        <div class="discover-box-details">
+                            <h3>{{__("Modern Technology in Eye Surgery Conference 2024")}}</h3>
+                            <p>{{__("We showcased the latest eye surgery techniques")}}<br>{{__("with the participation of elite doctors and experts.")}}</p>
+                            <a href="#">
+                                {{__("Read more")}}
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>				
+                <div class="col-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/5.svg')}})">
+                        <div class="discover-box-details">
+                            <h3>{{__("The Arab Forum for the Development of Retinal Disease Treatments")}}</h3>
+                            <p>{{__("Specialized training on the latest laser techniques")}}<br>{{__("for vision correction and treatment.")}}</p>
+                            <a href="#">
+                                {{__("Read more")}}
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>				
+                <div class="col-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/6.svg')}})">
+                        <div class="discover-box-details">
+                            <h3>{{__("Free medical campaign for eye disease screening")}}</h3>
+                            <p>{{__("We provided free check-ups and treatment")}}<br>{{__("in collaboration with local and international charities.")}}</p>
+                            <a href="#">
+                                {{__("Read more")}}
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>				
+                <div class="col-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/7.svg')}})">
+                        <div class="discover-box-details">
+                            <h3>{{__("International Conference on the Treatment of Premature Infants’ Diseases")}}</h3>
+                            <p>{{__("We participated with the latest solutions for treating pediatric retinal diseases")}}<br>{{__("to ensure a better visual future.")}}</p>
+                            <a href="#">
+                                {{__("Read more")}}
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>				
+            </div>
+        </div>
+    </article>
+    
 
-								<div class="form-control">
-									<div class="form-field">
-										<label>اكتب بريدك الإلكتروني</label>
-										<div class="field">
-											<input type="email" name="email" placeholder="example@email.com">
-										</div>
-									</div>			
-								</div>
-								<div class="form-control">
-									<div class="form-field">
-										<label>كلمة المرور</label>
-										<div class="field">
-											<input type="password" name="password" placeholder="">
-											<img class="eye" src="../images/login/eye.svg">
-										</div>
-									</div>			
-								</div>
+    <!-- Discover two Section -->
 
-								<div class="form-control">
-									<div class="form-field flex-between align-center">
-										<span>
-											<input type="checkbox" name=""> تذكرني
-										</span>
-										<a href="#">
-											نسيت كلمة السر؟
-										</a>
-									</div>
-								</div>
-								<div class="form-control">
-									<input type="submit" class="btn w-100" name="register" value="تسجيل الدخول">
-								</div>
-								<a href="#" class="have-not-account">ليس لديك حساب؟ أنشيء حساب</a>
-							</form>
-						</div>
-						<div class="log-patient active">
-							<form class="custom-form text-right"  action="">
-												
+    <!-- Experience Section -->
+    <article class="experience pd">
+        <div class="container flex-center align-center">
+            <div class="col-6 col-md-6 col-sm-12">
+                <figure class="experience-image">
+                    <img src="{{asset('siteassets/images/experience/main.svg')}}" alt="" >
+                </figure> 
+            </div>
+            <div class="col-6 col-md-6 col-sm-12">
+                <div class="experience-details">
+                    <span class="pre-title site-color">{{__('app 1')}}</span>
+                    <h2 class="main-title"> {{__('app 2')}}</h2>
+                    <p class="main-para">{{__('app 3')}}</p>
 
-								<div class="form-control">
-									<div class="form-field">
-										<label>الاسم</label>
-										<div class="field">
-											<input type="text" name="text" placeholder="محمد الشريف">
-										</div>
-									</div>			
-								</div>			
+                    <div class="btns flex-start align-center">
+                        <a href="#" class="section-btn">
+                            <img src="{{asset('siteassets/images/experience/badge.svg')}}">
+                        </a>						
+                        <a href="#" class="section-btn">
+                            <img src="{{asset('siteassets/images/experience/app.svg')}}">
+                        </a>
+                    </div>
 
-								<div class="form-control">
-									<div class="form-field">
-										<label>اكتب بريدك الإلكتروني</label>
-										<div class="field">
-											<input type="email" name="email" placeholder="example@email.com">
-										</div>
-									</div>			
-								</div>
-								<div class="form-control">
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- Experience Section -->
 
-									<div class="form-field">
-										<label>الدولة</label>
-										<div class="field">
-											<input type="text" name="text" placeholder="مصر">
-										</div>
-									</div>	
+    <!-- Faq Section -->
+    <article class="faq pd">
+        <div class="container">
+            <div class="flex-between pdb">
+                <div>
+                    <span class="pre-title site-color">{{__('quetion 1')}}</span>
+                    <h2 class="main-title">{{__('quetion 2')}}</h2>
+                </div>
+                <a href="#" class="site-color">
+                   {{__("View more FAQs")}}
+                </a>
+            </div>
+            <p class="main-para">{{__('quetion 3')}}</p>
 
-									<div class="form-field">
-										<label>رقم الهاتف</label>
-										<div class="field">
-											<input type="text" name="text" placeholder="+201012345678">
-										</div>
-									</div>			
+            <div class="questions pdt flex-start">
 
-								</div>
-								<div class="form-control">
-									<div class="form-field">
-										<label>كلمة المرور</label>
-										<div class="field">
-											<input type="password" name="password" placeholder="">
-											<img class="eye" src="../images/login/eye.svg">
-										</div>
-									</div>			
-								</div>
+                @foreach ($quetions as $quetion)
+                <div class="col-4 col-md-6 col-sm-12">
+                    <div class="qbox">
+                        <h3>
+                            <i class="fa-solid fa-chevron-left"></i>
+                             {{$quetion->quetion}}
+                        </h3>
+                        <p>
+                            {{$quetion->answer}}
+                        </p>
+                    </div>
+                </div>		
+                @endforeach
 
-								<div class="form-control">
-									<div class="form-field flex-between align-center">
-										<span>
-											<input type="checkbox" name=""> تذكرني
-										</span>
-		
-									</div>
-								</div>
-								<div class="form-control">
-									<input type="submit" class="btn w-100" name="register" value="تسجيل الدخول">
-								</div>
-								<a href="#" class="have-not-account">لديك حساب؟  <span class="site-color"> تسجيل الدخول  </span></a>
-							</form>
-						</div>
+            </div>
+        </div>
+    </article>
+    <!-- Faq Section -->
 
-					</div>
-				</section>
-			</div>
+    <!-- Parteners Section -->
+    <article class="parteners pd">
+        <div class="container">
+            <div class="flex-between pdb">
+                <div>
+                    <span class="pre-title site-color">{{__('Our trusted partners')}}</span>
+                    <h2 class="main-title"> {{__('Insurance Partners: Renowned')}}</h2>
+                </div>
+                <a href="#" class="site-color">
+                   {{__("View more partners")}}
+                </a>
+            </div>
+            <p class="main-para">{{__('Our company takes')}}</p>
 
-		</article>
-		<!-- sign section -->
+            <div class="flex-between align-center pdt">
+                <img src="{{asset('siteassets/images/parteners/1.svg')}}" alt="">
+                <img src="{{asset('siteassets/images/parteners/2.svg')}}" alt="">
+                <img src="{{asset('siteassets/images/parteners/3.svg')}}" alt="">
+                <img src="{{asset('siteassets/images/parteners/4.svg')}}" alt="">
+                <img src="{{asset('siteassets/images/parteners/5.svg')}}" alt="">
+                <img src="{{asset('siteassets/images/parteners/6.svg')}}" alt="">
+            </div>
 
+        </div>
+    </article>
+    <!-- Parteners Section -->
 
-	</main>
+    <!-- Contact us Section -->
+     @include('components.contact-us')
+    <!-- Contact us Section -->
 
-	<!-- Footer -->
+</main>
 
-	<footer class="pd">
-		<div class="container">
-			<div class="flex-between">
-				<div class="col-6 col-md-6 col-sm-12">
-					<div class="footer-content">
-						<div class="footer-logo">
-						<img src="../images/footer/footer-logo.svg" alt="">
-						</div>
-						<h2 class="footer-title">مستشفى دنيا العيون هي الرائدة في تقديم خدمات طبية متكاملة ومتطورة لتلبية احتياجاتكم الصحية</h2>
-						<p class="footer-desc">
-							مستشفى دنيا العلوم هي وجهتك الأولى في مجال طب العيون، حيث نقدم خدمات متكاملة تبدأ من التشخيص الدقيق إلى العلاجات المتطورة. فريقنا يتكون من نخبة من الأطباء المتخصصين في كافة مجالات طب العيون، ويعملون باستخدام أحدث الأجهزة لتقديم أفضل رعاية صحية ممكنة لمرضانا.
-						</p>
-					</div>
-				</div>
-				<div class="col-3 col-md-6 col-sm-12">
-					<ul class="list-unstyled footer-contact">
-						<li>
-							<div class="flex-start align-center">
-								<img src="../images/footer/location.svg" alt="">
-								<strong>العنوان : </strong>
-							</div>
-							<p>12 مصدق، الدقي، الدقي، محافظة الجيزة 12611</p>
-						</li>		
-
-						<li>
-							<div class="flex-start align-center">
-								<img src="../images/footer/call.svg" alt="">
-								<strong>رقم الهاتف : </strong>
-							</div>
-							<p>01234567890 ،  01234567890</p>
-						</li>		
-
-						<li>
-							<div class="flex-start align-center">
-								<img src="../images/footer/msg.svg" alt="">
-								<strong>االبريد الإلكتروني: </strong>
-							</div>
-							<p>info@eyeworldhospital.com</p>
-						</li>
-					</ul>
-				</div>
-				<div class="col-3 col-md-6 col-sm-12">
-					<ul class="list-unstyled footer-contact">
-						<li>
-							<div class="flex-start align-center">
-								<img src="../images/footer/msg2.svg" alt="">
-								<strong>تواصل معنا</strong>
-							</div>
-						</li>		
-
-						<li>
-							<div class="flex-start align-center">
-								<img src="../images/footer/stickynote.svg" alt="">
-								<strong>الأسئلة الشائعة </strong>
-							</div>
-						</li>		
-
-						<li>
-							<div class="flex-start align-center">
-								<img src="../images/footer/verify.svg" alt="">
-								<strong>الشروط والأحكام </strong>
-							</div>
-						</li>		
-						<li>
-							<div class="flex-start align-center">
-								<img src="../images/footer/stickynote.svg" alt="">
-								<strong>سياسة الخصوصية</strong>
-							</div>
-						</li>
-					</ul>
-				</div>
-
-			</div>
-		</div>
-	</footer>
-	<!-- Footer -->
-	<!-- Footer Bottom -->
-	<article class="footer-bottom">
-		<div class="container flex-between align-center">
-			<p class="copyright">جميع حقوق النشر محفوظة لدي دنيا العيون @ 2025</p>
-			<div class="socials flex-center align-center">
-				<a href="#"><img src="../images/footer/youtube.svg"></a>
-				<a href="#"><img src="../images/footer/instagram.svg"></a>
-				<a href="#"><img src="../images/footer/snap.svg"></a>
-				<a href="#"><img src="../images/footer/twitter.svg"></a>
-				<a href="#"><img src="../images/footer/facebook.svg"></a>
-			</div>
-		</div>
-	</article>
-	<!-- Footer Bottom -->
-
-
-
-	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="{{asset('siteassets//js/owl.carousel.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('siteassets//js/main.js')}}"></script>
-
-</body>
-</html>
+@endsection

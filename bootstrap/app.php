@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->group(base_path('routes/Admin.php'));
 
             Route::name('Site.')
+                ->middleware(['web'])  
                 ->group(base_path('routes/Site.php'));
           
         },

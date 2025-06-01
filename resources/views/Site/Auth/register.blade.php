@@ -32,14 +32,18 @@
 
 					<div class="form-holder">
 						<div class="log-doctor">
-							<form class="custom-form text-right" action="">
-							   <input type="hidden" name="type" value="doctor">
+							<form class="custom-form text-right" action="{{route('Site.register')}}" method="post">
+								@csrf
+							   <input type="hidden" name="type" value="patient">
 
 								<div class="form-control">
 									<div class="form-field">
 										<label>اكتب بريدك الإلكتروني</label>
 										<div class="field">
 											<input type="email" name="email" placeholder="example@email.com">
+										     @if ($errors->has('email'))
+                                               <p class="text-danger">{{ $errors->first('email')}}</p>
+                                             @endif
 										</div>
 									</div>			
 								</div>
@@ -64,13 +68,14 @@
 									</div>
 								</div>
 								<div class="form-control">
-									<input type="submit" class="btn w-100"  value="تسجيل الدخول">
+									<input type="submit" class="btn w-100"  value="dddd الدخول">
 								</div>
 								<a href="#" class="have-not-account">ليس لديك حساب؟ أنشيء حساب</a>
 							</form>
 						</div>
 						<div class="log-patient active">
 							<form class="custom-form text-right"  action="{{route('Site.register')}}" method="post">
+								@csrf
 			 			   <input type="hidden" name="type" value="patient">
 
 
@@ -80,6 +85,9 @@
 										<div class="field">
 											<input type="text" name="name" placeholder="">
 										</div>
+										 @if ($errors->has('name'))
+										   <p class="text-danger">{{ $errors->first('name')}}</p>
+										 @endif
 									</div>			
 								</div>			
 
@@ -89,6 +97,9 @@
 										<div class="field">
 											<input type="email" name="email" placeholder="">
 										</div>
+										 @if ($errors->has('email'))
+										   <p class="text-danger">{{ $errors->first('email')}}</p>
+										 @endif
 									</div>			
 								</div>
 								<div class="form-control">
@@ -105,6 +116,9 @@
 										<div class="field">
 											<input type="text" name="phone" placeholder="">
 										</div>
+										 @if ($errors->has('phone'))
+										   <p class="text-danger">{{ $errors->first('phone')}}</p>
+										 @endif
 									</div>			
 
 								</div>
@@ -115,6 +129,9 @@
 											<input type="password" name="password" placeholder="">
 											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}">
 										</div>
+										 @if ($errors->has('password'))
+										   <p class="text-danger">{{ $errors->first('password')}}</p>
+										 @endif
 									</div>			
 								</div>
 
@@ -127,6 +144,10 @@
 											<input type="password" name="password_confirmations" placeholder="">
 											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}">
 										</div>
+								         @if ($errors->has('password_confirmations'))
+										   <p class="text-danger">{{ $errors->first('password_confirmations')}}</p>
+										 @endif
+								
 									</div>			
 								</div>
 
