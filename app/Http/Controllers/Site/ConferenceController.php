@@ -31,13 +31,10 @@ class ConferenceController extends Controller
         $data['conference'] = Conference::with('advantages')
                             ->with('images')
                             ->with('charities')
-                            ->with('doctors')
                             ->with('guests')
                             ->findOrFail($id);
         return view('Site.conferences.show')->with($data);
     }
-
-
 
     public function booking_conference($id)
     {
@@ -80,7 +77,6 @@ class ConferenceController extends Controller
 
     public function success()
     {
-        // $conference = Conference::findOrFail($id);
         return view('Site.conferences.success');
     }
 

@@ -39,13 +39,6 @@ class Doctor extends Model
         );
     }
 
-    public function conferences()
-    {
-        return $this->belongsToMany(Conference::class)
-                    ->withPivot(['role', 'doctor_type'])
-                    ->withTimestamps();
-    }
-
     public function doctorInfo()
     {
         return $this->hasOne(DoctorInfo::class, 'doctor_id');

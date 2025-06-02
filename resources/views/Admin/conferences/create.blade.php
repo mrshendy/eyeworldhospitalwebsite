@@ -57,18 +57,6 @@
 
                 <div class="row">
                     <div class="form-group col-12">
-                        <label>{{ __('Doctors Attendances') }}</label>
-                        <select name="doctor_ids[]" class="select2" multiple>
-                            @foreach ($doctors as $doctor)
-                                <option value="{{ $doctor->id }}">{{ $doctor->doctorInfo->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="form-group col-12">
                         <label>  {{__('Charities Supports')}} </label>
                         <select name="charities_ids[]" id="charities" class="select2" multiple="multiple">
                             @foreach ($charities as $charity)

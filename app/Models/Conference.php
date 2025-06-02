@@ -42,12 +42,4 @@ class Conference extends Model
         ])->withTimestamps();
     }
 
-    public function doctors()
-    {
-        return $this->belongsToMany(Doctor::class)
-                    ->withPivot(['role', 'doctor_type'])
-                    ->withTimestamps();
-    }
-
-
 }

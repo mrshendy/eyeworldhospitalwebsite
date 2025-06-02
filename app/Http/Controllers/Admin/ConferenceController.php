@@ -112,18 +112,6 @@ class ConferenceController extends Controller
                 ->update(['conference_id' => $conference->id]);
         }
 
-        if ($request->has('doctor_ids')) {
-            $syncData = [];
-
-            foreach ($request->doctor_ids as $doctorId) {
-                $syncData[$doctorId] = [
-                    'role' => $request->doctor_roles[$doctorId] ?? 'Speaker',
-                    'doctor_type' => $request->doctor_types[$doctorId] ?? 'Expert',
-                ];
-            }
-
-            $conference->doctors()->sync($syncData);
-        }
         return redirect()->route('Admin.conferences.index')->with('success', 'Conference created successfully!');
     }
 
@@ -190,7 +178,7 @@ class ConferenceController extends Controller
         //Delete any old advantages not in submitted form
         $conference->advantages()->whereNotIn('id', $submittedIds)->delete();
 
-        // 🗑️ Handle deleted old images
+        // Handle deleted old images
         if ($request->has('deleted_images')) {
             foreach ($request->deleted_images as $imageId) {
                 $image = ConferenceImage::find($imageId);
@@ -218,20 +206,6 @@ class ConferenceController extends Controller
         if ($request->has('charities_ids')) {
         Chairity::whereIn('id', $request->charities_ids)
             ->update(['conference_id' => $conference->id]);
-        }
-
-        if ($request->has('doctor_ids') && count($request->doctor_ids)) {
-            $syncData = [];
-
-            foreach ($request->doctor_ids as $doctorId) {
-                $syncData[$doctorId] = [
-                    'role' => $request->doctor_roles[$doctorId] ?? 'Speaker',
-                    'doctor_type' => $request->attendance_types[$doctorId] ?? 'Expert',
-                ];
-            }
-            $conference->doctors()->sync($syncData);
-        } else {
-            $conference->doctors()->detach();
         }
 
         return redirect()->back();
