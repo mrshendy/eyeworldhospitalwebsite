@@ -121,8 +121,8 @@ Route::group(['middleware' => 'auth:admin'], function() {
 
 
 
-    Route::get('users/{type}' ,[UserController::class, 'index'])->name('users.type');
-
+    Route::get('users/{type}' ,[UserController::class, 'index'])->name('users.type');  //
+    Route::post('destroy/{type}' ,[UserController::class, 'destroy'])->name('users.destroy');
   //  Route::get('articles' ,[ArticleController::class, 'index'])->name('articles.index');
 
 

@@ -27,8 +27,6 @@ class ReservationController extends Controller
 
     public function store(Request $request){    
     
-
-
         Reservation::create([
              'doctor_id'     => $request->doctor_id,
              'specialtie_id' => $request->specialtie_id,
@@ -41,8 +39,10 @@ class ReservationController extends Controller
              'date'          => $formattedDate = DateTime::createFromFormat('d-m-Y', $request->date)->format('Y-m-d'),
              'price'         => ($request->urgent == 0) ? $request->price : $request->urgent_price
         ]);
-     session()->flash('success', 'This is a flash message!');
-
+     
+      Alert::success(__('Success'),__('booking Successefuly'));
+      return redirect()->back(); 
+      
       return redirect()->route('Site.reservation.index',[$request->doctor_id,$request->type])
                      ->with('success', 'Reservation submitted successfully!');
     }

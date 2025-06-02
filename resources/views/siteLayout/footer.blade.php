@@ -102,7 +102,7 @@
 <script type="text/javascript" src="{{asset('siteassets/js/owl.carousel.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('siteassets/js/main.js')}}"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 
 @yield('scripts')
 </body>

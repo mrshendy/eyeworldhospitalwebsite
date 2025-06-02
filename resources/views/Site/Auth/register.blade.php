@@ -83,7 +83,7 @@
 									<div class="form-field">
 										<label>الاسم</label>
 										<div class="field">
-											<input type="text" name="name" placeholder="">
+											<input type="text" name="name" value="{{old('name')}}" placeholder="">
 										</div>
 										 @if ($errors->has('name'))
 										   <p class="text-danger">{{ $errors->first('name')}}</p>
@@ -95,7 +95,7 @@
 									<div class="form-field">
 										<label>اكتب بريدك الإلكتروني</label>
 										<div class="field">
-											<input type="email" name="email" placeholder="">
+											<input type="email" name="email" {{old('email')}} placeholder="">
 										</div>
 										 @if ($errors->has('email'))
 										   <p class="text-danger">{{ $errors->first('email')}}</p>
@@ -114,7 +114,7 @@
 									<div class="form-field">
 										<label>رقم الهاتف</label>
 										<div class="field">
-											<input type="text" name="phone" placeholder="">
+											<input type="text" name="phone" value="{{old('phone')}}" placeholder="">
 										</div>
 										 @if ($errors->has('phone'))
 										   <p class="text-danger">{{ $errors->first('phone')}}</p>
@@ -141,11 +141,11 @@
 									<div class="form-field">
 										<label>تأكيد كلمه المرور</label>
 										<div class="field">
-											<input type="password" name="password_confirmations" placeholder="">
+											<input type="password" name="password_confirmation" placeholder="">
 											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}">
 										</div>
-								         @if ($errors->has('password_confirmations'))
-										   <p class="text-danger">{{ $errors->first('password_confirmations')}}</p>
+								         @if ($errors->has('password_confirmation'))
+										   <p class="text-danger">{{ $errors->first('password_confirmation')}}</p>
 										 @endif
 								
 									</div>			

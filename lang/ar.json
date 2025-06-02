@@ -212,6 +212,8 @@
     "date":"التاريخ",
     "created at":"تاريخ الانشاء",
     "patients":"المرضى",
-    "users":"المستخدمين "
+    "users":"المستخدمين ",
+    "register success":"تم تسجيل الحساب بنجاح",
+    "booking Successefuly":"تم الحجز بنجاح"
 
 }
