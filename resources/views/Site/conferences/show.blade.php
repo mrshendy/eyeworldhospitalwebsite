@@ -32,7 +32,7 @@
 							<p class="main-para">
                                 {{ $conference->detail_description }}
                             </p>
-                            <a href="{{ route('Site.conference.booking', $conference->id) }}" class="show-profile">
+                            <a href="{{ route('Site.conference.booking', $conference->id) }}" class="show-profile" style="width: 70%">
                                 {{ __('Attend Conference') }}
                             </a>
 
@@ -93,7 +93,7 @@
                     @foreach ($conference->guests as $guest)
                         <div class="col-4 col-md-6 col-sm-12">
                             <div class="rights-box flex-start">
-                                <img src="{{ asset('uploads/conferences/emoji-normal.png') }}" width="24" height="24" alt="">
+                                <img src="{{ asset('uploads/doctors/doctor_avatar.jpg') }}" width="150" height="150" alt="">
                                 <div class="flex-1">
                                     <h4>{{ $guest->name }}</h4>
                                     <p>{{ $guest->pivot->doctor_type }}</p>
@@ -112,7 +112,7 @@
                     @foreach ($conference->doctors as $doctor)
                         <div class="col-4 col-md-6 col-sm-12">
                             <div class="rights-box flex-start">
-                                <img src="{{ $doctor->img }}" width="96" height="96" alt="">
+                                <img src="{{ $doctor->img }}" width="150" height="150" alt="">
                                 <div class="flex-1">
                                     <h4>{{ $doctor->doctorInfo->name }}</h4>
                                     <p>{{ $doctor->doctorInfo->title }}</p>

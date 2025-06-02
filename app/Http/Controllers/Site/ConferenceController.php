@@ -37,6 +37,8 @@ class ConferenceController extends Controller
         return view('Site.conferences.show')->with($data);
     }
 
+
+
     public function booking_conference($id)
     {
         $conference = Conference::findOrFail($id);
@@ -73,7 +75,13 @@ class ConferenceController extends Controller
             ]
         ]);
 
-        return redirect()->back()->with('success', __('You have successfully registered for the conference'));
+        return redirect()->route('Site.conference.success');
+    }
+
+    public function success()
+    {
+        // $conference = Conference::findOrFail($id);
+        return view('Site.conferences.success');
     }
 
 }

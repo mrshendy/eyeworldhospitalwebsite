@@ -45,6 +45,6 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
     Route::get('conferences/{id}/booking', [ConferenceController::class, 'booking_conference'])->name('conference.booking');
     Route::post('conferences/{id}/booking', [ConferenceController::class, 'store_booking'])->name('conference.booking.store');
-
+    Route::get('conferences/booking/success', [ConferenceController::class, 'success'])->name('conference.success');
 });
 

@@ -223,6 +223,10 @@
     "You have successfully registered for the conference" : "لقد قمت بالتسجيل بنجاح في المؤتمر",
     "Doctors Attendances" : "الاطباء الحاضرين",
     "Local Doctors" : "من الأطباء المحليين",
-    "Global Doctors" : "من الأطباء العالميين"
+    "Global Doctors" : "من الأطباء العالميين",
+    "Your interest in the conference has been successfully registered." : "تم تسجّيل اهتمامك فى المؤتمر بنجاح",
+    "You can follow the conferences you have expressed interest in from your settings." : "يمكنك متابعة المؤتمرات التى ابديت اهتمامك  بها من الإعدادات الخاصة بك",
+    "Go to conferences" : "اذهب الى المؤتمرات",
+    "Go to main page" : "الذهاب الى الرئيسية"
 }
 
