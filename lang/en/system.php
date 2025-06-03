@@ -35,7 +35,8 @@ return [
     "medical_devices" => "Medical Devices",
     "advantage_title" => 'Advantage Title in Arabic',
     "advantage_description"    => 'Advantage Description in Arabic',
-    "detail_description" => 'الوصف التفصيلي بالعربيه'
+    "detail_description" => 'Detailed Description in Arabic',
+    "specialty" => "Doctor Speciality in Arabic"
 
     ],
 
@@ -62,6 +63,7 @@ return [
         "advantage_title" => 'Advantage Title in English',
         "advantage_description"    => 'Advantage Description in English',
         "detail_description" => 'Detailed Description in English',
+        "specialty" => "Doctor Specialty in English"
 
     ],
 

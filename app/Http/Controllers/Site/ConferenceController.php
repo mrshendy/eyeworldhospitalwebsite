@@ -32,9 +32,13 @@ class ConferenceController extends Controller
                             ->with('images')
                             ->with('charities')
                             ->with('guests')
+                            ->with('globalDoctors')
+                            ->with('localDoctors')
                             ->findOrFail($id);
+
         return view('Site.conferences.show')->with($data);
     }
+
 
     public function booking_conference($id)
     {
@@ -56,7 +60,7 @@ class ConferenceController extends Controller
             'attendance_details' => 'nullable|string',
         ]);
 
-        $guest = Guest::firstOrCreate(
+        $guest = Guest::firstOrCreateimage(
             ['email' => $request->email],
             $request->only(['name', 'phone', 'country', 'age'])
         );

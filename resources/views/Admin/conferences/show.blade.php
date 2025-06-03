@@ -45,7 +45,7 @@
 
 <h3>Local Doctors</h3>
 
-@if ($conference->doctors->isEmpty())
+@if ($conference->localDoctors->isEmpty())
     <p>No Local Doctors have registered for this conference.</p>
 @else
     <table class="table">
@@ -54,18 +54,40 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Type</th>
-                <th>Role</th>
-                <th>Created at</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($conference->doctors as $doctor)
+            @foreach ($conference->localDoctors as $doctor)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $doctor->doctorInfo->name }}</td>
-                    <td>{{ $doctor->pivot->doctor_type }}</td>
-                    <td>{{ $doctor->pivot->role }}</td>
-                    <td>{{ $doctor->pivot->created_at?->format('Y-m-d H:i') }}</td>
+                    <td>{{ $doctor->name }}</td>
+                    <td>{{ $doctor->type }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@endif
+
+
+<h3>Global Doctors</h3>
+
+@if ($conference->globalDoctors->isEmpty())
+    <p>No Global Doctors have registered for this conference.</p>
+@else
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($conference->globalDoctors as $doctor)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $doctor->name }}</td>
+                    <td>{{ $doctor->type }}</td>
                 </tr>
             @endforeach
         </tbody>

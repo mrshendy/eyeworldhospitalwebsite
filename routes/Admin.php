@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
-    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController, ConferenceInfoController, ConferenceController, ChairtyController};
+    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController};
 
 
 
@@ -29,7 +29,9 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'doctors'     => DoctorController::class,
         'socialmedia' => SocialMediaController::class,
         "conferences" => ConferenceController::class,
-        "charities"   => ChairtyController::class
+        "charities"   => ChairtyController::class,
+        'conferences.doctors' =>  ConferenceDoctorController::class
+
     ]);
 
     Route::resource('videos', VideosController::class)->except([
@@ -111,10 +113,6 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::get('conference-info' ,[ConferenceInfoController::class, 'detail'])->name('conference-info-detail');
     Route::post('conference-info-update' ,[ConferenceInfoController::class ,'update'])->name('conference-info.update');
 
-  //  Route::get('articles' ,[ArticleController::class, 'index'])->name('articles.index');
-
-
-    //  });
 
 });
 

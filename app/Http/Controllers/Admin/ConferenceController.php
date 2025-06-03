@@ -46,6 +46,9 @@ class ConferenceController extends Controller
                     </a>
                     <a href="'.route('Admin.conferences.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
                     <a href="'.route('Admin.conferences.show',$row->id).'" class="edit_btn">   <i class="ri-eye-line"></i> </a>
+                    <a href="'.route('Admin.conferences.doctors.index',$row->id).'" class="btn btn-sm btn-primary">
+                        <i class="ri-user-add-line"></i>
+                    </a>
 
                 ';
             })

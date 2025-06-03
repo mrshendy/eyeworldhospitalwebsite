@@ -39,6 +39,7 @@ return [
         "advantage_title" => 'عنوان الميزة بالعربية',
         "advantage_description"    => 'الوصف التفصيلي باللغة العربية',
         "detail_description" => 'الوصف التفصيلي بالعربيه',
+        "specialty" => "تخصص الطبيب باللغة العربية"
 
     ],
 
@@ -72,6 +73,8 @@ return [
         "advantage_title" => 'عنوان الميزة بالانجليزيه',
         "advantage_description"     => 'الوصف التفصيلي  للميزة باللغة الانجليزية',
         "detail_description" => 'الوصف التفصيلي بالانجليزيه',
+        "specialty" => "تخصص الطبيب باللغة الانجليزية"
+
 
 
     ]
