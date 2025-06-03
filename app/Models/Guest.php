@@ -11,8 +11,7 @@ class Guest extends Model
     public function conferences()
     {
         return $this->belongsToMany(Conference::class)->withPivot([
-            'employer', 'doctor_type', 'participation_type', 'attendance_details'
+            'employer', 'doctor_type', 'participation_type_id', 'attendance_details'
         ])->withTimestamps();
     }
-
 }

@@ -33,7 +33,7 @@
                     <td>{{ $guest->age }}</td>
                     <td>{{ $guest->pivot->employer }}</td>
                     <td>{{ $guest->pivot->doctor_type }}</td>
-                    <td>{{ $guest->pivot->participation_type }}</td>
+                    <td>{{ $guest->pivot->participation_type_id}}</td>
                     <td>{{ $guest->pivot->attendance_details }}</td>
                     <td>{{ $guest->pivot->created_at?->format('Y-m-d H:i') }}</td>
                 </tr>

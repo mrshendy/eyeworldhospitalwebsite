@@ -80,7 +80,7 @@
                         </div>
                     @empty
                         <div class="col-12">
-                            <p class="text-center">{{__("no_upcoming_conference_yet")}}</p>
+                            <p class="text-center">{{__("There is no Upcoming Conferences Yet!")}}</p>
                         </div>
                     @endforelse
 
@@ -137,7 +137,7 @@
                     </div>
                     @empty
                         <div class="col-12">
-                            <p class="text-center">{{__("no_upcoming_conference_yet")}}</p>
+                            <p class="text-center">{{__("There is no Previous Conferences Yet!")}}</p>
                         </div>
                     @endforelse
 

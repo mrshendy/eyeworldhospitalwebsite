@@ -233,7 +233,11 @@
     "Type" : "نوع الطبيب",
     "Local" : "محلي",
     "Global" : "عالمي",
-    "Edit Conference Doctor" : "تعديل معلومات الطبيب"
-
+    "Edit Conference Doctor" : "تعديل معلومات الطبيب",
+    "There is no Previous Conferences Yet!" : "لا يوجد مؤتمرات سابقة لعرضها",
+    "There is no Upcoming Conferences Yet!" : "لا يوجد مؤتمرات قادمة لعرضها",
+    "Participation Types" : "أنواع المشاركة للطبيب",
+    "Create Participation Type" : "أنشأ نوع مشاركة جديد",
+    "Edit Participation Type" : "تعديل نوع مشاركة"
 }
 

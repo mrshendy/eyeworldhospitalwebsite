@@ -8,6 +8,7 @@ use App\Models\Conference;
 use App\Models\ConferenceInfo;
 use Carbon\Carbon;
 Use App\Models\Guest;
+use App\Models\ParticipationType;
 
 class ConferenceController extends Controller
 {
@@ -43,7 +44,8 @@ class ConferenceController extends Controller
     public function booking_conference($id)
     {
         $conference = Conference::findOrFail($id);
-        return view('Site.conferences.booking', compact('conference'));
+        $participationTypes = ParticipationType::all();
+        return view('Site.conferences.booking', compact('conference', 'participationTypes'));
     }
 
     public function store_booking(Request $request, $id)
@@ -56,11 +58,10 @@ class ConferenceController extends Controller
             'age' => 'nullable|integer',
             'employer' => 'nullable|string',
             'doctor_type' => 'nullable|string',
-            'participation_type' => 'nullable|string',
             'attendance_details' => 'nullable|string',
         ]);
 
-        $guest = Guest::firstOrCreateimage(
+        $guest = Guest::firstOrCreate(
             ['email' => $request->email],
             $request->only(['name', 'phone', 'country', 'age'])
         );
@@ -71,11 +72,10 @@ class ConferenceController extends Controller
             $guest->id => [
                 'employer' => $request->employer,
                 'doctor_type' => $request->doctor_type,
-                'participation_type' => $request->participation_type,
                 'attendance_details' => $request->attendance_details,
+                'participation_type_id' => $request->participation_type_id,
             ]
         ]);
-
         return redirect()->route('Site.conference.success');
     }
 

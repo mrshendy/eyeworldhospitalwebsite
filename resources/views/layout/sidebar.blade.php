@@ -151,7 +151,11 @@
                            <div>{{__('Charities Supports')}}</div>
                         </a>
                     </li>
-
+                    <li class="menu-item">
+                        <a href="{{route('Admin.participation_types.index')}}" class="menu-link">
+                           <div>{{__('Participation Types')}}</div>
+                        </a>
+                    </li>
                   </ul>
             </li>
 

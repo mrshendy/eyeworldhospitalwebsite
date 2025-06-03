@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('conference_id')->constrained()->onDelete('cascade');
             $table->foreignId('guest_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('participation_type_id')->nullable();
+            $table->foreign('participation_type_id')->references('id')->on('participation_types')->onDelete('set null');
             $table->string('employer')->nullable();
             $table->string('doctor_type')->nullable();
-            $table->string('participation_type')->nullable();
             $table->string('attendance_details')->nullable();
             $table->timestamps();
         });

@@ -38,11 +38,11 @@ class Conference extends Model
     public function guests()
     {
         return $this->belongsToMany(Guest::class)->withPivot([
-            'employer', 'doctor_type', 'participation_type', 'attendance_details'
+            'employer', 'doctor_type', 'participation_type_id', 'attendance_details'
         ])->withTimestamps();
     }
 
-    public function globalDoctors()
+     public function globalDoctors()
     {
         return $this->hasMany(ConferenceDoctor::class)->where('type', 'global');
     }

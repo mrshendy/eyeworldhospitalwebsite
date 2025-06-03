@@ -134,15 +134,17 @@
                                             </div>
                                         </div>
 									</div>
+
+
                                     <div class="form-control">
                                         <div class="form-field">
-                                            <h4>{{ __('Particinpantion Type') }}</h4>
-                                            <div class="payment-box">
-                                                <input type="radio" name="participation_type" checked>
-                                                <span class="m-5 p-5">{{ __('Conference Attendance') }}</span>
-
-                                                <input type="radio" name="participation_type">
-                                                <span>{{ __('Paticipant as Speaker') }}</span>
+                                            <label>{{ __('Participation Type') }}</label>
+                                            <div class="field">
+                                                <select name="participation_type_id">
+                                                    @foreach ($participationTypes as $type)
+                                                        <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

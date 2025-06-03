@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     ContactUsController,SpecialtieController,SpecialtieTypeController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
-    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController};
+    InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController};
 
 
 
@@ -30,7 +30,8 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'socialmedia' => SocialMediaController::class,
         "conferences" => ConferenceController::class,
         "charities"   => ChairtyController::class,
-        'conferences.doctors' =>  ConferenceDoctorController::class
+        'conferences.doctors' =>  ConferenceDoctorController::class,
+        "participation_types" => ParticipationTypeController::class
 
     ]);
 
