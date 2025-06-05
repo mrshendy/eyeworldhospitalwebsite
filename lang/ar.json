@@ -238,6 +238,25 @@
     "There is no Upcoming Conferences Yet!" : "لا يوجد مؤتمرات قادمة لعرضها",
     "Participation Types" : "أنواع المشاركة للطبيب",
     "Create Participation Type" : "أنشأ نوع مشاركة جديد",
-    "Edit Participation Type" : "تعديل نوع مشاركة"
+    "Edit Participation Type" : "تعديل نوع مشاركة",
+    "Guests" : "المسجلين عبر الموقع",
+    "No guests have registered for this conference." : "لا يوجد مسجلين عبر الموقع لهذا المؤتمر",
+    "Name" : "الإسم",
+    "Email" : "البريد الالكتروني",
+    "Doctor Type" : "نوع اختصاص الطبيب",
+    "Participation Type" : "نوع المشاركة",
+    "Attendance Details" : "تفاصيل الحضور",
+    "Registered At" : "توقيت التسجيل",
+    "Local Doctors" : "الأطباء المحليين",
+    "No Local Doctors have registered for this conference." : "لا يوجد أطباء محليين لهذا المؤتمر",
+    "Speciality" : "التخصص",
+    "Global Doctors" : "الأطباء العالميين",
+    "No Global Doctors have registered for this conference." : "لا يوجد أطباء عالميين فى هذا المؤتمر",
+    "Conference Advantages" : "مميزات المؤتمر",
+    "No Advantages for this conference." : "لا يوجد مميزات لهذا المؤتمر",
+    "Title" : "عنوان الميزة",
+    "Description" : "الوصف"
+
+
 }
 

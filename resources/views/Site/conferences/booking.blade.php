@@ -68,7 +68,10 @@
 												<input type="text" name="name" placeholder="{{ __('name') }}" >
 											</div>
 										</div>
-									</div>
+                                    </div>
+                                    @error('name')
+                                        <span class="bg-red">{{ $message }}</span>
+                                    @enderror
 
                                     <div class="form-control">
 										<div class="form-field">
@@ -135,10 +138,22 @@
                                         </div>
 									</div>
 
-
                                     <div class="form-control">
                                         <div class="form-field">
                                             <label>{{ __('Participation Type') }}</label>
+                                            <div class="field">
+                                                <select name="attendance_details">
+                                                    <option value="Conference Attendance Only">{{ __('Conference Attendance Only') }}</option>
+                                                    <option value="Paticipant as Speaker Only">{{ __('Paticipant as Speaker Only') }}</option>
+                                                    <option value="Paticipant as speaker and something esle">{{ __('Paticipant as speaker and something esle') }}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-control">
+                                        <div class="form-field">
+                                            <label>{{ __('Select Attendance Details') }}</label>
                                             <div class="field">
                                                 <select name="participation_type_id">
                                                     @foreach ($participationTypes as $type)
@@ -149,18 +164,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-control">
-                                        <div class="form-field">
-                                            <label>{{ __('Select Attendance Details') }}</label>
-                                            <div class="field">
-                                                <select name="attendance_details">
-                                                    <option value="Conference Attendance Only">{{ __('Conference Attendance Only') }}</option>
-                                                    <option value="Paticipant as Speaker Only">{{ __('Paticipant as Speaker Only') }}</option>
-                                                    <option value="Paticipant as speaker and something esle">{{ __('Paticipant as speaker and something esle') }}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+
 								</div>
 							</div>
 						</form>
