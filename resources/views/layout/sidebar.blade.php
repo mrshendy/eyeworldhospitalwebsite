@@ -138,8 +138,7 @@
                   </ul>
             </li>
 
-            <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-devices'
-                  || Route::currentRouteName() =='Admin.medical-tourism-services.index' || Route::currentRouteName() ==' Admin.medical-tourism-services.create' || Route::currentRouteName()==' Admin.medical-tourism-services.show' || Route::currentRouteName()=='Admin.medical-tourism-info-detail') open @endif ">
+            <li class="menu-item   @if (Route::currentRouteName() =='Admin.medical-tourism-services.index' || Route::currentRouteName() == 'Admin.medical-tourism-services.create' || Route::currentRouteName()== 'Admin.medical-tourism-services.show' || Route::currentRouteName() == 'Admin.medical-tourism-info-detail') open @endif ">
                 <a href="#" class="menu-link menu-toggle">
                     <i class="ri-nurse-line"></i>
                     <div>{{__('medical_tourisms')}}</div>
@@ -157,6 +156,38 @@
                         </a>
                       </li>
 
+                  </ul>
+            </li>
+
+            <li class="menu-item   @if (Route::currentRouteName()=='Admin.conferences.index' || Route::currentRouteName() == 'Admin.conferences.create' || Route::currentRouteName()== 'Admin.conferences.show') open @endif">
+                <a href="#" class="menu-link menu-toggle">
+                    <i class="ri-nurse-line"></i>
+                    <div>{{__('medical_conferences')}}</div>
+                </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="{{route('Admin.conference-info-detail')}}" class="menu-link">
+                            <div>{{__('details')}}</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{route('Admin.conferences.index')}}" class="menu-link">
+                           <div>{{__('medical_conferences')}}</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{route('Admin.charities.index')}}" class="menu-link">
+                           <div>{{__('Charities Supports')}}</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('Admin.participation_types.index')}}" class="menu-link">
+                           <div>{{__('Participation Types')}}</div>
+                        </a>
+                    </li>
                   </ul>
             </li>
 

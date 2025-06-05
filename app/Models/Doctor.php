@@ -17,7 +17,7 @@ class Doctor extends Model
     public function serviceinfo(){
         return $this->hasMany(DoctorServiceInfo::class);
     }
-   
+
     public function partners(){
         return $this->hasMany(DoctorInsurancePartner::class);
     }
@@ -42,4 +42,11 @@ class Doctor extends Model
             get: fn (?string $value) => asset('uploads/doctors/' . $value)
         );
     }
+
+    public function doctorInfo()
+    {
+        return $this->hasOne(DoctorInfo::class, 'doctor_id');
+    }
+
+
 }

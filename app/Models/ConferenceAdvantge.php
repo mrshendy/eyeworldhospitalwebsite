@@ -7,17 +7,19 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
-class DoctorInfo extends Model implements TranslatableContract
+class ConferenceAdvantge extends Model
 {
     //
-     use Translatable;
+    use Translatable;
     protected $guarded=[];
     protected $hidden = ['translations'];
-    public $translatedAttributes = ['job_title','title','sub_title','breif','desc','name'];
-    protected $translationForeignKey = 'info_id';
+    public $translatedAttributes = ['advantage_title', 'advantage_description'];
+    protected $translationForeignKey = 'conference_advantge_id';
 
-    public function doctor()
+    public function conference()
     {
-        return $this->belongsTo(Doctor::class, 'doctor_id');
+        return $this->belongsTo(Conference::class);
     }
 }
+
+

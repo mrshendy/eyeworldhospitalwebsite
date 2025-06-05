@@ -30,9 +30,13 @@ return [
     'breif'           => 'breif on Arabic',
     'info'           => 'info on Arabic',
     'name'           => 'name on Arabic',
+    "detail_description"     => 'Detailed Description in Arabic',
 
     "medical_devices" => "Medical Devices",
-
+    "advantage_title" => 'Advantage Title in Arabic',
+    "advantage_description"    => 'Advantage Description in Arabic',
+    "detail_description" => 'Detailed Description in Arabic',
+    "specialty" => "Doctor Speciality in Arabic"
 
     ],
 
@@ -54,7 +58,13 @@ return [
 
         "medical_devices" => "Medical Devices",
         "medical_devices" => "Medical Tourisms",
-        "medical_tourisms_service" => "Medical Tourism Services"
+        "medical_tourisms_service" => "Medical Tourism Services",
+        "detail_description"     => 'Detailed Description in English',
+        "advantage_title" => 'Advantage Title in English',
+        "advantage_description"    => 'Advantage Description in English',
+        "detail_description" => 'Detailed Description in English',
+        "specialty" => "Doctor Specialty in English"
+
     ],
 
 

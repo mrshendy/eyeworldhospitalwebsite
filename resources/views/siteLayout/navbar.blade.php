@@ -50,7 +50,7 @@
 								<ul class="sub-menu list-unstyled">
 									<li><a href="{{asset('siteassets/Academy and conference/Book-Categories.html')}}">الكتب</a></li>
 									<li><a href="{{asset('siteassets/Academy and conference/Medical-Academy.html')}}">الاكاديمية الطبية</a></li>
-									<li><a href="{{asset('siteassets/Academy and conference/Medical-conferences.html')}}">مؤتمرات وفاعليات طبية </a></li>
+					            	<li class="menu-item"><a href="{{route('Site.conference.index')}}"> {{__('medical_conferences')}}</a></li>
 								</ul>
 						</li>
 					</ul>

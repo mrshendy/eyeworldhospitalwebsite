@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
     InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController,
     ReservationController,DoctorAppointmentController
-   ,UserController};
+   ,UserController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController};
 
 
 
@@ -32,6 +32,11 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'socialmedia' => SocialMediaController::class,
         'reservations'=> ReservationController::class,
         'appointments'=> DoctorAppointmentController::class,
+        "conferences" => ConferenceController::class,
+        "charities"   => ChairtyController::class,
+        'conferences.doctors' =>  ConferenceDoctorController::class,
+        "participation_types" => ParticipationTypeController::class
+
     ]);
 
 
@@ -124,9 +129,9 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::get('users/{type}' ,[UserController::class, 'index'])->name('users.type');  //
     Route::post('destroy/{type}' ,[UserController::class, 'destroy'])->name('users.destroy');
   //  Route::get('articles' ,[ArticleController::class, 'index'])->name('articles.index');
+    Route::get('conference-info' ,[ConferenceInfoController::class, 'detail'])->name('conference-info-detail');
+    Route::post('conference-info-update' ,[ConferenceInfoController::class ,'update'])->name('conference-info.update');
 
-
-    //  });
 
 });
 
