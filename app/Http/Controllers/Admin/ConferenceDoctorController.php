@@ -46,6 +46,7 @@ class ConferenceDoctorController extends Controller
         $html = $builder->columns([
             ['title' => __('system.id'), 'data' => 'id', 'footer' =>  __('system.id') , 'orderable' => true],
             ['title' => __('name'), 'data' => 'name', 'footer' =>__('name') , 'searchable' => true],
+            ['title' => __('type'), 'data' => 'type', 'footer' =>__('type') , 'searchable' => true],
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' =>  __('system.actions'), 'orderable' => false, 'searchable' => false]
 
         ]);
