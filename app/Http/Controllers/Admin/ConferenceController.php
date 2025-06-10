@@ -99,6 +99,7 @@ class ConferenceController extends Controller
                 ]);
             }
         }
+
         foreach ($request->advantages as $advantageData) {
             $translations = [];
 

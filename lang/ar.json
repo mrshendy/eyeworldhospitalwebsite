@@ -285,8 +285,14 @@
     "Conference Advantages" : "مميزات المؤتمر",
     "No Advantages for this conference." : "لا يوجد مميزات لهذا المؤتمر",
     "Title" : "عنوان الميزة",
-    "Description" : "الوصف"
-
-
+    "Description" : "الوصف",
+    "Medical Academies" : "الأكاديميات الطبية",
+    "Create Medical Academy" : "أنشأ أكاديمية طبية",
+    "Edit Medical Academy" : "تعديل أكاديمية طبية",
+    "Medical Academy Videos" : "فيديوهات الأكاديمية الطبية",
+    "Video URL" : "رابط الفيديو",
+    "Video Thumbnail" : "صورة الفيديو المصغرة",
+    "Add Video" : "أضف فيديو",
+    "Medical Academy" : "الأكاديمية الطبية"
 }
 

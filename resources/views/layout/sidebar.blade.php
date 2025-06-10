@@ -79,7 +79,7 @@
                   </ul>
                 </li>
 
-             
+
             <li class="menu-item">
               <a href="{{route('Admin.reservations.index')}}" class="menu-link">
                 <i class="ri-body-scan-fill"></i>
@@ -191,13 +191,34 @@
                   </ul>
             </li>
 
+            <li class="menu-item   @if (Route::currentRouteName() =='Admin.medical-academies.index' || Route::currentRouteName() == 'Admin.medical-academies.create' || Route::currentRouteName()== 'Admin.medical-academies.show' || Route::currentRouteName() == 'Admin.medical-academy-info-detail') open @endif ">
+                <a href="#" class="menu-link menu-toggle">
+                    <i class="ri-nurse-line"></i>
+                    <div>{{__('Medical Academies')}}</div>
+                </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                      <a href="{{route('Admin.medical-academy-info-detail')}}" class="menu-link">
+                          <div>{{__('details')}}</div>
+                      </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('Admin.medical-academies.index')}}" class="menu-link">
+                           <div>{{__('Medical Academies')}}</div>
+                        </a>
+                      </li>
+
+                  </ul>
+            </li>
+
             <li class="menu-item">
               <a href="{{route('Admin.abouts.edit',\App\Models\About::first()->id)}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-wechat-line"></i>
                 <div>{{__('About')}}</div>
               </a>
             </li>
-            
+
             <li class="menu-item">
               <a href="{{route('Admin.contact-us.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-mail-open-line"></i>

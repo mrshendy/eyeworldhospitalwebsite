@@ -6,8 +6,8 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
     InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController,
-    ReservationController,DoctorAppointmentController
-   ,UserController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController};
+    ReservationController,DoctorAppointmentController, MedicalAcademyController
+   ,UserController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController, MedicalAcademyInfoController};
 
 
 
@@ -35,7 +35,8 @@ Route::group(['middleware' => 'auth:admin'], function() {
         "conferences" => ConferenceController::class,
         "charities"   => ChairtyController::class,
         'conferences.doctors' =>  ConferenceDoctorController::class,
-        "participation_types" => ParticipationTypeController::class
+        "participation_types" => ParticipationTypeController::class,
+        "medical-academies" => MedicalAcademyController::class,
 
     ]);
 
@@ -114,6 +115,10 @@ Route::group(['middleware' => 'auth:admin'], function() {
 
     Route::get('medical-device-info' ,[MedicalDeviceInfoController::class, 'detail'])->name('medical-device-info-detail');
     Route::post('medical-device-info-update' ,[MedicalDeviceInfoController::class ,'update'])->name('medical-device-info.update');
+
+
+    Route::get('medical-academy-info' ,[MedicalAcademyInfoController::class, 'detail'])->name('medical-academy-info-detail');
+    Route::post('medical-academy-info-update' ,[MedicalAcademyInfoController::class ,'update'])->name('medical-academy-info.update');
 
     // ajax
     Route::group(['prefix' => 'ajax' , 'name'=>'ajax'], function() {

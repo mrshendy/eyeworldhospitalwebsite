@@ -49,7 +49,7 @@
 							<a href="#">{{__('doctors')}}</a>
 								<ul class="sub-menu list-unstyled">
 									<li><a href="{{asset('siteassets/Academy and conference/Book-Categories.html')}}">الكتب</a></li>
-									<li><a href="{{asset('siteassets/Academy and conference/Medical-Academy.html')}}">الاكاديمية الطبية</a></li>
+									<li><a href="{{route('Site.medical-academy.index')}}">{{ __("Medical Academy") }}</a></li>
 					            	<li class="menu-item"><a href="{{route('Site.conference.index')}}"> {{__('medical_conferences')}}</a></li>
 								</ul>
 						</li>

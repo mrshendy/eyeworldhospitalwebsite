@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
     RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController,ReservationController,
-    AuthController,ConferenceController};
+    AuthController,ConferenceController, MedicalAcademyController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -47,7 +47,7 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
     Route::get('reservation/{doctor_id}/{reservationType}', [ReservationController::class, 'index'])->name('reservation.index');
     Route::post('reservation', [ReservationController::class, 'store'])->name('reservation.store');
-    
+
     Route::get('reservation/appoint_ment/{doctor_id}/{date}', [ReservationController::class, 'doctorAppointment'])->name('reservation.Appointment');
 
 
@@ -58,5 +58,10 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('conferences/{id}/booking', [ConferenceController::class, 'booking_conference'])->name('conference.booking')->middleware(['web']);
     Route::post('conferences/{id}/booking', [ConferenceController::class, 'store_booking'])->name('conference.booking.store')->middleware(['web']);
     Route::get('conferences/booking/success', [ConferenceController::class, 'success'])->name('conference.success');
+
+    Route::get('medical-academies', [MedicalAcademyController::class, 'index'])->name('medical-academy.index');
+    Route::get('medical-academies/{id}', [MedicalAcademyController::class, 'show'])->name('medical-academy.show');
+
+
 });
 
