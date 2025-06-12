@@ -47,7 +47,7 @@
                     @foreach ($medical_academy->videos as $video)
                     <div class="col-4 col-md-6 col-sm-12">
                         <div class="video-box">
-                            <div class="image-holder" style="background-image: url('{{ asset('uploads/medical-academies/thumbnails/' . $video->img) }}');">
+                            <div class="image-holder" style="background-image: url('{{ asset('uploads/medical-academy-videos/' . $video->img) }}');">
                                 <a href="{{ $video->video_url }}">
                                     <img src="{{ asset('uploads/medical-academies/thumbnails/icon.svg') }}">
                                 </a>

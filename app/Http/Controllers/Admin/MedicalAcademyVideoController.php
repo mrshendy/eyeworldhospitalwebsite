@@ -4,19 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\MedicalAcademy;
+use App\Models\MedicalAcadmeyVideo;
 use DataTables;
 use Yajra\DataTables\Html\Builder;
 use App\Traits\fileTrait;
+use App\Models\MedicalAcademy;
 
-class MedicalAcademyController extends Controller
+
+class MedicalAcademyVideoController extends Controller
 {
     use fileTrait;
 
     public function index(Request $request,Builder $builder){
 
         if (request()->ajax()) {
-            return DataTables::of(MedicalAcademy::query())
+            return DataTables::of(MedicalAcadmeyVideo::query())
             ->filter(function ($query) use ($request) {
                 if ($request->has('search') && !empty($request->input('search')['value'])) {
                     $search = $request->input('search')['value'];
@@ -31,7 +33,7 @@ class MedicalAcademyController extends Controller
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">
                         <i class="ri-delete-bin-6-line"></i>
                     </a>
-                    <a href="'.route('Admin.medical-academies.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
+                    <a href="'.route('Admin.medical-academy-videos.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
 
                 ';
             })
@@ -48,47 +50,41 @@ class MedicalAcademyController extends Controller
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' =>  __('system.actions'), 'orderable' => false, 'searchable' => false]
 
         ]);
-        return view('Admin.medical-academies.index',compact('html'));
+        return view('Admin.medical-academy-videos.index',compact('html'));
     }
 
 
     public function create()
     {
-        return view('Admin.medical-academies.create');
+        $data['medical_academies'] = MedicalAcademy::get();
+        return view('Admin.medical-academy-videos.create')->with($data);
     }
 
     public function store(Request $request)
     {
 
         if($request->file!=null)
-            $request->merge(['img' => $this->MoveImage($request->file,'uploads/medical-academies')]);
+            $request->merge(['img' => $this->MoveImage($request->file,'uploads/medical-academy-videos')]);
 
         $data = $request->except('file', '_token', '_method');
-        $medical_academy = MedicalAcademy::create($data);
+        $medical_academy = MedicalAcadmeyVideo::create($data);
 
-        return redirect()->route('Admin.medical-academies.index');
+        return redirect()->route('Admin.medical-academy-videos.index');
     }
-
-
-    public function show(string $id)
-    {
-        $data = MedicalAcademy::find($id);
-        return view('Admin.medical-academies.detail', compact('id','data'));
-    }
-
 
     public function edit($id){
-        $data = MedicalAcademy::find($id);
-        return view('Admin.medical-academies.edit',compact('data'));
+        $data = MedicalAcadmeyVideo::find($id);
+        $medical_academies = MedicalAcademy::get();
+        return view('Admin.medical-academy-videos.edit',compact('data', 'medical_academies'));
      }
 
 
     public function update(Request $request, $id)
     {
         if($request->file!=null)
-            $request->merge(['img' => $this->MoveImage($request->file,'uploads/medical-academies')]);
+            $request->merge(['img' => $this->MoveImage($request->file,'uploads/medical-academy-videos')]);
 
-        $medical_academy =  MedicalAcademy::find($id);
+        $medical_academy =  MedicalAcadmeyVideo::find($id);
 
         $medical_academy->update($request->except(['id','_token','_method', 'file']));
 
@@ -97,7 +93,7 @@ class MedicalAcademyController extends Controller
 
     public function destroy(Request $request,$id)
     {
-        $medical_academy =  MedicalAcademy::find($request->id);
+        $medical_academy =  MedicalAcadmeyVideo::find($request->id);
         $medical_academy->delete();
         return redirect()->back();
     }

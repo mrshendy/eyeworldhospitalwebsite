@@ -13,18 +13,35 @@
  <div class="container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route('Admin.medical-academies.index') }}">{{__('Medical Academies')}}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{__('Create Medical Academy')}}</li>
+        <li class="breadcrumb-item"><a href="{{ route('Admin.medical-academy-videos.index') }}">{{__('Medical Academy Videos')}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{__('Create Medical Academy Video')}}</li>
       </ol>
     </nav>
 
     <div class="card">
-        <form method="post" action="{{route('Admin.medical-academies.store')}}" enctype="multipart/form-data">
+        <form method="post" action="{{route('Admin.medical-academy-videos.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
 
-              <label for="input-file-max-fs">{{__('img')}}</label>
-              <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
+                <label for="input-file-max-fs">{{__('img')}}</label>
+                <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
+
+                <div class="col-12 mb-3">
+                    <label for="spec_id" class="form-label">{{ __('Medical Academy') }}</label>
+                    <select name="medical_academy_id" class="form-control" required>
+                        <option value="">{{ __('Choose Medical Academy') }}</option>
+                        @foreach($medical_academies as $academy)
+                            <option value="{{ $academy->id }}">
+                                {{ $academy->translateOrDefault()?->title ?? $academy->title ?? '' }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="mb-2">
+                    <label>{{ __('Video URL') }}</label>
+                    <input type="text" name="video_url" class="form-control" required>
+                </div>
 
                 @foreach (config('translatable.locales') as $locale)
                   <div class="col-12">
@@ -33,16 +50,15 @@
                           <input class="form-control" name="{{$locale}}[title]"   value="" type="text" required>
 
                           <label>{{ __('system.'.$locale.'.description') }}</label>
-                          <textarea class="form-control" name="{{$locale}}[description]" rows="3" type="text" required></textarea>
+                          <textarea name="{{$locale}}[description]" class="form-control" rows="3" required></textarea>
                         </div>
                   </div>
                 @endforeach
-                <button type="submit" class="btn btn-primary mt-2">{{__('system.add')}}</button>
+
             </div>
 
+            <button type="submit" class="btn btn-primary mt-2">{{__('system.add')}}</button>
           </form>
-
-
 
     </div>
  </div>
@@ -140,8 +156,4 @@
 
 <script src="{{asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
 <script src="{{asset('assets/js/tables-datatables-basic.js')}}"></script>
-
-
-
 @endsection
-

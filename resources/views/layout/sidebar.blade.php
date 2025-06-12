@@ -207,7 +207,12 @@
                         <a href="{{route('Admin.medical-academies.index')}}" class="menu-link">
                            <div>{{__('Medical Academies')}}</div>
                         </a>
-                      </li>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('Admin.medical-academy-videos.index')}}" class="menu-link">
+                           <div>{{__('Medical Academy Videos')}}</div>
+                        </a>
+                    </li>
 
                   </ul>
             </li>

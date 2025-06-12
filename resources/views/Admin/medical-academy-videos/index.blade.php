@@ -5,7 +5,7 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{route('Admin.medical-academies.index')}}">{{__('Medical Academies')}}</a></li>
+    <li class="breadcrumb-item"><a href="{{route('Admin.medical-academy-videos.index')}}">{{__('Medical Academy Videos')}}</a></li>
   </ol>
 </nav>
 
@@ -13,7 +13,7 @@
   <div class="card-body">
     <div class="row">
         <div class="col-3">
-            <a href="{{route('Admin.medical-academies.create')}}" class="btn " style="background-color: #267B26 ; color:white"> {{__('system.add')}}</a>
+            <a href="{{route('Admin.medical-academy-videos.create')}}" class="btn " style="background-color: #267B26 ; color:white"> {{__('system.add')}}</a>
           </div>
     </div>
     {!! $html->table(['class' => 'table table-bordered'], true) !!}
@@ -26,7 +26,7 @@
         {{__('Medical Academies')}}
     </x-slot>
     <x-slot:route>
-        {{route('Admin.medical-academies.store')}}
+        {{route('Admin.medical-academy-videos.store')}}
     </x-slot>
 
     @foreach (config('translatable.locales') as $locale)
@@ -45,7 +45,7 @@
         {{__('system.edit')}}
     </x-slot>
     <x-slot:route>
-        {{route('Admin.medical-academies.update',0)}}
+        {{route('Admin.medical-academy-videos.update',0)}}
     </x-slot>
     @method('put')
     <input type="hidden" name="id" id="id" value="">
@@ -62,7 +62,7 @@
   {{-- Delete Modal --}}
   <x-delete-modal>
     <x-slot:route>
-        {{route('Admin.medical-academies.destroy',0)}}
+        {{route('Admin.medical-academy-videos.destroy',0)}}
     </x-slot>
     @method('DELETE')
     <input type="hidden" id="delete_id" name="id" value="">
@@ -77,14 +77,11 @@
 <script src="{{asset('assets/js/tables-datatables-basic.js')}}"></script>
 {!! $html->scripts() !!}
 
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
 <script>
     var locales = {!!json_encode(config('translatable.locales'))!!};
     // Populate Delete Modal
     $('#dataTableBuilder').on('click','.delete_btn',function (){
         $('#delete_id').val($(this).attr("data-id"));
     });
-
 </script>
 @endsection
