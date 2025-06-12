@@ -81,8 +81,6 @@
 
 
 
-
-
                 {{-- liberary --}}
 
 
@@ -98,6 +96,11 @@
 
                   <ul class="menu-sub">
                     <li class="menu-item">
+                        <a href="{{route('Admin.book-info-detail')}}" class="menu-link">
+                          <div>{{__('details')}}</div>
+                        </a>
+                      </li>
+                    <li class="menu-item">
                       <a href="{{route('Admin.libraryTopic.index')}}" class="menu-link">
                         <div>{{__('Topics')}}</div>
                       </a>
@@ -111,7 +114,7 @@
                   </ul>
                 </li>
 
-             
+
             <li class="menu-item">
               <a href="{{route('Admin.reservations.index')}}" class="menu-link">
                 <i class="ri-body-scan-fill"></i>
@@ -229,7 +232,7 @@
                 <div>{{__('About')}}</div>
               </a>
             </li>
-            
+
             <li class="menu-item">
               <a href="{{route('Admin.contact-us.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons ri-mail-open-line"></i>

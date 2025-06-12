@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
     InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController,
     ReservationController,DoctorAppointmentController
-   ,UserController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController,LiberaryTopicController,BookController};
+   ,UserController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController,LiberaryTopicController,BookController, BookInfoController};
 
 
 
@@ -135,6 +135,11 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::post('conference-info-update' ,[ConferenceInfoController::class ,'update'])->name('conference-info.update');
 
     Route::put('books/update-status/{id}', [BookController::class, 'updateStatus'])->name('books.updateStatus');
+    Route::get('book-info' ,[BookInfoController::class, 'detail'])->name('book-info-detail');
+    Route::post('book-info-update' ,[BookInfoController::class ,'update'])->name('book-info.update');
+
+
+
 });
 
 
