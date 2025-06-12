@@ -88,13 +88,17 @@
 				</div>
 
 
+                @guest
 
-				<div class="login-btns">
-					<a href="{{route('Site.register.index')}}" class="login-btn btn" href="">
-						<span>{{__('login')}}</span>
-						<i class="fa-solid fa-right-to-bracket"></i>
-					</a>
-				</div>
+					<div class="login-btns">
+						<a href="{{route('Site.register.index')}}" class="login-btn btn" href="">
+							<span>{{__('login')}}</span>
+							<i class="fa-solid fa-right-to-bracket"></i>
+						</a>
+					</div>
+
+				@endguest
+				
 				<div class="bars">
 					<i class="fa-solid fa-bars"></i>
 				</div>
@@ -107,7 +111,7 @@
 					@auth
 					<a href="" class="head-icon flex-start align-center">
 						<img src="{{asset('siteassets/images/profile-circle.svg')}}">
-						<span>مرحبا ندى</span>
+						<span>{{Auth::user()->name}}</span>
 					</a>
 					@endauth
 

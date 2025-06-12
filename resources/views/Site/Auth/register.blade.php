@@ -252,7 +252,7 @@
 								<div class="form-control">
 									<input type="submit" class="btn w-100" name="register" value="تسجيل الدخول">
 								</div>
-								<a href="#" class="have-not-account">لديك حساب؟  <span class="site-color"> تسجيل الدخول  </span></a>
+								<a href="{{route('Site.login.index')}}" class="have-not-account">لديك حساب؟  <span class="site-color"> تسجيل الدخول  </span></a>
 							</form>
 						</div>
 

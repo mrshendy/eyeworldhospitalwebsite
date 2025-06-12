@@ -53,6 +53,8 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
     Route::get('register', [AuthController::class, 'index'])->name('register.index');
     Route::post('register', [AuthController::class, 'register'])->name('register');
+    Route::get('login', [AuthController::class, 'loginIndex'])->name('login.index');
+    Route::post('login', [AuthController::class, 'login'])->name('login');
 
 
     Route::get('conferences/{id}/booking', [ConferenceController::class, 'booking_conference'])->name('conference.booking')->middleware(['web']);

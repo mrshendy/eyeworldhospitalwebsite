@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Specialtie;
 Use Alert;
+use Auth;
 use App\Enums\AcademicDegrees;
 
 class AuthController extends Controller
@@ -18,11 +19,12 @@ class AuthController extends Controller
         $degrees = AcademicDegrees::options();
         return view('Site.Auth.register', compact('specialties','degrees'));
     }
+    public function loginIndex(){
+        return view('Site.Auth.login');
+    }
 
 
     public function register(Request $request){
-
-        dd($request->all());
 
         $validated = $request->validate([
          'name' => 'required|string|max:255',
@@ -37,4 +39,17 @@ class AuthController extends Controller
         return redirect()->back();
       
     }
+
+    public function login(Request $request)
+    {
+
+        $credentials = request(['email','password']);
+      
+
+        if (Auth::guard('web')->attempt($credentials)) {
+            return redirect()->route('Site.home.index');
+        }
+        return redirect()->route('Site.login.index')->with('error','Login details are not valid');
+    }
+
 }

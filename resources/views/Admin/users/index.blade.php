@@ -9,7 +9,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">{{__('users')}}</a></li>
-        <li class="breadcrumb-item"><a href="#">{{__('patients')}}</a></li>
+        <li class="breadcrumb-item"><a href="#">{{__($type.'s')}}</a></li>
 
       </ol>
     </nav>

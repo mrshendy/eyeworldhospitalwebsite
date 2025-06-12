@@ -298,6 +298,13 @@
      "Diploma": "دبلوم",
      "specialty":"التخصص",
      "academic degree":"الدرجة العلمية",
-     "graduation year":"سنة التخرج"
-}
+     "graduation year":"سنة التخرج",
+      "library":"المكتبة",
+      "Topics":"الموضوعات",
+      "Topic":"الموضوع",
+      "Books":"الكتب",
+      "count":"العدد",
+      "file":"الملف",
+      "pdf price":"سعر PDF"
+    }
 
