@@ -134,7 +134,7 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::get('conference-info' ,[ConferenceInfoController::class, 'detail'])->name('conference-info-detail');
     Route::post('conference-info-update' ,[ConferenceInfoController::class ,'update'])->name('conference-info.update');
 
-
+    Route::put('books/update-status/{id}', [BookController::class, 'updateStatus'])->name('books.updateStatus');
 });
 
 

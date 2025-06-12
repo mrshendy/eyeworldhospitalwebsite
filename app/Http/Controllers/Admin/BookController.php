@@ -38,19 +38,30 @@ class BookController extends Controller
 
                 ';
             })
+            ->addColumn('is_active', function ($row) {
+                  return '
+                        <input type="checkbox" class="toggle-active active-book" data-id="'.$row->id.'" '.($row->is_active ? 'checked' : '').'>
+                    ';
+            })
             ->editColumn('created_at', function ($row) {
                 return \Carbon\Carbon::parse($row->created_at)->format('d-m-Y');
             })
+            
             ->orderColumn('id', function ($query, $order) {
                 $query->orderBy('id', $order);
             })
-            ->rawColumns(['actions'])
+            ->rawColumns(['actions','is_active'])
             ->toJson();
         }
 
         $html = $builder->columns([
             ['title' => __('system.id'), 'data' => 'id', 'footer' =>  __('system.id') , 'orderable' => true],
             ['title' => __('title'), 'data' => 'title', 'footer' =>__('title') , 'searchable' => true],
+            ['title' => __('price'), 'data' => 'price', 'footer' =>__('price') , 'searchable' => true],
+            ['title' => __('pdf price'), 'data' => 'pdf_price', 'footer' =>__('pdf price') , 'searchable' => true],
+            ['title' => __('count'), 'data' => 'count', 'footer' =>__('count') , 'searchable' => true],
+            ['title' => __('is_active'), 'data' => 'is_active', 'footer' =>__('is_active') , 'searchable' => true],
+            ['title' => __('created at'), 'data' => 'created_at', 'footer' =>__('created at') , 'searchable' => true],
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' =>  __('system.actions'), 'orderable' => false, 'searchable' => false]
 
         ])->parameters([
@@ -130,5 +141,15 @@ class BookController extends Controller
         $book->update($data);
 
         return redirect()->route('Admin.books.index')->with('success', __('system.updated_successfully'));
+    }
+
+
+    public function updateStatus(Request $request, $id)
+    {
+        $book = Book::findOrFail($id);
+        $book->is_active = !$book->is_active; // Toggle the is_active status
+        $book->save();
+
+        return response()->json(['success' => true, 'message' => __('status updated successfully')]);
     }
 }

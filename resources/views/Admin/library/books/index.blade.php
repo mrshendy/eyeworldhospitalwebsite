@@ -16,7 +16,16 @@
    <!-- Form Validation -->
    <link rel="stylesheet" href="{{asset('assets/vendor/libs/@form-validation/form-validation.css')}}" />
 
-
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+    
+ <style>
+    #toast-container > div {
+        direction: ltr; /* force LTR for text readability */
+        font-family: sans-serif !important;
+        font-size: 14px !important;
+        background-color:#267B26 !important;
+    }
+</style>
 @endsection
 @section('content')
   <div class="container">
@@ -71,6 +80,9 @@
 
 <script src="{{asset('assets/js/tables-datatables-basic.js')}}"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
 {!! $html->scripts() !!}
 
 <script>
@@ -91,6 +103,35 @@
 
     $('#dataTableBuilder').on('click','.delete_btn',function (){
       $('#delete_id').val($(this).attr("data-id"));
+    });
+
+</script>
+
+{{-- activation book script --}}
+
+
+
+<script>
+    $(document).on('change', '.active-book', function () {
+        var id = $(this).data('id');
+        var isActive = $(this).is(':checked') ? 1 : 0;
+
+        $.ajax({
+            url: '{{ route("Admin.books.updateStatus","") }}/' + id,
+            method: 'PUT',
+            data: {
+                is_active: isActive,
+                _token: '{{ csrf_token() }}'
+            },
+          success: function (response) {
+              console.log(response);
+              if (response.success) {
+                    toastr.success(response.message);
+              } else {
+                  toastr.error('Something went wrong');
+              }
+          }
+        });
     });
 
 </script>
