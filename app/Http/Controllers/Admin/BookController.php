@@ -60,7 +60,7 @@ class BookController extends Controller
             ['title' => __('price'), 'data' => 'price', 'footer' =>__('price') , 'searchable' => true],
             ['title' => __('pdf price'), 'data' => 'pdf_price', 'footer' =>__('pdf price') , 'searchable' => true],
             ['title' => __('count'), 'data' => 'count', 'footer' =>__('count') , 'searchable' => true],
-            ['title' => __('is_active'), 'data' => 'is_active', 'footer' =>__('is_active') , 'searchable' => true],
+            ['title' => __('Is Active'), 'data' => 'is_active', 'footer' =>__('Is Active') , 'searchable' => true],
             ['title' => __('created at'), 'data' => 'created_at', 'footer' =>__('created at') , 'searchable' => true],
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' =>  __('system.actions'), 'orderable' => false, 'searchable' => false]
 
@@ -82,6 +82,12 @@ class BookController extends Controller
 
     public function destroy(Request $request,$id){
         $data = Book::find($request->id);
+        if($data->img && file_exists(public_path('uploads/books/' . basename($data->img)))) 
+            unlink(public_path('uploads/books/' . basename($data->img)));
+    
+        if($data->pdf_file && file_exists(public_path('uploads/files/books/' . basename($data->pdf_file))))
+            unlink(public_path('uploads/files/books/' . basename($data->pdf_file)));
+        
         $data->delete();
         return redirect()->route('Admin.books.index');
     }
@@ -102,7 +108,10 @@ class BookController extends Controller
         ]);
 
         if ($request->hasFile('img')) {
-            $data['img'] = $this->uploadImage($request->file('img'), 'books');
+            $data['img'] = $this->uploadImage($request->file('img'), 'uploads/books');
+        }
+         if ($request->hasFile('file')) {
+            $data['pdf_file'] = $this->uploadImage($request->file('file'), 'uploads/files/books');
         }
 
         Book::create($data);
@@ -130,13 +139,20 @@ class BookController extends Controller
             'ar.title' => 'required|string|max:255',
             'ar.desc' => 'nullable|string',
         ]);
+      
+         if ($request->hasFile('img')) {
+             if ($book->img && file_exists(public_path('uploads/books/' . basename($book->img)))) {
+                unlink(public_path('uploads/books/' . basename($book->img)));
+            }
+             $data['img'] = $this->uploadImage($request->file('img'), 'uploads/books');
+         }
 
-        // if ($request->hasFile('img')) {
-        //     if ($book->img) {
-        //         $this->deleteImage($book->img);
-        //     }
-        //     $data['img'] = $this->uploadImage($request->file('img'), 'books');
-        // }
+          if ($request->hasFile('file')) {
+             if ($book->pdf_file && file_exists(public_path('uploads/files/books/' . basename($book->pdf_file)))) {
+                unlink(public_path('uploads/files/books/' . basename($book->pdf_file)));
+            }
+             $data['pdf_file'] = $this->uploadImage($request->file('file'), 'uploads/files/books');
+         }
 
         $book->update($data);
 

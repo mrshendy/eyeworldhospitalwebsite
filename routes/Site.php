@@ -3,13 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
     RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController,ReservationController,
-    AuthController,ConferenceController};
+    AuthController,ConferenceController,BookController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
     Route::resources([
         'home' => HomeController::class,
-        'EyeHealthInfo' => EyeHealthInfoController::class
+        'EyeHealthInfo' => EyeHealthInfoController::class,
+        'books' => BookController::class
     ]);
 
 
