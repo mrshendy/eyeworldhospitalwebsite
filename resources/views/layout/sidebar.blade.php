@@ -80,6 +80,41 @@
                 </li>
 
 
+
+                {{-- liberary --}}
+
+
+                <li class="menu-item   @if (Route::currentRouteName()=='Admin.libraryTopic'
+                  || Route::currentRouteName() =='Admin.libraryTopic.index' || Route::currentRouteName() =='Admin.libraryTopic.create' || Route::currentRouteName()=='Admin.libraryTopic.show'  || Route::currentRouteName()=='Admin.books' || Route::currentRouteName()=='Admin.books.create'
+                )
+                     open
+                @endif ">
+                   <a href="{{route('Admin.doctors.index')}}" class="menu-link menu-toggle">
+                   <i class="ri-book-shelf-line"></i>
+                      <div>{{__('library')}}</div>
+                  </a>
+
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="{{route('Admin.book-info-detail')}}" class="menu-link">
+                          <div>{{__('details')}}</div>
+                        </a>
+                      </li>
+                    <li class="menu-item">
+                      <a href="{{route('Admin.libraryTopic.index')}}" class="menu-link">
+                        <div>{{__('Topics')}}</div>
+                      </a>
+                    </li>
+
+                    <li class="menu-item">
+                      <a href="{{route('Admin.books.index')}}" class="menu-link">
+                        <div>{{__('Books')}}</div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+
             <li class="menu-item">
               <a href="{{route('Admin.reservations.index')}}" class="menu-link">
                 <i class="ri-body-scan-fill"></i>

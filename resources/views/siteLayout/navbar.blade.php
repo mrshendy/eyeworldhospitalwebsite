@@ -48,8 +48,8 @@
 						<li class="menu-item has-children">
 							<a href="#">{{__('doctors')}}</a>
 								<ul class="sub-menu list-unstyled">
-									<li><a href="{{asset('siteassets/Academy and conference/Book-Categories.html')}}">الكتب</a></li>
 									<li><a href="{{route('Site.medical-academy.index')}}">{{ __("Medical Academy") }}</a></li>
+									<li><a href="{{route('Site.books.index')}}">{{__('Books')}}</a></li>
 					            	<li class="menu-item"><a href="{{route('Site.conference.index')}}"> {{__('medical_conferences')}}</a></li>
 								</ul>
 						</li>
@@ -88,13 +88,17 @@
 				</div>
 
 
+                @guest
 
-				<div class="login-btns">
-					<a href="{{route('Site.register.index')}}" class="login-btn btn" href="">
-						<span>{{__('login')}}</span>
-						<i class="fa-solid fa-right-to-bracket"></i>
-					</a>
-				</div>
+					<div class="login-btns">
+						<a href="{{route('Site.register.index')}}" class="login-btn btn" href="">
+							<span>{{__('login')}}</span>
+							<i class="fa-solid fa-right-to-bracket"></i>
+						</a>
+					</div>
+
+				@endguest
+				
 				<div class="bars">
 					<i class="fa-solid fa-bars"></i>
 				</div>
@@ -107,7 +111,7 @@
 					@auth
 					<a href="" class="head-icon flex-start align-center">
 						<img src="{{asset('siteassets/images/profile-circle.svg')}}">
-						<span>مرحبا ندى</span>
+						<span>{{Auth::user()->name}}</span>
 					</a>
 					@endauth
 

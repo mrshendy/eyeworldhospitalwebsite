@@ -296,6 +296,29 @@
     "Medical Academy" : "الأكاديمية الطبية",
     "Choose Medical Academy" : "اختر الأكاديمية الطبية",
     "Create Medical Academy Video" : "أنشأ فيديو للأكاديمية الطبية",
-    "Edit Medical Academy Video" : "تعديل فيديو الأكاديمية الطبية"
-}
+    "Edit Medical Academy Video" : "تعديل فيديو الأكاديمية الطبية",
+    "Create an account as a patient for quick access to the best healthcare and diagnostic services that suit your needs and ensure you receive the highest quality medical care.":"أنشئ حسابًا كمريض للوصول السريع إلى أفضل خدمات الرعاية الصحية والتشخيص التي تناسب احتياجاتك وتضمن لك الحصول على أعلى جودة من الرعاية الطبية.",
+     "Start now by creating your account to always stay close to high-quality healthcare and to easily manage your medical appointments":"ابدأ الآن في إنشاء حسابك لتكون دائمًا قريبًا من رعاية صحية عالية الجودة، ولتتمكن من إدارة مواعيدك الصحية بسهولة تامة.",
+     "We are pleased to welcome you to our medical platform! Create an account as a patient to access the best integrated healthcare services. Once your account is created, you can book appointments, follow up on your medical consultations, and take advantage of exclusive offers and premium healthcare services. We are here to provide healthcare at the highest standards for you and your family.":"يسعدنا أن نرحب بك في منصتنا الطبية! أنشئ حسابًا كمريض للوصول إلى أفضل خدمات الرعاية الصحية المتكاملة. بمجرد إنشاء حسابك، يمكنك حجز المواعيد، متابعة استشاراتك الطبية، والاستفادة من العروض الحصرية وخدمات الرعاية الصحية المتميزة. نحن هنا لتقديم الرعاية الصحية بأعلى المعايير لك ولعائلتك.",
+     "password confirmation":"تأكيد كلمة المرور",
+     "password":"كلمة المرور",
+     "phone":"الهاتف",
+     "Bachelor’s Degree": "بكالوريوس",
+     "Master’s Degree": "ماجستير",
+     "PhD": "دكتوراه",
+     "Diploma": "دبلوم",
+     "specialty":"التخصص",
+     "academic degree":"الدرجة العلمية",
+     "graduation year":"سنة التخرج",
+      "library":"المكتبة",
+      "Topics":"الموضوعات",
+      "Topic":"الموضوع",
+      "Books":"الكتب",
+      "count":"العدد",
+      "file":"الملف",
+      "pdf price":"سعر PDF",
+      "status updated successfully":"تم تحديث الحالة بنجاح",
+      "Book Details":"تفاصيل الكتاب",
+      "Is Active":"مفعل"
+    }
 

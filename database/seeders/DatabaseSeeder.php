@@ -42,7 +42,12 @@ class DatabaseSeeder extends Seeder
             MedicalDeviceInfoSeeder::class,
             MedicalTourismInfoSeeder::class,
             ConferenceInfoSeeder::class,
+<<<<<<< HEAD
             MedicalAcademyInfoSeeder::class
+=======
+            BookSeeder::class,
+            BookInfoSeeder::class,
+>>>>>>> 53294d5f4005d529f008fae6192894119e7afb5f
         ]);
     }
 }
