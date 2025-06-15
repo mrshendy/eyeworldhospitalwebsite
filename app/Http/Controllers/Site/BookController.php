@@ -18,4 +18,9 @@ class BookController extends Controller
         $book_info = BookInfo::first();
         return view('Site.books.index', compact('books', 'bookTopics', 'book_info'));
     }
+
+    public function books($topic_id){
+        $books = Book::where('is_active', 1)->where('book_topic_id', $topic_id)->with('bookTopic')->get();
+        return view('Site.books.books', compact('books'));
+    }
 }
