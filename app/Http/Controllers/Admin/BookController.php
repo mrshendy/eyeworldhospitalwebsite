@@ -46,7 +46,7 @@ class BookController extends Controller
             ->editColumn('created_at', function ($row) {
                 return \Carbon\Carbon::parse($row->created_at)->format('d-m-Y');
             })
-            
+
             ->orderColumn('id', function ($query, $order) {
                 $query->orderBy('id', $order);
             })
@@ -69,7 +69,7 @@ class BookController extends Controller
         ]);
 
 
-        return view('admin.library.books.index', compact('html'));
+        return view('Admin.library.books.index', compact('html'));
     }
 
 
@@ -77,17 +77,17 @@ class BookController extends Controller
     public function create()
     {
         $topics = BookTopic::all();
-        return view('admin.library.books.create', compact('topics'));
+        return view('Admin.library.books.create', compact('topics'));
     }
 
     public function destroy(Request $request,$id){
         $data = Book::find($request->id);
-        if($data->img && file_exists(public_path('uploads/books/' . basename($data->img)))) 
+        if($data->img && file_exists(public_path('uploads/books/' . basename($data->img))))
             unlink(public_path('uploads/books/' . basename($data->img)));
-    
+
         if($data->pdf_file && file_exists(public_path('uploads/files/books/' . basename($data->pdf_file))))
             unlink(public_path('uploads/files/books/' . basename($data->pdf_file)));
-        
+
         $data->delete();
         return redirect()->route('Admin.books.index');
     }
@@ -122,7 +122,7 @@ class BookController extends Controller
     {
         $data = Book::findOrFail($id);
         $topics = BookTopic::all();
-        return view('admin.library.books.edit', compact('data', 'topics'));
+        return view('Admin.library.books.edit', compact('data', 'topics'));
     }
     public function update(Request $request, $id)
     {
@@ -139,7 +139,7 @@ class BookController extends Controller
             'ar.title' => 'required|string|max:255',
             'ar.desc' => 'nullable|string',
         ]);
-      
+
          if ($request->hasFile('img')) {
              if ($book->img && file_exists(public_path('uploads/books/' . basename($book->img)))) {
                 unlink(public_path('uploads/books/' . basename($book->img)));
