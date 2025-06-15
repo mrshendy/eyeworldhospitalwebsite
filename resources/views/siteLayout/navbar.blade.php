@@ -48,7 +48,7 @@
 						<li class="menu-item has-children">
 							<a href="#">{{__('doctors')}}</a>
 								<ul class="sub-menu list-unstyled">
-									<li><a href="{{route('Site.books.index')}}">{{__('books')}}</a></li>
+									<li><a href="{{route('Site.books.index')}}">{{__('Books')}}</a></li>
 									<li><a href="{{asset('siteassets/Academy and conference/Medical-Academy.html')}}">الاكاديمية الطبية</a></li>
 					            	<li class="menu-item"><a href="{{route('Site.conference.index')}}"> {{__('medical_conferences')}}</a></li>
 								</ul>
@@ -98,7 +98,7 @@
 					</div>
 
 				@endguest
-				
+
 				<div class="bars">
 					<i class="fa-solid fa-bars"></i>
 				</div>
