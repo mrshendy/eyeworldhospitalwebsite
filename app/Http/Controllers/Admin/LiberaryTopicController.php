@@ -55,13 +55,13 @@ class LiberaryTopicController extends Controller
         ]);
 
 
-        return view('admin.library.topics.index', compact('html'));
+        return view('Admin.library.topics.index', compact('html'));
     }
 
 
     public function create()
     {
-        return view('admin.library.topics.create');
+        return view('Admin.library.topics.create');
     }
     public function store(Request $request)
     {
@@ -76,7 +76,7 @@ class LiberaryTopicController extends Controller
     public function edit($id)
     {
         $data = BookTopic::find($id);
-        return view('admin.library.topics.edit', compact('data'));
+        return view('Admin.library.topics.edit', compact('data'));
     }
 
 
