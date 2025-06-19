@@ -98,7 +98,7 @@
 					</div>
 
 				@endguest
-				
+
 				<div class="bars">
 					<i class="fa-solid fa-bars"></i>
 				</div>
