@@ -96,13 +96,8 @@
 						</a>
 					</div>
 				@endguest
-                @auth
-                    <div class="login-btns">
-						<p>Hello {{Auth::user()->name}}</p>
-					</div>
-                @endauth
 
-				<div class="bars">
+                <div class="bars">
 					<i class="fa-solid fa-bars"></i>
 				</div>
 				<div class="user-logged-in flex-start">
@@ -114,7 +109,7 @@
 					@auth
 					<a href="" class="head-icon flex-start align-center">
 						<img src="{{asset('siteassets/images/profile-circle.svg')}}">
-						<span>{{Auth::user()->name}}</span>
+						<p> {{ __('Hello') }} {{ Auth::user()->name }}</p>
 					</a>
 					@endauth
 

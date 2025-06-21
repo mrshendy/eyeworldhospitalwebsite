@@ -36,15 +36,15 @@ class AuthController extends Controller
         User::create($request->except(['password_confirmation']));
 
         Alert::success(__('Success'),__('register success'));
-        return redirect()->back();
-      
+        return redirect()->route('Site.login.index');
+
     }
 
     public function login(Request $request)
     {
 
         $credentials = request(['email','password']);
-      
+
 
         if (Auth::guard('web')->attempt($credentials)) {
             return redirect()->route('Site.home.index');

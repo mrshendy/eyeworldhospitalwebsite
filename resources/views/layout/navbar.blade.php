@@ -28,10 +28,10 @@
                     data-bs-toggle="dropdown">
                     <i class="ri-translate-2 ri-22px"></i>
                   </a>
-                  
+
                   <ul class="dropdown-menu dropdown-menu-end">
 
-                    
+
                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     <li class="navi-item">
                             <a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
@@ -456,7 +456,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-medium d-block small">John Doe</span>
+                            <span class="fw-medium d-block small">{{ Auth::user()->name }}</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
