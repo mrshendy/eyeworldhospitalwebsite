@@ -319,6 +319,9 @@
       "pdf price":"سعر PDF",
       "status updated successfully":"تم تحديث الحالة بنجاح",
       "Book Details":"تفاصيل الكتاب",
-      "Is Active":"مفعل"
+      "Is Active":"مفعل",
+      "Show Books" : "عرض الكتب",
+      "Add to cart Book + PDF" : "أضف إلى السلة كتاب ورقي + PDF",
+      "Add to cart PDF Book" : "أضف إلى السلة كتاب PDF"
     }
 

@@ -22,4 +22,9 @@ class BookTopic extends Model implements TranslatableContract
             get: fn (?string $value) => asset('uploads/BookTopics/' . $value)
         );
     }
+
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'topic_id', 'id')->where('is_active', 1);
+    }
 }

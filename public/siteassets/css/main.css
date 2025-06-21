@@ -19,7 +19,7 @@ body {
     background: #fff;
 }
 button, form, input, select, textarea {
-      font-family: "Almarai", serif; 
+      font-family: "Almarai", serif;
 }
 h1,h2,h3,h4,h5 {
     color: var(--titleColor);
@@ -380,10 +380,10 @@ h2.main-title:after {
     background: var(--color);
 }
 .text-center h2.main-title:after  {
-    margin:10px auto 
+    margin:10px auto
 }
 .text-right h2.main-title:after  {
-    margin:10px 0 
+    margin:10px 0
 }
 .about {
     padding-top:80px
@@ -1180,6 +1180,13 @@ a.show-profile:hover {
     background:var(--color);
     color:#fff
 }
+.books a.show-profile {
+    width: 75%;
+    margin-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+
+}
 
 .text-box > img {
     margin-bottom: 10px;
@@ -1896,7 +1903,7 @@ a.dw.site-color img {
     margin-inline-end: 10px;
 }
 .dw i {
-  margin-inline-end: 10px;  
+  margin-inline-end: 10px;
 }
 
 .tbl img {
@@ -1967,7 +1974,7 @@ a.head-icon img {
     article.parteners .flex-between {
         flex-wrap:nowrap;
         overflow:auto;
-         scrollbar-width: none; 
+         scrollbar-width: none;
     }
       article.parteners .flex-between img {
           margin-inline-end:20px
@@ -2052,7 +2059,7 @@ a.head-icon img {
         width:100%;
         padding: 3px 0;
     }
-    h2.main-title, h2.footer-title, h2.slider-title, 
+    h2.main-title, h2.footer-title, h2.slider-title,
     .about-desc h2.main-title,p.value,
     .activation h4,.doctor-dtl h3,h2.title-color
     {
@@ -2093,7 +2100,7 @@ a.head-icon img {
         margin-bottom:25px
     }
     .footer-content {
-        margin:0 0 20px 
+        margin:0 0 20px
     }
     article.footer-bottom {
         padding-bottom:60px
@@ -2122,7 +2129,7 @@ a.head-icon img {
 
 @media (max-width: 575px) {
     * {
-        
+
     }
     .text-box .time-date img {
         width:15px;
@@ -2157,7 +2164,7 @@ a.head-icon img {
         display: flex;
         justify-content: center;
     }
-    
+
     a.section-btn {
         width:100%;
         text-align: center;
@@ -2174,7 +2181,7 @@ a.head-icon img {
 
     figure.about-image img {
         height:auto;
-        
+
     }
     .doctor-links a {
         margin:5px 0

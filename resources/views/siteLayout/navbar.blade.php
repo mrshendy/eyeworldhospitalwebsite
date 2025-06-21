@@ -89,15 +89,18 @@
 
 
                 @guest
-
 					<div class="login-btns">
 						<a href="{{route('Site.register.index')}}" class="login-btn btn" href="">
 							<span>{{__('login')}}</span>
 							<i class="fa-solid fa-right-to-bracket"></i>
 						</a>
 					</div>
-
 				@endguest
+                @auth
+                    <div class="login-btns">
+						<p>Hello {{Auth::user()->name}}</p>
+					</div>
+                @endauth
 
 				<div class="bars">
 					<i class="fa-solid fa-bars"></i>

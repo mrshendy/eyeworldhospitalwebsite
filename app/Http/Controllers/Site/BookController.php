@@ -13,14 +13,14 @@ class BookController extends Controller
     //
     public function index()
     {
-        $books = Book::where('is_active', 1)->with('bookTopic')->get();
         $bookTopics = BookTopic::all();
         $book_info = BookInfo::first();
-        return view('Site.books.index', compact('books', 'bookTopics', 'book_info'));
+        return view('Site.books.index', compact('bookTopics', 'book_info'));
     }
 
-    public function books($topic_id){
-        $books = Book::where('is_active', 1)->where('book_topic_id', $topic_id)->with('bookTopic')->get();
-        return view('Site.books.books', compact('books'));
+    public function show($id)
+    {
+        $book_topic = BookTopic::with('books')->findOrFail($id);
+        return view('Site.books.books', compact('book_topic'));
     }
 }

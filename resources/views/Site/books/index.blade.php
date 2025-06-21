@@ -30,10 +30,6 @@
 					</div>
 				</section>
 				<!-- About  -->
-
-
-
-
 			</div>
 		</article>
 
@@ -60,8 +56,8 @@
 								<p class="feedback">
 									{{ $topic->description }}
 								</p>
-								<a href="#" class="show-profile">
-									عرض الكتب
+								<a href="{{ route('Site.books.show', $topic->id) }}" class="show-profile">
+									{{ __('Show Books') }}
 								</a>
 							</div>
 						</div>
