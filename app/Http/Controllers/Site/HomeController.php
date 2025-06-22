@@ -18,9 +18,20 @@ class HomeController extends Controller
     }
 
     public function contactUs(Request $request){
-    
-        ContactUs::create($request->all());
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'message' => 'required|string',
+        ], [], [
+            'name' => 'الاسم',
+            'email' => 'البريد الإلكتروني',
+            'message' => 'الرسالة',
+        ]);
+        ContactUs::create($data);
         Alert::success(__('Success'), __('your request sent seccessfuly'));
-        return redirect()->back();
+        return response()->json([
+            'status' => 'success',
+            'message' => __('your request sent seccessfuly')
+        ]);
     }
 }
