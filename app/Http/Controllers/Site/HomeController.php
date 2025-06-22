@@ -28,7 +28,7 @@ class HomeController extends Controller
             'message' => 'الرسالة',
         ]);
         ContactUs::create($data);
-        Alert::success(__('Success'), __('your request sent seccessfuly'));
+        // Alert::success(__('Success'), __('your request sent seccessfuly'));
         return response()->json([
             'status' => 'success',
             'message' => __('your request sent seccessfuly')
