@@ -323,6 +323,10 @@
       "Show Books" : "عرض الكتب",
       "Add to cart Book + PDF" : "أضف إلى السلة كتاب ورقي + PDF",
       "Add to cart PDF Book" : "أضف إلى السلة كتاب PDF",
-      "Hello" : "مرحبا"
+      "Hello" : "مرحبا",
+      "(Paper + PDF) Sold Out" : "انتهت النسخ، لا يمكن الشراء",
+      "Book added to your cart Successfully" : "تم أضافة الكتاب للسلة بنجاح",
+      "Paper + PDF" : "كتاب ورقي + PDF",
+      "PDF Only" : "فقط PDF"
     }
 

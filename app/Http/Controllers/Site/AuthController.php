@@ -52,4 +52,10 @@ class AuthController extends Controller
         return redirect()->route('Site.login.index')->with('error','Login details are not valid');
     }
 
+    public function logout()
+    {
+        Auth::guard('web')->logout();
+        return redirect()->route('Site.home.index');
+    }
+
 }

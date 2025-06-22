@@ -35,17 +35,31 @@
 							</div>
 							<h4> {{ $book->title }}</h4>
 							<p class="feedback">{{ $book->desc }}</p>
+                            @if($book->count > 0)
+                                <div class="books d-flex justify-content-between align-items-center">
+                                    <button class="show-profile add-to-cart"
+                                            data-book-id="{{ $book->id }}"
+                                            data-type="paper+pdf"
+                                            data-price="{{ $book->price + $book->pdf_price }}">
+                                        {{ __('Add to cart Book + PDF') }}
+                                    </button>
+                                    <strong class="text-bold">{{ $book->price + $book->pdf_price }} EGP</strong>
+                                </div>
+                            @else
+                                <div class="books d-flex justify-content-between align-items-center">
+                                    <button class="show-profile" disabled>{{ __('(Paper + PDF) Sold Out') }}</button>
+                                    <strong class="text-bold">{{ $book->price + $book->pdf_price }} EGP</strong>
+                                </div>
+                            @endif
+
                             <div class="books d-flex justify-content-between align-items-center">
-                                <a href="#" class="show-profile">
-									{{ __('Add to cart Book + PDF') }}
-								</a>
-                                <strong class="text-bold">{{ $book->price + $book->pdf_price }} EGP</strong>
-                            </div>
-                            <div class="books d-flex justify-content-between align-items-center">
-                                <a href="#" class="show-profile m-2 p-5">
-									{{ __('Add to cart PDF Book') }}
-								</a>
-                                <strong class="text-bold">{{ $book->price }} EGP</strong>
+                                <button class="show-profile add-to-cart"
+                                        data-book-id="{{ $book->id }}"
+                                        data-type="pdf"
+                                        data-price="{{ $book->pdf_price }}">
+                                    {{ __('Add to cart PDF Book') }}
+                                </button>
+                                <strong class="text-bold">{{ $book->pdf_price }} EGP</strong>
                             </div>
 						</div>
 					</div>
@@ -61,4 +75,76 @@
 
         @include('components.contact-us')
 	</main>
+@endsection
+
+
+@section('scripts')
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const isLoggedIn = @json(auth()->check());
+
+            if (!isLoggedIn) {
+                Swal.fire({
+                    title: 'يرجى تسجيل الدخول',
+                    text: 'يجب تسجيل الدخول لإضافة الكتاب إلى السلة',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'تسجيل الدخول',
+                    cancelButtonText: 'إلغاء'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "{{ route('Site.login') }}";
+                    }
+                });
+                return;
+            }
+
+            const bookId = this.dataset.bookId;
+            price = this.dataset.price;
+            const type = this.dataset.type;
+
+            fetch("{{ route('Site.cart.add') }}", {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                book_id: bookId,
+                type: type,
+                price: price,
+                quantity: 1
+            })
+            })
+            .then(res => res.json())
+            .then(data => {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: data.status === 'success' ? 'success' : 'error',
+                    title: data.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            })
+            .catch(err => {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Something went wrong!',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            });
+        });
+    });
+});
+</script>
+
+
 @endsection

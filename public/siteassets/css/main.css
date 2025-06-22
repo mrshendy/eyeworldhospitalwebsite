@@ -1165,7 +1165,7 @@ p.feedback {
     margin-bottom: 10px;
 }
 
-a.show-profile {
+a.show-profile, button.show-profile {
     display: block;
     text-align: center;
     color: var(--color);
@@ -1176,11 +1176,32 @@ a.show-profile {
     flex: 1;
     transition: .35s ease;
 }
-a.show-profile:hover {
-    background:var(--color);
-    color:#fff
+button.show-profile{
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
 }
-.books a.show-profile {
+
+.user-login{
+    width: 80%;
+    cursor: pointer;
+    background-color: RGB(237, 82, 73);
+}
+
+.logout-button{
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+a.show-profile:hover, button.show-profile:hover {
+    background:var(--color);
+    color:#fff;
+    cursor: pointer;
+}
+
+.books button.show-profile {
     width: 75%;
     margin-left: 10px;
     padding-right: 10px;

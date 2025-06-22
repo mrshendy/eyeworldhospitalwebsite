@@ -84,7 +84,6 @@
 							</li>
 						@endforeach
 					</ul>
-
 				</div>
 
 
@@ -101,20 +100,27 @@
 					<i class="fa-solid fa-bars"></i>
 				</div>
 				<div class="user-logged-in flex-start">
-					<a href="" class="head-icon flex-start align-center">
+					<a href="{{ route('Site.cart.index') }}" class="head-icon flex-start align-center">
 						<img src="{{asset('siteassets/images/bag.svg')}}">
 						<span>{{__('cart')}}</span>
 					</a>
 
 					@auth
-					<a href="" class="head-icon flex-start align-center">
-						<img src="{{asset('siteassets/images/profile-circle.svg')}}">
-						<p> {{ __('Hello') }} {{ Auth::user()->name }}</p>
-					</a>
-					@endauth
-
-
-
+                    <div class="languages">
+                        <a class="btn dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{ asset('siteassets/images/profile-circle.svg') }}" alt="Profile" width="24" height="24">
+                            <span>{{ __('Hello') }} {{ Auth::user()->name }}</span>
+                        </a>
+                         <ul class="lang user-login list-unstyled">
+                            <li class="active">
+                                <form method="POST" action="{{ route('Site.logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item logout-button">{{ __('Logout') }}</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    @endauth
 				</div>
 			</div>
 		</div>

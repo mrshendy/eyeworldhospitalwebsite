@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
     RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController,ReservationController,
-    AuthController,ConferenceController, MedicalAcademyController,BookController};
+    AuthController,ConferenceController, MedicalAcademyController,BookController, CartController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -56,7 +56,7 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::post('register', [AuthController::class, 'register'])->name('register');
     Route::get('login', [AuthController::class, 'loginIndex'])->name('login.index');
     Route::post('login', [AuthController::class, 'login'])->name('login');
-
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('conferences/{id}/booking', [ConferenceController::class, 'booking_conference'])->name('conference.booking')->middleware(['web']);
     Route::post('conferences/{id}/booking', [ConferenceController::class, 'store_booking'])->name('conference.booking.store')->middleware(['web']);
@@ -65,6 +65,14 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('medical-academies', [MedicalAcademyController::class, 'index'])->name('medical-academy.index');
     Route::get('medical-academies/{id}', [MedicalAcademyController::class, 'show'])->name('medical-academy.show');
 
+    // Start Cart
+    Route::middleware(['auth', 'web'])->group(function () {
+        Route::get('cart', [CartController::class, 'index'])->name('cart.index');
+        Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+        Route::delete('/cart/remove/{item}', [CartController::class, 'remove'])->name('cart.remove');
+        Route::put('/cart/update/{item}', [CartController::class, 'update'])->name('cart.update');
+        Route::delete('/cart/delete-all', [CartController::class, 'delete_all'])->name('cart.deleteAll');
+    });
 
 });
 

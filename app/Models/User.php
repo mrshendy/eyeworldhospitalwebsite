@@ -49,4 +49,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class, 'user_id', 'id');
+    }
+
+    protected static function booted()
+    {
+        static::created(function ($user) {
+            Cart::create([
+                'user_id' => $user->id,
+                'total_price' => 0.00
+                ]);
+        });
+    }
 }

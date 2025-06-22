@@ -35,6 +35,10 @@ class Book extends Model implements TranslatableContract
             return $this->belongsTo(BookTopic::class, 'book_topic_id', 'id');
         }
 
+        public function items()
+        {
+            return $this->hasMany(CartItem::class);
+        }
 
 }
 
