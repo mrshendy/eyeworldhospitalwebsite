@@ -52,21 +52,31 @@
 									</div>			
 								</div>
 
+								@if ($errors->any())
+									<div class="alert alert-danger" style="margin-bottom: 15px;">
+										@foreach ($errors->all() as $error)
+											<div>{{ $error }}</div>
+										@endforeach
+									</div>
+								@endif
+
 								<div class="form-control">
 									<div class="form-field flex-between align-center">
 										<span>
 											<input type="checkbox" name=""> تذكرني
 										</span>
-										<a href="#">
-											نسيت كلمة السر؟
+										<a href="{{route('Site.resetpassword')}}">
+											{{__('Forgot your password?') }}
 										</a>
 									</div>
 								</div>
 								<div class="form-control">
 									<input type="submit" class="btn w-100" name="register" value="تسجيل الدخول">
 								</div>
-								<a href="#" class="have-not-account">ليس لديك حساب؟ أنشيء حساب</a>
+								<a href="{{route('Site.register')}}" class="have-not-account">ليس لديك حساب؟ أنشيء حساب</a>
 							</form>
+
+							
 						</div>
 						{{-- <div class="log-doctor">
 							<form class="custom-form text-right"  action="">

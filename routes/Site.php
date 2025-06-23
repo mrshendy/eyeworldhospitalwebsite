@@ -55,6 +55,8 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('register', [AuthController::class, 'index'])->name('register.index');
     Route::post('register', [AuthController::class, 'register'])->name('register');
     Route::get('login', [AuthController::class, 'loginIndex'])->name('login.index');
+    Route::get('reset-password', [AuthController::class, 'resetpassword'])->name('resetpassword');
+
     Route::post('login', [AuthController::class, 'login'])->name('login');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 

@@ -89,7 +89,7 @@
 
                 @guest
 					<div class="login-btns">
-						<a href="{{route('Site.register.index')}}" class="login-btn btn" href="">
+						<a href="{{route('Site.login.index')}}" class="login-btn btn" href="">
 							<span>{{__('login')}}</span>
 							<i class="fa-solid fa-right-to-bracket"></i>
 						</a>
@@ -109,7 +109,7 @@
                     <div class="languages">
                         <a class="btn dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{{ asset('siteassets/images/profile-circle.svg') }}" alt="Profile" width="24" height="24">
-                            <span>{{ __('Hello') }} {{ Auth::user()->name }}</span>
+                            <span>{{ __('Hello') }} {{ collect(explode(' ', Auth::user()->name))->take(3)->implode(' '); }}</span>
                         </a>
                          <ul class="lang user-login list-unstyled">
                             <li class="active">

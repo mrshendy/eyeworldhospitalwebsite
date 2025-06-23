@@ -328,6 +328,11 @@
       "Book added to your cart Successfully" : "تم أضافة الكتاب للسلة بنجاح",
       "Paper + PDF" : "كتاب ورقي + PDF",
       "PDF Only" : "فقط PDF",
-      "This field is required" : "هذا الحقل مطلوب"
+      "This field is required" : "هذا الحقل مطلوب",
+      "Incorrect email or password":"البريد الإلكتروني أو كلمة المرور غير صحيحة",
+      "forget password":"نسيت كلمه المرور",
+      "Please log in to your account so we can create a new password":"منفضلك رم هاتك بحسابك حتي تستطيع إنشاء رقم سرى جديد.",
+      "Forgot your password?":"هل نسيت كلمه المرور",
+      "Did you remember your password?":"هل تذكرت كلمه المرور"
     }
 

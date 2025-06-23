@@ -24,6 +24,10 @@ class AuthController extends Controller
     }
 
 
+    public function resetpassword(){
+        return view('Site.Auth.resset_password');
+    }
+
     public function register(Request $request){
 
         $validated = $request->validate([
@@ -49,7 +53,7 @@ class AuthController extends Controller
         if (Auth::guard('web')->attempt($credentials)) {
             return redirect()->route('Site.home.index');
         }
-        return redirect()->route('Site.login.index')->with('error','Login details are not valid');
+        return redirect()->route('Site.login.index')->withErrors(['credential' => __('Incorrect email or password')])->withInput();
     }
 
     public function logout()
