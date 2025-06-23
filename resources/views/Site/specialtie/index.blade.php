@@ -3,7 +3,7 @@
 
 
 <main id="main">
-		
+
     <!-- Banner -->
     <article class="banner">
         <img src="{{$specialtie->img}}">
@@ -38,13 +38,13 @@
                                 <img src="{{asset('siteassets//images/specializations/avatar/8.svg')}}">
                                 <span>+5</span>
                             </div>
-                            <a class="site-color" href="{{route('Site.specialtie-detail',$row->id)}}">اعرف المزيد  <img src="{{asset('siteassets/images/specializations/arrow.svg')}}"></a>
+                            <a class="site-color" href="{{route('Site.specialtie-detail',$row->id)}}"{{ __('Learn more') }}cializations/arrow.svg')}}"></a>
                         </div>
-                        
+
                     </div>
                 </div>
                 @endforeach
-               			
+
             </div>
 
         </div>

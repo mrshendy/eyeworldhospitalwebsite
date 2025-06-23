@@ -47,7 +47,7 @@
                     <input type="time" name="time_to" class="form-control">
                  </div>
 
-                  <div class="col-md-3 form-group">
+                  {{-- <div class="col-md-3 form-group">
                     <lable>{{__('avilable count')}}</lable>
                     <input type="number" name="avilable_count" class="form-control">
                  </div>
@@ -55,7 +55,7 @@
                  <div class="form-check form-switch mt-2">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="stop_on_complete">
                     <label class="form-check-label" for="flexSwitchCheckDefault">{{__('stop on complete')}}</label>
-                </div>
+                </div> --}}
 
                 <div>
                     <button type="submit" class="btn  mt-2" style="background-color: #267B26 ; color:white">{{__('system.add')}}</button>  

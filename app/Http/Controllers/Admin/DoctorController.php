@@ -38,6 +38,9 @@ class DoctorController extends Controller
             ->addColumn('job_title', function ($row) {
                 return $row->info?->job_title; 
             })
+            ->addColumn('specialtie', function ($row) {
+                return $row->specialtie?->specialtie->title; 
+            })
             ->addColumn('name', function ($row) {
                 return $row->info?->name; 
             })
@@ -62,6 +65,7 @@ class DoctorController extends Controller
             ['title' => __('system.id'), 'data' => 'id', 'footer' => __('system.id') , 'orderable' => true],
             ['title' => __('name'), 'data' => 'name', 'footer' => __('name') , 'searchable' => true],
             ['title' => __('job title'), 'data' => 'job_title', 'footer' => __('job title') , 'searchable' => true],
+            ['title' => __('specialtie'), 'data' => 'specialtie', 'footer' => __('specialtie') , 'searchable' => true],
             ['title' => __('system.created_at') ,'data' => 'created_at', 'footer' => __('system.created_at')],
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false]
         ])->parameters([

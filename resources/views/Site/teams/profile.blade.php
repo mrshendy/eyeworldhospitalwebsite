@@ -115,7 +115,9 @@
 						<div class="doctor-links pdt">
 							<a href="{{route('Site.reservation.index',[$doctor->id,'normal'])}}" class="reserve">{{__('reservation doctor')}}</a>
 							<a href="{{route('Site.reservation.index',[$doctor->id,'onlin'])}}" class="discuss"> {{__('online discussion')}}</a>
-							<a href="{{route('Site.reservation.index',[$doctor->id,'Expat_visit'])}}" class="visit">{{__('Booking a medical visit for expatriates')}}</a>
+							<button type="button" class="visit" data-bs-toggle="modal" id="myInput"
+								data-bs-target="#exampleModalCenter">{{__('Booking a medical visit for expatriates')}}</button>
+							{{-- <a href="{{route('Site.reservation.index',[$doctor->id,'Expat_visit'])}}" class="visit">{{__('Booking a medical visit for expatriates')}}</a> --}}
 						</div>
 					</div>
 				</section>
@@ -129,11 +131,71 @@
 
 
 
+
+
 		<!-- Contact us Section -->
 	     @include('components.contact-us')
 		<!-- Contact us Section -->
 
 
 	</main>
+
+		<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<main id="main">
+						<div class="overlay">
+							<div class="activation pd">
+								<h4>هل حصلت على التأشيرة؟</h4>
+								<p>من فضلك اخبرنا هل حصلت على التأشيرة ام تحتاج دعوة للسفارة الخاصة بك!</p>
+								<form class="custom-form">
+									<div class="form-control">
+										<div class="form-field flex-start">
+											<label class="flex-1 flex-start align-center">
+												<input type="radio" name="vl" value="yes" checked="checked" onchange="handleChange(event)">
+												<span style="margin-right: 5px;">نعم</span>
+											</label>
+											<label class="flex-1 flex-start align-center">
+												<input type="radio" name="vl" value="no" onchange="handleChange(event)">
+												<span style="margin-right: 5px;">لا</span>
+											</label>
+										</div>
+										<div class="form-field w-100" id="setDateArrivall" >
+											<label>حدد موعد الوصول</label>
+											<input type="date" class="form-date" name="arrival">
+										</div>
+										<div class="form-field w-100" id="ifYouWantInvite" style="display: none;">
+											<p>هل تحتاج إلي دعوة من المستشفي إلى سفارتك ؟</p>
+											<div class="form-field flex-start">
+												<label class="flex-1 flex-start align-center">
+													<input type="radio" name="vl" value="yes">
+													<span style="margin-right: 5px;">نعم</span>
+												</label>
+												<label class="flex-1 flex-start align-center">
+													<input type="radio" name="vl" value="no">
+													<span style="margin-right: 5px;">لا</span>
+												</label>
+											</div>
+											<p style="font-weight: 600;">سيتم حجز الفحص الطبي عبر الانترنت اولا</p>
+										</div>
+									</div>
+									<div class="form-control">
+										<div class="form-field">
+											<input type="submit" class="btn" style="width: 100%;" name="yes"
+												value="التالي">
+										</div>
+									</div>
+								</form>
+
+							</div>
+						</div>
+					</main>
+				</div>
+			</div>
+		</div>
+	</div>
 
 @endsection

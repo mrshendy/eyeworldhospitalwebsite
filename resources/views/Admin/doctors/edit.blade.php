@@ -97,7 +97,7 @@
                             <label>{{ __('specialtie') }}</label>
                             <select class="form-select" id="specialty" name="specialtie_id" aria-label="Default select example">
                                 @foreach ($specialties as $row)
-                                      <option value="{{$row->id}}">{{$row->title}}</option>
+                                      <option value="{{$row->id}}" @if($doctor->specialtie->specialtie_id == $row->id) selected @endif>{{$row->title}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -108,7 +108,10 @@
                                 <select name="sub_specialtie_ids[]" id="subSpecialties" class="select2" multiple="multiple">
                                     @foreach ($subspecialties as $row)
                                         <option value="{{$row->id}}"
-                                            @if($doctor->specialtie->id == $row->id) selected @endif
+                                            @foreach ($doctor->subspecialties as $subspecialtie)
+                                                 @if($subspecialtie->sub_specialtie_id  == $row->id) selected @endif
+                                            @endforeach
+                                           
                                             
                                             >{{$row->main_title}}</option>
                                     @endforeach
