@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
     RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController,ReservationController,
-    AuthController,ConferenceController, MedicalAcademyController,BookController, CartController};
+    AuthController,ConferenceController, MedicalAcademyController,BookController, CartController, SinglePageController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -57,7 +57,7 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('login', [AuthController::class, 'loginIndex'])->name('login.index');
     Route::get('reset-password', [AuthController::class, 'resetpassword'])->name('resetpassword');
 
-    
+
     Route::post('login', [AuthController::class, 'login'])->name('login');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -76,6 +76,10 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
         Route::put('/cart/update/{item}', [CartController::class, 'update'])->name('cart.update');
         Route::delete('/cart/delete-all', [CartController::class, 'delete_all'])->name('cart.deleteAll');
     });
+    Route::get('faqs', [SinglePageController::class, 'faqs'])->name('faqs');
+    Route::get('terms', [SinglePageController::class, 'terms'])->name('terms');
+    Route::get('privacy', [SinglePageController::class, 'privacy'])->name('privacy');
+    Route::get('contact-us', [SinglePageController::class, 'contact_us'])->name('contact');
 
 });
 

@@ -38,7 +38,7 @@
                                 <img src="{{asset('siteassets//images/specializations/avatar/8.svg')}}">
                                 <span>+5</span>
                             </div>
-                            <a class="site-color" href="{{route('Site.specialtie-detail',$row->id)}}"{{ __('Learn more') }}cializations/arrow.svg')}}"></a>
+                            <a class="site-color" href="{{route('Site.specialtie-detail',$row->id)}}"> {{ __('Learn more') }}</a>
                         </div>
 
                     </div>
