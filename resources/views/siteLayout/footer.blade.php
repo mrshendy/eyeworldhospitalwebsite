@@ -21,7 +21,7 @@
                             <strong>{{__('address')}} : </strong>
                         </div>
                         <p>12 مصدق، الدقي، الدقي، محافظة الجيزة 12611</p>
-                    </li>		
+                    </li>
 
                     <li>
                         <div class="flex-start align-center">
@@ -29,7 +29,7 @@
                             <strong>{{__('phone number')}} : </strong>
                         </div>
                         <p>01234567890 ،  01234567890</p>
-                    </li>		
+                    </li>
 
                     <li>
                         <div class="flex-start align-center">
@@ -44,28 +44,36 @@
                 <ul class="list-unstyled footer-contact">
                     <li>
                         <div class="flex-start align-center">
-                            <img src="{{asset('siteassets/images/footer/msg2.svg')}}" alt="">
-                            <strong>{{__('contact us')}}</strong>
+                            <a href="{{ route('Site.contact') }}">
+                                <img src="{{asset('siteassets/images/footer/msg2.svg')}}" alt="">
+                                <strong>{{__('contact us')}}</strong>
+                            </a>
                         </div>
-                    </li>		
+                    </li>
 
                     <li>
                         <div class="flex-start align-center">
-                            <img src="{{asset('siteassets/images/footer/stickynote.svg')}}" alt="">
-                            <strong>{{__('common quetions')}}</strong>
+                            <a href="{{ route('Site.faqs') }}">
+                                <img src="{{asset('siteassets/images/footer/stickynote.svg')}}" alt="">
+                                <strong>{{__('common quetions')}}</strong>
+                            </a>
                         </div>
-                    </li>		
+                    </li>
 
                     <li>
                         <div class="flex-start align-center">
-                            <img src="{{asset('siteassets/images/footer/verify.svg')}}" alt="">
-                            <strong>{{__('terms and condations')}} </strong>
+                            <a href="{{ route('Site.terms') }}">
+                                <img src="{{asset('siteassets/images/footer/verify.svg')}}" alt="">
+                                <strong>{{__('terms and condations')}} </strong>
+                            </a>
                         </div>
-                    </li>		
+                    </li>
                     <li>
                         <div class="flex-start align-center">
-                            <img src="{{asset('siteassets/images/footer/stickynote.svg')}}" alt="">
-                            <strong>{{__('privecy policy')}}</strong>
+                            <a href="{{ route('Site.privacy') }}">
+                                <img class="mb-4" src="{{asset('siteassets/images/footer/stickynote.svg')}}" alt="">
+                                <strong>{{__('privecy policy')}}</strong>
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -91,10 +99,12 @@
 <div class="fixed-btns">
     <a href="#">
         <img src="{{asset('siteassets/images/footer/whatsapp.svg')}}">
-    </a>		
-    <a href="#">
-        <img src="{{asset('siteassets/images/footer/dash.svg')}}">
     </a>
+
+    <a href="{{ route('Site.reservation.index',[1,'normal']) }}">
+        <img src="{{ asset('siteassets/images/footer/dash.svg') }}">
+    </a>
+
 </div>
 
 <!-- Scripts -->

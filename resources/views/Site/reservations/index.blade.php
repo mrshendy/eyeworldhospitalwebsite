@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="{{asset('siteassets/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('siteassets/css/main.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">	
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	 <style>
     .time-picker {
       display: flex;
@@ -54,7 +54,7 @@
 @endsection
 @section('content')
 	<main id="main">
-		
+
 		<!-- Book a docotr -->
 		<article class="book-doctor pd">
 			<div class="container">
@@ -90,7 +90,7 @@
 										<p>من فضلك ادخل بيانات الحجز كاملة</p>
 									</div>
 								</div>
-							</div>							
+							</div>
 
 							<div class="step">
 								<div class="flex-start align-center">
@@ -100,7 +100,7 @@
 										<p>من فضلك ادخل بياناتك الشخصية</p>
 									</div>
 								</div>
-							</div>							
+							</div>
 
 							<div class="step">
 								<div class="flex-start align-center">
@@ -110,7 +110,7 @@
 										<p>من فضلك اختر الميعاد المناسب لك</p>
 									</div>
 								</div>
-							</div>							
+							</div>
 
 							<div class="step">
 								<div class="flex-start align-center">
@@ -152,8 +152,8 @@
 													<option value="{{$doctor->id}}">{{$doctor->info->name}}</option>
 												</select>
 											</div>
-										</div>			
-									</div>	
+										</div>
+									</div>
 
 									<div class="form-control">
 										<div class="form-field">
@@ -161,11 +161,11 @@
 											<div class="field">
 												<select name="specialtie_id">
 													<option value="{{$doctor->specialtie->specialtie_id}}">{{$doctor->specialtie->specialtie->title}}</option>
-													
+
 												</select>
 											</div>
-										</div>			
-									</div>	
+										</div>
+									</div>
 
 									{{-- <div class="form-control">
 										<div class="form-field">
@@ -173,7 +173,7 @@
 											<div class="field">
 												<input type="text" name="" placeholder="النقابة العامة لأطباء مصر" >
 											</div>
-										</div>			
+										</div>
 									</div>	 --}}
 
 									<div class="form-control">
@@ -183,16 +183,16 @@
 												<select name="urgent">
                                                     <option value="0">عادي</option>
 													<option value="1">مستعجل</option>
-												
+
 												</select>
 											</div>
-										</div>			
-									</div>	
+										</div>
+									</div>
 
 
 								</div>
 
-							</div>							
+							</div>
 
 							<div class="step-content">
 								<div class="flex-between align-center">
@@ -203,14 +203,14 @@
 									</div>
 								</div>
 								<div class="pdt">
-									
+
 									<div class="form-control">
 										<div class="form-field">
 											<label>الاسم</label>
 											<div class="field">
 												<input type="text" name="name" placeholder="محمد الشريف" required>
 											</div>
-										</div>			
+										</div>
 									</div>
 
 									<div class="form-control">
@@ -219,8 +219,8 @@
 											<div class="field">
 												<input type="email" name="email" placeholder="example@gmail.com" required>
 											</div>
-										</div>			
-									</div>	
+										</div>
+									</div>
 
 
 									<div class="form-control">
@@ -230,15 +230,15 @@
 												<input type="hidden" name="country_id" value="{{$country->id}}">
 												<input type="text" placeholder="مصر" value="{{$country->name}}" >
 											</div>
-										</div>			
+										</div>
 
 										<div class="form-field">
 											<label>رقم الهاتف</label>
 											<div class="field">
 												<input type="text" name="phone" placeholder="+201012345678" required>
 											</div>
-										</div>			
-									</div>	
+										</div>
+									</div>
 
 
 								</div>
@@ -259,8 +259,8 @@
 										<div class="form-control">
 											<div class="form-field">
 												<input type="date" name="date"  id="calendar" placeholder="اختر التاريخ">
-											</div>			
-										</div>	
+											</div>
+										</div>
 									</div>
 									<div class="col-6 col-md-6 col-sm-12" id="appointments">
 										<div class="appoints">
@@ -273,7 +273,7 @@
 														</div>
 													@endforeach
 											</div>
-										</div>						
+										</div>
 
 										<div class="appoints">
 											<h4>المواعيد المتاحة في المساء</h4>
@@ -287,10 +287,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
 
-							</div>							
+							</div>
 
 							<div class="step-content">
 								<div class="flex-between align-center">
@@ -311,8 +311,8 @@
 									<div class="flex-between step-bar align-center">
 										<p class="flex-start align-center">
 											<img src="{{asset('siteassets//images/doctors/book/calendar.svg')}}" width="24">
-									 <span id="time">  </span> -	<span id="date">   </span> 
-									
+									 <span id="time">  </span> -	<span id="date">   </span>
+
 									</p>
 										<p>
 											<span id="">حجز عادى:</span>
@@ -328,13 +328,13 @@
 										<input type="radio" name="payment" checked>
 										<img src="{{asset('siteassets/images/doctors/book/whatsapp.svg')}}" width="24">
 										<span>{{__('cash')}}</span>
-									</div>									
+									</div>
 
 									<div class="payment-box">
 										<input type="radio" name="payment">
 										<img src="{{asset('siteassets/images/doctors/book/visa.svg')}}" width="24" disabled>
 										<span>Visa</span>
-									</div>									
+									</div>
 
 									{{-- <div class="payment-box">
 										<input type="radio" name="payment">
@@ -420,7 +420,7 @@
 			const hour12 = h % 12 === 0 ? 12 : h % 12;
 			return `${hour12}:${minute} ${suffix}`;
 		}
-		
+
 	    $(document).on('change', 'input[name="time_from"]', function () {
 			const selectedTime = formatTimeToAmPm(this.value);
 			$('#time').html(selectedTime);
@@ -434,7 +434,7 @@
 			const options = { year: 'numeric', month: 'long', day: 'numeric' };
 			const formattedDate = today.toLocaleDateString('en-US', options);
 			document.getElementById('date').textContent = formattedDate;
-			
+
 		});
 </script>
 

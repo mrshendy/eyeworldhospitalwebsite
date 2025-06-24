@@ -268,61 +268,28 @@
                     <span class="pre-title site-color">{{__("Explore our key achievements and participation in medical events and conferences.")}}</span>
                     <h2 class="main-title">{{__("Our outstanding contributions and achievements in major medical")}}<br>{{__("and scientific events and conferences.")}}</h2>
                 </div>
-                <a href="#" class="site-color">
+                <a href="{{ route('Site.conference.index') }}" class="site-color">
                     {{__("View more events")}}
                 </a>
             </div>
             <p class="main-para">{{__("We take pride in our participation in medical events and conferences, where we showcase the latest technologies")}}<br>{{__("and share our expertise with the medical community. Our goal is to exchange knowledge and highlight our leadership")}}<br>{{__("in ophthalmology and eye surgery through these distinguished events.")}}</p>
 
             <div class="flex-center discover-row pdt">
-                <div class="col-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/4.svg')}})">
-                        <div class="discover-box-details">
-                            <h3>{{__("Modern Technology in Eye Surgery Conference 2024")}}</h3>
-                            <p>{{__("We showcased the latest eye surgery techniques")}}<br>{{__("with the participation of elite doctors and experts.")}}</p>
-                            <a href="#">
-                                {{__("Read more")}}
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </a>
+                @foreach ($conferences as $conference)
+                    <div class="col-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="discover-box discover-box-2" style="background-image:url({{asset('uploads/conferences/' . $conference->img)}})">
+                            <div class="discover-box-details">
+                                <h3>{{ $conference->title }}</h3>
+                                <p>{{ $conference->description }}</p>
+                                <a href="{{ route('Site.conference.show', $conference->id) }}">
+                                    {{__("Read more")}}
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/5.svg')}})">
-                        <div class="discover-box-details">
-                            <h3>{{__("The Arab Forum for the Development of Retinal Disease Treatments")}}</h3>
-                            <p>{{__("Specialized training on the latest laser techniques")}}<br>{{__("for vision correction and treatment.")}}</p>
-                            <a href="#">
-                                {{__("Read more")}}
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/6.svg')}})">
-                        <div class="discover-box-details">
-                            <h3>{{__("Free medical campaign for eye disease screening")}}</h3>
-                            <p>{{__("We provided free check-ups and treatment")}}<br>{{__("in collaboration with local and international charities.")}}</p>
-                            <a href="#">
-                                {{__("Read more")}}
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/7.svg')}})">
-                        <div class="discover-box-details">
-                            <h3>{{__("International Conference on the Treatment of Premature Infants’ Diseases")}}</h3>
-                            <p>{{__("We participated with the latest solutions for treating pediatric retinal diseases")}}<br>{{__("to ensure a better visual future.")}}</p>
-                            <a href="#">
-                                {{__("Read more")}}
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </article>
@@ -346,7 +313,7 @@
 
                     <div class="btns flex-start align-center">
                         <a href="#" class="section-btn">
-                            <img src="{{asset('siteassets/images/experience/badge.svg')}}">
+                            <img src="{{asset('siteassets/images/experience/Badge.svg')}}">
                         </a>
                         <a href="#" class="section-btn">
                             <img src="{{asset('siteassets/images/experience/app.svg')}}">
@@ -367,7 +334,7 @@
                     <span class="pre-title site-color">{{__('quetion 1')}}</span>
                     <h2 class="main-title">{{__('quetion 2')}}</h2>
                 </div>
-                <a href="#" class="site-color">
+                <a href="{{ route('Site.faqs') }}" class="site-color">
                    {{__("View more FAQs")}}
                 </a>
             </div>

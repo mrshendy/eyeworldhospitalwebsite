@@ -2,7 +2,7 @@
 @section('content')
 
 <main id="main">
-		
+
     <!-- Banner -->
     <article class="banner">
         <img src="{{$specialtie->img}}">
@@ -20,7 +20,7 @@
                         <span class="pre-title site-color">{{$SubSpecialtie->detail_title}}</span>
                         <h2 class="main-title">{{$SubSpecialtie->detail_title}}</h2>
                         <p class="main-para"> {{$SubSpecialtie->desc}}  </p>
-                    </div>	
+                    </div>
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
@@ -39,9 +39,9 @@
                     </div>
                 </div>
                 @endforeach
-            </div>    
+            </div>
         </section>
-                
+
 
         </div>
     </article>
@@ -55,7 +55,7 @@
             <h2 class="main-title">أطباء متخصصون في علاج أورام العين باستخدام أحدث العلاجات الطبية والخبرات الواسعة لضمان الشفاء التام</h2>
             <p class="main-para">فريقنا الطبي المتخصص في أورام العين يضم مجموعة من الأطباء ذوي الخبرات الواسعة في تشخيص وعلاج الأورام المختلفة التي تصيب العين. نحن نستخدم تقنيات طبية متقدمة لعلاج أورام الجفون والملتحمة والحجاج وشبكية العين لضمان أفضل رعاية صحية. اعتمد على خبرتنا لتحقيق أفضل النتائج.
             </p>
-            
+
             <div class="doctors-blocks pdt">
                 <div class="flex-start row-gap-15">
 
@@ -182,7 +182,7 @@
 
                 </div>
             </div>
-                
+
 
         </div>
     </article>
@@ -208,7 +208,7 @@
                         <h2 class="main-title">جهاز OCT (التصوير المقطعي للعين)</h2>
                         <p class="main-para">جهاز OCT يستخدم للتصوير الدقيق للطبقات الداخلية للعين، يساعد في تشخيص الأورام الشبكية والتغيرات المرضية في العين.
                         </p>
-                    </div>	
+                    </div>
                 </div>
             </section>
             <!-- About  -->

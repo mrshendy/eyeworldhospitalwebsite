@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
     RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController,ReservationController,
-    AuthController,ConferenceController, MedicalAcademyController,BookController};
+    AuthController,ConferenceController, MedicalAcademyController,BookController, SinglePageController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
@@ -65,6 +65,10 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('medical-academies', [MedicalAcademyController::class, 'index'])->name('medical-academy.index');
     Route::get('medical-academies/{id}', [MedicalAcademyController::class, 'show'])->name('medical-academy.show');
 
+    Route::get('faqs', [SinglePageController::class, 'faqs'])->name('faqs');
+    Route::get('terms', [SinglePageController::class, 'terms'])->name('terms');
+    Route::get('privacy', [SinglePageController::class, 'privacy'])->name('privacy');
+    Route::get('contact-us', [SinglePageController::class, 'contact_us'])->name('contact');
 
 });
 

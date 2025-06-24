@@ -4,17 +4,18 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{About,Quetion,ContactUs};
-use App;
+use App\Models\{About,Quetion,ContactUs, Conference};
 use Alert;
 
 class HomeController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $about    = About::first();
-        $quetions = Quetion::get();
-        return view('Site.home.index',compact('about','quetions'));
+        $quetions = Quetion::orderBy('created_at', 'desc')->take(6)->get();
+        $conferences = Conference::orderBy('created_at', 'desc')->take(4)->get();
+        return view('Site.home.index',compact('about','quetions', 'conferences'));
     }
 
     public function contactUs(Request $request){
@@ -34,4 +35,5 @@ class HomeController extends Controller
             'message' => __('your request sent seccessfuly')
         ]);
     }
+
 }
