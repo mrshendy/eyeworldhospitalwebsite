@@ -8,9 +8,9 @@
         margin-top: 5px;
     }
 
-    .d-none{
-        display: none;
-    }
+    .d-none {
+    display: none !important;
+}
 
     .toggle-answer-link {
         color: #007bff;
@@ -357,10 +357,15 @@
                         @if(strlen($plainText) > $charLimit)
                             @php
                                 $shortAnswer = mb_substr($plainText, 0, $charLimit) . '...';
+                                $showMoreText = __("Show More");
+                                $showLessText = __("Show Less");
                             @endphp
                             <p class="answer short-answer">{{ $shortAnswer }}</p>
                             <p class="answer full-answer d-none">{!! $quetion->answer !!}</p>
-                            <a href="javascript:void(0);" class="toggle-answer-link">{{ __("Show More") }}</a>
+                            <a href="javascript:void(0);" class="toggle-answer-link"
+                            data-show-more="{{ __('Show More') }}" data-show-less="{{ __('Show Less') }}">
+                                {{ __('Show More') }}
+                            </a>
                         @else
                             <p class="answer">{!! $quetion->answer !!}</p>
                         @endif
@@ -381,9 +386,6 @@
                     <span class="pre-title site-color">{{__('Our trusted partners')}}</span>
                     <h2 class="main-title"> {{__('Insurance Partners: Renowned')}}</h2>
                 </div>
-                <a href="#" class="site-color">
-                   {{__("View more partners")}}
-                </a>
             </div>
             <p class="main-para">{{__('Our company takes')}}</p>
 
@@ -408,27 +410,3 @@
 
 @endsection
 
-
-@section('scripts')
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".toggle-answer-link").forEach(function (link) {
-        link.addEventListener("click", function () {
-            const qbox = this.closest(".qbox");
-            const shortAnswer = qbox.querySelector(".short-answer");
-            const fullAnswer = qbox.querySelector(".full-answer");
-
-            if (fullAnswer.classList.contains("d-none")) {
-                fullAnswer.classList.remove("d-none");
-                shortAnswer.classList.add("d-none");
-                this.textContent = "Show Less";
-            } else {
-                fullAnswer.classList.add("d-none");
-                shortAnswer.classList.remove("d-none");
-                this.textContent = "Show More";
-            }
-        });
-    });
-});
-</script>
-@endsection

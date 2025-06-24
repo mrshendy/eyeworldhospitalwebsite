@@ -335,6 +335,7 @@
       "Forgot your password?":"هل نسيت كلمه المرور",
       "Did you remember your password?":"هل تذكرت كلمه المرور",
       "This field is required" : "هذا الحقل مطلوب",
-      "Show More" : "عرض المزيد"
+      "Show More" : "عرض المزيد",
+      "Show Less" : "عرض أقل"
     }
 

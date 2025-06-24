@@ -112,6 +112,30 @@
 <script type="text/javascript" src="{{asset('siteassets/js/owl.carousel.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('siteassets/js/main.js')}}"></script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".toggle-answer-link").forEach(function (link) {
+        link.addEventListener("click", function () {
+            const qbox = this.closest(".qbox");
+            const shortAnswer = qbox.querySelector(".short-answer");
+            const fullAnswer = qbox.querySelector(".full-answer");
+
+            const isFullVisible = !fullAnswer.classList.contains("d-none");
+
+            if (isFullVisible) {
+                fullAnswer.classList.add("d-none");
+                shortAnswer.classList.remove("d-none");
+                this.textContent = this.dataset.showMore;
+            } else {
+                fullAnswer.classList.remove("d-none");
+                shortAnswer.classList.add("d-none");
+                this.textContent = this.dataset.showLess;
+            }
+        });
+    });
+});
+
+</script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 
 @yield('scripts')
