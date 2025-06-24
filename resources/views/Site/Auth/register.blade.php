@@ -2,7 +2,7 @@
 @section('content')
 
 	<main id="main">
-		
+
 		<!-- sign section -->
 		<article class="sign pd">
 
@@ -18,7 +18,7 @@
 						<div data-class=".log-patient" class="active">التسجيل كمريض</div>
 						<div data-class=".log-doctor">التسجيل كطبيب</div>
 					</div>
-					<div class="sign-box-title">
+					{{-- <div class="sign-box-title">
 						<h2> سجل الدخول عبر</h2>
 						<div class="social-login">
 							<a href="#"><img src="{{asset('siteassets/images/login/facebook.svg')}}"></a>
@@ -28,7 +28,7 @@
 
 					<div class="or">
 						<span>أو</span>
-					</div>
+					</div> --}}
 
 					<div class="form-holder">
 						<div class="log-doctor">
@@ -46,8 +46,8 @@
 										 @if ($errors->has('name'))
 										   <p class="text-danger">{{ $errors->first('name')}}</p>
 										 @endif
-									</div>			
-								</div>			
+									</div>
+								</div>
 
 								<div class="form-control">
 									<div class="form-field">
@@ -58,7 +58,7 @@
                                                <p class="text-danger">{{ $errors->first('email')}}</p>
                                              @endif
 										</div>
-									</div>			
+									</div>
 								</div>
 
 								<div class="form-control">
@@ -82,7 +82,7 @@
 											    @foreach ($specialties as $specialty)
 													<option value="{{ $specialty['id'] }}">{{ $specialty['title'] }}</option>
 												@endforeach
-										   </select>	
+										   </select>
 										</div>
 									</div>
 								</div>
@@ -96,7 +96,7 @@
 											    @foreach ($degrees as $degree)
 													<option value="{{ $degree['value'] }}">{{ $degree['label'] }}</option>
 												@endforeach
-										   </select>	
+										   </select>
 										</div>
 									</div>
 								</div>
@@ -110,7 +110,7 @@
 											    @for ($year = 1980; $year <= date('Y'); $year++)
 													<option value="{{ $year }}">{{ $year }}</option>
 												@endfor
-										   </select>	
+										   </select>
 										</div>
 									</div>
 								</div>
@@ -123,7 +123,7 @@
 											<input type="password" name="password" placeholder="">
 											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}">
 										</div>
-									</div>			
+									</div>
 								</div>
 
 								  <div class="form-control">
@@ -136,11 +136,11 @@
 											@if ($errors->has('password_confirmation'))
 											<p class="text-danger">{{ $errors->first('password_confirmation')}}</p>
 											@endif
-									
-										</div>			
+
+										</div>
 									</div>
 
-								<div class="form-control">
+								{{-- <div class="form-control">
 									<div class="form-field flex-between align-center">
 										<span>
 											<input type="checkbox" name=""> {{__('remember me')}}
@@ -149,7 +149,7 @@
 											{{__('forgot password?')}}
 										</a>
 									</div>
-								</div>
+								</div> --}}
 								{{-- <div class="form-control">
 									<input type="submit" class="btn w-100"  value="{{__('login')}}">
 								</div> --}}
@@ -177,8 +177,8 @@
 										 @if ($errors->has('name'))
 										   <p class="text-danger">{{ $errors->first('name')}}</p>
 										 @endif
-									</div>			
-								</div>			
+									</div>
+								</div>
 
 								<div class="form-control">
 									<div class="form-field">
@@ -189,7 +189,7 @@
 										 @if ($errors->has('email'))
 										   <p class="text-danger">{{ $errors->first('email')}}</p>
 										 @endif
-									</div>			
+									</div>
 								</div>
 								<div class="form-control">
 
@@ -208,7 +208,7 @@
 										 @if ($errors->has('phone'))
 										   <p class="text-danger">{{ $errors->first('phone')}}</p>
 										 @endif
-									</div>			
+									</div>
 
 								</div>
 								<div class="form-control">
@@ -221,7 +221,7 @@
 										 @if ($errors->has('password'))
 										   <p class="text-danger">{{ $errors->first('password')}}</p>
 										 @endif
-									</div>			
+									</div>
 								</div>
 
 
@@ -236,8 +236,8 @@
 								         @if ($errors->has('password_confirmation'))
 										   <p class="text-danger">{{ $errors->first('password_confirmation')}}</p>
 										 @endif
-								
-									</div>			
+
+									</div>
 								</div>
 
 
@@ -246,7 +246,7 @@
 										<span>
 											<input type="checkbox" name=""> تذكرني
 										</span>
-		
+
 									</div>
 								</div>
 								<div class="form-control">
@@ -256,7 +256,7 @@
 							</form>
 						</div>
 
-				
+
 					</div>
 				</section>
 			</div>
