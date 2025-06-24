@@ -1,7 +1,26 @@
 @extends('site')
 @section('content')
 
+@section('styles')
+   <style>
+    .answer {
+        display: block;
+        margin-top: 5px;
+    }
 
+    .d-none{
+        display: none;
+    }
+
+    .toggle-answer-link {
+        color: #007bff;
+        text-decoration: underline;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 5px;
+    }
+</style>
+@endsection
 <main id="main">
     <!-- Slider Section -->
     <article class="slider">
@@ -21,7 +40,7 @@
                         </p>
                     </div>
                 </div>
-            </div>				
+            </div>
             <div class="item" style="background-image:url({{asset('siteassets/images/slider/2.jpg')}})">
                 <div class="container h-100">
                     <div class="slider-details h-100 flex-column">
@@ -37,7 +56,7 @@
                         </p>
                     </div>
                 </div>
-            </div>				
+            </div>
             <div class="item" style="background-image:url({{asset('siteassets/images/slider/3.jpg')}})">
                 <div class="container h-100">
                     <div class="slider-details h-100 flex-column">
@@ -53,7 +72,7 @@
                         </p>
                     </div>
                 </div>
-            </div>				
+            </div>
             <div class="item" style="background-image:url({{asset('siteassets/images/slider/4.jpg')}})">
                 <div class="container h-100">
                     <div class="slider-details h-100 flex-column">
@@ -90,21 +109,21 @@
                         <strong class="number">1000+</strong>
                         <p class="value">{{__("Successful surgical procedure.")}}</p>
                     </div>
-                </div>				
+                </div>
 
                 <div class="col-3 col-sm-6 col-xs-12">
                     <div class="counter-box">
                         <strong class="number">5000+</strong>
                         <p class="value"> {{__("Cataract surgery with utmost precision.")}}</p>
                     </div>
-                </div>				
+                </div>
 
                 <div class="col-3 col-sm-6 col-xs-12">
                     <div class="counter-box">
                         <strong class="number">748+</strong>
                         <p class="value">{{__("LASIK surgery for vision correction.")}}</p>
                     </div>
-                </div>				
+                </div>
 
                 <div class="col-3 col-sm-6 col-xs-12">
                     <div class="counter-box">
@@ -124,7 +143,7 @@
                         <p class="main-para">
                                  {{$about->desc}}
                         </p>
-                    </div>	
+                    </div>
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
@@ -162,19 +181,19 @@
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
                     {{__("Cosmetic surgeries for the face and head.")}}
-                </li>					
+                </li>
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
                     {{__("Oral and maxillofacial surgeries")}}
-                </li>					
+                </li>
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
                     {{__("Dermatology and laser services")}}
-                </li>					
+                </li>
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
                     {{__("Nutrition services")}}
-                </li>					
+                </li>
                 <li>
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
                     {{__("Laboratory services")}}
@@ -191,7 +210,7 @@
                     <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
                     {{__("Other services")}}
                 </li>
-                
+
             </ul>
         </div>
     </article>
@@ -203,7 +222,7 @@
             <span class="pre-title site-color">{{__("Explore various medical specialties to meet your healthcare needs.")}}</span>
             <h2 class="main-title">{{__("Choose the right medical specialty for your health needs from our diverse specialties.")}}</h2>
             <p class="main-para">{{__("Description: We offer you a wide range of medical specialties, including ophthalmology, dentistry, dermatology, surgery, and more. Receive comprehensive healthcare from experienced specialists to help you maintain your health and well-being.")}}</p>
-    
+
             <div class="flex-center discover-row pdt">
                 <div class="col-4 col-sm-6 col-xs-12">
                     <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/1.svg')}})">
@@ -213,8 +232,8 @@
                             <a href="#">{{__("Learn more")}}</a>
                         </div>
                     </div>
-                </div>				
-    
+                </div>
+
                 <div class="col-4 col-sm-6 col-xs-12">
                     <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/2.svg')}})">
                         <div class="discover-box-content">
@@ -223,8 +242,8 @@
                             <a href="#">{{__("Learn more")}}</a>
                         </div>
                     </div>
-                </div>				
-    
+                </div>
+
                 <div class="col-4 col-sm-6 col-xs-12">
                     <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/3.svg')}})">
                         <div class="discover-box-content">
@@ -235,10 +254,10 @@
                     </div>
                 </div>
             </div>
-    
+
         </div>
     </article>
-    
+
     <!-- Discover Section -->
 
     <!-- Discover two Section -->
@@ -254,7 +273,7 @@
                 </a>
             </div>
             <p class="main-para">{{__("We take pride in our participation in medical events and conferences, where we showcase the latest technologies")}}<br>{{__("and share our expertise with the medical community. Our goal is to exchange knowledge and highlight our leadership")}}<br>{{__("in ophthalmology and eye surgery through these distinguished events.")}}</p>
-    
+
             <div class="flex-center discover-row pdt">
                 <div class="col-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/4.svg')}})">
@@ -267,7 +286,7 @@
                             </a>
                         </div>
                     </div>
-                </div>				
+                </div>
                 <div class="col-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/5.svg')}})">
                         <div class="discover-box-details">
@@ -279,7 +298,7 @@
                             </a>
                         </div>
                     </div>
-                </div>				
+                </div>
                 <div class="col-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/6.svg')}})">
                         <div class="discover-box-details">
@@ -291,7 +310,7 @@
                             </a>
                         </div>
                     </div>
-                </div>				
+                </div>
                 <div class="col-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="discover-box discover-box-2" style="background-image:url({{asset('siteassets/images/discover/7.svg')}})">
                         <div class="discover-box-details">
@@ -303,11 +322,11 @@
                             </a>
                         </div>
                     </div>
-                </div>				
+                </div>
             </div>
         </div>
     </article>
-    
+
 
     <!-- Discover two Section -->
 
@@ -317,7 +336,7 @@
             <div class="col-6 col-md-6 col-sm-12">
                 <figure class="experience-image">
                     <img src="{{asset('siteassets/images/experience/main.svg')}}" alt="" >
-                </figure> 
+                </figure>
             </div>
             <div class="col-6 col-md-6 col-sm-12">
                 <div class="experience-details">
@@ -328,7 +347,7 @@
                     <div class="btns flex-start align-center">
                         <a href="#" class="section-btn">
                             <img src="{{asset('siteassets/images/experience/badge.svg')}}">
-                        </a>						
+                        </a>
                         <a href="#" class="section-btn">
                             <img src="{{asset('siteassets/images/experience/app.svg')}}">
                         </a>
@@ -363,11 +382,23 @@
                             <i class="fa-solid fa-chevron-left"></i>
                              {{$quetion->quetion}}
                         </h3>
-                        <p>
-                            {{$quetion->answer}}
-                        </p>
+                       @php
+                            $plainText = strip_tags($quetion->answer);
+                            $charLimit = 20;
+                        @endphp
+
+                        @if(strlen($plainText) > $charLimit)
+                            @php
+                                $shortAnswer = mb_substr($plainText, 0, $charLimit) . '...';
+                            @endphp
+                            <p class="answer short-answer">{{ $shortAnswer }}</p>
+                            <p class="answer full-answer d-none">{!! $quetion->answer !!}</p>
+                            <a href="javascript:void(0);" class="toggle-answer-link">{{ __("Show More") }}</a>
+                        @else
+                            <p class="answer">{!! $quetion->answer !!}</p>
+                        @endif
                     </div>
-                </div>		
+                </div>
                 @endforeach
 
             </div>
@@ -408,4 +439,29 @@
 
 </main>
 
+@endsection
+
+
+@section('scripts')
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".toggle-answer-link").forEach(function (link) {
+        link.addEventListener("click", function () {
+            const qbox = this.closest(".qbox");
+            const shortAnswer = qbox.querySelector(".short-answer");
+            const fullAnswer = qbox.querySelector(".full-answer");
+
+            if (fullAnswer.classList.contains("d-none")) {
+                fullAnswer.classList.remove("d-none");
+                shortAnswer.classList.add("d-none");
+                this.textContent = "Show Less";
+            } else {
+                fullAnswer.classList.add("d-none");
+                shortAnswer.classList.remove("d-none");
+                this.textContent = "Show More";
+            }
+        });
+    });
+});
+</script>
 @endsection
