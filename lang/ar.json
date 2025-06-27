@@ -327,6 +327,12 @@
       "(Paper + PDF) Sold Out" : "انتهت النسخ، لا يمكن الشراء",
       "Book added to your cart Successfully" : "تم أضافة الكتاب للسلة بنجاح",
       "Paper + PDF" : "كتاب ورقي + PDF",
-      "PDF Only" : "فقط PDF"
+      "PDF Only" : "فقط PDF",
+      "Cart is empty" : "السلة فارغة لا يمكن مواصلة العملية",
+      "Your Order has been submitted" : "تم تاكيد طليكم سيتم التواصل معكم في اقرب وقت",
+      "No More Books" : "لا يوجد كمية متاحة من الكتب لتاكيد طلبكم",
+      "Quantity Not Available to confirm ur request" : "الكمية الملطوبة غير موجودة",
+      "Go for Pay" : "تفدم للدفع"
+
     }
 

@@ -1182,6 +1182,13 @@ button.show-profile{
     padding: 10px;
 }
 
+.show-profile[disabled] {
+    background-color: #ddd !important;
+    color: #999 !important;
+    cursor: not-allowed !important;
+    pointer-events: none;
+    opacity: 0.6;
+}
 .user-login{
     width: 80%;
     cursor: pointer;
@@ -1669,6 +1676,18 @@ span.product-number {
 }
 
 a.pay {
+    display: block;
+    margin: 15px 0 0;
+    text-align: center;
+    background: var(--color);
+    color: #fff;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+
+.cart-go-checkout
+{
     display: block;
     margin: 15px 0 0;
     text-align: center;
