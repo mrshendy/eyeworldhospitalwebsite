@@ -332,7 +332,8 @@
       "Your Order has been submitted" : "تم تاكيد طليكم سيتم التواصل معكم في اقرب وقت",
       "No More Books" : "لا يوجد كمية متاحة من الكتب لتاكيد طلبكم",
       "Quantity Not Available to confirm ur request" : "الكمية الملطوبة غير موجودة",
-      "Go for Pay" : "تفدم للدفع"
+      "Go for Pay" : "تفدم للدفع",
+      "Cart" : "السلة"
 
     }
 

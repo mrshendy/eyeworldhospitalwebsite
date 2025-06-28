@@ -18,6 +18,17 @@ body {
     line-height: 24px;
     background: #fff;
 }
+
+html[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="ltr"] body {
+    direction: ltr;
+    text-align: left;
+}
+
 button, form, input, select, textarea {
       font-family: "Almarai", serif;
 }

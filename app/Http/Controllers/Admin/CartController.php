@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class CartController extends Controller
 {
@@ -12,7 +13,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $data['orders'] = Order::all();
+        return view('Admin.cart.index')->with($data);
     }
 
     /**
@@ -36,7 +38,8 @@ class CartController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data['order'] = Order::with('items.book')->findOrFail($id);
+        return view('Admin.cart.show')->with($data);
     }
 
     /**
