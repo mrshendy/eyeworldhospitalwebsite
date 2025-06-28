@@ -333,7 +333,14 @@
       "No More Books" : "لا يوجد كمية متاحة من الكتب لتاكيد طلبكم",
       "Quantity Not Available to confirm ur request" : "الكمية الملطوبة غير موجودة",
       "Go for Pay" : "تفدم للدفع",
-      "Cart" : "السلة"
+      "Cart" : "السلة",
+      "Cart is Empty" : "سلة الشراء فارغة",
+      "No Product in the Cart" : "لا يوجد منتجات في السلة",
+      "Book Removed From Cart" : "تم حذف الكتاب من السلة",
+      "All Books Removed From Cart" : "تم حذف كل الكتب من السلة",
+      "Please Try Later" : " من فضلك حاول لاحقا",
+      "Error While Updating" : "حدث خطأ اثناء الحذف",
+      "Error While Deleting" : "حدث خطأ اثناء التحديث"
 
     }
 

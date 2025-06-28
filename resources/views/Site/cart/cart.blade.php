@@ -251,6 +251,14 @@
 @section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        const CART_EMPTY_TEXT = @json(__('Cart is Empty'));
+        const NO_PRODUCTS = @json(__('No Product in the Cart'));
+        const MSG_BOOK_REMOVED = @json(__('Book Removed From Cart'));
+        const All_BOOKS_REMOVED = @json(__('All Books Removed From Cart'));
+        const ERROR_UPDATE = @json(__('Error While Updating'));
+        const ERROR_DELETE = @json(__('Error While Deleting'));
+        const PLEASE_TRY_LATER = @json(__('Please Try Later'))
+
         // DELETE item
         document.querySelectorAll('.delete-product').forEach(button => {
             button.addEventListener('click', function () {
@@ -278,17 +286,15 @@
                     if (summary) summary.remove();
 
                     updateCartSummary(data.total);
-
                     if (document.querySelectorAll('.product').length === 0) {
-                        document.querySelector('.products.pdt').innerHTML = '<p>سلة الشراء فارغة</p>';
-                        document.querySelector('.brief-products').innerHTML = '<p>لا يوجد منتجات</p>';
+                        document.querySelector('.products.pdt').innerHTML = `<p>${CART_EMPTY_TEXT}</p>`;
+                        document.querySelector('.brief-products').innerHTML = `<p>${NO_PRODUCTS}</p>`;
                     }
-
                     Swal.fire({
                         toast: true,
                         position: 'top-end',
                         icon: 'success',
-                        title: 'تم حذف الكتاب من السلة',
+                        title: MSG_BOOK_REMOVED,
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -297,7 +303,7 @@
                     console.error('Error deleting:', error);
                     Swal.fire({
                         icon: 'error',
-                        title: 'حدث خطأ أثناء الحذف',
+                        title: ERROR_DELETE,
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
@@ -344,8 +350,8 @@
                     console.error("Error in fetch:", err);
                     Swal.fire({
                         icon: 'error',
-                        title: 'خطأ أثناء التحديث',
-                        text: 'يرجى المحاولة لاحقًا',
+                        title: ERROR_UPDATE,
+                        text: PLEASE_TRY_LATER,
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
@@ -356,9 +362,8 @@
         });
 
         if (document.querySelectorAll('.product').length === 0) {
-            document.querySelector('.products.pdt').innerHTML = '<p>سلة الشراء فارغة</p>';
+            document.querySelector('.products.pdt').innerHTML = `<p>${CART_EMPTY_TEXT}</p>`;
         }
-
 
         function updateCartSummary(newTotal) {
             document.querySelectorAll('.total .price-sm').forEach(el => {
@@ -381,17 +386,19 @@
             })
             .then(res => res.json())
             .then(data => {
-                document.querySelector('.products.pdt').innerHTML = '<p>سلة الشراء فارغة</p>';
-                document.getElementById('brief-products').innerHTML = '<p>لا يوجد منتجات السلة فارغة</p>';
+                document.querySelector('.products.pdt').innerHTML = `<p>${CART_EMPTY_TEXT}</p>`;
+                document.getElementById('brief-products').innerHTML = `<p>${NO_PRODUCTS}</p>`;
                 updateCartSummary(data.total);
-                document.getElementById('cart-total').innerText = '0 ج.م';
-
+                const cartTotalElements = document.getElementById('cart-total');
+                if (cartTotalElements) {
+                    cartTotalElements.innerHTML = '0 ج.م';
+                }
 
                 Swal.fire({
                     toast: true,
                     position: 'top-end',
                     icon: 'success',
-                    title: 'تم حذف كل العناصر من السلة',
+                    title: All_BOOKS_REMOVED,
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -400,9 +407,6 @@
                 console.error('Error clearing cart:', err);
             });
         });
-
-
-
     });
 
 </script>
