@@ -101,11 +101,12 @@
         <img src="{{asset('siteassets/images/footer/whatsapp.svg')}}">
     </a>
 
-    <a href="{{ route('Site.reservation.index',[1,'normal']) }}">
+    <a href="#">
         <img src="{{ asset('siteassets/images/footer/dash.svg') }}">
     </a>
 
 </div>
+
 
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
