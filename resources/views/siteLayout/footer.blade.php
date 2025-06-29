@@ -88,9 +88,13 @@
     <div class="container flex-between align-center">
         <p class="copyright">  {{__('All rights reserved to Dunya Al Oyoun')}}     @ 2025</p>
         <div class="socials flex-center align-center">
-             @foreach (media() as $row)
+             {{-- @foreach (media() as $row)
                <a href="{{$row->url}}"><img src="{{$row->img}}"></a>
-             @endforeach
+             @endforeach --}}
+             @foreach (app('media') as $row)
+                <a href="{{ $row->url }}"><img src="{{ $row->img }}"></a>
+            @endforeach
+
         </div>
     </div>
 </article>

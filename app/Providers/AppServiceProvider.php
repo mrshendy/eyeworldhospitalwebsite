@@ -19,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        require_once app_path('helpers/helpers.php');
+        app()->bind('media', function () {
+            return SocialMedia::get();
+        });
     }
 }
