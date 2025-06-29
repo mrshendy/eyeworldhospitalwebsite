@@ -1200,6 +1200,11 @@ button.show-profile{
     pointer-events: none;
     opacity: 0.6;
 }
+.disabled-link{
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 .user-login{
     width: 80%;
     cursor: pointer;

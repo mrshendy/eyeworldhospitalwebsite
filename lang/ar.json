@@ -340,7 +340,11 @@
       "All Books Removed From Cart" : "تم حذف كل الكتب من السلة",
       "Please Try Later" : " من فضلك حاول لاحقا",
       "Error While Updating" : "حدث خطأ اثناء الحذف",
-      "Error While Deleting" : "حدث خطأ اثناء التحديث"
+      "Error While Deleting" : "حدث خطأ اثناء التحديث",
+      "You Must Login First" : "يرجى تسجيل الدخول",
+      "You Must Login to Add Book To Cart" : "يجب تسجيل الدخول لإضافة الكتاب إلى السلة",
+      "Login" : "تسجيل دخول",
+      "Exit" : "الغاء"
 
     }
 

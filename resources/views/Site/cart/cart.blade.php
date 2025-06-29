@@ -83,7 +83,13 @@
                                 <h5>المجموع</h5>
                                 <h5 class="price-sm">{{ $cart->total_price }}</h5>
                             </div>
-                            <a class="cart-go-checkout" href="{{ route('Site.Checkout') }}">{{ __('Go for Pay') }}</a>
+                            {{-- chec if the cart empty --}}
+                            @if($cart->items->count() === 0)
+                                <a disabled class="disabled-link cart-go-checkout" href="{{ route('Site.Checkout') }}">{{ __('Go for Pay') }}</a>
+                            @elseif($cart->items->count() > 0)
+                                <a class="cart-go-checkout" href="{{ route('Site.Checkout') }}">{{ __('Go for Pay') }}</a>
+                            @endif
+
                         </div>
                     </div>
                 </div>
