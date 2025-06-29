@@ -48,7 +48,7 @@ return [
         'main_title'      => 'Main Title in English',
         'main_subtitle'   => 'Main Subtitle in English',
         'detail_title'    => 'Detailed Title in English',
-        'detail_title'    => 'Detailed Title in English', // (Duplicate key, consider removing one)
+        'detail_title'    => 'Detailed Title in English',
         'detail_subtitle' => 'Detailed Subtitle in English',
         'desc'            => 'Description in English',
         'job_title'       => 'job title on English',
@@ -63,7 +63,11 @@ return [
         "advantage_title" => 'Advantage Title in English',
         "advantage_description"    => 'Advantage Description in English',
         "detail_description" => 'Detailed Description in English',
-        "specialty" => "Doctor Specialty in English"
+        "specialty" => "Doctor Specialty in English",
+        "secondary_title" => "Secondary Title in English",
+        "secondary_sub_title" => "Secondary sub title in English",
+        "secondary_description" => "Secondary Description in English"
+
 
     ],
 
