@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Models\SocialMedia;
 
 use Illuminate\Support\ServiceProvider;
 
