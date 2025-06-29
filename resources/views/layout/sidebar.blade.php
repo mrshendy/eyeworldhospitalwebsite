@@ -148,6 +148,21 @@
 
 
 
+            <li class="menu-item  @if (Route::currentRouteName()=='Admin.cart.index')  open @endif">
+                <a href="#" class="menu-link menu-toggle">
+                    <i class="ri-nurse-line"></i>
+                    <div>{{__('Cart')}}</div>
+                </a>
+                  <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="{{route('Admin.cart.index')}}" class="menu-link">
+                            <div>{{__('Cart')}}</div>
+                        </a>
+                    </li>
+
+                  </ul>
+            </li>
+
             <li class="menu-item   @if (Route::currentRouteName()=='Admin.medical-devices'
                   || Route::currentRouteName() =='Admin.medical-devices.index' || Route::currentRouteName() =='Admin.medical-devices.create' || Route::currentRouteName()=='Admin.medical-devices.show'  || Route::currentRouteName()=='Admin.medical-device-info-detail'
                 )

@@ -1,8 +1,6 @@
 @extends('site')
 
 @section('content')
-
-@endsection
 	<main id="main">
 
 		<!-- Book Form -->
@@ -35,10 +33,8 @@
 						</div>
 					</div>
 					<div class="col-9 col-md-12">
-						<form class="steps-holder" action="">
-
-
-
+						<form class="steps-holder" action="{{ route('Site.Order.make') }}" method="POST">
+						    @csrf
 							<div class="step-content active">
 								<div class="flex-between align-center">
 									<h4>البيانات الشخصية</h4>
@@ -52,7 +48,7 @@
 										<div class="form-field">
 											<label>الاسم</label>
 											<div class="field">
-												<input type="text" name="" placeholder="محمد الشريف" >
+												<input type="text" name="name" placeholder="محمد الشريف" >
 											</div>
 										</div>
 									</div>
@@ -61,24 +57,23 @@
 										<div class="form-field">
 											<label>البريد الإلكترونى</label>
 											<div class="field">
-												<input type="email" name="" placeholder="example@gmail.com" >
+												<input type="email" name="email" placeholder="example@gmail.com" >
 											</div>
 										</div>
 									</div>
-
 
 									<div class="form-control">
 										<div class="form-field">
 											<label>الدولة</label>
 											<div class="field">
-												<input type="text" name="" placeholder="مصر" >
+												<input type="text" name="country" placeholder="مصر" >
 											</div>
 										</div>
 
 										<div class="form-field">
 											<label>رقم الهاتف</label>
 											<div class="field">
-												<input type="text" name="" placeholder="+201012345678" >
+												<input type="text" name="phone" placeholder="+201012345678" >
 											</div>
 										</div>
 									</div>
@@ -93,19 +88,13 @@
 									<div class="form-control">
 										<div class="form-field">
 											<label>اختر موقع التوصيل</label>
-											<div class="field">
-												<select>
-													<option>اختر</option>
-													<option>23 شارع الشريف, الرياض, السعودية</option>
-												</select>
+                                            <div class="field">
+												<input type="text" name="address" placeholder="مصر" >
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
-
-
 
 							<div class="step-content">
 								<div class="flex-between align-center">
@@ -116,29 +105,18 @@
 									</div>
 								</div>
 
-
 								<div class="pdt brief-products">
-
-									<div class="product-sm">
-										<span>تقنيات علاج السرطان الحديثة</span>
-										<strong class="price-sm">567 ج.م</strong>
-									</div>
-
-									<div class="product-sm">
-										<span>تقنيات علاج السرطان الحديثة</span>
-										<strong class="price-sm">567 ج.م</strong>
-									</div>
-
-									<div class="product-sm">
-										<span>تقنيات علاج السرطان الحديثة</span>
-										<strong class="price-sm">567 ج.م</strong>
-									</div>
-
+                                    @foreach ($cart->items as $item)
+                                    <div class="product-sm">
+                                        <span>{{ $item->book->title }}</span>
+                                        <strong class="price-sm">{{ $item->price * $item->quantity }} ج.م</strong>
+                                    </div>
+                                    @endforeach
 								</div>
 
-								<div class="total flex-between align-center">
+                                <div class="total flex-between align-center">
 									<h5>المجموع</h5>
-									<h5 class="price-sm">980 ج.م</h5>
+									<h5 class="price-sm">{{ $cart->total_price }} ج.م</h5>
 								</div>
 
 
@@ -147,39 +125,32 @@
 									<h4>طريقة الدفع</h4>
 
 									<div class="payment-box">
-										<input type="radio" name="payment" checked>
-										<img src="../images/doctors/book/whatsapp.svg" width="24">
-										<span>واتساب</span>
-									</div>
+                                        <input type="radio" name="payment_method" value="whatsapp" checked>
+                                        <img src="{{ asset('siteassets/images/doctors/book/whatsapp.svg') }}" width="24">
+                                        <span>واتساب</span>
+                                    </div>
 
-									<div class="payment-box">
-										<input type="radio" name="payment">
-										<img src="../images/doctors/book/visa.svg" width="24">
-										<span>Visa</span>
-									</div>
+                                    <div class="payment-box">
+                                        <input type="radio" name="payment_method" value="visa">
+                                        <img src="{{ asset('siteassets/images/doctors/book/visa.svg') }}" width="24">
+                                        <span>Visa</span>
+                                    </div>
 
-									<div class="payment-box">
-										<input type="radio" name="payment">
-										<img src="../images/doctors/book/pay.svg" width="24">
-										<span>Apple Pay</span>
-									</div>
-
+                                    <div class="payment-box">
+                                        <input type="radio" name="payment_method" value="apple_pay">
+                                        <img src="{{ asset('siteassets/images/doctors/book/pay.svg') }}" width="24">
+                                        <span>Apple Pay</span>
+                                    </div>
 								</div>
-
 							</div>
-
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</article>
 		<!-- Book Form -->
-
 	</main>
-
 	<!-- Footer -->
+    {{-- @include('components.contact-us') --}}
 
-    @include('component.contact-us')
-</body>
-</html>
+    @endsection

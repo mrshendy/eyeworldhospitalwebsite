@@ -86,15 +86,21 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
 
             const isLoggedIn = @json(auth()->check());
+            const NOT_LOGIN = @json(__('You Must Login First'));
+            const NOT_LOGIN_TEXT = @json(__('You Must Login to Add Book To Cart'));
+            const LOGIN = @json(__('Login'));
+            const EXIT = @json(__('Exit'));
+
+
 
             if (!isLoggedIn) {
                 Swal.fire({
-                    title: 'يرجى تسجيل الدخول',
-                    text: 'يجب تسجيل الدخول لإضافة الكتاب إلى السلة',
+                    title: NOT_LOGIN,
+                    text: NOT_LOGIN_TEXT,
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonText: 'تسجيل الدخول',
-                    cancelButtonText: 'إلغاء'
+                    confirmButtonText: LOGIN,
+                    cancelButtonText: EXIT
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = "{{ route('Site.login') }}";

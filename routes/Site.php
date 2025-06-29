@@ -75,6 +75,10 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
         Route::delete('/cart/remove/{item}', [CartController::class, 'remove'])->name('cart.remove');
         Route::put('/cart/update/{item}', [CartController::class, 'update'])->name('cart.update');
         Route::delete('/cart/delete-all', [CartController::class, 'delete_all'])->name('cart.deleteAll');
+
+        Route::get('checkout', [CartController::class, 'checkout'])->name('Checkout');
+        Route::post('/checkout', [CartController::class, 'make_order'])->name('Order.make');
+
     });
     Route::get('faqs', [SinglePageController::class, 'faqs'])->name('faqs');
     Route::get('terms', [SinglePageController::class, 'terms'])->name('terms');

@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
     InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController,
     ReservationController,DoctorAppointmentController, MedicalAcademyController
-   ,UserController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController, MedicalAcademyInfoController, MedicalAcademyVideoController,LiberaryTopicController,BookController, BookInfoController};
+   ,UserController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController, MedicalAcademyInfoController, MedicalAcademyVideoController,LiberaryTopicController,BookController, BookInfoController, CartController};
 
 
 
@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth:admin'], function() {
         "medical-academy-videos" => MedicalAcademyVideoController::class,
         'libraryTopic'        => LiberaryTopicController::class,
         'books'              => BookController::class,
+        'cart'              => CartController::class,
 
     ]);
 
