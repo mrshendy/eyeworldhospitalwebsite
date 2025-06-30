@@ -161,7 +161,7 @@
     <article class="services pd">
         <div class="bk" style="background-image:url({{asset('siteassets/images/services.svg')}})"></div>
         <div class="container">
-            <h2 class="main-title site-color">خدمات  TOP CARE </h2>
+            <h2 class="main-title site-color">{{ __('TOP CARE SERVICES') }}</h2>
             <div class="flex-start pdb align-center">
                 <div class="col-6 col-md-12">
                     <p class="main-para pdl">
@@ -224,35 +224,17 @@
             <p class="main-para">{{__("Description: We offer you a wide range of medical specialties, including ophthalmology, dentistry, dermatology, surgery, and more. Receive comprehensive healthcare from experienced specialists to help you maintain your health and well-being.")}}</p>
 
             <div class="flex-center discover-row pdt">
-                <div class="col-4 col-sm-6 col-xs-12">
-                    <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/1.svg')}})">
-                        <div class="discover-box-content">
-                            <span>{{__("Ophthalmology and Eye Surgery")}}</span>
-                            <p>{{__("Your vision matters! We provide comprehensive eye care, from vision tests and correction to advanced eye surgeries, ensuring you clearer sight and a more comfortable life.")}}</p>
-                            <a href="#">{{__("Learn more")}}</a>
+                @foreach ($specialities as $spec)
+                    <div class="col-4 col-sm-6 col-xs-12">
+                        <div class="discover-box" style="background-image:url({{asset($spec->img)}})">
+                            <div class="discover-box-content">
+                                <span>{{ $spec->title }}</span>
+                                <p>{{ $spec->desc }}</p>
+                                <a href="{{ route("Site.specialtie", $spec->id) }}">{{__("Learn more")}}</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-4 col-sm-6 col-xs-12">
-                    <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/2.svg')}})">
-                        <div class="discover-box-content">
-                            <span>{{__("Dermatology")}}</span>
-                            <p>{{__("Achieve healthy and radiant skin with specialized dermatologists. We provide the latest treatments for acne, pigmentation, hair loss, and skin diseases, using advanced techniques to ensure the best results for your skin.")}}</p>
-                            <a href="#">{{__("Learn more")}}</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4 col-sm-6 col-xs-12">
-                    <div class="discover-box" style="background-image:url({{asset('siteassets/images/discover/3.svg')}})">
-                        <div class="discover-box-content">
-                            <span>{{__("Dentistry")}}</span>
-                            <p>{{__("A healthy smile starts with strong teeth! We offer all dental care services, from cleaning and whitening to implants and orthodontics, ensuring optimal oral health and a long-lasting bright smile.")}}</p>
-                            <a href="#">{{__("Learn more")}}</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
         </div>
@@ -386,16 +368,17 @@
                     <span class="pre-title site-color">{{__('Our trusted partners')}}</span>
                     <h2 class="main-title"> {{__('Insurance Partners: Renowned')}}</h2>
                 </div>
+                <a href="{{ route('Site.partners.index') }}" class="site-color">
+                    {{__("View more Partners")}}
+                </a>
             </div>
             <p class="main-para">{{__('Our company takes')}}</p>
 
             <div class="flex-between align-center pdt">
-                <img src="{{asset('siteassets/images/parteners/1.svg')}}" alt="">
-                <img src="{{asset('siteassets/images/parteners/2.svg')}}" alt="">
-                <img src="{{asset('siteassets/images/parteners/3.svg')}}" alt="">
-                <img src="{{asset('siteassets/images/parteners/4.svg')}}" alt="">
-                <img src="{{asset('siteassets/images/parteners/5.svg')}}" alt="">
-                <img src="{{asset('siteassets/images/parteners/6.svg')}}" alt="">
+                @foreach ($insurance_partners as $partner)
+                    <img src="{{asset($partner->img)}}">
+                @endforeach
+
             </div>
 
         </div>

@@ -126,7 +126,7 @@ Route::group(['middleware' => 'auth:admin'], function() {
 
     // ajax
     Route::group(['prefix' => 'ajax' , 'name'=>'ajax'], function() {
-        Route::get('subSpecialties/{id}' ,[AjaxController::class, 'subSpecialties'])->name('sup-specialtie');
+        Route::get('subSpecialties/{id}' ,[AjaxController::class, 'subSpecialties'])->name('ajax.sup-specialtie');
     });
 
     Route::resource('medical-tourism-services', MedicalTourismServiceController::class);
