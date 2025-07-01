@@ -15,7 +15,7 @@ class SocialMediaController extends Controller
 {
     //
     use fileTrait;
-    
+
     public function index(Builder $builder,Request $request){
 
         if (request()->ajax()) {
@@ -27,17 +27,15 @@ class SocialMediaController extends Controller
                 }
             })
             ->editColumn('created_at', function ($row) {
-                return Carbon::parse($row->created_at)->format('d-m-Y'); 
+                return Carbon::parse($row->created_at)->format('d-m-Y');
             })
             ->addColumn('actions', function ($row) {
                 $data="";
-              
-            
+
+
                 return '
                     <a href="'.route('Admin.socialmedia.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
-
-
                     ';
             })
             ->rawColumns(['actions'])
@@ -74,7 +72,7 @@ class SocialMediaController extends Controller
         $data = SocialMedia::find($id);
         return view('Admin.socialMedia.edit',compact('data'));
      }
- 
+
 
     public function update(Request $request,$id){
         if($request->file!=null)
@@ -86,8 +84,10 @@ class SocialMediaController extends Controller
     }
 
 
-    public function show($id){
-
+    public function destroy(Request $request)
+    {
+        SocialMedia::find($request->id)->delete();
+        return back();
     }
 
 }

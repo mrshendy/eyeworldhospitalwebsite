@@ -33,13 +33,13 @@
             <input class="form-control" name="{{$locale}}[address]"   value="{{ isset($data) ? $data->translateOrNew($locale)->address : old($locale . '.address')  }}" type="text" required>
         @endforeach
 
-        <label>{{ __('system.'.$locale.'.phone') }}</label>
+        <label>{{ __('Phone') }}</label>
         <input class="form-control" name="phone" value="{{ isset($data) ? $data->phone : old('phone') }}" type="text" required>
 
-        <label>{{ __('system.'.$locale.'.secondary_phone') }}</label>
+        <label>{{ __('Secondary Phone') }}</label>
         <input class="form-control" name="secondary_phone" value="{{ isset($data) ? $data->secondary_phone : old('secondary_phone') }}" type="text">
 
-        <label>{{ __('system.'.$locale.'.email') }}</label>
+        <label>{{ __('Email') }}</label>
         <input class="form-control" name="email" value="{{ isset($data) ? $data->email : old('email') }}" type="email" required>
 
         <div>
