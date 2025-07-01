@@ -497,6 +497,20 @@
               </a>
             </li>
 
+            <li class="menu-item">
+              <a href="{{route('Admin.slider.index')}}" class="menu-link">
+                <i class="ri-equalizer-line"> </i>
+                <div> {{__('Sliders')}}</div>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="{{route('Admin.settings')}}" class="menu-link">
+                <i class="ri-settings-3-fill"> </i>
+                <div>{{__('Settings')}}</div>
+              </a>
+            </li>
+
 
 
 

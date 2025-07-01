@@ -2,7 +2,7 @@
 
 return [
     App\Providers\AppServiceProvider::class,
-    Yajra\DataTables\DataTablesServiceProvider::class,
+    App\Providers\ViewServiceProvider::class,
     RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-
+    Yajra\DataTables\DataTablesServiceProvider::class,
 ];

@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
     InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController,
-    ReservationController,DoctorAppointmentController, MedicalAcademyController
+    ReservationController,DoctorAppointmentController, MedicalAcademyController, SliderController, SettingController
    ,UserController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController, MedicalAcademyInfoController, MedicalAcademyVideoController,LiberaryTopicController,BookController, BookInfoController, CartController};
 
 
@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'libraryTopic'        => LiberaryTopicController::class,
         'books'              => BookController::class,
         'cart'              => CartController::class,
-
+        'slider'            => SliderController::class
     ]);
 
 
@@ -87,7 +87,7 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::get('eye-health-detail' ,[EyeHealthInfoController::class, 'detail'])->name('eye-health-detail');
     Route::post('eye-health-detail-update' ,[EyeHealthInfoController::class, 'update'])->name('eye-health-detail.update');
 
-        Route::get('team-info-detail' ,[TeamInfoController::class, 'detail'])->name('team-info-detail');
+    Route::get('team-info-detail' ,[TeamInfoController::class, 'detail'])->name('team-info-detail');
     Route::post('team-info-detail-update' ,[TeamInfoController::class, 'update'])->name('team-info.update');
 
 
@@ -145,7 +145,8 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::get('book-info' ,[BookInfoController::class, 'detail'])->name('book-info-detail');
     Route::post('book-info-update' ,[BookInfoController::class ,'update'])->name('book-info.update');
 
-
+    Route::get('settings' ,[SettingController::class, 'index'])->name('settings');
+    Route::post('settings-update' ,[SettingController::class, 'update'])->name('settings.update');
 
 });
 

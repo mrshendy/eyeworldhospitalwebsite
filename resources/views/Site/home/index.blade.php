@@ -25,72 +25,26 @@
     <!-- Slider Section -->
     <article class="slider">
         <div class="owl-slider owl-carousel">
-            <div class="item" style="background-image:url({{asset('siteassets/images/slider/1.jpg')}})">
-                <div class="container h-100">
-                    <div class="slider-details h-100 flex-column">
-                        <h4 class="slider-pre-title">
-                            <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
-                            <span> {{__('Dunia Al-Oyoun Hospital - Your Vision, Your Trust')}}!</span>
-                        </h4>
-                        <h2 class="slider-title">
-                                {{__('The latest ophthalmology techniques')}}  <br> {{__('Your hands are with outstanding experts.')}}
-                        </h2>
-                        <p class="slider-desc">
-                            {{__('We provide comprehensive and specialized ophthalmology services with a team of consultants.')}}   <br> وأحدث الأجهزة لتوفير رعاية طبية عالية الجودة لعينيك
-                        </p>
+            @foreach ($sliders as $slider)
+                <div class="item" style="background-image:url({{asset('uploads/sliders/' . $slider->img)}})">
+                    <div class="container h-100">
+                        <div class="slider-details h-100 flex-column">
+                            <h4 class="slider-pre-title">
+                                <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
+                                <span>{{ $slider->title }} !</span>
+                            </h4>
+                            <h2 class="slider-title">
+                                    {{ $slider->sub_title }}
+                            </h2>
+                            <p class="slider-desc">
+                                {{ $slider->description }}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="item" style="background-image:url({{asset('siteassets/images/slider/2.jpg')}})">
-                <div class="container h-100">
-                    <div class="slider-details h-100 flex-column">
-                        <h4 class="slider-pre-title">
-                            <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
-                            <span>     {{__('Your vision is your future, and Dunia Al-Oyoun is your place.')}}</span>
-                        </h4>
-                        <h2 class="slider-title">
-                            {{__("Global standards in disease treatment.")}}     <br> {{__("Eyes in the hands of experts.")}}
-                        </h2>
-                        <p class="slider-desc">
-                           {{__("Whether you're looking for solutions for cataracts, retina issues, or vision correction.")}}  <br> {{__("Dunia Al-Oyoun Hospital provides you with comprehensive medical care around the clock.")}}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="item" style="background-image:url({{asset('siteassets/images/slider/3.jpg')}})">
-                <div class="container h-100">
-                    <div class="slider-details h-100 flex-column">
-                        <h4 class="slider-pre-title">
-                            <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
-                            <span>{{__("Your eyes deserve the best, and we are here to make it happen.")}} </span>
-                        </h4>
-                        <h2 class="slider-title">
-                                {{__("The best ophthalmology team with the latest technology.")}}<br>   {{__("Advanced surgical techniques.")}}
-                        </h2>
-                        <p class="slider-desc">
-                            {{__("From consultants to the latest equipment, we offer a distinguished medical experience at Dunia Al-Oyoun.")}}  <br>  {{__("Aligned with the highest quality standards and personalized care for every case.")}}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="item" style="background-image:url({{asset('siteassets/images/slider/4.jpg')}})">
-                <div class="container h-100">
-                    <div class="slider-details h-100 flex-column">
-                        <h4 class="slider-pre-title">
-                            <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
-                            <span>{{__("Your vision care is our priority at Dunia Al-Oyoun.")}}</span>
-                        </h4>
-                        <h2 class="slider-title">
-                            {{__("More than one million medical examinations.")}}<br>{{__("Serving your vision with excellence.")}}
-                        </h2>
-                        <p class="slider-desc">
-                            {{__("Dunia Al-Oyoun Hospital provides specialized and comprehensive eye care.")}}<br>   {{__("To meet your needs with precision and the highest possible quality.")}}
-                        </p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
-        <div class="owl-numbers">04-01</div>
+        <div class="owl-numbers">0{{ $sliders->count() }}-01</div>
         <div class="owl-thumbnails"></div> <!-- Custom Dots Container -->
     </article>
     <!-- Slider Section -->

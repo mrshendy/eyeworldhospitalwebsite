@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{About,Quetion,ContactUs, Conference, InsurancePartner, Specialtie};
+use App\Models\{About,Quetion,ContactUs, Conference, InsurancePartner, Specialtie, Slider};
 use Alert;
 
 class HomeController extends Controller
@@ -17,7 +17,8 @@ class HomeController extends Controller
         $conferences = Conference::orderBy('created_at', 'desc')->take(4)->get();
         $insurance_partners = InsurancePartner::orderBy('created_At', 'desc')->take(4)->get();
         $specialities = Specialtie::orderBy('created_At', 'desc')->take(3)->get();
-        return view('Site.home.index',compact('about','quetions', 'conferences', 'insurance_partners', 'specialities'));
+        $sliders = Slider::get();
+        return view('Site.home.index',compact('about','quetions', 'conferences', 'insurance_partners', 'specialities', 'sliders'));
     }
 
     public function contactUs(Request $request){

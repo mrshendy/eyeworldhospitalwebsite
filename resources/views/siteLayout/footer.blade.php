@@ -5,11 +5,11 @@
             <div class="col-6 col-md-6 col-sm-12">
                 <div class="footer-content">
                     <div class="footer-logo">
-                    <img src="{{asset('siteassets/images/footer/footer-logo.svg')}}" alt="">
+                    <img src="{{asset('uploads/settings/' . $settings->logo)}}" alt="">
                     </div>
-                    <h2 class="footer-title">{{__('Dunya Eye Hospital is a leader in providing comprehensive and advanced medical services to meet your healthcare needs.')}}</h2>
+                    <h2 class="footer-title">{{ $settings->title }}</h2>
                     <p class="footer-desc">
-                          {{__('Dunya Al-Uloon Hospital is your top destination in the field of ophthalmology, offering comprehensive services from precise diagnosis to advanced treatments. Our team consists of elite specialists in all areas of eye care, utilizing the latest technology to provide the best possible healthcare for our patients.')}}
+                        {{ $settings->description }}
                     </p>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                             <img src="{{asset('siteassets/images/footer/location.svg')}}" alt="">
                             <strong>{{__('address')}} : </strong>
                         </div>
-                        <p>12 مصدق، الدقي، الدقي، محافظة الجيزة 12611</p>
+                        <p>{{ $settings->address }}</p>
                     </li>
 
                     <li>
@@ -28,7 +28,7 @@
                             <img src="{{asset('siteassets/images/footer/call.svg')}}" alt="">
                             <strong>{{__('phone number')}} : </strong>
                         </div>
-                        <p>01234567890 ،  01234567890</p>
+                        <p>{{ $settings->phone }} ،  {{ $settings->secondary_phone }}</p>
                     </li>
 
                     <li>
@@ -36,7 +36,7 @@
                             <img src="{{asset('siteassets/images/footer/msg.svg')}}" alt="">
                             <strong>{{__('email')}}: </strong>
                         </div>
-                        <p>info@eyeworldhospital.com</p>
+                        <p>{{ $settings->email }}</p>
                     </li>
                 </ul>
             </div>
