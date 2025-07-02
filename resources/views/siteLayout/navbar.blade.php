@@ -50,7 +50,7 @@
 								<ul class="sub-menu list-unstyled">
 									<li><a href="{{route('Site.medical-academy.index')}}">{{ __("Medical Academy") }}</a></li>
 									<li><a href="{{route('Site.books.index')}}">{{__('Books')}}</a></li>
-					            	<li class="menu-item"><a href="{{route('Site.conference.index')}}"> {{__('medical_conferences')}}</a></li>
+					            	<li class="menu-item"><a href="{{route('Site.conference.index')}}"> {{__('Medical Conferences')}}</a></li>
 								</ul>
 						</li>
 					</ul>
