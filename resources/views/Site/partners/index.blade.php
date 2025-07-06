@@ -3,7 +3,7 @@
 
 
 <main id="main">
-		
+
     <!-- Banner -->
     <article class="banner">
         <img src="{{asset('siteassets/images/specializations/main.svg')}}">
@@ -21,7 +21,7 @@
                         <span class="pre-title site-color">{{$info->title}} </span>
                         <h2 class="main-title"> {{$info->subtitle}}</h2>
                         <p class="main-para">{{$info->desc}}</p>
-                    </div>	
+                    </div>
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
@@ -32,7 +32,7 @@
             <!-- About  -->
 
 
-                
+
 
         </div>
     </article>
@@ -49,7 +49,7 @@
                                 <h3>أورام العين</h3>
                             </div>
                             <i class="fa-solid fa-chevron-left"></i>
-                        </a>				
+                        </a>
 
                         <a href="" class="aside-tab flex-between align-center">
                             <div class="flex-1">
@@ -129,10 +129,10 @@
                         <div class="col-4 col-md-6 col-sm-12">
                             <div class="text-box text-center">
                                 <div class="partener-image">
-                                    <img src="../images/videos/medical/parteners/1.svg" alt="">
+                                    <img src="{{asset($row->img)}}" alt="">
                                 </div>
                                 <h4>{{$row->title}}</h4>
-                                
+
                                 <a href="#" class="show-profile">
                                      {{__('Book your appointment now')}}
                                 </a>
@@ -140,13 +140,13 @@
                         </div>
                         @endforeach
 
-                     
 
-            
-            
-  
-    
-        
+
+
+
+
+
+
 
                     </div>
                 </div>

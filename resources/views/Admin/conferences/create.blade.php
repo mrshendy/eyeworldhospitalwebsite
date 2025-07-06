@@ -162,7 +162,6 @@
     flatpickr(".flatpickr", {
         enableTime: false,
         dateFormat: "Y-m-d",
-        minDate: "today"
     });
 </script>
 <script>

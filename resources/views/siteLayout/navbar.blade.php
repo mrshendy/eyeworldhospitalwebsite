@@ -43,8 +43,8 @@
 								</ul>
 							</li>
 
-						<li class="menu-item"><a href="{{route('Site.medicalDevices.index')}}"> {{__('medical devices')}}</a></li>
-						<li class="menu-item"><a href="{{route('Site.medicalTourism.index')}}"> {{__('medical_tourisms')}}</a></li>
+						<li class="menu-item"><a href="{{route('Site.medicalDevices.index')}}"> {{__('Medical Devices')}}</a></li>
+						<li class="menu-item"><a href="{{route('Site.medicalTourism.index')}}"> {{__('Medical Tourisms')}}</a></li>
 						<li class="menu-item has-children">
 							<a href="#">{{__('doctors')}}</a>
 								<ul class="sub-menu list-unstyled">

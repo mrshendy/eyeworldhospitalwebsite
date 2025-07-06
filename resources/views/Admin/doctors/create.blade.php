@@ -63,7 +63,7 @@
                                     <input class="form-control" name="{{$locale}}[title]"   value="{{old('title')}}" type="text" required>
 
                                     <label>{{ __('system.'.$locale.'.subtitle') }}</label>
-                                    <input class="form-control" name="{{$locale}}[sub_title]"   value="{{old('sub_title')}}" type="text" required>
+                                    <input class="form-control" name="{{$locale}}[sub_title]"   value="{{old('sub_title')}}" type="text">
 
                                     <label>{{ __('system.'.$locale.'.breif') }}</label>
                                     <textarea class="form-control" name="{{$locale}}[breif]"  rows="3"  required>{{old('job_title')}} </textarea>

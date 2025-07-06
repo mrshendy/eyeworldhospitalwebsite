@@ -54,7 +54,7 @@
     </div>
 </article>
 <!-- Contact us Section -->
-@section('scripts')
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const contactForm = document.getElementById('contact-form');
@@ -101,4 +101,3 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@endsection

@@ -71,86 +71,82 @@
 			</div>
 		</article>
 
-
-
         @include('components.contact-us')
 	</main>
 @endsection
-
-
 @section('scripts')
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
 
-            const isLoggedIn = @json(auth()->check());
-            const NOT_LOGIN = @json(__('You Must Login First'));
-            const NOT_LOGIN_TEXT = @json(__('You Must Login to Add Book To Cart'));
-            const LOGIN = @json(__('Login'));
-            const EXIT = @json(__('Exit'));
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const isLoggedIn = @json(auth()->check());
+                const NOT_LOGIN = @json(__('You Must Login First'));
+                const NOT_LOGIN_TEXT = @json(__('You Must Login to Add Book To Cart'));
+                const LOGIN = @json(__('Login'));
+                const EXIT = @json(__('Exit'));
 
 
 
-            if (!isLoggedIn) {
-                Swal.fire({
-                    title: NOT_LOGIN,
-                    text: NOT_LOGIN_TEXT,
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: LOGIN,
-                    cancelButtonText: EXIT
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = "{{ route('Site.login') }}";
-                    }
-                });
-                return;
-            }
+                if (!isLoggedIn) {
+                    Swal.fire({
+                        title: NOT_LOGIN,
+                        text: NOT_LOGIN_TEXT,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: LOGIN,
+                        cancelButtonText: EXIT
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "{{ route('Site.login') }}";
+                        }
+                    });
+                    return;
+                }
 
-            const bookId = this.dataset.bookId;
-            price = this.dataset.price;
-            const type = this.dataset.type;
+                const bookId = this.dataset.bookId;
+                price = this.dataset.price;
+                const type = this.dataset.type;
 
-            fetch("{{ route('Site.cart.add') }}", {
-                method: "POST",
-                headers: {
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                book_id: bookId,
-                type: type,
-                price: price,
-                quantity: 1
-            })
-            })
-            .then(res => res.json())
-            .then(data => {
-                Swal.fire({
-                    toast: true,
-                    position: 'top-end',
-                    icon: data.status === 'success' ? 'success' : 'error',
-                    title: data.message,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            })
-            .catch(err => {
-                Swal.fire({
-                    toast: true,
-                    position: 'top-end',
-                    icon: 'error',
-                    title: 'Something went wrong!',
-                    showConfirmButton: false,
-                    timer: 2000
+                fetch("{{ route('Site.cart.add') }}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                    book_id: bookId,
+                    type: type,
+                    price: price,
+                    quantity: 1
+                })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-end',
+                        icon: data.status === 'success' ? 'success' : 'error',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                })
+                .catch(err => {
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Something went wrong!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 });
             });
         });
     });
-});
 </script>
-
 
 @endsection

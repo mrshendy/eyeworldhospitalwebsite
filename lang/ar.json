@@ -165,8 +165,8 @@
     "Main":"الرئيسيه",
     "specialties":"تخصصاتنا",
     "teams":"فريقنا",
-    "medical devices":"الاجهزه الطبيه",
-    "Medical tourism":"السياحه العلاجيه",
+    "Medical Devices":"الاجهزه الطبيه",
+    "Medical Tourisms":"السياحه العلاجيه",
     "cart":"السله",
     "login":"تسجيل الدخول",
     "Success":"تم بنجاح",
@@ -218,6 +218,7 @@
     "Medical Conferences" : "المؤتمرات الطبية",
     "create conference" : "انشاء مؤتمر",
     "medical_conference" : "المؤتمر الطبي",
+    "medical_conferences" : "المؤتمرات الطبية",
     "create_medical_conference" : "انشاء مؤتمر طبي",
     "show_details": "عرض التفاصيل",
     "detail_description" : "الوصف التفصيلي",
@@ -362,6 +363,7 @@
       "Settings Details" : "تفاصيل الاعدادت",
       "Settings" : "الاعدادت",
       "Social Media" : "التواصل الاجتماعي",
-      "Secondary Phone" : "الهاتف الثاني"
+      "Secondary Phone" : "الهاتف الثاني",
+      "Whatsapp" : "واتساب"
     }
 

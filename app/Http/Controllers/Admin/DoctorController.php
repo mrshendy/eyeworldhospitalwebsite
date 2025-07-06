@@ -20,7 +20,7 @@ class DoctorController extends Controller
 
 
         if (request()->ajax()) {
-            
+
             return DataTables::of(Doctor::query())
             ->filter(function ($query) use ($request) {
                 if ($request->has('search') && !empty($request->input('search')['value'])) {
@@ -36,13 +36,13 @@ class DoctorController extends Controller
                 return Carbon::parse($row->created_at)->format('d-m-Y');
             })
             ->addColumn('job_title', function ($row) {
-                return $row->info?->job_title; 
+                return $row->info?->job_title;
             })
             ->addColumn('specialtie', function ($row) {
-                return $row->specialtie?->specialtie->title; 
+                return $row->specialtie?->specialtie->title;
             })
             ->addColumn('name', function ($row) {
-                return $row->info?->name; 
+                return $row->info?->name;
             })
             ->addColumn('actions', function ($row) {
                 $data="";
@@ -83,7 +83,7 @@ class DoctorController extends Controller
          $subspecialties = SubSpecialtie::where('specialtie_id',$specialties[0]->id)->get();
          $InsurancePartners = InsurancePartner::get();
          return view('Admin.doctors.create',compact('specialties','subspecialties','InsurancePartners'));
-    } 
+    }
 
     public function store(Request $request){
 
@@ -94,7 +94,7 @@ class DoctorController extends Controller
             'img' =>$request->img,
         ]);
         $request->merge(['doctor_id' => $doctor->id]);
-      
+
         $infodata=[];  $serviceInfo=[]; $serviceInfos=[];
         $infodata['doctor_id'] = $doctor->id;
         $serviceInfo['doctor_id'] = $doctor->id;
@@ -103,7 +103,7 @@ class DoctorController extends Controller
                 'name'     =>$request->$locale['name'],
                 'job_title' =>$request->$locale['job_title'],
                 'title' =>$request->$locale['title'],
-                'sub_title' =>$request->$locale['sub_title'],
+                'sub_title' =>$request->$locale['sub_title'] ?? '',
                 'breif' =>$request->$locale['breif'],
                 'desc' =>$request->$locale['desc'],
             ];
@@ -121,7 +121,7 @@ class DoctorController extends Controller
             DoctorServiceInfo::create($info);
 
         }
-       
+
         DoctorSpecialtie::create($request->only(['specialtie_id','doctor_id']));
         if($request->sub_specialtie_ids!=null){
             foreach($request->sub_specialtie_ids as $sub_specialtie_id){
@@ -131,8 +131,8 @@ class DoctorController extends Controller
                 ]);
             }
         }
-        
-      
+
+
         if($request->partner_ids!=null){
             foreach($request->partner_ids as $partner_id){
                 DoctorInsurancePartner::create([
@@ -141,13 +141,13 @@ class DoctorController extends Controller
                 ]);
             }
         }
-         
+
         DoctorPrice::create([
             'doctor_id'   => $doctor->id,
             'price'       => $request->price,
             'urgent_price'=> $request->urgent_price
         ]);
-     
+
         return redirect()->route('Admin.doctors.index');
     }
 
@@ -186,7 +186,7 @@ class DoctorController extends Controller
                 'name'     =>$request->$locale['name'],
                 'job_title' =>$request->$locale['job_title'],
                 'title' =>$request->$locale['title'],
-                'sub_title' =>$request->$locale['sub_title'],
+                'sub_title' =>$request->$locale['sub_title'] ?? '',
                 'breif' =>$request->$locale['breif'],
                 'desc' =>$request->$locale['desc'],
             ];
@@ -194,8 +194,8 @@ class DoctorController extends Controller
         $doctorinfo = DoctorInfo::where('doctor_id',$doctor->id)->first();
         $doctorinfo->update($infodata);
 
-        
-        // update doctor service info 
+
+        // update doctor service info
         DoctorServiceInfo::where('doctor_id',$doctor->id)->delete();
         foreach($request->info as $info){
             foreach (config('translatable.locales') as $locale){
@@ -231,14 +231,14 @@ class DoctorController extends Controller
             ])->delete();
             }
 
-        // update specialtie    
+        // update specialtie
         DoctorSpecialtie::where('doctor_id',$doctor->id)->update([
             'specialtie_id' =>$request->specialtie_id
         ]);
 
 
         DoctorSubSpecialtie::where('doctor_id',$doctor->id)->delete();
-        
+
         if($request->sub_specialtie_ids!=null){
             foreach($request->sub_specialtie_ids as $sub_specialtie_id){
                 DoctorSubSpecialtie::create([
@@ -247,7 +247,7 @@ class DoctorController extends Controller
                 ]);
             }
         }
-      
+
          DoctorPrice::where(['doctor_id'=>$doctor->id])->update([
             'doctor_id'   => $doctor->id,
             'price'       => $request->price,
@@ -267,7 +267,7 @@ class DoctorController extends Controller
 
     public function subSpecialtie($id){
 
-       
-        
+
+
     }
 }

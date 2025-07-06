@@ -42,6 +42,9 @@
         <label>{{ __('Email') }}</label>
         <input class="form-control" name="email" value="{{ isset($data) ? $data->email : old('email') }}" type="email" required>
 
+        <label>{{ __('Whatsapp') }}</label>
+        <input class="form-control" name="whatsapp_number" value="{{ isset($data) ? $data->whatsapp_number : old('whatsapp_number') }}" type="number" required>
+
         <div>
             <button type="submit" class="btn  mt-4" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>
         </div>
