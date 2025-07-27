@@ -42,7 +42,7 @@ class Conference extends Model
         ])->withTimestamps();
     }
 
-     public function globalDoctors()
+    public function globalDoctors()
     {
         return $this->hasMany(ConferenceDoctor::class)->where('type', 'global');
     }

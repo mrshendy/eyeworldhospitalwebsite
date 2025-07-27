@@ -16,9 +16,9 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->group(base_path('routes/Admin.php'));
 
             Route::name('Site.')
-                ->middleware(['web'])  
+                ->middleware(['web'])
                 ->group(base_path('routes/Site.php'));
-          
+
         },
     )
     ->withMiddleware(function (Middleware $middleware) {
@@ -32,8 +32,13 @@ return Application::configure(basePath: dirname(__DIR__))
             'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
             'Alert'                   => RealRashid\SweetAlert\Facades\Alert::class,
         ])
-        ->redirectGuestsTo(fn () => route('Admin.login'));
-
+        ->redirectGuestsTo(function (){
+            $path = request()->path();
+            if (str_contains($path, '/Admin') || request()->is('*/Admin*')) {
+                return route('Admin.login');
+            }
+            return route('Site.login');
+        });
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

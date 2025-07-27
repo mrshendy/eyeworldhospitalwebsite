@@ -48,26 +48,26 @@
 					<div class="col-6 col-md-6 col-sm-12">
 						<div class="visit-box">
 							<h2 class="main-title">
-								زيارة المستشفى
+								{{ __('Visit Hospital') }}
 							</h2>
 							<p class="main-para">
-								نحن في انتظارك لزيارة مستشفانا، حيث نوفر لك تجربة علاجية استثنائية مع أحدث التقنيات.
-							</p>
-							<a href="#" class="visit">
-								حجز زيارة
+                                {{ __('We look forward to welcoming you to our hospital, where we offer you an exceptional treatment experience using the latest technologies.') }}
+                            </p>
+							<a href="{{ route('Site.teams.index', 1) }}" class="visit">
+								{{ __('Book a visit') }}
 							</a>
 						</div>
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
 						<div class="visit-box">
 							<h2 class="main-title">
-								مناقشة اونلاين
+								{{ __('Online Discussion') }}
 							</h2>
 							<p class="main-para">
-								تواصل مع أطبائنا عبر الإنترنت لبدء استشارتك الطبية، مع أفضل النصائح والعلاج المتاح.
-							</p>
-							<a href="#" class="visit">
-								حجز مناقشة
+                                {{ __('Connect with our doctors online to start your medical consultation, with the best advice and treatment available.') }}
+                            </p>
+							<a href="{{ route('Site.teams.index', 1) }}" class="visit">
+								{{ __('Book a discussion') }}
 							</a>
 						</div>
 					</div>

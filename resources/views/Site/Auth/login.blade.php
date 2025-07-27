@@ -1,7 +1,7 @@
 @extends('site')
 @section('content')
 	<main id="main">
-		
+
 		<!-- sign section -->
 		<article class="sign pd">
 
@@ -40,7 +40,7 @@
 										<div class="field">
 											<input type="email" name="email" placeholder="example@email.com">
 										</div>
-									</div>			
+									</div>
 								</div>
 								<div class="form-control">
 									<div class="form-field">
@@ -49,7 +49,7 @@
 											<input type="password" name="password" placeholder="">
 											<img class="eye" src="../images/login/eye.svg">
 										</div>
-									</div>			
+									</div>
 								</div>
 
 								@if ($errors->any())
@@ -73,14 +73,14 @@
 								<div class="form-control">
 									<input type="submit" class="btn w-100" name="register" value="تسجيل الدخول">
 								</div>
-								<a href="{{route('Site.register')}}" class="have-not-account">ليس لديك حساب؟ أنشيء حساب</a>
+								<a href="{{route('Site.register')}}" class="have-not-account">{{__("don't have an account? create one")}}</a>
 							</form>
 
-							
+
 						</div>
 						{{-- <div class="log-doctor">
 							<form class="custom-form text-right"  action="">
-												
+
 
 								<div class="form-control">
 									<div class="form-field">
@@ -88,7 +88,7 @@
 										<div class="field">
 											<input type="email" name="email" placeholder="example@email.com">
 										</div>
-									</div>			
+									</div>
 								</div>
 								<div class="form-control">
 									<div class="form-field">
@@ -97,7 +97,7 @@
 											<input type="password" name="password" placeholder="">
 											<img class="eye" src="../images/login/eye.svg">
 										</div>
-									</div>			
+									</div>
 								</div>
 
 								<div class="form-control">

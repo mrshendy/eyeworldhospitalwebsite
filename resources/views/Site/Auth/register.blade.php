@@ -159,7 +159,7 @@
 								</div>
 
 
-								<a href="#" class="have-not-account">{{__('don\'t have an account? create one')}}</a>
+								<a href="#" class="have-not-account">{{__("don't have an account? create one")}}</a>
 							</form>
 						</div>
 						<div class="log-patient active">

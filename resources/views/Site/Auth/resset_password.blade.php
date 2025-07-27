@@ -5,12 +5,18 @@
 		<div class="activation pd">
 			<h4>{{__('forget password')}}</h4>
 			<p>{{__('Please log in to your account so we can create a new password') }}.</p>
-			<form class="custom-form">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <form class="custom-form" method="POST" action="{{ route('Site.resetpassword.send') }}">
+                @csrf
 				<div class="form-control">
 					<div class="form-field">
 						<label>{{__('phone')}}</label>
 						<div class="field">
-							<input type="text" name="text" placeholder="+201012345678">
+                            <input type="text" name="phone" placeholder="+201012345678" required>
 						</div>
 					</div>
 				</div>

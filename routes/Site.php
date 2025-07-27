@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
     RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController,ReservationController,
-    AuthController,ConferenceController, MedicalAcademyController,BookController, CartController, SinglePageController};
+    AuthController,ConferenceController, UserController, MedicalAcademyController,BookController, CartController, SinglePageController};
 
 Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
+    Route::get('/download/book/{book}', [BookController::class, 'download'])->name('book.download');
 
     Route::resources([
         'home' => HomeController::class,
@@ -45,10 +46,6 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('conferences', [ConferenceController::class, 'index'])->name('conference.index');
     Route::get('conferences/{id}', [ConferenceController::class, 'show'])->name('conference.show');
 
-
-    Route::get('reservation/{doctor_id}/{reservationType}', [ReservationController::class, 'index'])->name('reservation.index');
-    Route::post('reservation', [ReservationController::class, 'store'])->name('reservation.store');
-
     Route::get('reservation/appoint_ment/{doctor_id}/{date}', [ReservationController::class, 'doctorAppointment'])->name('reservation.Appointment');
 
 
@@ -56,6 +53,18 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::post('register', [AuthController::class, 'register'])->name('register');
     Route::get('login', [AuthController::class, 'loginIndex'])->name('login.index');
     Route::get('reset-password', [AuthController::class, 'resetpassword'])->name('resetpassword');
+    Route::post('reset-password', [AuthController::class, 'sendResetLink'])->name('resetpassword.send');
+    Route::get('/reset-password/form', [AuthController::class, 'showResetForm'])->name('password.reset.form');
+    Route::post('/reset-password/update', [AuthController::class, 'resetPasswordPost'])->name('password.reset.update');
+
+    Route::get('doctor/conferences', [UserController::class, 'doctor_conferences'])->name('doctor.conferences');
+    Route::get('doctor/academy', [UserController::class, 'doctor_academy'])->name('doctor.academy');
+    Route::get('doctor/requests', [UserController::class, 'doctor_requests'])->name('doctor.requests');
+    Route::get('doctor/requests/{order}', [UserController::class, 'show_order'])->name('doctor.order.show');
+    Route::get('doctor/books', [UserController::class, 'doctor_books'])->name('doctor.books');
+
+
+
 
 
     Route::post('login', [AuthController::class, 'login'])->name('login');
@@ -78,12 +87,23 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
         Route::get('checkout', [CartController::class, 'checkout'])->name('Checkout');
         Route::post('/checkout', [CartController::class, 'make_order'])->name('Order.make');
+        Route::get('reservation/{doctor_id}/{reservationType}', [ReservationController::class, 'index'])->name('reservation.index');
+        Route::post('reservation', [ReservationController::class, 'store'])->name('reservation.store');
+        Route::get('user_reservations', [ReservationController::class, 'user_reservations'])->name('user_reservations');
+        Route::get('user_reservations/{id}', [ReservationController::class, 'show'])->name('user_reservations.show');
+        Route::post('user_reservations/{id}/cancel', [ReservationController::class, 'cancel'])->name('user_reservations.cancel');
+        Route::get('/user/settings', [UserController::class, 'edit'])->name('user.settings');
+        Route::post('/user/settings', [UserController::class, 'update'])->name('user.settings.update');
+        Route::get('/user/delete', [UserController::class, 'delete_account'])->name('user.settings.delete_account');
+        Route::delete('/user/delete', [UserController::class, 'destroy'])->name('user.settings.delete');
 
     });
     Route::get('faqs', [SinglePageController::class, 'faqs'])->name('faqs');
     Route::get('terms', [SinglePageController::class, 'terms'])->name('terms');
     Route::get('privacy', [SinglePageController::class, 'privacy'])->name('privacy');
     Route::get('contact-us', [SinglePageController::class, 'contact_us'])->name('contact');
+
+
 
 });
 

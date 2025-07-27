@@ -112,6 +112,7 @@
                             <span>{{ __('Hello') }} {{ collect(explode(' ', Auth::user()->name))->take(3)->implode(' '); }}</span>
                         </a>
                          <ul class="lang user-login list-unstyled">
+                            <li class="mb-4"><a class="dropdown-item" href="{{ route('Site.user.settings') }}">{{ __('Settings') }}</a></li>
                             <li class="active">
                                 <form method="POST" action="{{ route('Site.logout') }}">
                                     @csrf

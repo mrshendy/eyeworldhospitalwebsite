@@ -104,10 +104,11 @@
     <a href="https://wa.me/{{ $settings->whatsapp_number }}" target="_blank">
         <img src="{{asset('siteassets/images/footer/whatsapp.svg')}}">
     </a>
-
-    <a href="#">
-        <img src="{{ asset('siteassets/images/footer/dash.svg') }}">
-    </a>
+    @auth
+        <a href="{{ route('Site.user_reservations') }}">
+            <img src="{{ asset('siteassets/images/footer/dash.svg') }}">
+        </a>
+    @endauth
 
 </div>
 

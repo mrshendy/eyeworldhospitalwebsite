@@ -54,24 +54,28 @@
                                 <p class="time-date">
                                     <img src="{{ asset('uploads/conferences/calendar.png') }}" alt="" width="32">
                                     @php
-                                    $locale = app()->getLocale();
-                                    \Carbon\Carbon::setLocale($locale);
+                                        $locale = app()->getLocale();
+                                        \Carbon\Carbon::setLocale($locale);
 
-                                    $start = \Carbon\Carbon::parse($conference->start_date);
-                                    $end = \Carbon\Carbon::parse($conference->end_date);
+                                        $start = \Carbon\Carbon::parse($conference->start_date);
+                                        $end = \Carbon\Carbon::parse($conference->end_date);
 
-                                    $startDay = $start->format('d');
-                                    $endDay = $end->format('d');
-                                    if ($locale === 'ar') {
-                                        $month = $start->translatedFormat('F');
-                                    } else {
-                                        $month = $start->format('F');
-                                    }
+                                        $startDay = $start->format('d');
+                                        $endDay = $end->format('d');
 
-                                    $year = $start->format('Y');
+                                        $startMonth = $locale === 'ar' ? $start->translatedFormat('F') : $start->format('F');
+                                        $endMonth = $locale === 'ar' ? $end->translatedFormat('F') : $end->format('F');
+
+                                        $startYear = $start->format('Y');
+                                        $endYear = $end->format('Y');
                                     @endphp
 
-                                <span>{{ $startDay }}-{{ $endDay }} {{ $month }} {{ $year }}</span>
+
+                                    @if ($startMonth === $endMonth && $startYear === $endYear)
+                                        <span>{{ $startDay }} - {{ $endDay }} {{ $startMonth }} {{ $startYear }}</span>
+                                    @else
+                                        <span>{{ $startDay }} {{ $startMonth }} {{ $startYear }} - {{ $endDay }} {{ $endMonth }} {{ $endYear }}</span>
+                                    @endif
                                 </p>
                                 <a href="{{ route('Site.conference.show', $conference->id) }}" class="show-profile">
                                 {{ __('show_details') }}
