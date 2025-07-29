@@ -1211,6 +1211,12 @@ button.show-profile{
     color: #000;
     font-size: 16px;
 }
+.footer-contact-phone h4{
+    margin-bottom: 10px;
+}
+.footer-contact-phone h4, p, strong, a{
+    margin-top: 16px;
+}
 
 .delete_account{
     cursor: pointer;

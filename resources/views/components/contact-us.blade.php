@@ -44,6 +44,25 @@
                         <input type="submit" class="btn"  value="{{__('send')}}">
                     </div>
                 </form>
+                <div class="footer-contact-phone">
+                    <h4>{{ __('Or Contact us through :') }}</h4>
+                    {{-- <img src="{{asset('siteassets/images/footer/call.svg')}}" alt=""> --}}
+                    <strong>{{__('Phone Numbers')}} : </strong>
+                    <a href="tel:{{ preg_replace('/\D+/', '', $settings->phone) }}">
+                        {{ $settings->phone }}
+                    </a>,
+                    <a href="tel:{{ preg_replace('/\D+/', '', $settings->secondary_phone) }}">
+                        {{ $settings->secondary_phone }}
+                    </a>
+                    <p>
+                        <img src="{{asset('siteassets/images/footer/whatsapp.svg')}}" alt="">
+                        <a href="https://wa.me/{{ preg_replace('/\D+/', '', $settings->whatsapp_number) }}" target="_blank">
+                            {{ $settings->whatsapp_number }}
+                        </a>
+                    </p>
+                </div>
+                <div>
+                </div>
             </div>
             <div class="col-6 col-md-6 col-sm-12">
                 <figure class="contact-image">
