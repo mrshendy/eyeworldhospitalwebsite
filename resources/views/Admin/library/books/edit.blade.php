@@ -33,18 +33,18 @@
               <input type="file" name="img" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
 
               <label for="input-file-max-fs">{{__('file')}}</label>
-              <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
+              <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->pdf_file }}" @endisset  />
 
-            
-            
-            
-            
+
+
+
+
              @foreach (config('translatable.locales') as $locale)
                 <div class="col-12">
                     <div>
                         <label>{{ __('system.'.$locale.'.title') }}</label>
                         <input class="form-control" name="{{$locale}}[title]"    value="{{ isset($data) ? $data->translateOrNew($locale)->title : old($locale . '.title')  }}"  type="text" required>
-                
+
                         <label>{{ __('system.'.$locale.'.desc') }}</label>
                         <textarea class="form-control" name="{{$locale}}[desc]" rows="3"   type="text" required>{{ isset($data) ? $data->translateOrNew($locale)->desc : old($locale . '.desc')  }} </textarea>
                       </div>
@@ -61,7 +61,7 @@
                         @foreach($topics as $topic)
                             <option value="{{ $topic->id }}"
                                 @if(isset($data) && $data->topic_id == $topic->id) selected @endif
-                                
+
                                 >{{ $topic->title }}</option>
                         @endforeach
                     </select>
@@ -87,11 +87,11 @@
 
 
 
-           
 
 
 
-           <button type="submit" class="btn mt-2" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>  
+
+           <button type="submit" class="btn mt-2" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>
           </form>
 
 

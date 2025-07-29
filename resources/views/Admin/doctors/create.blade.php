@@ -60,13 +60,13 @@
 
 
                                     <label>{{ __('system.'.$locale.'.title') }}</label>
-                                    <input class="form-control" name="{{$locale}}[title]"   value="{{old('title')}}" type="text" required>
+                                    <input class="form-control" name="{{$locale}}[title]"  value="{{old('title')}}" type="text" required>
 
                                     <label>{{ __('system.'.$locale.'.subtitle') }}</label>
                                     <input class="form-control" name="{{$locale}}[sub_title]"   value="{{old('sub_title')}}" type="text">
 
                                     <label>{{ __('system.'.$locale.'.breif') }}</label>
-                                    <textarea class="form-control" name="{{$locale}}[breif]"  rows="3"  required>{{old('job_title')}} </textarea>
+                                    <textarea class="form-control" name="{{$locale}}[breif]" maxlength="255"  rows="3"  required>{{old('job_title')}} </textarea>
 
                                     <label>{{ __('system.'.$locale.'.desc') }}</label>
                                     <textarea class="form-control" name="{{$locale}}[desc]"  rows="3" required>{{old('desc')}} </textarea>

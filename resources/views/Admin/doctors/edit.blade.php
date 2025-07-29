@@ -38,9 +38,9 @@
 
                         <label for="input-file-max-fs">{{__('img')}}</label>
                         <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
-                      
 
-                     
+
+
 
                            @foreach (config('translatable.locales') as $locale)
                             <div class="col-6">
@@ -48,7 +48,7 @@
 
                                     <label>{{ __('system.'.$locale.'.name') }}</label>
                                     <input class="form-control" name="{{$locale}}[name]"   value="{{ isset($doctor) ? $doctor->info->translateOrNew($locale)->name : old($locale . '.name')  }}" type="text" required>
-                                 
+
 
                                     <label>{{ __('system.'.$locale.'.job_title') }}</label>
                                     <input class="form-control" name="{{$locale}}[job_title]"   value="{{ isset($doctor) ? $doctor->info->translateOrNew($locale)->job_title : old($locale . '.job_title')  }}" type="text" required>
@@ -61,39 +61,39 @@
                                     <input class="form-control" name="{{$locale}}[sub_title]"   value="{{ isset($doctor) ? $doctor->info->translateOrNew($locale)->sub_title : old($locale . '.sub_title')  }}" type="text" required>
 
                                     <label>{{ __('system.'.$locale.'.breif') }}</label>
-                                    <textarea class="form-control" name="{{$locale}}[breif]"  row="3"  value="" type="text" required>{{ isset($doctor) ? $doctor->info->translateOrNew($locale)->breif : old($locale . '.breif')  }} </textarea>
+                                    <textarea class="form-control" name="{{$locale}}[breif]" maxlength="255"  row="3"  value="" type="text" required>{{ isset($doctor) ? $doctor->info->translateOrNew($locale)->breif : old($locale . '.breif')  }} </textarea>
 
                                     <label>{{ __('system.'.$locale.'.desc') }}</label>
                                     <textarea class="form-control" name="{{$locale}}[desc]"  row="3"  value="" type="text" required>{{ isset($doctor) ? $doctor->info->translateOrNew($locale)->desc : old($locale . '.desc')  }} </textarea>
-                            
-                                 
+
+
                                 </div>
                             </div>
                             @endforeach
 
-                  
 
 
-             
+
+
 
 
                         <div class="form-group col-6">
                                 <label>{{ __('urgent price') }}</label>
                                 <input class="form-control" name="urgent_price"   value="{{ isset($doctor) ? $doctor->price?->urgent_price : old('urgent_price')  }}" type="number" required>
-                        </div>   
+                        </div>
 
 
-                        
+
                          <div class="form-group col-6">
                                 <label>{{ __('price') }}</label>
                                 <input class="form-control" name="price"   value="{{ isset($doctor) ? $doctor->price?->price : old('price')}}" type="number" required>
-                        </div>      
+                        </div>
 
 
 
 
                         <div class="form-group col-6">
-                    
+
                             <label>{{ __('specialtie') }}</label>
                             <select class="form-select" id="specialty" name="specialtie_id" aria-label="Default select example">
                                 @foreach ($specialties as $row)
@@ -104,15 +104,15 @@
 
 
                         <div class="form-group col-6">
-                            <label>  {{__('sub specialties')}} </label>    
+                            <label>  {{__('sub specialties')}} </label>
                                 <select name="sub_specialtie_ids[]" id="subSpecialties" class="select2" multiple="multiple">
                                     @foreach ($subspecialties as $row)
                                         <option value="{{$row->id}}"
                                             @foreach ($doctor->subspecialties as $subspecialtie)
                                                  @if($subspecialtie->sub_specialtie_id  == $row->id) selected @endif
                                             @endforeach
-                                           
-                                            
+
+
                                             >{{$row->main_title}}</option>
                                     @endforeach
                                 </select>
@@ -120,14 +120,14 @@
 
 
                         <div class="form-group col-6">
-                            <label>  {{__('Insurance partners')}} </label>    
+                            <label>  {{__('Insurance partners')}} </label>
                                 <select name="partner_ids[]"  class="select2" multiple="multiple">
                                     @foreach ($InsurancePartners  as $row)
-                                        <option value="{{$row->id}}" 
+                                        <option value="{{$row->id}}"
                                             @foreach ($doctor->partners as $partner)
                                               @if($partner->id == $row->id) selected @endif
                                             @endforeach
-                                             
+
                                              >{{$row->title}}</option>
                                     @endforeach
                                 </select>
@@ -149,17 +149,17 @@
                                         <div class="form-group col-5" >
                                             <label>{{ __('system.'.$locale.'.info') }}</label>
                                             <textarea class="form-control" name="info[{{$key}}][{{$locale}}]"   row="2"   type="text" required>{{$doctor->serviceinfo[0]->translateOrNew($locale)->info}}</textarea>
-                                        </div>   
-                                       
-                                        
+                                        </div>
+
+
                                     @endforeach
                                   @endforeach
-                               
-                                 
-                              
-                          
+
+
+
+
                             </div>
-                          
+
 
 
 
@@ -172,15 +172,15 @@
                         </div>
 
 
-                    </div>    
-                    <button type="submit" class="btn  mt-2" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>  
+                    </div>
+                    <button type="submit" class="btn  mt-2" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>
 
-                </form>    
+                </form>
 
             </div>
 
       </div>
- </div>  
+ </div>
 
 @endsection
 
@@ -194,11 +194,11 @@
     $('.select2').select2({
       width: "100%"
     });
-    
-  });
-</script>    
 
-  
+  });
+</script>
+
+
     {{-- <link href="{{asset('select2/js/select2.js')}}"> --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{asset('dropify/dist/js/dropify.min.js')}}"></script>
@@ -282,16 +282,16 @@ $('#add_info').click(function(){
 
    <div class="row" id="info${inputcount}">
         <div class="form-group col-5 mt-2">
-                    
+
             <textarea class="form-control" name="info[${inputcount}][ar]"  row="2"  value="" type="text" required> </textarea>
 
-        </div>   
+        </div>
 
         <div class="form-group col-5 mt-2" >
 
             <textarea class="form-control" name="info[${inputcount}][en]"  row="2"  value="" type="text" required> </textarea>
 
-        </div>   
+        </div>
 
       <div class="col-2 mt-4">
             <div class="InputWithlabel">
@@ -300,7 +300,7 @@ $('#add_info').click(function(){
             </div>
      </div>
 
-    </div> 
+    </div>
   `);
 });
 
