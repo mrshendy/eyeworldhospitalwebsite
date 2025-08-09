@@ -15,14 +15,39 @@ class RightInfoController extends Controller
     }
 
     public function update(Request $request){
-       
-        if($request->img!=null)
-        $request->merge(['img' => $this->MoveImage($request->img,'uploads/customer/video-info')]);
 
         $info = RightInfo::first();
-        $info->update($request->except(['file','_token','_method']));
+
+        $request->validate([
+            'file' => 'nullable|mimes:pdf,doc,docx',
+        ]);
+
+        $updateData = $request->except(['file', '_token', '_method']);
+
+        if ($request->hasFile('file')) {
+            if ($info->file && file_exists(public_path('uploads/files/right_infos/' . basename($info->file)))) {
+                unlink(public_path('uploads/files/right_infos/' . basename($info->file)));
+            }
+            $updateData['file'] = $this->uploadFile($request->file('file'), 'uploads/files/right_infos');
+        }
+
+        $info->update($updateData);
+
         return redirect()->back();
 
     }
+
+    private function uploadFile($file, $path)
+    {
+        if (!file_exists(public_path($path))) {
+            mkdir(public_path($path), 0777, true);
+        }
+
+        $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path($path), $filename);
+
+        return $path . '/' . $filename;
+    }
+
 
 }

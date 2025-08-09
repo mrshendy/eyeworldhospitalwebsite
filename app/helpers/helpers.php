@@ -36,3 +36,13 @@ function checkServiceUrl(){
 function media(){
      return SocialMedia::get();
 }
+
+function active_class($route) {
+    return request()->routeIs($route) ? 'active' : '';
+}
+
+function getSpecialtieIdAttribute()
+{
+    return $this->specialtie?->specialtie_id;
+}
+

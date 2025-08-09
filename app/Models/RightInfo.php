@@ -14,6 +14,7 @@ class RightInfo extends Model  implements TranslatableContract
     protected $guarded=[];
     protected $hidden = ['translations'];
     protected $translationForeignKey = 'info_id';
+
 }
 
 

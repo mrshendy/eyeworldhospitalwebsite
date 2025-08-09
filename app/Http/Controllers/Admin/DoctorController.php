@@ -172,7 +172,7 @@ class DoctorController extends Controller
 
         if($request->file!=null){
             $request->merge(['img' => $this->MoveImage($request->file,'uploads/doctors')]);
-            $doctor->img = $request->img();
+            $doctor->img = $request->img;
         }
 
         $doctor->save();

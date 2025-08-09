@@ -3,7 +3,7 @@
 
 
 <main id="main">
-		
+
     <!-- Banner -->
     <article class="banner">
         <img src="{{asset('siteassets/images/specializations/main.svg')}}">
@@ -22,11 +22,13 @@
                         <h2 class="main-title"> :{{$info->subtitle}}</h2>
                         <p class="main-para">{{$info->desc}}
                         </p>
-                        <a href="#" class="download btn">
-                            الحقوق والواجبات!
-                            <img src="{{asset('siteassets//images/patients/download.svg')}}" width="24" height="24" alt="">
-                        </a>
-                    </div>	
+                        @if($info->file)
+                            <a href="{{ asset($info->file) }}" class="download btn" download>
+                                الحقوق والواجبات!
+                                <img src="{{ asset('siteassets/images/patients/download.svg') }}" width="24" height="24" alt="">
+                            </a>
+                        @endif
+                    </div>
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
@@ -37,7 +39,7 @@
             <!-- About  -->
 
 
-                
+
 
         </div>
     </article>
@@ -96,7 +98,7 @@
        <!-- Contact us Section -->
        @include('components.contact-us')
        <!-- Contact us Section -->
-   
+
 
 
 </main>

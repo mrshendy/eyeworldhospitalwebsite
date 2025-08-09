@@ -39,7 +39,7 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
     Route::get('medical-devices', [MedicalDeviceController::class, 'index'])->name('medicalDevices.index');
     Route::get('medical-devices/{id}', [MedicalDeviceController::class, 'show'])->name('medicalDevices.show');
-    Route::get('/medical-devices/get-devices-by-specialty', [MedicalDeviceController::class, 'getDevicesBySpecialty'])->name('getMedicalDevicesBySpecialty');
+    Route::get('/medical-devices/get-devices-by-specialty', [MedicalDeviceController::class, 'getMedicalDevicesBySpecialty'])->name('getMedicalDevicesBySpecialty');
 
     Route::get('medical-tourism', [MedicalTourismController::class, 'index'])->name('medicalTourism.index');
 

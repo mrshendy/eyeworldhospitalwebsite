@@ -11,7 +11,7 @@ class PartnerController extends Controller
     //
     public function index(){
         $info = InsurancePartnerInfo::first();
-        $partners = InsurancePartner::get();
+        $partners = InsurancePartner::with('doctors.specialtie')->get();
         return view('Site.partners.index',compact('partners','info'));
     }
 }

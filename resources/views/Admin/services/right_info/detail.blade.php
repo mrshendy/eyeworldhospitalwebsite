@@ -1,6 +1,10 @@
 @extends('temp')
 
 @section('styles')
+
+    <link rel="stylesheet" href="{{asset('dropify/dist/css/demo.css')}}">
+    <link rel="stylesheet" href="{{asset('dropify/dist/css/dropify.min.css')}}">
+
 @endsection
 
 
@@ -12,47 +16,97 @@
     <form action="{{route('Admin.customer-right-info.update')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card-body">
+        <label for="input-file-max-fs">{{__('Duties-Rights File')}}</label>
+        <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="12M"  @isset($data) data-default-file="{{ $data->file }}" @endisset  />
+
         {{-- <div class="col-12">
             <div class="card mb-6">
               <h5 class="card-header">Basic</h5>
               <input name="file" type="file" />
             </div>
         </div> --}}
- 
+
         @foreach (config('translatable.locales') as $locale)
 
             <label>{{ __('system.'.$locale.'.title') }}</label>
             <input class="form-control" name="{{$locale}}[title]"   value="{{ isset($data) ? $data->translateOrNew($locale)->title : old($locale . '.title')  }}" type="text" required>
-    
+
             <label>{{ __('system.'.$locale.'.subtitle') }}</label>
             <input class="form-control" name="{{$locale}}[subtitle]"   value="{{ isset($data) ? $data->translateOrNew($locale)->subtitle : old($locale . '.subtitle')  }}" type="text" required>
-    
+
             <label>{{ __('system.'.$locale.'.desc') }}</label>
             <textarea class="form-control" name="{{$locale}}[desc]" rows="3"  value="" type="text" required>{{ isset($data) ? $data->translateOrNew($locale)->desc : old($locale . '.desc')  }} </textarea>
-      
+
             {{-- <label>{{ __('system.'.$locale.'.detail_title') }}</label>
             <input class="form-control" name="{{$locale}}[detail_title]"   value="{{ isset($data) ? $data->translateOrNew($locale)->detail_title : old($locale . '.detail_title')  }}" type="text" required>
-    
+
             <label>{{ __('system.'.$locale.'.detail_subtitle') }}</label>
             <input class="form-control" name="{{$locale}}[detail_subtitle]"   value="{{ isset($data) ? $data->translateOrNew($locale)->detail_subtitle : old($locale . '.detail_subtitle')  }}" type="text" required>
-    
+
             <label>{{ __('system.'.$locale.'.detail_desc') }}</label>
             <textarea class="form-control" name="{{$locale}}[detail_desc]" rows="3"  value="" type="text" required>{{ isset($data) ? $data->translateOrNew($locale)->detail_desc : old($locale . '.detail_desc')  }} </textarea> --}}
-      
-      
+
+
         @endforeach
         <div>
             <button type="submit" class="btn  mt-4" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>
-        </div>           
+        </div>
         </div>
     </form>
-    </div>        
-</div>    
+    </div>
+</div>
 
 
 @endsection
 
 
 @section('scripts')
+<script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('dropify/dist/js/dropify.min.js')}}"></script>
+
+
+<script>
+    $(document).ready(function(){
+        // Basic
+        $('.dropify').dropify();
+
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove:  'Supprimer',
+                error:   'Désolé, le fichier trop volumineux'
+            }
+        });
+
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function(event, element){
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function(event, element){
+            alert('File deleted');
+        });
+
+        drEvent.on('dropify.errors', function(event, element){
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function(e){
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+    });
+  </script>
 
 @endsection
+

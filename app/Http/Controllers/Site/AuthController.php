@@ -123,6 +123,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::guard('web')->logout();
+        Alert::success(__('Success'), __('Logout Successfully'));
         return redirect()->route('Site.home.index');
     }
 

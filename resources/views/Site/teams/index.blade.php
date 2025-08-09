@@ -3,7 +3,7 @@
 
 
 	<main id="main">
-		
+
 		<!-- Banner -->
 		<article class="banner">
 			<img src="{{$Specialtie->img}}">
@@ -21,7 +21,7 @@
 							<span class="pre-title site-color"> {{$info->title}}</span>
 							<h2 class="main-title">{{$info->sub_title}}</h2>
 							<p class="main-para">{{$info->desc}}</p>
-						</div>	
+						</div>
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
 						<figure class="about-image">
@@ -31,8 +31,8 @@
 				</section>
 				<!-- About  -->
 
-	
-					
+
+
 
 			</div>
 		</article>
@@ -51,29 +51,31 @@
                                         <h3>{{$data->title}}</h3>
                                     </div>
                                     <i class="fa-solid fa-chevron-left"></i>
-                                </a>			
+                                </a>
                             @endforeach
 						</div>
 					</div>
-					<div class="col-9 col-md-6 col-sm-12">
-						<div class="all-videos-holder flex-center row-gab-15">
-
-
+                    <div class="col-9 col-md-6 col-sm-12">
+                        <div class="all-videos-holder height-auto flex-center row-gab-15">
                             @foreach ($doctors as $row)
-                                		<div class="col-6 col-md-6 col-sm-12">
-                                    <div class="text-box">
-                                        
-                                        <img src="{{$row->img}}" width="60" height="60" alt="">
-                                        <h4>{{$row->info->name}}</h4>
-                                        <p class="feedback">
-                                        <h4>{{$row->info->breif}}</h4>
-										</p>
-                                        <a href="{{route('Site.teams.profile',[$row->id,$id])}}" class="show-profile">
-                                         {{__('display profile and booking')}}
-										</a>
+                                <div class="col-6 col-md-6 col-sm-12">
+                                    <div class="text-box text-center">
+                                        <div class="device-image">
+                                            <img src="{{$row->img}}" style="width:60px; height:60px; object-fit:contain;">
+                                        </div>
+                                            <h4>{{$row->info->breif}}</h4>
+
+                                            <a href="{{route('Site.teams.profile',[$row->id,$id])}}" class="show-profile">
+                                            {{__('display profile and booking')}}
+                                            </a>
+
                                     </div>
                                 </div>
                             @endforeach
+                        </div>
+                    </div>
+
+                </div>
 
 
 

@@ -24,6 +24,17 @@ class InsurancePartner extends Model
         );
     }
 
+    public function doctors()
+    {
+        return $this->belongsToMany(
+                Doctor::class,
+                'doctor_insurance_partners',
+                'partner_id',
+                'doctor_id'
+            );
+    }
+
+
 }
 
 

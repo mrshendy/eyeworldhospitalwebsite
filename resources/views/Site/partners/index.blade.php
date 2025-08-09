@@ -126,6 +126,9 @@
                     <div class="all-videos-holder flex-center row-gab-15">
 
                         @foreach ($partners as $row)
+                        @php
+                            $firstDoctor = $row->doctors->first();
+                        @endphp
                         <div class="col-4 col-md-6 col-sm-12">
                             <div class="text-box text-center">
                                 <div class="partener-image">
@@ -133,9 +136,12 @@
                                 </div>
                                 <h4>{{$row->title}}</h4>
 
-                                <a href="#" class="show-profile">
-                                     {{__('Book your appointment now')}}
+                            @if ($firstDoctor && $firstDoctor->specialtie)
+                                <a href="{{ route('Site.teams.index', $firstDoctor->specialtie->specialtie_id) }}" class="show-profile">
+                                    {{ __('Book your appointment now') }}
                                 </a>
+                            @endif
+
                             </div>
                         </div>
                         @endforeach
