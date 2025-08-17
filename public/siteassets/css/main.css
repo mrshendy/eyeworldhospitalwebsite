@@ -1214,7 +1214,7 @@ button.show-profile{
 .footer-contact-phone h4{
     margin-bottom: 10px;
 }
-.footer-contact-phone h4, p, strong, a{
+.footer-contact-phone h4{
     margin-top: 16px;
 }
 
@@ -2323,4 +2323,42 @@ article.video-holder-wrapper.open,.popup.open {
 
 article.book-form {
     background: #fff;
+}
+
+
+
+@media(max-width:991px) {
+        a.login-btn {
+        margin-top:0
+        }
+        section.login {
+                max-width:100%
+        }
+        header {
+        z-index:999999999
+        }
+        [lang="en"] li.menu-item.has-children:after {
+                right: 10px;
+                left:initial;
+        }
+        .specializations-block {
+                height:auto;
+        }
+        .images img {
+                width: 22px;
+        }
+        .discover-box-details{
+                background:#000000c7
+        }
+        .aside-tabs {
+                flex-direction:column
+        }
+        .step,.aside-tabs a {
+        min-width: 100%;
+        margin:5px 0 !important
+    }
+        .pagination li a, .pagination li span {
+                width:22px;
+                height:22px
+        }
 }
