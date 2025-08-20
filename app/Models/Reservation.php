@@ -13,4 +13,10 @@ class Reservation extends Model
     {
         return $this->belongsTo(Doctor::class);
     }
+
+
+    public function expatVisitDetails()
+    {
+        return $this->hasOne(ExpatVisitDetailsReservation::class);
+    }
 }

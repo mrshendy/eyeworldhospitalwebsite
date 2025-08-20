@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Doctor,Country,Reservation,Day,DoctorAppointment,DoctorPrice};
+use App\Models\{Doctor,Country,Reservation, ExpatVisitDetailsReservation,Day,DoctorAppointment,DoctorPrice};
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 use DateTime;
@@ -28,7 +28,7 @@ class ReservationController extends Controller
 
     public function store(Request $request){
 
-        Reservation::create([
+        $reservation = Reservation::create([
             'user_id' => Auth::id(),
              'doctor_id'     => $request->doctor_id,
              'specialtie_id' => $request->specialtie_id,
@@ -41,6 +41,19 @@ class ReservationController extends Controller
              'date'          => $formattedDate = DateTime::createFromFormat('d-m-Y', $request->date)->format('Y-m-d'),
              'price'         => ($request->urgent == 0) ? $request->price : $request->urgent_price
         ]);
+
+        // Check if the reservation is Expat
+        if($request->type == 'Expat_visit'){
+            ExpatVisitDetailsReservation::create([
+                'reservation_id'            => $reservation->id,
+                'complaint'                 => $request->complaint,
+                'medical_history'           => $request->medical_history,
+                'attachment'                => $request->attachment,
+                'treating_doctor'           => $request->treating_doctor,
+                'treating_doctor_speciality'=> $request->treating_doctor_speciality,
+                'treating_doctor_phone'     => $request->treating_doctor_phone,
+            ]);
+        }
 
       Alert::success(__('Success'),__('booking Successefuly'));
       return redirect()->back();

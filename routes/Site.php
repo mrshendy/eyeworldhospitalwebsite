@@ -103,7 +103,5 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('privacy', [SinglePageController::class, 'privacy'])->name('privacy');
     Route::get('contact-us', [SinglePageController::class, 'contact_us'])->name('contact');
 
-
-
 });
 

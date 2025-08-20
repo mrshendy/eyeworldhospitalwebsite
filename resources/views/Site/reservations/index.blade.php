@@ -102,9 +102,21 @@
 								</div>
 							</div>
 
+                            @if($reservationType == 'Expat_visit')
+                                <div class="step">
+                                    <div class="flex-start align-center">
+                                        <div class="number">03</div>
+                                        <div class="flex-1">
+                                            <h3>البيانات الطبية</h3>
+                                            <p>من فضلك ادخل بياناتك الطبية هنا</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
 							<div class="step">
 								<div class="flex-start align-center">
-									<div class="number">03</div>
+									<div class="number">@if($reservationType == 'Expat_visit') 04 @else 03 @endif</div>
 									<div class="flex-1">
 										<h3>تاريخ الحجز</h3>
 										<p>من فضلك اختر الميعاد المناسب لك</p>
@@ -114,7 +126,7 @@
 
 							<div class="step">
 								<div class="flex-start align-center">
-									<div class="number">04</div>
+									<div class="number">@if($reservationType == 'Expat_visit') 05 @else 04 @endif</div>
 									<div class="flex-1">
 										<h3>بيانات الدفع</h3>
 										<p>اختر طريقة الدفع التى تناسبك بأريحية</p>
@@ -243,6 +255,82 @@
 
 								</div>
 							</div>
+
+                            @if($reservationType == 'Expat_visit')
+                                <div class="step-content">
+                                    <div class="flex-between align-center">
+                                        <h4>البيانات الطبية</h4>
+                                        <div class="btns flex-center">
+                                            <div class="prev">السابق</div>
+                                            <div class="next">التالى</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="pdt">
+                                        <div class="form-control">
+                                            <div class="form-field">
+                                                <label>الشكوى</label>
+                                                <div class="field">
+                                                    <textarea name="complaint" placeholder="الصداع والدوخة" cols="15">{{ old('complaint') }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <div class="form-field">
+                                                <label>التاريخ المرضى</label>
+                                                <div class="field">
+                                                    <textarea name="medical_history" placeholder="عملية جراحية واحدة" cols="15">{{ old('medical_history') }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <div class="form-field">
+                                                <label>ارفق الملفات</label>
+                                                <div class="field">
+                                                    <input type="file" name="medical_files[]" multiple>
+                                                    <img src="{{ asset('siteassets/images/doctors/book/link.svg') }}" width="24">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h4>بيانات الطبيب المعالج <span class="site-color">(اختيارى)</span></h4>
+
+                                        <div class="form-control">
+                                            <div class="form-field">
+                                                <label>الطبيب</label>
+                                                <div class="field">
+                                                    <select name="treating_doctor">
+                                                        <option>اختار</option>
+													    <option value="{{$doctor->id}}">{{$doctor->info->name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-field">
+                                                <label>التخصص</label>
+                                                <div class="field">
+                                                    <select name="treating_doctor_speciality">
+                                                        <option>اختار</option>
+													    <option value="{{$doctor->specialtie->specialtie_id}}">{{$doctor->specialtie->specialtie->title}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <div class="form-field">
+                                                <label>رقم الهاتف</label>
+                                                <div class="field">
+                                                    <input type="text" name="treating_doctor_phone" placeholder="+201012345678" value="{{ old('treating_doctor_phone') }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @endif
+
 
 							<div class="step-content">
 								<div class="flex-between align-center">

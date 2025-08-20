@@ -2,7 +2,7 @@
 @section('content')
 
 	<main id="main">
-		
+
 		<!-- Banner -->
 		<article class="banner">
 			<img src="{{$Specialtie->img}}">
@@ -13,7 +13,7 @@
 		<!-- Content Section -->
 		<article class="content-section pd">
 			<div class="container text-center">
-				
+
 				<!-- About  -->
 				<section class="about nopd flex-start pdt  text-right align-center">
 					<div class="col-6 col-md-6 col-sm-12">
@@ -32,7 +32,7 @@
 											<p>{{$doctor->info->name}}</p>
 										</div>
 									</div>
-								</div>					
+								</div>
 
 								<div class="col-6 col-md-6 col-sm-12">
 									<div class="profile-info flex-start">
@@ -42,7 +42,7 @@
 											<p>استشاري شبكية عيون الأطفال</p>
 										</div>
 									</div>
-								</div>						
+								</div>
 
 								<div class="col-6 col-md-6 col-sm-12">
 									<div class="profile-info flex-start">
@@ -56,7 +56,7 @@
 											</ul>
 										</div>
 									</div>
-								</div>					
+								</div>
 
 								<div class="col-6 col-md-6 col-sm-12">
 									<div class="profile-info flex-start">
@@ -73,7 +73,7 @@
 								</div>
 
 							</div>
-						</div>	
+						</div>
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
 						<figure class="about-image">
@@ -90,40 +90,41 @@
 				<section class="about nopd flex-start  text-right align-center">
 					<div class="col-6 col-md-6 col-sm-12">
 						<div class="about-desc">
-							
+
 							<ul class="profile-info-list row">
                                 @foreach ($doctor->serviceinfo as $row)
                                     <li>{{$row->info}}</li>
                                 @endforeach
 							</ul>
-						
-						</div>	
+
+						</div>
 					</div>
 					{{-- <div class="col-6 col-md-6 col-sm-12">
 						<div class="about-desc">
-							
+
 							<ul class="profile-info-list">
 								<li>تقديم استشارات متخصصة في علاج أورام العين للأطفال</li>
 								<li>استخدام تقنيات العلاج الحديثة مثل العلاج بالليزر والجراحة لإزالة الأورام</li>
 								<li>متابعة الحالات المرضية للأطفال المصابين بأمراض الشبكية</li>
 								<li>تقديم نصائح طبية للحفاظ على صحة العين بشكل عام</li>
 							</ul>
-						
-						</div>	
+
+						</div>
 					</div> --}}
 					<div class="col-12">
 						<div class="doctor-links pdt">
 							<a href="{{route('Site.reservation.index',[$doctor->id,'normal'])}}" class="reserve">{{__('reservation doctor')}}</a>
 							<a href="{{route('Site.reservation.index',[$doctor->id,'onlin'])}}" class="discuss"> {{__('online discussion')}}</a>
-							<button type="button" class="visit" data-bs-toggle="modal" id="myInput"
-								data-bs-target="#exampleModalCenter">{{__('Booking a medical visit for expatriates')}}</button>
+                            <a href="{{ route('Site.reservation.index', [$doctor->id, 'Expat_visit']) }}" class="discuss">{{__('Booking a medical visit for expatriates')}}</a>
+							{{-- <button type="button" class="visit" data-bs-toggle="modal" id="myInput"
+								data-bs-target="#exampleModalCenter">{{__('Booking a medical visit for expatriates')}}</button> --}}
 							{{-- <a href="{{route('Site.reservation.index',[$doctor->id,'Expat_visit'])}}" class="visit">{{__('Booking a medical visit for expatriates')}}</a> --}}
 						</div>
 					</div>
 				</section>
 				<!-- About  -->
 
-				
+
 
 			</div>
 		</article>
