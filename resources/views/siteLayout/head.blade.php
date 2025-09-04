@@ -4,7 +4,7 @@
     <title>{{ $seo?->meta_title ?? __('Eye World') }}</title>
 	<meta name="description" content="{{ $seo?->meta_description ?? '' }}">
 	<meta name="keywords" content="{{ $seo?->meta_keywords ?? '' }}">
-
+    <link rel="icon" type="image/svg+xml" href="{{ asset('siteassets/images/logo.svg') }}">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
