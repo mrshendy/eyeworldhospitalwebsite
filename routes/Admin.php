@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\{QuetionsController,AboutController,
     AuthController,EyeHealthInfoController,ArticleController,EyeHealthVideoController,VideosController,TopicController,
     CustomerVideoController,CustomerRateInfoController,RateController,RightInfoController,RightController,
     InsurancePartnerInfoController,PartnerController,DoctorController,SocialMediaController,AjaxController,TeamInfoController, MedicalDeviceController, MedicalTourismInfoController, MedicalDeviceInfoController, MedicalTourismServiceController,
-    ReservationController,DoctorAppointmentController, MedicalAcademyController, SliderController, SettingController
+    ReservationController,DoctorAppointmentController, MedicalAcademyController, SliderController, SettingController, SeoController
    ,UserController, ConferenceInfoController, ConferenceController, ChairtyController, ConferenceDoctorController, ParticipationTypeController, MedicalAcademyInfoController, MedicalAcademyVideoController,LiberaryTopicController,BookController, BookInfoController, CartController};
 
 
@@ -147,6 +147,9 @@ Route::group(['middleware' => 'auth:admin'], function() {
 
     Route::get('settings' ,[SettingController::class, 'index'])->name('settings');
     Route::post('settings-update' ,[SettingController::class, 'update'])->name('settings.update');
+
+    Route::get('seo' ,[SeoController::class, 'index'])->name('seo.index');
+    Route::post('seo-update' ,[SeoController::class, 'update'])->name('seo.update');
 
 });
 
