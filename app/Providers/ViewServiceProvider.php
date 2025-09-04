@@ -16,6 +16,10 @@ class ViewServiceProvider extends ServiceProvider
         View::composer('*', function($view){
             $view->with('settings', Setting::first());
         });
+
+        View::composer('*', function ($view) {
+            $view->with('seo', Seo::first());
+        });
     }
 
     /**
