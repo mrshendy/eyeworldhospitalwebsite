@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\Setting;
+use App\Models\Seo;
 
 class ViewServiceProvider extends ServiceProvider
 {
