@@ -7,3 +7,9 @@ Route::get('/', function () {
 });
 
 
+//Test API
+// Route::get('/test-api', function () {
+//     return response()->json([
+//         'message' => 'hello world'
+//     ]);
+// });
