@@ -11,7 +11,7 @@ use Alert;
 
 class BookController extends Controller
 {
-    //
+    //test
     public function index()
     {
         $bookTopics = BookTopic::all();
