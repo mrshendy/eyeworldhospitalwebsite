@@ -18,6 +18,8 @@ return [
     'Questions'    => 'Questions',
     'actions'     => 'actions',
     "abouts"      => "abouts",
+    "city" => "city in Arabic",
+
 
 
     'main_title'      => 'Main Title in Arabic',
@@ -66,9 +68,8 @@ return [
         "specialty" => "Doctor Specialty in English",
         "secondary_title" => "Secondary Title in English",
         "secondary_sub_title" => "Secondary sub title in English",
-        "secondary_description" => "Secondary Description in English"
-
-
+        "secondary_description" => "Secondary Description in English",
+        "city" => "City in English",
     ],
 
 

@@ -30,7 +30,11 @@
             <textarea class="form-control" name="{{$locale}}[description]" rows="2" required>{{ isset($data) ? $data->translateOrNew($locale)->description : old($locale . '.description')  }} </textarea>
 
             <label>{{ __('system.'.$locale.'.address') }}</label>
-            <input class="form-control" name="{{$locale}}[address]"   value="{{ isset($data) ? $data->translateOrNew($locale)->address : old($locale . '.address')  }}" type="text" required>
+            <input class="form-control" name="{{$locale}}[address]" value="{{ isset($data) ? $data->translateOrNew($locale)->address : old($locale . '.address')  }}" type="text" required>
+
+            <label>{{ __('system.'.$locale.'.city') }}</label>
+            <input class="form-control" name="{{$locale}}[city]" value="{{ isset($data) ? $data->translateOrNew($locale)->city : old($locale . '.city')  }}" type="text" required>
+
         @endforeach
 
         <label>{{ __('Phone') }}</label>
@@ -44,6 +48,9 @@
 
         <label>{{ __('Whatsapp') }}</label>
         <input class="form-control" name="whatsapp_number" value="{{ isset($data) ? $data->whatsapp_number : old('whatsapp_number') }}" type="number" required>
+
+        <label>{{ __('ZIP') }}</label>
+        <input class="form-control" name="zip" value="{{ isset($data) ? $data->zip : old('zip') }}" type="text" required>
 
         <div>
             <button type="submit" class="btn  mt-4" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>

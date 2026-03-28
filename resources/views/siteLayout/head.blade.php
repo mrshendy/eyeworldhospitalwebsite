@@ -4,6 +4,15 @@
     <title>{{ $seo?->meta_title ?? __('Eye World') }}</title>
 	<meta name="description" content="{{ $seo?->meta_description ?? '' }}">
 	<meta name="keywords" content="{{ $seo?->meta_keywords ?? '' }}">
+    <meta property="og:title" content="{{ $seo?->meta_title ?? __('Eye World') }}" />
+    <meta property="og:description" content="{{ $seo?->meta_description ?? '' }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image" content="{{ asset('siteassets/images/logo.svg') }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ $seo?->meta_title ?? __('Eye World') }}" />
+    <meta name="twitter:description" content="{{ $seo?->meta_description ?? '' }}" />
+    <meta name="twitter:image" content="{{ asset('siteassets/images/logo.svg') }}" />
     <link rel="icon" type="image/svg+xml" href="{{ asset('siteassets/images/logo.svg') }}">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +29,35 @@
     <link rel="alternate" hreflang="ar" href="{{ LaravelLocalization::getLocalizedURL('ar') }}" />
     <link rel="alternate" hreflang="en" href="{{ LaravelLocalization::getLocalizedURL('en') }}" />
     <link rel="alternate" hreflang="x-default" href="{{ LaravelLocalization::getLocalizedURL(config('app.locale')) }}" />
+    <link rel="canonical" href="{{ LaravelLocalization::getLocalizedURL(app()->getLocale(), null, [], true) }}" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Eye World Hospital",
+      "url": "{{ config('app.url') }}",
+      "logo": "{{ asset('uploads/settings/' . ($settings->logo ?? 'logo.svg')) }}",
+      "image": "{{ asset('siteassets/images/about.svg') }}",
+      "description": "Eye World Hospital is a leading ophthalmology center in Egypt providing cataract, LASIK, retinal and eye care services.",
+      "telephone": "{{ $settings->phone ?? '+20 000 000 0000' }}",
+      "email": "{{ $settings->email ?? 'info@eyeworldhospital.com' }}",
+      "address": {
+        "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ $settings->address ?? '' }}",
+        "addressLocality": "{{ $settings->city ?? '' }}",
+        "addressRegion": "Egypt",
+        "postalCode": "{{ $settings->zip ?? '' }}",
+        "addressCountry": "EG"
+      },
+      "sameAs": [
+        "{{ $settings->facebook ?? '' }}",
+        "{{ $settings->twitter ?? '' }}",
+        "{{ $settings->instagram ?? '' }}"
+      ]
+    }
+    </script>
     @yield('styles')
 
 </head>
