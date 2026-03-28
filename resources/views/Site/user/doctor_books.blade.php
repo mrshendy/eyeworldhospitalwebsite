@@ -25,7 +25,7 @@
                                 <div class="col-4 col-md-6 col-sm-12">
                                     <div class="text-box ">
                                         <div class="device-image">
-                                            <img src="{{ asset('uploads/books/' . $book->img) }}" alt="">
+                                            <img src="{{ asset('uploads/books/' . $book->img) }}" alt="{{ $book->title }}">
                                         </div>
                                         <h4>{{ $book->title }}</h4>
 

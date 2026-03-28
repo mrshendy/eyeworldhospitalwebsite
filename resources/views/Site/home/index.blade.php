@@ -101,7 +101,7 @@
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="{{asset('siteassets/images/about.svg')}}" alt="">
+                        <img src="{{asset('siteassets/images/about.svg')}}" alt="About">
                     </figure>
                 </div>
             </section>
@@ -133,35 +133,35 @@
             </h4>
             <ul class="list-unstyled flex-start services-list">
                 <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
                     {{__("Cosmetic surgeries for the face and head.")}}
                 </li>
                 <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
                     {{__("Oral and maxillofacial surgeries")}}
                 </li>
                 <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
                     {{__("Dermatology and laser services")}}
                 </li>
                 <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
                     {{__("Nutrition services")}}
                 </li>
                 <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
                     {{__("Laboratory services")}}
                 </li>
                 <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
                     {{__("Pharmacy services")}}
                 </li>
                 <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
                     {{__("Accommodation services")}}
                 </li>
                 <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="">
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
                     {{__("Other services")}}
                 </li>
 
@@ -184,7 +184,7 @@
                             <div class="discover-box-content">
                                 <span>{{ $spec->title }}</span>
                                 <p>{{ $spec->desc }}</p>
-                                <a href="{{ route("Site.specialtie", $spec->id) }}">{{__("Learn more")}}</a>
+                                <a href="{{ route("Site.specialtie", $spec->slug) }}">{{__("Learn more")}}</a>
                             </div>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                             <div class="discover-box-details">
                                 <h3>{{ $conference->title }}</h3>
                                 <p>{{ $conference->description }}</p>
-                                <a href="{{ route('Site.conference.show', $conference->id) }}">
+                                <a href="{{ route('Site.conference.show', $conference->slug) }}">
                                     {{__("Read more")}}
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </a>
@@ -238,7 +238,7 @@
         <div class="container flex-center align-center">
             <div class="col-6 col-md-6 col-sm-12">
                 <figure class="experience-image">
-                    <img src="{{asset('siteassets/images/experience/main.svg')}}" alt="" >
+                    <img src="{{asset('siteassets/images/experience/main.svg')}}" alt="Main" >
                 </figure>
             </div>
             <div class="col-6 col-md-6 col-sm-12">
@@ -249,10 +249,10 @@
 
                     <div class="btns flex-start align-center">
                         <a href="#" class="section-btn">
-                            <img src="{{asset('siteassets/images/experience/Badge.svg')}}">
+                            <img src="{{asset('siteassets/images/experience/Badge.svg')}}" alt="Badge">
                         </a>
                         <a href="#" class="section-btn">
-                            <img src="{{asset('siteassets/images/experience/app.svg')}}">
+                            <img src="{{asset('siteassets/images/experience/app.svg')}}" alt="App">
                         </a>
                     </div>
 
@@ -330,7 +330,7 @@
 
             <div class="flex-between align-center pdt">
                 @foreach ($insurance_partners as $partner)
-                    <img src="{{asset($partner->img)}}">
+                    <img src="{{asset($partner->img)}}" alt="{{ $partner->name ?? 'Partner' }}">
                 @endforeach
 
             </div>

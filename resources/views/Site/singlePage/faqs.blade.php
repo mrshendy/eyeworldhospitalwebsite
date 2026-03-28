@@ -22,11 +22,31 @@
     }
 </style>
 
+<!-- FAQ Schema Markup for Rich Snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    @foreach($questions as $quetion)
+    {
+      "@type": "Question",
+      "name": "{{ $quetion->quetion }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ strip_tags($quetion->answer) }}"
+      }
+    }@if(!$loop->last),@endif
+    @endforeach
+  ]
+}
+</script>
+
 <main id="main">
 
     <!-- Banner -->
     <article class="banner">
-        <img src="{{asset('uploads/medical-devices/banner.jpg')}}">
+        <img src="{{asset('uploads/medical-devices/banner.jpg')}}" alt="FAQs Banner">
     </article>
     <!-- Banner -->
     <!-- Faq Section -->

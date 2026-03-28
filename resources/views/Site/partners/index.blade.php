@@ -6,7 +6,7 @@
 
     <!-- Banner -->
     <article class="banner">
-        <img src="{{asset('siteassets/images/specializations/main.svg')}}">
+        <img src="{{asset('siteassets/images/specializations/main.svg')}}" alt="Main">
     </article>
     <!-- Banner -->
 
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="{{asset('siteassets/images/videos/medical/parteners/main.svg')}}" alt="">
+                        <img src="{{asset('siteassets/images/videos/medical/parteners/main.svg')}}" alt="Main">
                     </figure>
                 </div>
             </section>
@@ -132,12 +132,12 @@
                         <div class="col-4 col-md-6 col-sm-12">
                             <div class="text-box text-center">
                                 <div class="partener-image">
-                                    <img src="{{asset($row->img)}}" alt="">
+                                    <img src="{{asset($row->img)}}" alt="{{ $row->name ?? 'Partner' }}">
                                 </div>
                                 <h4>{{$row->title}}</h4>
 
                             @if ($firstDoctor && $firstDoctor->specialtie)
-                                <a href="{{ route('Site.teams.index', $firstDoctor->specialtie->specialtie_id) }}" class="show-profile">
+                                <a href="{{ route('Site.teams.index', $firstDoctor->specialtie->slug) }}" class="show-profile">
                                     {{ __('Book your appointment now') }}
                                 </a>
                             @endif

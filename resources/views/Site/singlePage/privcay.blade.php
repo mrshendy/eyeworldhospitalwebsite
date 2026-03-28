@@ -5,7 +5,7 @@
 
 		<!-- Banner -->
 		 <article class="banner">
-            <img src="{{asset('uploads/medical-devices/banner.jpg')}}">
+            <img src="{{asset('uploads/medical-devices/banner.jpg')}}" alt="Privacy Policy Banner">
         </article>
 		<!-- Banner -->
 
@@ -73,14 +73,14 @@
 								<div class="form-field">
 									<label>اكتب اسمك</label>
 									<div class="field">
-										<img src="../images/contact/user.svg">
+										<img src="../images/contact/user.svg" alt="User">
 										<input type="text" name="name" placeholder="| برجاء كتابة اسمك هنا">
 									</div>
 								</div>
 								<div class="form-field">
 									<label>اكتب بريدك الإلكتروني</label>
 									<div class="field">
-										<img src="../images/contact/sms.svg">
+										<img src="../images/contact/sms.svg" alt="Sms">
 										<input type="email" name="email" placeholder="| example@email.com">
 									</div>
 								</div>
@@ -89,7 +89,7 @@
 								<div class="form-field">
 									<label>اكتب رسالتك</label>
 									<div class="field">
-										<img src="../images/contact/message-text.svg">
+										<img src="../images/contact/message-text.svg" alt="Message Text">
 										<textarea name="msg" placeholder="| على سبيل المثال: أريد التواصل معك"></textarea>
 									</div>
 								</div>
@@ -102,7 +102,7 @@
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
 						<figure class="contact-image">
-							<img src="../images/contact/main.svg" alt="">
+							<img src="../images/contact/main.svg" alt="Main">
 						</figure>
 					</div>
 				</div>

@@ -5,7 +5,7 @@
 
     <!-- Banner -->
     <article class="banner">
-        <img src="{{$specialtie->img}}">
+        <img src="{{$specialtie->img}}" alt="{{ $specialtie->title }}">
     </article>
     <!-- Banner -->
 
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="{{$SubSpecialtie->img}}" alt="">
+                        <img src="{{$SubSpecialtie->img}}" alt="{{ $SubSpecialtie->main_title }}">
                     </figure>
                 </div>
             </section>
@@ -62,7 +62,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="../images/doctors/1.svg">
+                                <img src="../images/doctors/1.svg" alt="1">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>د. إيهاب سعد عثمان</h3>
@@ -77,7 +77,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="../images/doctors/2.svg">
+                                <img src="../images/doctors/2.svg" alt="2">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>د. سامي فوزي</h3>
@@ -92,7 +92,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="../images/doctors/3.svg">
+                                <img src="../images/doctors/3.svg" alt="3">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>د. منى عبد الرحمن</h3>
@@ -107,7 +107,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="../images/doctors/4.svg">
+                                <img src="../images/doctors/4.svg" alt="4">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>د. علي مصطفى</h3>
@@ -122,7 +122,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="../images/doctors/5.svg">
+                                <img src="../images/doctors/5.svg" alt="5">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>د. رانيا الشافعي</h3>
@@ -137,7 +137,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="../images/doctors/6.svg">
+                                <img src="../images/doctors/6.svg" alt="6">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>د. أحمد سعيد</h3>
@@ -152,7 +152,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="../images/doctors/7.svg">
+                                <img src="../images/doctors/7.svg" alt="7">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>د. عادل محسن</h3>
@@ -167,7 +167,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="../images/doctors/8.svg">
+                                <img src="../images/doctors/8.svg" alt="8">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>د. هند زكريا</h3>
@@ -200,7 +200,7 @@
             <section class="about flex-start pdt  text-right align-center">
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="../images/doctors/about.svg" alt="">
+                        <img src="../images/doctors/about.svg" alt="About">
                     </figure>
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
@@ -226,9 +226,9 @@
             <div class="success-stories-carousel pdt owl-carousel">
                 <div class="item">
                     <div class="video-holder">
-                        <img src="../images/doctors/video.svg">
+                        <img src="../images/doctors/video.svg" alt="Video">
                         <a href="#" class="play">
-                            <img  src="../images/doctors/play.png">
+                            <img  src="../images/doctors/play.png" alt="Play">
                         </a>
                     </div>
                     <div class="success-dtl pdt text-center">

@@ -7,7 +7,7 @@
 
 		<!-- Banner -->
 		<article class="banner">
-            <img src="{{ asset('uploads/medical-devices/' . $medical_device->img) }}" class="img-fluid" alt="">
+            <img src="{{ asset('uploads/medical-devices/' . $medical_device->img) }}" class="img-fluid" alt="{{ $medical_device->title }}">
 		</article>
 		<!-- Banner -->
 
@@ -34,7 +34,7 @@
 					<div class="col-3 col-md-6 col-sm-12">
 						<div class="text-box text-center">
 							<div class="device-image">
-								<img src="{{ asset('uploads/medical-devices/' . $medical_device->img) }}" class="img-fluid" alt="">
+								<img src="{{ asset('uploads/medical-devices/' . $medical_device->img) }}" class="img-fluid" alt="{{ $medical_device->title }}">
 							</div>
 							<h4> {{ $medical_device->title }}</h4>
 							<p class="feedback">{{ $medical_device->sub_title }}</p>

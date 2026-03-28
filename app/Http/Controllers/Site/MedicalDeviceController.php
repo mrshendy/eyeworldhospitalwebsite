@@ -20,10 +20,10 @@ class MedicalDeviceController extends Controller
         return view('Site.medical-devices.index')->with($data);
     }
 
-    public function show($id)
+    public function show($slug)
     {
 
-        $data['medical_device'] = MedicalDevice::findOrFail($id);
+        $data['medical_device'] = MedicalDevice::where('slug', $slug)->firstOrFail();
         $data['medical_devices'] = MedicalDevice::get();
         return view('Site.medical-devices.show')->with($data);
     }

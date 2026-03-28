@@ -89,7 +89,7 @@
 
 									<div class="doctor-details flex-between">
 										<div class="flex-start align-center">
-											<img src="{{  asset($reservation->doctor->img)  }}" width="40" height="40">
+											<img src="{{  asset($reservation->doctor->img)  }}" alt="Dr. {{ $reservation->doctor->info->name }}" width="40" height="40">
 											<div class="flex-1">
 												<h3>{{ $reservation->doctor->info->name }}</h3>
 												<p>{{ $reservation->doctor->info->job_title }}</p>
@@ -104,7 +104,7 @@
 
 									<div class="doctor-info">
 										<h4>
-											<img src="{{ asset('siteassets/images/settings/personalcard.svg') }}" alt="" width="24" height="24">
+											<img src="{{ asset('siteassets/images/settings/personalcard.svg') }}" alt="Personalcard" width="24" height="24">
 											التخصصات التي يعمل بها الطبيب:
 										</h4>
 										<ul>
@@ -121,17 +121,17 @@
 								<div class="cart-box">
 									<h3>البيانات الشخصية</h3>
 									<div class="li">
-										<img src="{{ asset('siteassets/images/settings/profile.svg') }}" alt="" width="24" height="24">
+										<img src="{{ asset('siteassets/images/settings/profile.svg') }}" alt="Profile" width="24" height="24">
 										<span>{{ $reservation->doctor->info->name }}</span>
 									</div>
 
 									<div class="li">
-										<img src="{{ asset('siteassets/images/settings/location.svg') }}" alt="" width="24" height="24">
+										<img src="{{ asset('siteassets/images/settings/location.svg') }}" alt="Location" width="24" height="24">
 										<span>{{ $reservation->doctor->info->location }}</span>
 									</div>
 
 									<div class="li">
-										<img src="{{ asset('siteassets/images/settings/call-calling.svg') }}" alt="" width="24" height="24">
+										<img src="{{ asset('siteassets/images/settings/call-calling.svg') }}" alt="Call Calling" width="24" height="24">
 										<span>{{ $reservation->doctor->info->phone }}</span>
 									</div>
 								</div>
@@ -140,7 +140,7 @@
 									<h3>تفاصيل الدفع</h3>
 
 									<div class="li">
-										<img src="{{ asset('siteassets/images/settings/cards.svg') }}" alt="" width="24" height="24">
+										<img src="{{ asset('siteassets/images/settings/cards.svg') }}" alt="Cards" width="24" height="24">
 										<span class="site-color">الدفع كاش</span>
 									</div>
 

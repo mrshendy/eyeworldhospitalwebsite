@@ -32,7 +32,7 @@
 							<p class="main-para">
                                 {{ $conference->detail_description }}
                             </p>
-                            <a href="{{ route('Site.conference.booking', $conference->id) }}" class="show-profile" style="width: 70%">
+                            <a href="{{ route('Site.conference.booking', $conference->slug) }}" class="show-profile" style="width: 70%">
                                 {{ __('Attend Conference') }}
                             </a>
 
@@ -40,7 +40,7 @@
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
 						<figure class="about-image">
-							<img src="{{ asset('uploads/conferences/' . $conference->img) }}" alt="">
+						<img src="{{ asset('uploads/conferences/' . $conference->img) }}" alt="{{ $conference->title }}">
 						</figure>
 					</div>
 				</section>
@@ -55,7 +55,7 @@
                     @foreach ($conference->advantages as $advantage)
                         <div class="col-4 col-md-6 col-sm-12">
                             <div class="rights-box flex-start">
-                                <img src="{{ asset('uploads/conferences/emoji-normal.png') }}" width="24" height="24" alt="">
+                                <img src="{{ asset('uploads/conferences/emoji-normal.png') }}" width="24" height="24" alt="Advantage indicator">
                                 <div class="flex-1">
                                     <h4>{{ $advantage->advantage_title }}</h4>
                                     <p>{{ $advantage->advantage_description }}</p>
@@ -75,7 +75,7 @@
                         <div class="item" style="background-image:url(../images/slider/1.jpg)">
                             <div class="container h-100">
                                 <div class="slider-details h-100 flex-column">
-                                    <img src="{{ asset('uploads/conferences/' . $img->image) }}" class="img-fluid" alt="" style="width:100%; height:auto;">
+                                    <img src="{{ asset('uploads/conferences/' . $img->image) }}" class="img-fluid" alt="{{ $conference->title }} Photo" style="width:100%; height:auto;">
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                     @foreach ($conference->globalDoctors as $global)
                         <div class="col-4 col-md-6 col-sm-12">
                             <div class="rights-box flex-start">
-                                <img src="{{ asset('uploads/conference-doctors/' . $global->img) }}" width="150" height="150" alt="">
+                                <img src="{{ asset('uploads/conference-doctors/' . $global->img) }}" width="150" height="150" alt="{{ $global->name }}">
                                 <div class="flex-1">
                                     <h4>{{ $global->name }}</h4>
                                     <p>{{ $global->specialty }}</p>
@@ -112,7 +112,7 @@
                     @foreach ($conference->localDoctors as $doctor)
                         <div class="col-4 col-md-6 col-sm-12">
                             <div class="rights-box flex-start">
-                                <img src="{{ asset('uploads/conference-doctors/' . $doctor->img) }}" width="150" height="150" alt="">
+                                <img src="{{ asset('uploads/conference-doctors/' . $doctor->img) }}" width="150" height="150" alt="Dr. {{ $doctor->name }}">
                                 <div class="flex-1">
                                     <h4>{{ $doctor->name }}</h4>
                                     <p>{{ $doctor->specialty }}</p>
@@ -137,7 +137,7 @@
                         @foreach ($conference->charities as $charity)
                             <div class="col-2">
                                 <div class="text-box ">
-                                        <img src="{{ $charity->img }}" class="img-fluid" alt="" style="width:100%; height:auto;">
+                                        <img src="{{ $charity->img }}" class="img-fluid" alt="{{ $charity->title }}" style="width:100%; height:auto;">
                                 </div>
                             </div>
                         @endforeach

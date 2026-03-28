@@ -19,13 +19,13 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
     Route::post('contact-us' ,[HomeController::class, 'contactUs'])->name('contact-us');
 
-    Route::get('specialtie/{id}' ,[SpecialtieController::class, 'index'])->name('specialtie');
+    Route::get('specialties/{slug}' ,[SpecialtieController::class, 'index'])->name('specialtie');
 
-    Route::get('specialtie-detail/{id}' ,[SpecialtieController::class, 'subSpecialtieDetail'])->name('specialtie-detail');
+    Route::get('specialty/{slug}' ,[SpecialtieController::class, 'subSpecialtieDetail'])->name('specialtie-detail');
 
     Route::get('/customers-reviews' ,[RateController::class, 'index'])->name('rate.index');
 
-    Route::get('/article-detail/{id}' ,[EyeHealthInfoController::class, 'getArticle'])->name('article.detail');
+    Route::get('/articles/{slug}' ,[EyeHealthInfoController::class, 'getArticle'])->name('article.detail');
 
 
     Route::get('/videos/health/{topic}' ,[VideoController::class, 'healthVideo'])->name('video.health');
@@ -33,18 +33,18 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 
     Route::get('partners' ,[PartnerController::class, 'index'])->name('partners.index');
     Route::get('rights' ,[RightController::class, 'index'])->name('rights.index');
-    Route::get('teams/{specialty_id}' ,[TeamController::class, 'index'])->name('teams.index');
-    Route::get('profile/{doctor_id}/{specialtie_id}' ,[TeamController::class, 'profile'])->name('teams.profile');
+    Route::get('specialists/{specialty_slug}' ,[TeamController::class, 'index'])->name('teams.index');
+    Route::get('doctors/{doctor_slug}/{specialty_slug?}' ,[TeamController::class, 'profile'])->name('teams.profile');
 
 
     Route::get('medical-devices', [MedicalDeviceController::class, 'index'])->name('medicalDevices.index');
-    Route::get('medical-devices/{id}', [MedicalDeviceController::class, 'show'])->name('medicalDevices.show');
+    Route::get('medical-devices/{slug}', [MedicalDeviceController::class, 'show'])->name('medicalDevices.show');
     Route::get('/medical-devices/get-devices-by-specialty', [MedicalDeviceController::class, 'getMedicalDevicesBySpecialty'])->name('getMedicalDevicesBySpecialty');
 
     Route::get('medical-tourism', [MedicalTourismController::class, 'index'])->name('medicalTourism.index');
 
     Route::get('conferences', [ConferenceController::class, 'index'])->name('conference.index');
-    Route::get('conferences/{id}', [ConferenceController::class, 'show'])->name('conference.show');
+    Route::get('conferences/{slug}', [ConferenceController::class, 'show'])->name('conference.show');
 
     Route::get('reservation/appoint_ment/{doctor_id}/{date}', [ReservationController::class, 'doctorAppointment'])->name('reservation.Appointment');
 
@@ -70,12 +70,12 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::post('login', [AuthController::class, 'login'])->name('login');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('conferences/{id}/booking', [ConferenceController::class, 'booking_conference'])->name('conference.booking')->middleware(['web']);
-    Route::post('conferences/{id}/booking', [ConferenceController::class, 'store_booking'])->name('conference.booking.store')->middleware(['web']);
+    Route::get('conferences/{slug}/booking', [ConferenceController::class, 'booking_conference'])->name('conference.booking')->middleware(['web']);
+    Route::post('conferences/{slug}/booking', [ConferenceController::class, 'store_booking'])->name('conference.booking.store')->middleware(['web']);
     Route::get('conferences/booking/success', [ConferenceController::class, 'success'])->name('conference.success');
 
     Route::get('medical-academies', [MedicalAcademyController::class, 'index'])->name('medical-academy.index');
-    Route::get('medical-academies/{id}', [MedicalAcademyController::class, 'show'])->name('medical-academy.show');
+    Route::get('medical-academies/{slug}', [MedicalAcademyController::class, 'show'])->name('medical-academy.show');
 
     // Start Cart
     Route::middleware(['auth', 'web'])->group(function () {
@@ -104,4 +104,3 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('contact-us', [SinglePageController::class, 'contact_us'])->name('contact');
 
 });
-

@@ -4,7 +4,7 @@
 
 		<!-- Banner -->
 		<article class="banner">
-			<img src="{{asset('siteassets/images/specializations/main.svg')}}">
+			<img src="{{asset('siteassets/images/specializations/main.svg')}}" alt="Books Banner">
 		</article>
 		<!-- Banner -->
 
@@ -25,7 +25,7 @@
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
 						<figure class="about-image">
-							<img src="{{asset('uploads/books/' . $book_info->img)}}" class="img-fluid">
+							<img src="{{asset('uploads/books/' . $book_info->img)}}" class="img-fluid" alt="{{ $book_info->title }}">
 						</figure>
 					</div>
 				</section>
@@ -50,7 +50,7 @@
 						<div class="col-4 col-md-6 col-sm-12">
 							<div class="text-box text-center">
 								<div class="device-image">
-									<img src="{{asset('siteassets/images/medical/categories/' . $topic->id . '.svg')}}" alt="">
+								<img src="{{asset('siteassets/images/medical/categories/' . $topic->id . '.svg')}}" alt="{{ $topic->name }}">
 								</div>
 								<h4>{{ $topic->name }}</h4>
 								<p class="feedback">

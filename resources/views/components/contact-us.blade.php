@@ -13,7 +13,7 @@
                         <div class="form-field">
                             <label>{{__('write your name')}} </label>
                             <div class="field">
-                                <img src="{{asset('siteassets/images/contact/user.svg')}}">
+                                <img src="{{asset('siteassets/images/contact/user.svg')}}" alt="User">
                                 <input type="text" name="name" placeholder="| {{__('please write your name hear')}}"
                                 required oninvalid="this.setCustomValidity('{{ __('This field is required') }}')"
                                 oninput="this.setCustomValidity('')">
@@ -23,7 +23,7 @@
                         <div class="form-field">
                             <label>  {{__('write your email')}}</label>
                             <div class="field">
-                                <img src="{{asset('siteassets/images/contact/sms.svg')}}">
+                                <img src="{{asset('siteassets/images/contact/sms.svg')}}" alt="Sms">
                                 <input type="email" name="email" placeholder="| example@email.com" required oninvalid="this.setCustomValidity('{{ __('This field is required') }}')"
                                 oninput="this.setCustomValidity('')">
                             </div>
@@ -33,7 +33,7 @@
                         <div class="form-field">
                             <label>{{__('write your message')}}</label>
                             <div class="field">
-                                <img src="{{asset('siteassets/images/contact/message-text.svg')}}">
+                                <img src="{{asset('siteassets/images/contact/message-text.svg')}}" alt="Message Text">
                                 <textarea name="message" placeholder="{{__('for example : I need to contact with you')}}" required oninvalid="this.setCustomValidity('{{ __('This field is required') }}')"
                                 oninput="this.setCustomValidity('')"></textarea>
                             </div>
@@ -46,7 +46,7 @@
                 </form>
                 <div class="footer-contact-phone">
                     <h4>{{ __('Or Contact us through :') }}</h4>
-                    {{-- <img src="{{asset('siteassets/images/footer/call.svg')}}" alt=""> --}}
+                    {{-- <img src="{{asset('siteassets/images/footer/call.svg')}}" alt="Call"> --}}
                     <strong>{{__('Phone Numbers')}} : </strong>
                     <a href="tel:{{ preg_replace('/\D+/', '', $settings->phone) }}">
                         {{ $settings->phone }}
@@ -55,7 +55,7 @@
                         {{ $settings->secondary_phone }}
                     </a>
                     <p>
-                        <img src="{{asset('siteassets/images/footer/whatsapp.svg')}}" alt="">
+                        <img src="{{asset('siteassets/images/footer/whatsapp.svg')}}" alt="Whatsapp">
                         <a href="https://wa.me/{{ preg_replace('/\D+/', '', $settings->whatsapp_number) }}" target="_blank">
                             {{ $settings->whatsapp_number }}
                         </a>
@@ -66,7 +66,7 @@
             </div>
             <div class="col-6 col-md-6 col-sm-12">
                 <figure class="contact-image">
-                    <img src="{{asset('siteassets/images/contact/main.svg')}}" alt="">
+                    <img src="{{asset('siteassets/images/contact/main.svg')}}" alt="Main">
                 </figure>
             </div>
         </div>
