@@ -31,33 +31,39 @@
     <link rel="alternate" hreflang="x-default" href="{{ LaravelLocalization::getLocalizedURL(config('app.locale')) }}" />
     <link rel="canonical" href="{{ LaravelLocalization::getLocalizedURL(app()->getLocale(), null, [], true) }}" />
 
-    <script type="application/ld+json">
+   <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "name": "Eye World Hospital",
-      "url": "{{ config('app.url') }}",
-      "logo": "{{ asset('uploads/settings/' . ($settings->logo ?? 'logo.svg')) }}",
-      "image": "{{ asset('siteassets/images/about.svg') }}",
-      "description": "Eye World Hospital is a leading ophthalmology center in Egypt providing cataract, LASIK, retinal and eye care services.",
-      "telephone": "{{ $settings->phone ?? '+20 000 000 0000' }}",
-      "email": "{{ $settings->email ?? 'info@eyeworldhospital.com' }}",
-      "address": {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "Eye World Hospital",
+        "url": "{{ config('app.url') }}",
+        "logo": "{{ asset('uploads/settings/' . ($settings->logo ?? 'logo.svg')) }}",
+        "image": "{{ asset('siteassets/images/about.svg') }}",
+        "description": "Eye World Hospital is a leading ophthalmology center in Egypt providing cataract, LASIK, retinal and eye care services.",
+        "telephone": "{{ $settings->phone ?? '' }}",
+        "email": "{{ $settings->email ?? 'info@eyeworldhospital.com' }}",
         "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "{{ $settings->address ?? '' }}",
-        "addressLocality": "{{ $settings->city ?? '' }}",
-        "addressRegion": "Egypt",
-        "postalCode": "{{ $settings->zip ?? '' }}",
-        "addressCountry": "EG"
-      },
-      "sameAs": [
-        "{{ $settings->facebook ?? '' }}",
-        "{{ $settings->twitter ?? '' }}",
-        "{{ $settings->instagram ?? '' }}"
-      ]
+            "@type": "PostalAddress",
+            "streetAddress": "{{ $settings->address ?? '' }}",
+            "addressLocality": "{{ $settings->city ?? '' }}",
+            "addressRegion": "Egypt",
+            "postalCode": "{{ $settings->zip ?? '' }}",
+            "addressCountry": "EG"
+        }
+        @if($settings->lat && $settings->lng)
+        ,"geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "{{ $settings->lat }}",
+            "longitude": "{{ $settings->lng }}"
+        }
+        @endif,
+        "sameAs": [
+            "{{ $settings->facebook ?? '' }}",
+            "{{ $settings->twitter ?? '' }}",
+            "{{ $settings->instagram ?? '' }}"
+        ]
     }
-    </script>
+</script>
     @yield('styles')
 
 </head>
