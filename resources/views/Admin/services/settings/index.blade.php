@@ -52,6 +52,21 @@
         <label>{{ __('ZIP') }}</label>
         <input class="form-control" name="zip" value="{{ isset($data) ? $data->zip : old('zip') }}" type="text" required>
 
+        <label>{{ __('Facebook') }}</label>
+        <input class="form-control" name="facebook" value="{{ isset($data) ? $data->facebook : old('facebook') }}" type="text" required>
+
+        <label>{{ __('Twitter') }}</label>
+        <input class="form-control" name="twitter" value="{{ isset($data) ? $data->twitter : old('twitter') }}" type="text" required>
+
+        <label>{{ __('Instagram') }}</label>
+            <input class="form-control" name="instagram" value="{{ isset($data) ? $data->instagram : old('instagram') }}" type="text" required>
+
+        <label>{{ __('Latitude') }}</label>
+            <input class="form-control" name="lat" value="{{ isset($data) ? $data->lat : old('lat') }}" type="text" required>
+
+        <label>{{ __('Longitude') }}</label>
+            <input class="form-control" name="lng" value="{{ isset($data) ? $data->lng : old('lng') }}" type="text" required>
+
         <div>
             <button type="submit" class="btn  mt-4" style="background-color: #267B26 ; color:white">{{__('system.edit')}}</button>
         </div>

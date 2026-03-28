@@ -396,5 +396,10 @@
     "Meta Description": "وصف الميتا",
     "Meta Keywords": "كلمات الميتا",
     "SEO settings updated successfully": "تم التعديل بنجاح",
-    "ZIP": "الرمز البريدي"
+    "ZIP": "الرمز البريدي",
+    "Facebook": "فيسبوك",
+    "Twitter": "تويتر",
+    "Instagram": "إنستجرام",
+    "Latitude": "خط العرض",
+    "Longitude": "خط الطول"
 }
