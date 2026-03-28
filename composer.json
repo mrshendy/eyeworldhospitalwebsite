@@ -11,6 +11,7 @@
         "laravel/tinker": "^2.9",
         "mcamara/laravel-localization": "^2.3",
         "realrashid/sweet-alert": "^7.3",
+        "spatie/laravel-sitemap": "^8.0",
         "yajra/laravel-datatables": "11.0"
     },
     "require-dev": {

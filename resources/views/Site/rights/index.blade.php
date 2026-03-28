@@ -6,7 +6,7 @@
 
     <!-- Banner -->
     <article class="banner">
-        <img src="{{asset('siteassets/images/specializations/main.svg')}}">
+        <img src="{{asset('siteassets/images/specializations/main.svg')}}" alt="Patient Rights Banner">
     </article>
     <!-- Banner -->
 
@@ -25,14 +25,14 @@
                         @if($info->file)
                             <a href="{{ asset($info->file) }}" class="download btn" download>
                                 الحقوق والواجبات!
-                                <img src="{{ asset('siteassets/images/patients/download.svg') }}" width="24" height="24" alt="">
+                                <img src="{{ asset('siteassets/images/patients/download.svg') }}" width="24" height="24" alt="Download">
                             </a>
                         @endif
                     </div>
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="{{asset('siteassets//images/patients/main.svg')}}" alt="">
+                        <img src="{{asset('siteassets//images/patients/main.svg')}}" alt="{{ $info->title }}">
                     </figure>
                 </div>
             </section>
@@ -55,7 +55,7 @@
                 @foreach ($rights as $row)
                     <div class="col-4 col-md-6 col-sm-12">
                         <div class="rights-box flex-start">
-                            <img src="{{asset('siteassets/images/patients/note.svg')}}" width="24" height="24" alt="">
+                            <img src="{{asset('siteassets/images/patients/note.svg')}}" width="24" height="24" alt="Patient right">
                             <div class="flex-1">
                                 <h4>{{$row->title}}</h4>
                                 <p>{{$row->desc }}</p>
@@ -78,20 +78,8 @@
                 @foreach ($duties as $row)
                     <div class="col-4 col-md-6 col-sm-12">
                         <div class="rights-box flex-start">
-                            <img src="{{asset('siteassets/images/patients/note.svg')}}" width="24" height="24" alt="">
+                            <img src="{{asset('siteassets/images/patients/note.svg')}}" width="24" height="24" alt="Patient duty">
                             <div class="flex-1">
-                                <h4>{{$row->title}}</h4>
-                                <p>{{$row->desc }}</p>
-                             </div>
-                        </div>
-                    </div>
-                @endforeach
-
-
-            </div>
-        </div>
-    </article>
-    <!-- Patients Duties Section -->
 
 
 

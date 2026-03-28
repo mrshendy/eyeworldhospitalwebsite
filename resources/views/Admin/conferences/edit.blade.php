@@ -79,7 +79,7 @@
                     <label for="">{{ __('existing_images') }}</label>
                     @foreach($conference->images as $key => $image)
                         <div class="mb-2 mt-4 col-3 old-image" data-id="{{ $image->id }}">
-                            <img src="{{ asset('uploads/conferences/' . $image->image) }}" class="me-2" width="100" alt="image">
+                            <img src="{{ asset('uploads/conferences/' . $image->image) }}" class="me-2" width="100" alt="Conference image {{ $key + 1 }}">
                             <input type="hidden" name="old_images[]" value="{{ $image->id }}">
                             <button type="button" class="btn btn-outline-danger btn-sm remove-old-image">
                                 <i class="ri-delete-bin-line"></i>

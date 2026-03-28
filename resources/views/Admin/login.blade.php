@@ -73,7 +73,7 @@
               <a href="index.html" class="app-brand-link gap-2">
                 <span class="app-brand-logo demo">
                   <span style="color: #666cff">
-                    <img src ="{{asset('uploads/logo.svg')}}">
+                    <img src ="{{asset('uploads/logo.svg')}}" alt="logo.svg">
                   </span>
                 </span>
               </a>
@@ -158,12 +158,7 @@
             </div>
           </div>
           <!-- /Login -->
-          <img
-            alt="mask"
-            src="{{asset('assets/img/illustrations/auth-basic-login-mask-light.png')}}"
-            class="authentication-image d-none d-lg-block"
-            data-app-light-img="illustrations/auth-basic-login-mask-light.png"
-            data-app-dark-img="illustrations/auth-basic-login-mask-dark.png" />
+          <img alt="mask" src="{{asset('assets/img/illustrations/auth-basic-login-mask-light.png')}}" class="authentication-image d-none d-lg-block" data-app-light-img="illustrations/auth-basic-login-mask-light.png" data-app-dark-img="illustrations/auth-basic-login-mask-dark.png" />
         </div>
       </div>
     </div>

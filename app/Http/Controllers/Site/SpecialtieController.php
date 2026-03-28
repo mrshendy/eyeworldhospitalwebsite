@@ -10,16 +10,16 @@ use App\Models\{Specialtie,SubSpecialtie,SubSpecialtieType};
 class SpecialtieController extends Controller
 {
     //
-    public function index($id){
-        $specialtie    = Specialtie::find($id);
-        $SubSpecialties = SubSpecialtie::where('specialtie_id',$id)->get();
-        return view('Site.specialtie.index',compact('SubSpecialties','specialtie'));
+    public function index($slug){
+        $specialtie    = Specialtie::where('slug', $slug)->firstOrFail();
+        $SubSpecialties = SubSpecialtie::where('specialtie_id', $specialtie->id)->get();
+        return view('Site.specialtie.index', compact('SubSpecialties', 'specialtie'));
     }
 
-    public function subSpecialtieDetail($id){
-        $SubSpecialtie    = SubSpecialtie::find($id);
+    public function subSpecialtieDetail($slug){
+        $SubSpecialtie    = SubSpecialtie::where('slug', $slug)->firstOrFail();
         $specialtie       = Specialtie::find($SubSpecialtie->specialtie_id);
-        $SubSpecialtieTypes = SubSpecialtieType::where('sub_specialtie_id',$id)->get();
-        return view('Site.specialtie.sub-specialtie-detail',compact('SubSpecialtie','SubSpecialtieTypes','specialtie'));
+        $SubSpecialtieTypes = SubSpecialtieType::where('sub_specialtie_id', $SubSpecialtie->id)->get();
+        return view('Site.specialtie.sub-specialtie-detail', compact('SubSpecialtie', 'SubSpecialtieTypes', 'specialtie'));
     }
 }

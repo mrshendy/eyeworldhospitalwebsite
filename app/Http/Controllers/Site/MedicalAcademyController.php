@@ -16,9 +16,9 @@ class MedicalAcademyController extends Controller
         return view('Site.medical-academies.index')->with($data);
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $data['medical_academy'] = MedicalAcademy::with('videos')->findOrFail($id);
+        $data['medical_academy'] = MedicalAcademy::where('slug', $slug)->with('videos')->firstOrFail();
         return view('Site.medical-academies.show')->with($data);
     }
 

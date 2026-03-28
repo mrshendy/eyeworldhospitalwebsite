@@ -21,8 +21,8 @@
 					{{-- <div class="sign-box-title">
 						<h2> سجل الدخول عبر</h2>
 						<div class="social-login">
-							<a href="#"><img src="{{asset('siteassets/images/login/facebook.svg')}}"></a>
-							<a href="#"><img src="{{asset('siteassets/images/login/google.svg')}}"></a>
+							<a href="#"><img src="{{asset('siteassets/images/login/facebook.svg')}}" alt="Facebook"></a>
+							<a href="#"><img src="{{asset('siteassets/images/login/google.svg')}}" alt="Google"></a>
 						</div>
 					</div>
 
@@ -121,7 +121,7 @@
 										<label>{{__('password')}}</label>
 										<div class="field">
 											<input type="password" name="password" placeholder="">
-											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}">
+											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}" alt="Eye">
 										</div>
 									</div>
 								</div>
@@ -131,7 +131,7 @@
 											<label>{{__('password confirmation')}}</label>
 											<div class="field">
 												<input type="password" name="password_confirmation" placeholder="">
-												<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}">
+												<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}" alt="Eye">
 											</div>
 											@if ($errors->has('password_confirmation'))
 											<p class="text-danger">{{ $errors->first('password_confirmation')}}</p>
@@ -216,7 +216,7 @@
 										<label>كلمة المرور</label>
 										<div class="field">
 											<input type="password" name="password" placeholder="">
-											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}">
+											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}" alt="Eye">
 										</div>
 										 @if ($errors->has('password'))
 										   <p class="text-danger">{{ $errors->first('password')}}</p>
@@ -231,7 +231,7 @@
 										<label>{{__('password confirmation')}}</label>
 										<div class="field">
 											<input type="password" name="password_confirmation" placeholder="">
-											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}">
+											<img class="eye" src="{{asset('siteassets/images/login/eye.svg')}}" alt="Eye">
 										</div>
 								         @if ($errors->has('password_confirmation'))
 										   <p class="text-danger">{{ $errors->first('password_confirmation')}}</p>

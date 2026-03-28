@@ -148,6 +148,14 @@ class DoctorController extends Controller
             'urgent_price'=> $request->urgent_price
         ]);
 
+        // Generate slug after all related data is created
+        $doctor->load('info');
+        if ($doctor->info) {
+            $slugObserver = new \App\Observers\SlugObserver();
+            $slugObserver->setSlug($doctor);
+            $doctor->save();
+        }
+
         return redirect()->route('Admin.doctors.index');
     }
 

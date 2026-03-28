@@ -31,7 +31,7 @@
 					<div class="col-4 col-md-6 col-sm-12">
 						<div class="text-box">
 							<div class="device-image">
-								<img src="{{ $book->img }}" class="img-fluid" alt="">
+								<img src="{{ $book->img }}" class="img-fluid" alt="{{ $book->title }}">
 							</div>
 							<h4> {{ $book->title }}</h4>
 							<p class="feedback">{{ $book->desc }}</p>

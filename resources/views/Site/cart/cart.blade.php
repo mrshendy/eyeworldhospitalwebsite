@@ -24,7 +24,7 @@
                             <div class="title-bar">
                                 <strong>المنتجات</strong>
                                 <a href="#" class="delete-all" data-action="{{ route('Site.cart.deleteAll') }}">
-                                    <img src="{{ asset('siteassets/images/trash.png') }}" width="24" height="24">
+                                    <img src="{{ asset('siteassets/images/trash.png') }}" alt="Trash" width="24" height="24">
                                     <span>حذف كل العناصر</span>
                                 </a>
 
@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="actions">
                                             <button class="delete-product delete-product btn btn-danger" data-id="{{ $item->id }}" >
-                                                <img src="{{ asset('siteassets/images/trash.png') }}" width="24" height="24">
+                                                <img src="{{ asset('siteassets/images/trash.png') }}" alt="Trash" width="24" height="24">
                                             </button>
 
                                             <div class="product-control">
@@ -222,19 +222,19 @@
 
                                         <div class="payment-box">
                                             <input type="radio" name="payment_method" value="whatsapp" checked>
-                                            <img src="{{ asset('siteassets/images/doctors/book/whatsapp.svg') }}" width="24">
+                                            <img src="{{ asset('siteassets/images/doctors/book/whatsapp.svg') }}" alt="Whatsapp" width="24">
                                             <span>واتساب</span>
                                         </div>
 
                                         <div class="payment-box">
                                             <input type="radio" name="payment_method" value="visa">
-                                            <img src="{{ asset('siteassets/images/doctors/book/visa.svg') }}" width="24">
+                                            <img src="{{ asset('siteassets/images/doctors/book/visa.svg') }}" alt="Visa" width="24">
                                             <span>Visa</span>
                                         </div>
 
                                         <div class="payment-box">
                                             <input type="radio" name="payment_method" value="apple_pay">
-                                            <img src="{{ asset('siteassets/images/doctors/book/pay.svg') }}" width="24">
+                                            <img src="{{ asset('siteassets/images/doctors/book/pay.svg') }}" alt="Pay" width="24">
                                             <span>Apple Pay</span>
                                         </div>
                                     </div>

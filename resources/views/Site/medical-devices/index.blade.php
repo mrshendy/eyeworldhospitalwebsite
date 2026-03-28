@@ -7,7 +7,7 @@
 
     <!-- Banner -->
     <article class="banner">
-        <img src="{{asset('uploads/medical-devices/banner.jpg')}}">
+        <img src="{{asset('uploads/medical-devices/banner.jpg')}}" alt="Medical Devices Banner">
     </article>
     <!-- Banner -->
 
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="{{asset('uploads/medical-devices/' . $medical_device_info->img)}}" class="img-fluid" alt="">
+                        <img src="{{asset('uploads/medical-devices/' . $medical_device_info->img)}}" class="img-fluid" alt="{{ $medical_device_info->title }}">
                     </figure>
                 </div>
             </section>
@@ -49,7 +49,7 @@
                 <div class="col-3 col-md-6 col-sm-12">
                     <div class="aside-tabs">
                         @foreach ($specialties as $specialty)
-                            <a href="{{ route('Site.specialtie', $specialty->id) }}"
+                            <a href="{{ route('Site.specialtie', $specialty->slug) }}"
                                 class="aside-tab flex-between align-center {{ $loop->first ? 'active' : '' }}">
                                 <div class="flex-1">
                                     <h3>{{ $specialty->title }}</h3>
@@ -66,12 +66,12 @@
                             <div class="col-4 col-md-6 col-sm-12">
                                 <div class="text-box text-center">
                                     <div class="device-image">
-                                        <img src="{{asset('uploads/medical-devices/' . $row->img)}}" class="img-fluid" alt="">
+                                        <img src="{{asset('uploads/medical-devices/' . $row->img)}}" class="img-fluid" alt="{{ $row->title }}">
                                     </div>
                                     <h4>{{ $row->title }}</h4>
                                     <p class="feedback"> {{ $row->sub_title }}</p>
 
-                                    <a href="{{ route('Site.medicalDevices.show', $row->id) }}" class="show-profile">
+                                    <a href="{{ route('Site.medicalDevices.show', $row->slug) }}" class="show-profile">
                                         اقرأ المزيد
                                     </a>
 

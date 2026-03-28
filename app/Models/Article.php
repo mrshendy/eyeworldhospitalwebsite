@@ -16,6 +16,11 @@ class Article extends Model  implements TranslatableContract
     protected $guarded=[];
     protected $hidden = ['translations'];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     protected function img(): Attribute
     {
         return Attribute::make(

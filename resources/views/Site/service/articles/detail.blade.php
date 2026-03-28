@@ -2,10 +2,10 @@
 @section('content')
 
 <main id="main">
-		
+
     <!-- Banner -->
     <article class="banner">
-        <img src="{{$article->img}}">
+        <img src="{{$article->img}}" alt="{{ $article->title }}">
     </article>
     <!-- Banner -->
 
@@ -33,24 +33,24 @@
                         <div class="col-3 col-md-6 col-sm-12">
                             <div class="doctor">
                                 <figure>
-                                    <img src="{{$article->img}}">
+                                    <img src="{{$article->img}}" alt="{{ $article->title }}">
                                 </figure>
                                 <div class="doctor-dtl">
                                     <h3>{{$article->title}}</h3>
                                     <p>{{$article->desc}}</p>
-                                    <a href="{{route('Site.article.detail',$article->id)}}">
+                                    <a href="{{route('Site.article.detail',$article->slug)}}">
                                         {{__('read more')}}
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        
+
                     @endforeach
 
 
                 </div>
             </div>
-                
+
 
         </div>
     </article>
@@ -58,7 +58,7 @@
 
     <!-- Discover two Section -->
 
-    
+
 
     <!-- Contact us Section -->
     @include('components.contact-us')

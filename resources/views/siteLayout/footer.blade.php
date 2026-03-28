@@ -5,7 +5,7 @@
             <div class="col-6 col-md-6 col-sm-12">
                 <div class="footer-content">
                     <div class="footer-logo">
-                    <img src="{{asset('uploads/settings/' . $settings->logo)}}" alt="">
+                    <img src="{{asset('uploads/settings/' . $settings->logo)}}" alt="{{ $settings->title }} Logo">
                     </div>
                     <h2 class="footer-title">{{ $settings->title }}</h2>
                     <p class="footer-desc">
@@ -17,7 +17,7 @@
                 <ul class="list-unstyled footer-contact">
                     <li>
                         <div class="flex-start align-center">
-                            <img src="{{asset('siteassets/images/footer/location.svg')}}" alt="">
+                            <img src="{{asset('siteassets/images/footer/location.svg')}}" alt="Location icon">
                             <strong>{{__('address')}} : </strong>
                         </div>
                         <p>{{ $settings->address }}</p>
@@ -25,7 +25,7 @@
 
                     <li>
                         <div class="flex-start align-center">
-                            <img src="{{asset('siteassets/images/footer/call.svg')}}" alt="">
+                            <img src="{{asset('siteassets/images/footer/call.svg')}}" alt="Phone icon">
                             <strong>{{__('phone number')}} : </strong>
                         </div>
                         <p>{{ $settings->phone }} ،  {{ $settings->secondary_phone }}</p>
@@ -33,7 +33,7 @@
 
                     <li>
                         <div class="flex-start align-center">
-                            <img src="{{asset('siteassets/images/footer/msg.svg')}}" alt="">
+                            <img src="{{asset('siteassets/images/footer/msg.svg')}}" alt="Email icon">
                             <strong>{{__('email')}}: </strong>
                         </div>
                         <p>{{ $settings->email }}</p>
@@ -45,7 +45,7 @@
                     <li>
                         <div class="flex-start align-center">
                             <a href="{{ route('Site.contact') }}">
-                                <img src="{{asset('siteassets/images/footer/msg2.svg')}}" alt="">
+                                <img src="{{asset('siteassets/images/footer/msg2.svg')}}" alt="Contact us">
                                 <strong>{{__('contact us')}}</strong>
                             </a>
                         </div>
@@ -54,7 +54,7 @@
                     <li>
                         <div class="flex-start align-center">
                             <a href="{{ route('Site.faqs') }}">
-                                <img src="{{asset('siteassets/images/footer/stickynote.svg')}}" alt="">
+                                <img src="{{asset('siteassets/images/footer/stickynote.svg')}}" alt="FAQ">
                                 <strong>{{__('common quetions')}}</strong>
                             </a>
                         </div>
@@ -63,7 +63,7 @@
                     <li>
                         <div class="flex-start align-center">
                             <a href="{{ route('Site.terms') }}">
-                                <img src="{{asset('siteassets/images/footer/verify.svg')}}" alt="">
+                                <img src="{{asset('siteassets/images/footer/verify.svg')}}" alt="Terms and conditions">
                                 <strong>{{__('terms and condations')}} </strong>
                             </a>
                         </div>
@@ -71,7 +71,7 @@
                     <li>
                         <div class="flex-start align-center">
                             <a href="{{ route('Site.privacy') }}">
-                                <img class="mb-4" src="{{asset('siteassets/images/footer/stickynote.svg')}}" alt="">
+                                <img class="mb-4" src="{{asset('siteassets/images/footer/stickynote.svg')}}" alt="Privacy policy">
                                 <strong>{{__('privecy policy')}}</strong>
                             </a>
                         </div>
@@ -89,10 +89,10 @@
         <p class="copyright">  {{__('All rights reserved to Dunya Al Oyoun')}}     @ 2025</p>
         <div class="socials flex-center align-center">
              {{-- @foreach (media() as $row)
-               <a href="{{$row->url}}"><img src="{{$row->img}}"></a>
+               <a href="{{$row->url}}"><img src="{{$row->img}}" alt="Social media link"></a>
              @endforeach --}}
              @foreach (app('media') as $row)
-                <a href="{{ $row->url }}"><img src="{{ $row->img }}"></a>
+                <a href="{{ $row->url }}"><img src="{{ $row->img }}" alt="Social media"></a>
             @endforeach
 
         </div>
@@ -102,11 +102,11 @@
 
 <div class="fixed-btns">
     <a href="https://wa.me/{{ $settings->whatsapp_number }}" target="_blank">
-        <img src="{{asset('siteassets/images/footer/whatsapp.svg')}}">
+        <img src="{{asset('siteassets/images/footer/whatsapp.svg')}}" alt="WhatsApp">
     </a>
     @auth
         <a href="{{ route('Site.user_reservations') }}">
-            <img src="{{ asset('siteassets/images/footer/dash.svg') }}">
+            <img src="{{ asset('siteassets/images/footer/dash.svg') }}" alt="Dashboard">
         </a>
     @endauth
 

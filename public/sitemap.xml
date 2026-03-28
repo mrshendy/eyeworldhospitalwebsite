@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    <url>
+    <loc>http://localhost</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en" />
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+            </url>
+    <url>
+    <loc>http://localhost/customers-reviews</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/customers-reviews" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/customers-reviews" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/customers-reviews" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/partners</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/partners" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/partners" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/partners" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/rights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/rights" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/rights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/rights" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/faqs</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/faqs" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/faqs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/faqs" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/terms" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/privacy" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/contact-us</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/contact-us" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/contact-us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/contact-us" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/medical-tourism</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/medical-tourism" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/medical-tourism" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/medical-tourism" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/books</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/books" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/books" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/books" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/specialties/tb-ograhh-alaayon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/specialties/tb-ograhh-alaayon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/specialties/tb-ograhh-alaayon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/specialties/tb-ograhh-alaayon" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://localhost/specialties/algldyh</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/specialties/algldyh" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/specialties/algldyh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/specialties/algldyh" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://localhost/specialties/alasnan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/specialties/alasnan" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/specialties/alasnan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/specialties/alasnan" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://localhost/specialty/aoram-alaayon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/specialty/aoram-alaayon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/specialty/aoram-alaayon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/specialty/aoram-alaayon" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/specialty/almyah-albydaaa</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/specialty/almyah-albydaaa" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/specialty/almyah-albydaaa" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/specialty/almyah-albydaaa" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/specialty/allyzk</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/specialty/allyzk" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/specialty/allyzk" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/specialty/allyzk" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/conferences/con</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/conferences/con" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/conferences/con" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/conferences/con" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://localhost/medical-academies/new-academy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/medical-academies/new-academy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/medical-academies/new-academy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/medical-academies/new-academy" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+            </url>
+    <url>
+    <loc>http://localhost/articles/ahmy-alfhs-almbkr-llaayon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/articles/ahmy-alfhs-almbkr-llaayon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/articles/ahmy-alfhs-almbkr-llaayon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/articles/ahmy-alfhs-almbkr-llaayon" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>http://localhost/articles/trk-llhfath-aal-sh-alaayn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/articles/trk-llhfath-aal-sh-alaayn" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/articles/trk-llhfath-aal-sh-alaayn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/articles/trk-llhfath-aal-sh-alaayn" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>http://localhost/articles/trk-llhfath-aal-sh-alaayn-1</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/articles/trk-llhfath-aal-sh-alaayn-1" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/articles/trk-llhfath-aal-sh-alaayn-1" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/articles/trk-llhfath-aal-sh-alaayn-1" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>http://localhost/articles/alaaoaml-alty-tothr-aal-sh-alaayn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/articles/alaaoaml-alty-tothr-aal-sh-alaayn" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/articles/alaaoaml-alty-tothr-aal-sh-alaayn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/articles/alaaoaml-alty-tothr-aal-sh-alaayn" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>http://localhost/doctors/new-doctor</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/doctors/new-doctor" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/doctors/new-doctor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/doctors/new-doctor" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>http://localhost/doctors/shea-york</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/doctors/shea-york" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/doctors/shea-york" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/doctors/shea-york" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>http://localhost/doctors/louis-mason</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://localhost/en/doctors/louis-mason" />
+    <xhtml:link rel="alternate" hreflang="ar" href="http://localhost/ar/doctors/louis-mason" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="http://localhost/en/doctors/louis-mason" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+</urlset>

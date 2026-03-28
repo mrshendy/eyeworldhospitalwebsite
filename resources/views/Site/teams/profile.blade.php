@@ -5,7 +5,7 @@
 
 		<!-- Banner -->
 		<article class="banner">
-			<img src="{{$Specialtie->img}}">
+			<img src="{{$Specialtie->img}}" alt="{{ $Specialtie->title }} specialty">
 		</article>
 		<!-- Banner -->
 
@@ -26,7 +26,7 @@
 
 								<div class="col-6 col-md-6 col-sm-12">
 									<div class="profile-info flex-start">
-										<img src="{{$doctor->img}}">
+										<img src="{{$doctor->img}}" alt="Dr. {{ $doctor->info->name }}">
 										<div class="flex-1">
 											<h3>{{__('doctor name')}}</h3>
 											<p>{{$doctor->info->name}}</p>
@@ -36,7 +36,7 @@
 
 								<div class="col-6 col-md-6 col-sm-12">
 									<div class="profile-info flex-start">
-										<img src="../images/doctors/profile/job.svg">
+										<img src="../images/doctors/profile/job.svg" alt="Job">
 										<div class="flex-1">
 											<h3>المسمي الوظيفي</h3>
 											<p>استشاري شبكية عيون الأطفال</p>
@@ -46,7 +46,7 @@
 
 								<div class="col-6 col-md-6 col-sm-12">
 									<div class="profile-info flex-start">
-										<img src="../images/doctors/profile/hospital.svg">
+										<img src="../images/doctors/profile/hospital.svg" alt="Hospital">
 										<div class="flex-1">
 											<h3>التخصصات التي يعمل بها:</h3>
 											<ul class="profile-info-list">
@@ -60,7 +60,7 @@
 
 								<div class="col-6 col-md-6 col-sm-12">
 									<div class="profile-info flex-start">
-										<img src="../images/doctors/profile/personalcard.svg">
+										<img src="../images/doctors/profile/personalcard.svg" alt="Personalcard">
 										<div class="flex-1">
 											<h3>الجهات التأمينية:</h3>
 											<ul class="profile-info-list">
@@ -77,7 +77,7 @@
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
 						<figure class="about-image">
-							<img src="{{$doctor->img}}" alt="">
+							<img src="{{$doctor->img}}" alt="Dr. {{ $doctor->info->name }} profile">
 						</figure>
 					</div>
 				</section>

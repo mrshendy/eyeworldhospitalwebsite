@@ -16,8 +16,8 @@ class EyeHealthInfoController extends Controller
     }
 
 
-    public function getArticle($id){
-       $article = Article::find($id);
+    public function getArticle($slug){
+       $article = Article::where('slug', $slug)->firstOrFail();
        $articles = Article::orderBy('id','desc')->get()->take(4);
        return view('Site.service.articles.detail',compact('article','articles'));
     }

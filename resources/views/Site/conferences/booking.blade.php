@@ -49,7 +49,7 @@
 						</div>
 					</div>
 					<div class="col-9 col-md-12">
-						<form class="steps-holder" method="POST" action="{{ route('Site.conference.booking.store', $conference->id) }}">
+						<form class="steps-holder" method="POST" action="{{ route('Site.conference.booking.store', $conference->slug) }}">
                             @csrf
 							<div class="step-content active">
 

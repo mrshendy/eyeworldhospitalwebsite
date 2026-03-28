@@ -6,7 +6,7 @@
 
         <!-- Banner -->
         <article class="banner">
-            <img src="{{asset('uploads/medical-devices/banner.jpg')}}">
+            <img src="{{asset('uploads/medical-devices/banner.jpg')}}" alt="Medical Academies Banner">
         </article>
         <!-- Banner -->
 
@@ -49,7 +49,7 @@
                         <div class="video-box">
                             <div class="image-holder" style="background-image: url('{{ asset('uploads/medical-academy-videos/' . $video->img) }}');">
                                 <a href="{{ $video->video_url }}">
-                                    <img src="{{ asset('uploads/medical-academies/thumbnails/icon.svg') }}">
+                                    <img src="{{ asset('uploads/medical-academies/thumbnails/icon.svg') }}" alt="Play video - {{ $video->title }}">
                                 </a>
                             </div>
                             <div class="video-dtl">
