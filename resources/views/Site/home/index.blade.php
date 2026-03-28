@@ -52,7 +52,7 @@
     <!-- Achievement Section -->
     <article class="achievement text-center pd">
         <div class="container">
-            <span class="pre-title site-color">{{__('Our achievements speak for our leadership in the field of ophthalmology.')}}</span>
+            <h1 class="pre-title site-color">{{__('Our achievements speak for our leadership in the field of ophthalmology.')}}</h1>
             <h2 class="main-title">{{__('Amazing statistics prove our position as pioneers in medical eye care services.')}}</h2>
             <p class="main-para">{{__('Since its establishment in 2004, Dunya Eye Hospital has achieved record-breaking milestones in the field of ophthalmology. We constantly strive for excellence through thousands of successful surgeries and medical examinations. These achievements reflect our commitment to providing top-quality medical services and making a positive impact on our patients\' lives.')}}</p>
 
