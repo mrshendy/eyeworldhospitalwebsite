@@ -23,7 +23,7 @@ Allow: /faqs
 Allow: /contact-us
 
 # Sitemap - UPDATE THIS URL FOR PRODUCTION
-Sitemap: https://eyeworldhospital.com/sitemap.xml
+Sitemap: https://www.eyeworldhospital.com/sitemap.xml
 
 # Crawl delay (optional - be respectful to your server)
 Crawl-delay: 1
