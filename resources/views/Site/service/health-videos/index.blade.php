@@ -6,7 +6,7 @@
 		
     <!-- Banner -->
     <article class="banner">
-        <img src="{{asset('siteassets/images/specializations/main.svg')}}">
+        <img src="{{asset('siteassets/images/specializations/main.svg')}}" alt="Main">
     </article>
     <!-- Banner -->
 
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="{{asset('siteassets/images/videos/main.svg')}}" alt="">
+                        <img src="{{asset('siteassets/images/videos/main.svg')}}" alt="Main">
                     </figure>
                 </div>
             </section>
@@ -68,7 +68,7 @@
                                 <div class="video-box">
                                     <a href="{{ $video->link }}" target="_blank"> {{-- Open in new tab --}}
                                         <div class="image-holder" style="background-image: url({{ $video->img }});">
-                                            <img src="{{ asset('siteassets/images/videos/icon.svg') }}">
+                                            <img src="{{ asset('siteassets/images/videos/icon.svg') }}" alt="Icon">
                                         </div>
                                     </a>
                                     <div class="video-dtl">

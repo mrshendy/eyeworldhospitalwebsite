@@ -10,6 +10,11 @@ class Doctor extends Model
     //
     protected $guarded=[];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function info(){
         return $this->hasOne(DoctorInfo::class);
     }

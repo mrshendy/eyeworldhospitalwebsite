@@ -5,7 +5,7 @@
 
     <!-- Banner -->
     <article class="banner">
-        <img src="{{asset('uploads/medical-devices/banner.jpg')}}">
+        <img src="{{asset('uploads/medical-devices/banner.jpg')}}" alt="Medical Academies Banner">
     </article>
     <!-- Banner -->
 
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src={{ asset('uploads/medical-academies/' . $medical_academy_info->img) }} alt="">
+                        <img src={{ asset('uploads/medical-academies/' . $medical_academy_info->img) }} alt="{{ $medical_academy_info->title }}">
                     </figure>
                 </div>
             </section>
@@ -49,7 +49,7 @@
                             <p class="feedback">
                                 {{ $academy->description }}
                             </p>
-                            <a href="{{ route('Site.medical-academy.show', $academy->id) }}" class="show-profile">
+                            <a href="{{ route('Site.medical-academy.show', $academy->slug) }}" class="show-profile">
                                 عرض الفيديوهات
                             </a>
                         </div>

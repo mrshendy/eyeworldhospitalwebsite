@@ -5,7 +5,7 @@
 
         <!-- Banner -->
          <article class="banner">
-            <img src="{{asset('uploads/medical-devices/banner.jpg')}}">
+            <img src="{{asset('uploads/medical-devices/banner.jpg')}}" alt="Contact Us Banner">
         </article>
         <!-- Banner -->
 
@@ -15,19 +15,19 @@
                 <div class="flex-start contact-holder">
                     <div class="col-4 col-sm-12">
                         <div class="con-box">
-                            <img src="{{ asset('uploads/contact/call.svg') }}" alt="" width="38" height="38">
+                            <img src="{{ asset('uploads/contact/call.svg') }}" alt="Phone" width="38" height="38">
                             <p>1112345678, 16465</p>
                         </div>
                     </div>
                     <div class="col-4 col-sm-12">
                         <div class="con-box">
-                            <img src="{{ asset('uploads/contact/msg.svg') }}" alt="" width="38" height="38">
+                            <img src="{{ asset('uploads/contact/msg.svg') }}" alt="Email" width="38" height="38">
                             <p>info@eyeworldhospital.com Help.eyeworldhospital@gmail.com</p>
                         </div>
                     </div>
                     <div class="col-4 col-sm-12">
                         <div class="con-box">
-                            <img src="{{ asset('uploads/contact/location.svg') }}" alt="" width="38" height="38">
+                            <img src="{{ asset('uploads/contact/location.svg') }}" alt="Address" width="38" height="38">
                             <p>12 مصدق، الدقي، الدقي، محافظة الجيزة 12611</p>
                         </div>
                     </div>

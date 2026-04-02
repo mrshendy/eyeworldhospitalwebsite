@@ -38,7 +38,7 @@
 
 									<div class="doctor-details flex-between">
 										<div class="flex-start align-center">
-											<img src="../images/settings/Avatar.svg" alt="" width="40" height="40">
+											<img src="../images/settings/Avatar.svg" alt="Avatar" width="40" height="40">
 											<div class="flex-1">
 												<h3>{{ $order->user->name }}</h3>
 												<p>{{ $order->user->specialtie }}</p>
@@ -71,7 +71,7 @@
 												<tr>
 													<td>
 														<div class="flex-start  tbl align-center">
-															<img src="{{ asset('uploads/books/' . $item->book->img) }}" width="40" height="40">
+															<img src="{{ asset('uploads/books/' . $item->book->img) }}" alt="{{ $item->book->title }}" width="40" height="40">
 															<span>{{ $item->book->title }}</span>
 														</div>
 													</td>
@@ -80,7 +80,7 @@
 
 															<strong class="site-color price">{{ number_format($item->price * $item->quantity) }} ج.م</strong>
 															<a href="{{ route('Site.book.download', $item->book_id) }}" class="dw site-color">
-																<img src="{{ asset('images/patients/download.svg') }}" width="24" height="24" alt="">
+																<img src="{{ asset('images/patients/download.svg') }}" width="24" height="24" alt="Download">
 																تحميل الكتاب
 															</a>
 														</div>
@@ -99,17 +99,17 @@
 								<div class="cart-box">
 									<h3>البيانات الشخصية</h3>
 									<div class="li">
-										<img src="../images/settings/profile.svg" alt="" width="24" height="24">
+										<img src="../images/settings/profile.svg" alt="Profile" width="24" height="24">
 										<span>محمد الشريف</span>
 									</div>
 
 									<div class="li">
-										<img src="../images/settings/location.svg" alt="" width="24" height="24">
+										<img src="../images/settings/location.svg" alt="Location" width="24" height="24">
 										<span>مدينة المنصوره، الدقهلية ، مصر</span>
 									</div>
 
 									<div class="li">
-										<img src="../images/settings/call-calling.svg" alt="" width="24" height="24">
+										<img src="../images/settings/call-calling.svg" alt="Call Calling" width="24" height="24">
 										<span>+201012345678</span>
 									</div>
 								</div>
@@ -118,7 +118,7 @@
 									<h3>تفاصيل الدفع</h3>
 
 									<div class="li">
-										<img src="../images/settings/cards.svg" alt="" width="24" height="24">
+										<img src="../images/settings/cards.svg" alt="Cards" width="24" height="24">
 										<span class="site-color">الدفع كاش</span>
 									</div>
 

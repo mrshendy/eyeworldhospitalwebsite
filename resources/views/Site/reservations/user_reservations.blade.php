@@ -58,7 +58,7 @@
                                                         </td>
                                                         <td>
                                                             <div class="flex-start align-center">
-                                                                <img src="{{ $reservation->doctor->img }}" alt="" width="40" height="40">
+                                                                <img src="{{ $reservation->doctor->img }}" alt="Dr. {{ $reservation->doctor->info->name }}" width="40" height="40">
                                                                 <div class="flex-1">
                                                                     <h3>{{ $reservation->doctor->info->name }}</h3>
                                                                     <p>{{ $reservation->doctor->info->job_title }}</p>

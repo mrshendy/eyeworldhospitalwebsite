@@ -27,28 +27,29 @@ class ConferenceController extends Controller
         return view('Site.conferences.index')->with($data);
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $data['conference'] = Conference::with('advantages')
+        $data['conference'] = Conference::where('slug', $slug)
+                            ->with('advantages')
                             ->with('images')
                             ->with('charities')
                             ->with('guests')
                             ->with('globalDoctors')
                             ->with('localDoctors')
-                            ->findOrFail($id);
+                            ->firstOrFail();
 
         return view('Site.conferences.show')->with($data);
     }
 
 
-    public function booking_conference($id)
+    public function booking_conference($slug)
     {
-        $conference = Conference::findOrFail($id);
+        $conference = Conference::where('slug', $slug)->firstOrFail();
         $participationTypes = ParticipationType::all();
         return view('Site.conferences.booking', compact('conference', 'participationTypes'));
     }
 
-    public function store_booking(Request $request, $id)
+    public function store_booking(Request $request, $slug)
     {
         $request->validate([
             'name' => 'required|string',
@@ -66,7 +67,7 @@ class ConferenceController extends Controller
             $request->only(['name', 'phone', 'country', 'age'])
         );
 
-        $conference = Conference::findOrFail($id);
+        $conference = Conference::where('slug', $slug)->firstOrFail();
 
         $conference->guests()->syncWithoutDetaching([
             $guest->id => [

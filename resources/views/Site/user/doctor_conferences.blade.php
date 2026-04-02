@@ -29,12 +29,12 @@
                                 <div class="col-4 col-md-6 col-sm-12">
                                     <div class="text-box ">
                                         <div class="device-image">
-                                            <img src={{ asset('uploads/conferences/' . $conference->img) }} alt="">
+                                            <img src={{ asset('uploads/conferences/' . $conference->img) }} alt="{{ $conference->title }}">
                                         </div>
                                         <h4>{{ $conference->title }}</h4>
                                         <p class="feedback">{{ $conference->description}}</p>
                                         <p class="time-date">
-                                            <img src="{{ asset('uploads/conferences/calendar.png') }}" alt="" width="32">
+                                            <img src="{{ asset('uploads/conferences/calendar.png') }}" alt="Calendar" width="32">
                                             @php
                                                 $locale = app()->getLocale();
                                                 \Carbon\Carbon::setLocale($locale);
@@ -59,7 +59,7 @@
                                                 <span>{{ $startDay }} {{ $startMonth }} {{ $startYear }} - {{ $endDay }} {{ $endMonth }} {{ $endYear }}</span>
                                             @endif
                                         </p>
-                                        <a href="{{ route('Site.conference.show', $conference->id) }}" class="show-profile">
+                                        <a href="{{ route('Site.conference.show', $conference->slug) }}" class="show-profile">
                                         {{ __('show_details') }}
                                         </a>
                                     </div>

@@ -20,8 +20,8 @@
 					<div class="sign-box-title">
 						<h2> سجل الدخول عبر</h2>
 						<div class="social-login">
-			            	<a href="#"><img src="{{asset('siteassets/images/login/facebook.svg')}}"></a>
-							<a href="#"><img src="{{asset('siteassets/images/login/google.svg')}}"></a>
+			            	<a href="#"><img src="{{asset('siteassets/images/login/facebook.svg')}}" alt="Facebook"></a>
+							<a href="#"><img src="{{asset('siteassets/images/login/google.svg')}}" alt="Google"></a>
 						</div>
 					</div>
 
@@ -47,7 +47,7 @@
 										<label>كلمة المرور</label>
 										<div class="field">
 											<input type="password" name="password" placeholder="">
-											<img class="eye" src="../images/login/eye.svg">
+											<img class="eye" src="../images/login/eye.svg" alt="Eye">
 										</div>
 									</div>
 								</div>
@@ -95,7 +95,7 @@
 										<label>كلمة المرور</label>
 										<div class="field">
 											<input type="password" name="password" placeholder="">
-											<img class="eye" src="../images/login/eye.svg">
+											<img class="eye" src="../images/login/eye.svg" alt="Eye">
 										</div>
 									</div>
 								</div>

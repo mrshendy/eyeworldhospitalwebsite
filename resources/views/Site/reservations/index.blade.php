@@ -62,7 +62,7 @@
 				<p class="main-para">احصل على موعدك مع الخبراء في طب العيون واحصل على العناية التي تحتاجها بلمسة واحدة.</p>
 				<div class="pdt">
 					<div class="doctor-info flex-start align-center">
-						<img src="{{$doctor->img}}" alt="" width="48" height="48">
+						<img src="{{$doctor->img}}" alt="Dr. {{ $doctor->info->name }}" width="48" height="48">
 						<div class="flex-1">
 							<h3>{{$doctor->info->name}}</h3>
 							<p>{{$doctor->info->title}}</p>
@@ -290,7 +290,7 @@
                                                 <label>ارفق الملفات</label>
                                                 <div class="field">
                                                     <input type="file" name="medical_files[]" multiple>
-                                                    <img src="{{ asset('siteassets/images/doctors/book/link.svg') }}" width="24">
+                                                    <img src="{{ asset('siteassets/images/doctors/book/link.svg') }}" alt="Link" width="24">
                                                 </div>
                                             </div>
                                         </div>
@@ -398,7 +398,7 @@
 									</div>
 									<div class="flex-between step-bar align-center">
 										<p class="flex-start align-center">
-											<img src="{{asset('siteassets//images/doctors/book/calendar.svg')}}" width="24">
+											<img src="{{asset('siteassets//images/doctors/book/calendar.svg')}}" alt="Calendar" width="24">
 									 <span id="time">  </span> -	<span id="date">   </span>
 
 									</p>
@@ -414,19 +414,19 @@
 
 									<div class="payment-box">
 										<input type="radio" name="payment" checked>
-										<img src="{{asset('siteassets/images/doctors/book/whatsapp.svg')}}" width="24">
+										<img src="{{asset('siteassets/images/doctors/book/whatsapp.svg')}}" alt="Whatsapp" width="24">
 										<span>{{__('cash')}}</span>
 									</div>
 
 									<div class="payment-box">
 										<input type="radio" name="payment">
-										<img src="{{asset('siteassets/images/doctors/book/visa.svg')}}" width="24" disabled>
+										<img src="{{asset('siteassets/images/doctors/book/visa.svg')}}" alt="Visa" width="24" disabled>
 										<span>Visa</span>
 									</div>
 
 									{{-- <div class="payment-box">
 										<input type="radio" name="payment">
-										<img src="{{asset('siteassets/images/doctors/book/pay.svg')}}" width="24">
+										<img src="{{asset('siteassets/images/doctors/book/pay.svg')}}" alt="Pay" width="24">
 										<span>Apple Pay</span>
 									</div> --}}
 

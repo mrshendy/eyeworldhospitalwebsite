@@ -6,7 +6,7 @@
 
 		<!-- Banner -->
 		<article class="banner">
-			<img src="{{$Specialtie->img}}">
+			<img src="{{$Specialtie->img}}" alt="{{ $Specialtie->title }}">
 		</article>
 		<!-- Banner -->
 
@@ -25,7 +25,7 @@
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
 						<figure class="about-image">
-							<img src="{{asset('siteassets/images/videos/medical/main.svg')}}" alt="">
+							<img src="{{asset('siteassets/images/videos/medical/main.svg')}}" alt="Medical information">
 						</figure>
 					</div>
 				</section>
@@ -46,7 +46,7 @@
 						<div class="aside-tabs">
 
                             @foreach ($Specialties as $data)
-                                <a href="{{route('Site.teams.index',$data->id)}}" class="aside-tab flex-between align-center @if($data->id==$id) active @endif">
+                                <a href="{{route('Site.teams.index',$data->slug)}}" class="aside-tab flex-between align-center @if($data->slug==$specialty_slug) active @endif">
                                     <div class="flex-1">
                                         <h3>{{$data->title}}</h3>
                                     </div>
@@ -61,11 +61,11 @@
                                 <div class="col-6 col-md-6 col-sm-12">
                                     <div class="text-box text-center">
                                         <div class="device-image">
-                                            <img src="{{$row->img}}" style="width:60px; height:60px; object-fit:contain;">
+                                            <img src="{{$row->img}}" alt="{{ $row->info->breif }}" style="width:60px; height:60px; object-fit:contain;">
                                         </div>
                                             <h4>{{$row->info->breif}}</h4>
 
-                                            <a href="{{route('Site.teams.profile',[$row->id,$id])}}" class="show-profile">
+                                            <a href="{{route('Site.teams.profile',[$row->slug,$specialty_slug])}}" class="show-profile">
                                             {{__('display profile and booking')}}
                                             </a>
 

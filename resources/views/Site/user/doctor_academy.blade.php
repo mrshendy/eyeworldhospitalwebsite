@@ -39,7 +39,7 @@
                                     <p class="feedback">
                                         {{ $academy->description }}
                                     </p>
-                                    <a href="{{ route('Site.medical-academy.show', $academy->id) }}" class="show-profile">
+                                    <a href="{{ route('Site.medical-academy.show', $academy->slug) }}" class="show-profile">
                                         عرض الفيديوهات
                                     </a>
                                 </div>

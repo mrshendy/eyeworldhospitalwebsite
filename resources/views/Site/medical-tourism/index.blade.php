@@ -7,7 +7,7 @@
 
 		<!-- Banner -->
 		<article class="banner">
-            <img src="{{asset('uploads/medical-devices/banner.jpg')}}">
+            <img src="{{asset('uploads/medical-devices/banner.jpg')}}" alt="Medical Tourism Banner">
 		</article>
 		<!-- Banner -->
 
@@ -27,7 +27,7 @@
 					</div>
 					<div class="col-6 col-md-6 col-sm-12">
 						<figure class="about-image">
-                            <img src="{{ asset('uploads/medical-tourisms/' . $medical_tourism_info->img) }}">
+                            <img src="{{ asset('uploads/medical-tourisms/' . $medical_tourism_info->img) }}" alt="{{ $medical_tourism_info->title }}">
 						</figure>
 					</div>
 				</section>
@@ -84,7 +84,7 @@
                     @foreach ($medical_tourism_services as $service)
                         <div class="col-4 col-md-6 col-sm-12">
                             <div class="rights-box flex-start">
-                                <img src="{{ asset('uploads/medical-tourisms/emoji-happy.svg') }}" width="24" height="24" alt="">
+                                <img src="{{ asset('uploads/medical-tourisms/emoji-happy.svg') }}" width="24" height="24" alt="Service">
                                 <div class="flex-1">
                                     <h4>{{ $service->title }}</h4>
                                     <p>{{ $service->description }}</p>

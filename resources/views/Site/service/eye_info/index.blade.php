@@ -4,10 +4,10 @@
 
 
 <main id="main">
-		
+
     <!-- Banner -->
     <article class="banner">
-        <img src="{{asset('siteassets/images/specializations/main.svg')}}">
+        <img src="{{asset('siteassets/images/specializations/main.svg')}}" alt="Main">
     </article>
     <!-- Banner -->
 
@@ -23,18 +23,18 @@
                         <h2 class="main-title">{{$data->subtitle}}</h2>
                         <p class="main-para">{{$data->desc}}
                         </p>
-                    </div>	
+                    </div>
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="{{asset('siteassets/images/events/main.svg')}}" alt="">
+                        <img src="{{asset('siteassets/images/events/main.svg')}}" alt="Main">
                     </figure>
                 </div>
             </section>
             <!-- About  -->
 
 
-                
+
 
         </div>
     </article>
@@ -47,7 +47,7 @@
             <span class="pre-title site-color">{{$data->detail_title}}</span>
             <h2 class="main-title">{{$data->detail_subtitle}}</h2>
             <p class="main-para">{{$data->detail_desc}}
-            
+
             <div class="doctors-blocks pdt">
                 <div class="flex-start row-gap-15">
 
@@ -57,26 +57,26 @@
                         <div class="col-3 col-md-6 col-sm-12">
                             <div class="doctor">
                                 <figure>
-                                    <img src="{{$article->img}}">
+                                    <img src="{{$article->img}}" alt="{{ $article->title }}">
                                 </figure>
                                 <div class="doctor-dtl">
                                     <h3>{{$article->title}}</h3>
                                     <p>{{$article->desc}}</p>
-                                    <a href="{{route('Site.article.detail',$article->id)}}">
+                                    <a href="{{route('Site.article.detail',$article->slug)}}">
                                            {{__('read more')}}
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        
+
                     @endforeach
 
-                  
-{{-- 
+
+{{--
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="{{asset('siteassets/images/events/2.svg')}}">
+                                <img src="{{asset('siteassets/images/events/2.svg')}}" alt="2">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>طرق للحفاظ على صحة العين</h3>
@@ -91,7 +91,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="{{asset('siteassets/images/events/3.svg')}}">
+                                <img src="{{asset('siteassets/images/events/3.svg')}}" alt="3">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>دور التغذية في صحة العين</h3>
@@ -106,7 +106,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="{{asset('siteassets/images/events/4.svg')}}">
+                                <img src="{{asset('siteassets/images/events/4.svg')}}" alt="4">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>العوامل التي تؤثر على صحة العين</h3>
@@ -121,7 +121,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="{{asset('siteassets/images/events/5.svg')}}">
+                                <img src="{{asset('siteassets/images/events/5.svg')}}" alt="5">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>فحص العين المنتظم للكبار </h3>
@@ -136,7 +136,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="{{asset('siteassets/images/events/6.svg')}}">
+                                <img src="{{asset('siteassets/images/events/6.svg')}}" alt="6">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>التحكم في مرض السكري و العين</h3>
@@ -151,7 +151,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="{{asset('siteassets/images/events/7.svg')}}">
+                                <img src="{{asset('siteassets/images/events/7.svg')}}" alt="7">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>تأثير التدخين على العين</h3>
@@ -166,7 +166,7 @@
                     <div class="col-3 col-md-6 col-sm-12">
                         <div class="doctor">
                             <figure>
-                                <img src="{{asset('siteassets/images/events/8.svg')}}">
+                                <img src="{{asset('siteassets/images/events/8.svg')}}" alt="8">
                             </figure>
                             <div class="doctor-dtl">
                                 <h3>أهمية ارتداء النظارات الواقية</h3>
@@ -181,7 +181,7 @@
 
                 </div>
             </div>
-                
+
 
         </div>
     </article>
@@ -199,7 +199,7 @@
             <section class="about flex-start pdt  text-right align-center">
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="{{asset('siteassets/images/events/about.svg')}}" alt="">
+                        <img src="{{asset('siteassets/images/events/about.svg')}}" alt="About">
                     </figure>
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
@@ -207,7 +207,7 @@
                         <h2 class="main-title">جهاز OCT (التصوير المقطعي للعين)</h2>
                         <p class="main-para">جهاز OCT يستخدم للتصوير الدقيق للطبقات الداخلية للعين، يساعد في تشخيص الأورام الشبكية والتغيرات المرضية في العين.
                         </p>
-                    </div>	
+                    </div>
                 </div>
             </section>
             <!-- About  -->
@@ -225,9 +225,9 @@
             <div class="success-stories-carousel pdt owl-carousel">
                 <div class="item">
                     <div class="video-holder">
-                        <img src="{{asset('siteassets/images/events/video.svg')}}">
+                        <img src="{{asset('siteassets/images/events/video.svg')}}" alt="Video">
                         <a href="#" class="play">
-                            <img  src="{{asset('siteassets/images/events/play.png')}}">
+                            <img  src="{{asset('siteassets/images/events/play.png')}}" alt="Play">
                         </a>
                     </div>
                     <div class="success-dtl pdt text-center">
@@ -255,27 +255,27 @@
                             <div class="form-field">
                                 <label>اكتب اسمك</label>
                                 <div class="field">
-                                    <img src="{{asset('siteassets/images/contact/user.svg')}}">
+                                    <img src="{{asset('siteassets/images/contact/user.svg')}}" alt="User">
                                     <input type="text" name="name" placeholder="| برجاء كتابة اسمك هنا">
                                 </div>
-                            </div>			
+                            </div>
                             <div class="form-field">
                                 <label>اكتب بريدك الإلكتروني</label>
                                 <div class="field">
-                                    <img src="{{asset('siteassets/images/contact/sms.svg')}}">
+                                    <img src="{{asset('siteassets/images/contact/sms.svg')}}" alt="Sms">
                                     <input type="email" name="email" placeholder="| example@email.com">
                                 </div>
                             </div>
-                        </div>			
+                        </div>
                         <div class="form-control">
                             <div class="form-field">
                                 <label>اكتب رسالتك</label>
                                 <div class="field">
-                                    <img src="{{asset('siteassets/images/contact/message-text.svg')}}">
+                                    <img src="{{asset('siteassets/images/contact/message-text.svg')}}" alt="Message Text">
                                     <textarea name="msg" placeholder="| على سبيل المثال: أريد التواصل معك"></textarea>
                                 </div>
-                            </div>			
-                        
+                            </div>
+
                         </div>
                         <div class="form-control">
                             <input type="submit" class="btn" name="send" value="ارسال">
@@ -284,7 +284,7 @@
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="contact-image">
-                        <img src="{{asset('siteassets/images/contact/main.svg')}}" alt="">
+                        <img src="{{asset('siteassets/images/contact/main.svg')}}" alt="Main">
                     </figure>
                 </div>
             </div>

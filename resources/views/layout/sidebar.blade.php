@@ -9,7 +9,7 @@
             <a href="{{route('Admin.Quetions.index')}}" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <span style="color: var(--bs-primary)">
-                  <img src ="{{asset('uploads/logo.svg')}}">
+                  <img src="{{asset('uploads/logo.svg')}}" alt="Logo">
                 </span>
               </span>
             </a>
