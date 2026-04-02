@@ -511,6 +511,13 @@
               </a>
             </li>
 
+            <li class="menu-item">
+              <a href="{{route('Admin.seo.index')}}" class="menu-link">
+                <i class="ri-settings-3-fill"> </i>
+                <div>{{__('SEO Settings')}}</div>
+              </a>
+            </li>
+
 
 
 
