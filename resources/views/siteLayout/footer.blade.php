@@ -96,6 +96,18 @@
             @endforeach
 
         </div>
+        <div class="share-options flex-center align-center">
+            <span>{{ __('Share:') }}</span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" title="Share on Facebook">
+                <img src="{{ asset('siteassets/images/footer/facebook.svg') }}" alt="Facebook" style="width: 24px; height: 24px;">
+            </a>
+            <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode(__('Check out Dunia Al-Oyoun Hospital')) }}" target="_blank" title="Share on Twitter">
+                <img src="{{ asset('siteassets/images/footer/twitter.svg') }}" alt="Twitter" style="width: 24px; height: 24px;">
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(url()->current()) }}" target="_blank" title="Share on LinkedIn">
+                <img src="{{ asset('siteassets/images/footer/linkedin.svg') }}" alt="LinkedIn" style="width: 24px; height: 24px;">
+            </a>
+        </div>
     </div>
 </article>
 <!-- Footer Bottom -->

@@ -1,4 +1,9 @@
 @extends('site')
+
+@section('title', __('Dunia Al-Oyoun Hospital - Leading Ophthalmology Center in Egypt'))
+@section('meta_description', __('Dunia Al-Oyoun Hospital is Egypt’s leading ophthalmology center for cataract surgery, LASIK, retinal care, pediatric eye care, and advanced vision health services with expert specialists.'))
+@section('meta_keywords', __('مستشفى دنيا العيون, طب العيون, جراحة العيون, الليزك, المياه البيضاء, علاج الشبكية, رعاية العيون, طب العيون في مصر'))
+
 @section('content')
 
 @section('styles')
@@ -52,9 +57,9 @@
     <!-- Achievement Section -->
     <article class="achievement text-center pd">
         <div class="container">
-            <h1 class="pre-title site-color">{{__('Our achievements speak for our leadership in the field of ophthalmology.')}}</h1>
-            <h2 class="main-title">{{__('Amazing statistics prove our position as pioneers in medical eye care services.')}}</h2>
-            <p class="main-para">{{__('Since its establishment in 2004, Dunya Eye Hospital has achieved record-breaking milestones in the field of ophthalmology. We constantly strive for excellence through thousands of successful surgeries and medical examinations. These achievements reflect our commitment to providing top-quality medical services and making a positive impact on our patients\' lives.')}}</p>
+            <h1 class="pre-title site-color">{{ __('Dunia Al-Oyoun Hospital is Egypt’s leading ophthalmology center for cataract surgery, LASIK, retinal care, and advanced vision health services.') }}</h1>
+            <h2 class="main-title">{{__('Dunia Al-Oyoun Hospital: Leading ophthalmology center in Egypt with amazing statistics.')}}</h2>
+            <p class="main-para">{{__('At Dunia Al-Oyoun Hospital, we are Egypt’s leading ophthalmology center. We specialize in cataract surgery, LASIK, retinal care, and advanced vision health services. Since 2004, we have delivered thousands of successful eye surgeries. We also provide medical examinations. This proves our commitment to premium patient care. We focus on long-term visual health.')}}</p>
 
             <!-- Counter -->
             <section class="counter flex-center pdt">
@@ -184,7 +189,7 @@
                             <div class="discover-box-content">
                                 <span>{{ $spec->title }}</span>
                                 <p>{{ $spec->desc }}</p>
-                                <a href="{{ route("Site.specialtie", $spec->slug) }}">{{__("Learn more")}}</a>
+                                <a href="{{ route("Site.specialtie", $spec->slug) }}">{{ __("Explore") }} {{ $spec->title }} {{ __("services") }}</a>
                             </div>
                         </div>
                     </div>
@@ -204,7 +209,7 @@
                     <span class="pre-title site-color">{{__("Explore our key achievements and participation in medical events and conferences.")}}</span>
                     <h2 class="main-title">{{__("Our outstanding contributions and achievements in major medical")}}<br>{{__("and scientific events and conferences.")}}</h2>
                 </div>
-                <a href="{{ route('Site.conference.index') }}" class="site-color">
+                <a href="{{ route('Site.conference.index') }}" class="site-color">{{ __("View all conferences") }}</a>
                     {{__("View more events")}}
                 </a>
             </div>
@@ -217,7 +222,7 @@
                             <div class="discover-box-details">
                                 <h3>{{ $conference->title }}</h3>
                                 <p>{{ $conference->description }}</p>
-                                <a href="{{ route('Site.conference.show', $conference->slug) }}">
+                                <a href="{{ route('Site.conference.show', $conference->slug) }}">{{ __("Learn about") }} {{ $conference->title }}</a>
                                     {{__("Read more")}}
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </a>
@@ -270,7 +275,7 @@
                     <span class="pre-title site-color">{{__('quetion 1')}}</span>
                     <h2 class="main-title">{{__('quetion 2')}}</h2>
                 </div>
-                <a href="{{ route('Site.faqs') }}" class="site-color">
+                <a href="{{ route('Site.faqs') }}" class="site-color">{{ __("Browse FAQs") }}</a>
                    {{__("View more FAQs")}}
                 </a>
             </div>
@@ -322,7 +327,7 @@
                     <span class="pre-title site-color">{{__('Our trusted partners')}}</span>
                     <h2 class="main-title"> {{__('Insurance Partners: Renowned')}}</h2>
                 </div>
-                <a href="{{ route('Site.partners.index') }}" class="site-color">
+                <a href="{{ route('Site.partners.index') }}" class="site-color">{{ __("Meet our partners") }}</a>
                     {{__("View more Partners")}}
                 </a>
             </div>
