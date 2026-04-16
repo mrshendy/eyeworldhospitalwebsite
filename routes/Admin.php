@@ -26,10 +26,12 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'specialtie'  => SpecialtieController::class,
         'articles'    => ArticleController::class,
         'rates'       => RateController::class,
+        'rights'      => RightController::class,
         'partners'    => PartnerController::class,
         'doctors'     => DoctorController::class,
         'socialmedia' => SocialMediaController::class,
         'reservations'=> ReservationController::class,
+        'appointments'=> DoctorAppointmentController::class,
         "conferences" => ConferenceController::class,
         "charities"   => ChairtyController::class,
         'conferences.doctors' =>  ConferenceDoctorController::class,
@@ -57,7 +59,7 @@ Route::group(['middleware' => 'auth:admin'], function() {
      Route::resource('appointments', DoctorAppointmentController::class)->except([
         'index','create'
     ]);
-    Route::get('patient-rights/{type}' ,[RightController::class, 'index'])->name('patient-rights.index');
+    Route::get('patient-rights/{type}' ,[RightController::class, 'index'])->name('rights.index');
 
     Route::get('/appointments/index/{doctor_id}' ,[DoctorAppointmentController::class, 'index'])->name('appointments.index');
     Route::get('/appointments/create/{doctor_id}' ,[DoctorAppointmentController::class, 'create'])->name('appointments.create');
