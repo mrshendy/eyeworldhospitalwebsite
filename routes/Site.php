@@ -9,7 +9,6 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('/download/book/{book}', [BookController::class, 'download'])->name('book.download');
 
     Route::resources([
-        'home' => HomeController::class,
         'EyeHealthInfo' => EyeHealthInfoController::class,
         'books' => BookController::class
     ]);
