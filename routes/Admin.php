@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth:admin'], function() {
      Route::resource('appointments', DoctorAppointmentController::class)->except([
         'index','create'
     ]);
-    Route::get('patient-rights/{type}' ,[RightController::class, 'index'])->name('rights.index');
+    Route::get('patient-rights/{type}' ,[RightController::class, 'index'])->name('patient-rights.index');
 
     Route::get('/appointments/index/{doctor_id}' ,[DoctorAppointmentController::class, 'index'])->name('appointments.index');
     Route::get('/appointments/create/{doctor_id}' ,[DoctorAppointmentController::class, 'create'])->name('appointments.create');
