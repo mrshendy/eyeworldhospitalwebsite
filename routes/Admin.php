@@ -26,12 +26,10 @@ Route::group(['middleware' => 'auth:admin'], function() {
         'specialtie'  => SpecialtieController::class,
         'articles'    => ArticleController::class,
         'rates'       => RateController::class,
-        'rights'      => RightController::class,
         'partners'    => PartnerController::class,
         'doctors'     => DoctorController::class,
         'socialmedia' => SocialMediaController::class,
         'reservations'=> ReservationController::class,
-        'appointments'=> DoctorAppointmentController::class,
         "conferences" => ConferenceController::class,
         "charities"   => ChairtyController::class,
         'conferences.doctors' =>  ConferenceDoctorController::class,
@@ -152,9 +150,3 @@ Route::group(['middleware' => 'auth:admin'], function() {
     Route::post('seo-update' ,[SeoController::class, 'update'])->name('seo.update');
 
 });
-
-
-
-
-
-
