@@ -1,7 +1,7 @@
 @extends('site')
 
-@section('title', __('Dunia Al-Oyoun Hospital - Leading Ophthalmology Center in Egypt'))
-@section('meta_description', __('Dunia Al-Oyoun Hospital is Egypt’s leading ophthalmology center for cataract surgery, LASIK, retinal care, pediatric eye care, and advanced vision health services with expert specialists.'))
+@section('title', __('Dunia Al-Oyoun Hospital - Egypt\'s Leading Eye Care Center'))
+@section('meta_description', __('Egypt\'s top ophthalmology center offering cataract surgery, LASIK, retinal care, pediatric eye care, and advanced vision services with expert specialists.'))
 @section('meta_keywords', __('مستشفى دنيا العيون, طب العيون, جراحة العيون, الليزك, المياه البيضاء, علاج الشبكية, رعاية العيون, طب العيون في مصر'))
 
 @section('content')
