@@ -57,7 +57,7 @@
     <!-- Achievement Section -->
     <article class="achievement text-center pd">
         <div class="container">
-            <h1 class="pre-title site-color">{{ __('Dunia Al-Oyoun Hospital is Egypt’s leading ophthalmology center for cataract surgery, LASIK, retinal care, and advanced vision health services.') }}</h1>
+            <h1 class="pre-title site-color">{{ __('Egypt\'s Leading Ophthalmology Center for Advanced Eye Care') }}</h1>
             <h2 class="main-title">{{__('Dunia Al-Oyoun Hospital: Leading ophthalmology center in Egypt with amazing statistics.')}}</h2>
             <p class="main-para">{{__('At Dunia Al-Oyoun Hospital, we are Egypt’s leading ophthalmology center. We specialize in cataract surgery, LASIK, retinal care, and advanced vision health services. Since 2004, we have delivered thousands of successful eye surgeries. We also provide medical examinations. This proves our commitment to premium patient care. We focus on long-term visual health.')}}</p>
 
@@ -209,7 +209,7 @@
                     <span class="pre-title site-color">{{__("Explore our key achievements and participation in medical events and conferences.")}}</span>
                     <h2 class="main-title">{{__("Our outstanding contributions and achievements in major medical")}}<br>{{__("and scientific events and conferences.")}}</h2>
                 </div>
-                <a href="{{ route('Site.conference.index') }}" class="site-color">{{ __("View all conferences") }}</a>
+                <a href="{{ route('Site.conference.index') }}" class="site-color">{{ __("View All Upcoming Conferences") }}</a>
                     {{__("View more events")}}
                 </a>
             </div>
@@ -275,7 +275,7 @@
                     <span class="pre-title site-color">{{__('quetion 1')}}</span>
                     <h2 class="main-title">{{__('quetion 2')}}</h2>
                 </div>
-                <a href="{{ route('Site.faqs') }}" class="site-color">{{ __("Browse FAQs") }}</a>
+                <a href="{{ route('Site.faqs') }}" class="site-color">{{ __("Browse Frequently Asked Questions") }}</a>
                    {{__("View more FAQs")}}
                 </a>
             </div>
@@ -327,7 +327,7 @@
                     <span class="pre-title site-color">{{__('Our trusted partners')}}</span>
                     <h2 class="main-title"> {{__('Insurance Partners: Renowned')}}</h2>
                 </div>
-                <a href="{{ route('Site.partners.index') }}" class="site-color">{{ __("Meet our partners") }}</a>
+                <a href="{{ route('Site.partners.index') }}" class="site-color">{{ __("Meet Our Trusted Partners") }}</a>
                     {{__("View more Partners")}}
                 </a>
             </div>
