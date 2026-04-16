@@ -3,10 +3,6 @@
         Options -MultiViews -Indexes
     </IfModule>
 
-    # Hide server version
-    ServerTokens Prod
-    ServerSignature Off
-
     # Enable compression
     <IfModule mod_deflate.c>
         AddOutputFilterByType DEFLATE text/plain
