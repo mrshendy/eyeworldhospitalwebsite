@@ -80,14 +80,21 @@
                         <div class="rights-box flex-start">
                             <img src="{{asset('siteassets/images/patients/note.svg')}}" width="24" height="24" alt="Patient duty">
                             <div class="flex-1">
+                                <h4>{{$row->title}}</h4>
+                                <p>{{$row->desc }}</p>
+                             </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </article>
 
 
 
        <!-- Contact us Section -->
        @include('components.contact-us')
        <!-- Contact us Section -->
-
-
 
 </main>
 @endsection

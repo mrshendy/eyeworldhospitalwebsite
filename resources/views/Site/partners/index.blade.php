@@ -136,8 +136,8 @@
                                 </div>
                                 <h4>{{$row->title}}</h4>
 
-                            @if ($firstDoctor && $firstDoctor->specialtie)
-                                <a href="{{ route('Site.teams.index', $firstDoctor->specialtie->slug) }}" class="show-profile">
+                            @if ($firstDoctor && $firstDoctor->specialtie && $firstDoctor->specialtie->specialtie)
+                                <a href="{{ route('Site.teams.index', $firstDoctor->specialtie->specialtie->slug) }}" class="show-profile">
                                     {{ __('Book your appointment now') }}
                                 </a>
                             @endif
