@@ -390,21 +390,33 @@ $(document).ready(function(){
         });
 
         function subMenu(){
-            $('.has-children >a').click(function(e){
+            $('.has-children > a').off('click.submenu').on('click.submenu', function(e){
+                if ($(window).width() >= 1024) {
+                    return;
+                }
                 e.preventDefault();
-                $(this).next().slideToggle(250);
-            })
+                e.stopPropagation();
+
+                var $submenu = $(this).next('.sub-menu');
+                $('.has-children .sub-menu').not($submenu).stop(true, true).slideUp(250);
+                $submenu.stop(true, true).slideToggle(250);
+            });
         }
 
-        $(window).on('resize',function(){
-            if( $(this).width() < 1024 ){
-                subMenu();
+        function resetMenu(){
+            if ($(window).width() >= 1024) {
+                $('.has-children > a').off('click.submenu');
+                $('nav ul.sub-menu').removeAttr('style');
             }
+        }
+
+        $(window).on('resize', function(){
+            subMenu();
+            resetMenu();
         });
 
-        if( $(window).width() < 1024 ){
-            subMenu();
-        }
+        subMenu();
+        resetMenu();
 
         $('.image-holder img').click(function(){
             var video = $(this).data('video');
