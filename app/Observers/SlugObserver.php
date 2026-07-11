@@ -54,33 +54,33 @@ class SlugObserver
         // Special handling for Doctor model
         if ($class === 'App\\Models\\Doctor') {
             if ($model->info) {
-                // Try Arabic first, then English, then current locale
-                $arName = $model->info->translate('ar')->name ?? null;
+                // Try English first, then Arabic, then current locale
                 $enName = $model->info->translate('en')->name ?? null;
+                $arName = $model->info->translate('ar')->name ?? null;
                 $currentName = $model->info->translate(app()->getLocale())->name ?? null;
-                
-                $value = $arName ?: $enName ?: $currentName;
+
+                $value = $enName ?: $arName ?: $currentName;
             } elseif ($model->relationLoaded('info') === false) {
                 // Load the relationship if not loaded
                 $model->load('info');
                 if ($model->info) {
-                    $arName = $model->info->translate('ar')->name ?? null;
                     $enName = $model->info->translate('en')->name ?? null;
+                    $arName = $model->info->translate('ar')->name ?? null;
                     $currentName = $model->info->translate(app()->getLocale())->name ?? null;
-                    
-                    $value = $arName ?: $enName ?: $currentName;
+
+                    $value = $enName ?: $arName ?: $currentName;
                 }
             }
         } elseif (isset($model->{$field})) {
             $value = $model->{$field};
         } elseif (method_exists($model, 'translate')) {
             try {
-                // Try Arabic first (most content), then English, then current locale
-                $arTitle = $model->translate('ar')->$field ?? null;
+                // Try English first, then Arabic, then current locale
                 $enTitle = $model->translate('en')->$field ?? null;
+                $arTitle = $model->translate('ar')->$field ?? null;
                 $currentTitle = $model->translate(app()->getLocale())->$field ?? null;
 
-                $value = $arTitle ?: $enTitle ?: $currentTitle;
+                $value = $enTitle ?: $arTitle ?: $currentTitle;
             } catch (\Exception $e) {
                 $value = null;
             }

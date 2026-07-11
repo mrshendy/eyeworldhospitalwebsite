@@ -46,10 +46,10 @@ class GenerateSlugs extends Command
      */
     private function generateDoctorSlugs()
     {
-        $doctors = Doctor::whereNull('slug')->with('info')->get();
+        $doctors = Doctor::with('info')->get();
 
         if ($doctors->isEmpty()) {
-            $this->info("Doctor: No records need slug generation");
+            $this->info("Doctor: No doctor records found");
             return;
         }
 
@@ -58,14 +58,14 @@ class GenerateSlugs extends Command
             $title = null;
             
             if ($doctor->info) {
-                // Try Arabic first, then English, then current locale
-                $arName = $doctor->info->translate('ar')->name ?? null;
+                // Try English first, then Arabic, then current locale
                 $enName = $doctor->info->translate('en')->name ?? null;
+                $arName = $doctor->info->translate('ar')->name ?? null;
                 $currentName = $doctor->info->translate(app()->getLocale())->name ?? null;
                 
-                $title = $arName ?: $enName ?: $currentName;
+                $title = $enName ?: $arName ?: $currentName;
             }
-            
+
             if (!$title) {
                 $title = 'doctor-' . $doctor->id;
             }
@@ -111,12 +111,12 @@ class GenerateSlugs extends Command
             // Get the title from translatable attributes or direct field
             if (method_exists($record, 'translate')) {
                 try {
-                    // Try Arabic first (most content), then English, then current locale
-                    $arTitle = $record->translate('ar')->$titleField ?? null;
+                    // Try English first, then Arabic, then current locale
                     $enTitle = $record->translate('en')->$titleField ?? null;
+                    $arTitle = $record->translate('ar')->$titleField ?? null;
                     $currentTitle = $record->translate(app()->getLocale())->$titleField ?? null;
 
-                    $title = $arTitle ?: $enTitle ?: $currentTitle ?: $record->$titleField ?: 'record-' . $record->id;
+                    $title = $enTitle ?: $arTitle ?: $currentTitle ?: $record->$titleField ?: 'record-' . $record->id;
                 } catch (\Exception $e) {
                     $title = $record->$titleField ?? 'record-' . $record->id;
                 }
