@@ -9,8 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class MedicalDevice extends Model implements TranslatableContract
 {
     use Translatable;
+
     public $translatedAttributes = ['title', 'description', 'sub_title'];
+
     protected $guarded = [];
+
     protected $hidden = ['translations'];
 
     public function getRouteKeyName()
@@ -21,10 +24,9 @@ class MedicalDevice extends Model implements TranslatableContract
     protected function img(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => asset('uploads/medical_devices/' . $value)
+            get: fn (?string $value) => asset('uploads/medical_devices/'.$value)
         );
     }
-
 
     public function subSpecialties()
     {
@@ -35,9 +37,4 @@ class MedicalDevice extends Model implements TranslatableContract
     {
         return $this->belongsToMany(Specialtie::class, 'medical_device_specialty', 'medical_device_id', 'spec_id');
     }
-
 }
-
-
-
-

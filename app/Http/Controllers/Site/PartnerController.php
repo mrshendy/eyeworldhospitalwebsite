@@ -3,15 +3,17 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\{InsurancePartner,InsurancePartnerInfo};
+use App\Models\InsurancePartner;
+use App\Models\InsurancePartnerInfo;
 
 class PartnerController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $info = InsurancePartnerInfo::first();
         $partners = InsurancePartner::with('doctors.specialtie')->get();
-        return view('Site.partners.index',compact('partners','info'));
+
+        return view('Site.partners.index', compact('partners', 'info'));
     }
 }

@@ -9,8 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model implements TranslatableContract
 {
     use Translatable;
+
     public $translatedAttributes = ['title', 'description', 'address', 'city'];
+
     protected $guarded = [];
+
     protected $hidden = ['translations'];
 
     // protected function img(): Attribute

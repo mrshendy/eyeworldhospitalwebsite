@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Conference;
 use App\Models\ConferenceInfo;
-use Carbon\Carbon;
-Use App\Models\Guest;
+use App\Models\Guest;
 use App\Models\ParticipationType;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ConferenceController extends Controller
 {
@@ -24,28 +24,29 @@ class ConferenceController extends Controller
         $data['previousConferences'] = Conference::whereDate('end_date', '<', $today)
             ->orderBy('end_date', 'desc')
             ->get();
+
         return view('Site.conferences.index')->with($data);
     }
 
     public function show($slug)
     {
         $data['conference'] = Conference::where('slug', $slug)
-                            ->with('advantages')
-                            ->with('images')
-                            ->with('charities')
-                            ->with('guests')
-                            ->with('globalDoctors')
-                            ->with('localDoctors')
-                            ->firstOrFail();
+            ->with('advantages')
+            ->with('images')
+            ->with('charities')
+            ->with('guests')
+            ->with('globalDoctors')
+            ->with('localDoctors')
+            ->firstOrFail();
 
         return view('Site.conferences.show')->with($data);
     }
-
 
     public function booking_conference($slug)
     {
         $conference = Conference::where('slug', $slug)->firstOrFail();
         $participationTypes = ParticipationType::all();
+
         return view('Site.conferences.booking', compact('conference', 'participationTypes'));
     }
 
@@ -75,8 +76,9 @@ class ConferenceController extends Controller
                 'doctor_type' => $request->doctor_type,
                 'attendance_details' => $request->attendance_details,
                 'participation_type_id' => $request->participation_type_id,
-            ]
+            ],
         ]);
+
         return redirect()->route('Site.conference.success');
     }
 
@@ -84,5 +86,4 @@ class ConferenceController extends Controller
     {
         return view('Site.conferences.success');
     }
-
 }

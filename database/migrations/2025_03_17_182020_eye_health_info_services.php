@@ -14,7 +14,7 @@ return new class extends Migration
         //
         Schema::create('eye_health_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
-          
+
             $table->string('img')->nullable();
             $table->timestamps();
         });

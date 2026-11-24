@@ -3,20 +3,19 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\MedicalDeviceInfo;
 use App\Models\MedicalDevice;
+use App\Models\MedicalDeviceInfo;
 use App\Models\Specialtie;
-
+use Illuminate\Http\Request;
 
 class MedicalDeviceController extends Controller
 {
-
     public function index()
     {
         $data['medical_device_info'] = MedicalDeviceInfo::first();
         $data['medical_devices'] = MedicalDevice::get();
         $data['specialties'] = Specialtie::all();
+
         return view('Site.medical-devices.index')->with($data);
     }
 
@@ -25,6 +24,7 @@ class MedicalDeviceController extends Controller
 
         $data['medical_device'] = MedicalDevice::where('slug', $slug)->firstOrFail();
         $data['medical_devices'] = MedicalDevice::get();
+
         return view('Site.medical-devices.show')->with($data);
     }
 
@@ -40,5 +40,4 @@ class MedicalDeviceController extends Controller
 
         return response()->json(['html' => $html]);
     }
-
 }

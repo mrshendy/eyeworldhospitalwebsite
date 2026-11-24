@@ -9,18 +9,17 @@ use Illuminate\Database\Eloquent\Model;
 class MedicalDeviceInfo extends Model implements TranslatableContract
 {
     use Translatable;
+
     public $translatedAttributes = ['title', 'description', 'sub_title', 'secondary_title', 'secondary_sub_title', 'secondary_description'];
+
     protected $guarded = [];
+
     protected $hidden = ['translations'];
 
     protected function img(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => asset('uploads/medical-devices/' . $value)
+            get: fn (?string $value) => asset('uploads/medical-devices/'.$value)
         );
     }
 }
-
-
-
-

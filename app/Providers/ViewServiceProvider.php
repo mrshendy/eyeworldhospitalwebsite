@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
-use App\Models\Setting;
 use App\Models\Seo;
+use App\Models\Setting;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -14,7 +14,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        View::composer('*', function($view){
+        View::composer('*', function ($view) {
             $view->with('settings', Setting::first());
         });
 

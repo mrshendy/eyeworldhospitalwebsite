@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class DoctorAppointment extends Model
 {
     //
-    protected $guarded=[];
+    protected $guarded = [];
 
-    public function day(){
+    public function day()
+    {
         return $this->belongsTo(Day::class);
     }
 }

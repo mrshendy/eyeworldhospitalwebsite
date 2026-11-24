@@ -2,10 +2,16 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Article;
+use App\Models\Conference;
+use App\Models\Doctor;
+use App\Models\MedicalAcademy;
+use App\Models\MedicalDevice;
+use App\Models\Specialtie;
+use App\Models\SubSpecialtie;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
-use App\Models\{Specialtie, SubSpecialtie, Conference, MedicalDevice, MedicalAcademy, Article, Doctor};
 
 class GenerateSitemap extends Command
 {
@@ -45,7 +51,7 @@ class GenerateSitemap extends Command
             'privacy',
             'contact-us',
             'medical-tourism',
-            'books'
+            'books',
         ];
 
         foreach ($staticPages as $page) {
@@ -114,7 +120,7 @@ class GenerateSitemap extends Command
     private function getLocales(): array
     {
         $supportedLocales = config('laravellocalization.supportedLocales', []);
-        if (!is_array($supportedLocales) || empty($supportedLocales)) {
+        if (! is_array($supportedLocales) || empty($supportedLocales)) {
             return [config('app.locale', 'en')];
         }
 
@@ -126,12 +132,13 @@ class GenerateSitemap extends Command
      */
     private function localizeUrl(string $url, string $locale, bool $forceDefault = false): ?string
     {
-        if (!app()->bound('laravellocalization')) {
+        if (! app()->bound('laravellocalization')) {
             return $url;
         }
 
         try {
             $localized = app('laravellocalization')->getLocalizedURL($locale, $url, [], $forceDefault);
+
             return $localized ?: $url;
         } catch (\Exception $e) {
             return $url;

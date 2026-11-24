@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rights', function (Blueprint $table) {
             $table->id();
             $table->boolean('activation')->default(true);
-            $table->enum('type',['right','dutie'])->default('right');
+            $table->enum('type', ['right', 'dutie'])->default('right');
             $table->timestamps();
         });
     }

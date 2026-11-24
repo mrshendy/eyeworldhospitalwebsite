@@ -10,7 +10,10 @@ class Quetion extends Model implements TranslatableContract
 {
     //
     use Translatable;
+
     public $translatedAttributes = ['quetion', 'answer'];
-    protected $guarded=[];
+
+    protected $guarded = [];
+
     protected $hidden = ['translations'];
 }

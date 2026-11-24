@@ -3,40 +3,41 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Quetion;
-use DataTables;
-use Yajra\DataTables\Html\Builder;
-use Carbon\Carbon;
 use App\Traits\fileTrait;
+use Carbon\Carbon;
+use DataTables;
+use Illuminate\Http\Request;
+use Yajra\DataTables\Html\Builder;
 
 class QuetionsController extends Controller
 {
     //
     use fileTrait;
-    
-    public function index(Builder $builder,Request $request){
 
-            if (request()->ajax()) {
-                return DataTables::of(Quetion::query())
+    public function index(Builder $builder, Request $request)
+    {
+
+        if (request()->ajax()) {
+            return DataTables::of(Quetion::query())
                 ->filter(function ($query) use ($request) {
-                    if ($request->has('search') && !empty($request->input('search')['value'])) {
+                    if ($request->has('search') && ! empty($request->input('search')['value'])) {
                         $search = $request->input('search')['value'];
-                        $query->whereHas('translation',function ($q) use ($search) {
+                        $query->whereHas('translation', function ($q) use ($search) {
                             $q->where('quetion', 'LIKE', "%{$search}%");
                         });
                     }
                 })
                 ->editColumn('created_at', function ($row) {
-                    return Carbon::parse($row->created_at)->format('d-m-Y'); 
+                    return Carbon::parse($row->created_at)->format('d-m-Y');
                 })
                 ->addColumn('actions', function ($row) {
-                    $data="";
-                    foreach(config('translatable.locales') as $locale){
-                        $data.='data-quetion-'.$locale.' ="'.$row->translate($locale)->quetion.'"';
-                        $data.='data-answer-'.$locale.' ="'.$row->translate($locale)->answer.'"';
+                    $data = '';
+                    foreach (config('translatable.locales') as $locale) {
+                        $data .= 'data-quetion-'.$locale.' ="'.$row->translate($locale)->quetion.'"';
+                        $data .= 'data-answer-'.$locale.' ="'.$row->translate($locale)->answer.'"';
                     }
-                
+
                     return '
                         <a href="#" class="edit_btn" data-bs-toggle="modal" data-bs-target="#editModal"  data-id="'.$row->id.'" '.$data.'>   <i class="ri-edit-line"></i> </a>
                         <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">   <i class="ri-delete-bin-6-line"></i></a>
@@ -45,40 +46,44 @@ class QuetionsController extends Controller
                 })
                 ->rawColumns(['actions'])
                 ->toJson();
-            }
+        }
 
-            $html = $builder->columns([
-                ['title' => __('system.id'), 'data' => 'id', 'footer' => 'Id' , 'orderable' => true],
-                ['title' => __('system.quetion'), 'data' => 'quetion', 'footer' => __('system.quetion') , 'searchable' => true],
-                ['title' => __('system.answer'), 'data' => 'answer', 'footer' => __('system.answer') , 'searchable' => true],
-                ['title' => __('system.created_at') ,'data' => 'created_at', 'footer' => __('system.created_at')],
-                ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false]
-            ]);
+        $html = $builder->columns([
+            ['title' => __('system.id'), 'data' => 'id', 'footer' => 'Id', 'orderable' => true],
+            ['title' => __('system.quetion'), 'data' => 'quetion', 'footer' => __('system.quetion'), 'searchable' => true],
+            ['title' => __('system.answer'), 'data' => 'answer', 'footer' => __('system.answer'), 'searchable' => true],
+            ['title' => __('system.created_at'), 'data' => 'created_at', 'footer' => __('system.created_at')],
+            ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false],
+        ]);
 
-            return view('Admin.quetions.index',compact('html'));
+        return view('Admin.quetions.index', compact('html'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         Quetion::create($request->all());
+
         return redirect()->back();
     }
 
-    public function edit($id){
-         return Quetion::find($id);
+    public function edit($id)
+    {
+        return Quetion::find($id);
     }
 
-    public function update(Request $request,$id){
-        $quetion =  Quetion::find($request->id);
-        $quetion->update($request->except(['id','_token','_method']));
-        return redirect()->back();
-    } 
+    public function update(Request $request, $id)
+    {
+        $quetion = Quetion::find($request->id);
+        $quetion->update($request->except(['id', '_token', '_method']));
 
-    public function destroy(Request $request,$id){
-        $quetion =  Quetion::find($request->id);
+        return redirect()->back();
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $quetion = Quetion::find($request->id);
         $quetion->delete();
+
         return redirect()->back();
     }
-
-
-
 }

@@ -18,6 +18,7 @@ class UserLogin
         if (Auth::guard('web')->check()) {
             return $next($request);
         }
+
         return redirect()->route('Site.login.index');
     }
 }

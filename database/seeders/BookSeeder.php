@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Book;
+use App\Models\BookTopic;
 use Illuminate\Database\Seeder;
-use App\Models\{Book,BookTopic};
 
 class BookSeeder extends Seeder
 {
@@ -16,27 +16,26 @@ class BookSeeder extends Seeder
         //
         BookTopic::create([
             'img' => 'programming.jpg',
-            'ar'=>[
+            'ar' => [
                 'title' => 'برمجة',
-                'desc' => 'استكشاف عالم البرمجة.'
+                'desc' => 'استكشاف عالم البرمجة.',
             ],
-            'en'=>[
+            'en' => [
                 'title' => 'Programming',
-                'desc' => 'Explore the world of programming.'
-            ]
-        ]);
-       BookTopic::create([
-            'img' => 'programming.jpg',
-            'ar'=>[
-                'title' => 'تصميم',
-                'desc' => 'تعلم أساسيات ومبادئ التصميم.'
+                'desc' => 'Explore the world of programming.',
             ],
-            'en'=>[
-                'title' => 'Design',
-                'desc' => 'Learn the basics and principles of design.'
-            ]
         ]);
-
+        BookTopic::create([
+            'img' => 'programming.jpg',
+            'ar' => [
+                'title' => 'تصميم',
+                'desc' => 'تعلم أساسيات ومبادئ التصميم.',
+            ],
+            'en' => [
+                'title' => 'Design',
+                'desc' => 'Learn the basics and principles of design.',
+            ],
+        ]);
 
         Book::create([
             'topic_id' => 1,
@@ -45,13 +44,13 @@ class BookSeeder extends Seeder
             'pdf_price' => 50,
             'count' => 10,
             'en' => [
-            'title' => 'Learn PHP',
-            'desc' => 'A comprehensive guide to PHP programming.'
+                'title' => 'Learn PHP',
+                'desc' => 'A comprehensive guide to PHP programming.',
             ],
             'ar' => [
-            'title' => 'تعلم PHP',
-            'desc' => 'دليل شامل لبرمجة PHP.'
-            ]
+                'title' => 'تعلم PHP',
+                'desc' => 'دليل شامل لبرمجة PHP.',
+            ],
         ]);
         Book::create([
             'topic_id' => 1,
@@ -61,12 +60,12 @@ class BookSeeder extends Seeder
             'count' => 5,
             'en' => [
                 'title' => 'Mastering JavaScript',
-                'desc' => 'An advanced guide to JavaScript programming.'
+                'desc' => 'An advanced guide to JavaScript programming.',
             ],
             'ar' => [
                 'title' => 'إتقان JavaScript',
-                'desc' => 'دليل متقدم لبرمجة JavaScript.'
-            ]
+                'desc' => 'دليل متقدم لبرمجة JavaScript.',
+            ],
         ]);
 
         Book::create([
@@ -77,12 +76,12 @@ class BookSeeder extends Seeder
             'count' => 15,
             'en' => [
                 'title' => 'Graphic Design Basics',
-                'desc' => 'An introduction to graphic design principles.'
+                'desc' => 'An introduction to graphic design principles.',
             ],
             'ar' => [
                 'title' => 'أساسيات التصميم الجرافيكي',
-                'desc' => 'مقدمة في مبادئ التصميم الجرافيكي.'
-            ]
+                'desc' => 'مقدمة في مبادئ التصميم الجرافيكي.',
+            ],
         ]);
         Book::create([
             'topic_id' => 2,
@@ -92,12 +91,12 @@ class BookSeeder extends Seeder
             'count' => 8,
             'en' => [
                 'title' => 'Web Design Essentials',
-                'desc' => 'A guide to essential web design techniques.'
+                'desc' => 'A guide to essential web design techniques.',
             ],
             'ar' => [
                 'title' => 'أساسيات تصميم الويب',
-                'desc' => 'دليل لتقنيات تصميم الويب الأساسية.'
-            ]
+                'desc' => 'دليل لتقنيات تصميم الويب الأساسية.',
+            ],
         ]);
         Book::create([
             'topic_id' => 1,
@@ -107,12 +106,12 @@ class BookSeeder extends Seeder
             'count' => 12,
             'en' => [
                 'title' => 'Advanced Python Programming',
-                'desc' => 'A deep dive into advanced Python concepts.'
+                'desc' => 'A deep dive into advanced Python concepts.',
             ],
             'ar' => [
                 'title' => 'برمجة بايثون المتقدمة',
-                'desc' => 'استكشاف مفاهيم بايثون المتقدمة.'
-            ]
+                'desc' => 'استكشاف مفاهيم بايثون المتقدمة.',
+            ],
         ]);
         Book::create([
             'topic_id' => 2,
@@ -122,13 +121,13 @@ class BookSeeder extends Seeder
             'count' => 7,
             'en' => [
                 'title' => 'UI/UX Design Principles',
-                'desc' => 'Understanding the principles of UI/UX design.'
+                'desc' => 'Understanding the principles of UI/UX design.',
             ],
             'ar' => [
                 'title' => 'مبادئ تصميم واجهة المستخدم وتجربة المستخدم',
-                'desc' => 'فهم مبادئ تصميم واجهة المستخدم وتجربة المستخدم.'
-            ]
-        ]); 
+                'desc' => 'فهم مبادئ تصميم واجهة المستخدم وتجربة المستخدم.',
+            ],
+        ]);
         Book::create([
             'topic_id' => 1,
             'img' => 'book7.jpg',
@@ -137,12 +136,12 @@ class BookSeeder extends Seeder
             'count' => 9,
             'en' => [
                 'title' => 'Java Programming for Beginners',
-                'desc' => 'A beginner\'s guide to Java programming.'
+                'desc' => 'A beginner\'s guide to Java programming.',
             ],
             'ar' => [
                 'title' => 'برمجة جافا للمبتدئين',
-                'desc' => 'دليل المبتدئين لبرمجة جافا.'
-            ]
+                'desc' => 'دليل المبتدئين لبرمجة جافا.',
+            ],
         ]);
 
     }

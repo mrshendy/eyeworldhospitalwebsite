@@ -8,6 +8,7 @@ class ConferenceGuest extends Model
 {
     //
     protected $guarded = [];
+
     protected $table = 'conference_guest';
 
     public function Guest()

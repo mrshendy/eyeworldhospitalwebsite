@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class EyeHealthInfoTranslation extends Model
 {
     //
-    protected $guarded=[];
+    protected $guarded = [];
 }

@@ -25,13 +25,13 @@ return new class extends Migration
             $table->boolean('urgent')->default(false);
             $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('SET NULL');
-            $table->enum('payment_method',['cash','visa','apple_pay'])->default('cash');
-            $table->enum('type',['onlin','normal','Expat_visit'])->default('normal');
+            $table->enum('payment_method', ['cash', 'visa', 'apple_pay'])->default('cash');
+            $table->enum('type', ['onlin', 'normal', 'Expat_visit'])->default('normal');
             $table->time('time_from')->nullable();
             $table->time('time_to')->nullable();
             $table->date('date')->nullable();
             $table->double('price')->default(0);
-            $table->enum('payment_status',['paid','pending'])->default('pending');
+            $table->enum('payment_status', ['paid', 'pending'])->default('pending');
             $table->timestamps();
         });
     }

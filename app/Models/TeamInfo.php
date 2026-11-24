@@ -10,11 +10,12 @@ class TeamInfo extends Model implements TranslatableContract
 {
     //
     use Translatable;
-    public $translatedAttributes = ['title', 'sub_title','desc'];
-    protected $guarded=[];
+
+    public $translatedAttributes = ['title', 'sub_title', 'desc'];
+
+    protected $guarded = [];
+
     protected $hidden = ['translations'];
+
     protected $translationForeignKey = 'info_id';
-
 }
-
-

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('type',['doctor','patient'])->default('patient');
+            $table->enum('type', ['doctor', 'patient'])->default('patient');
         });
     }
 

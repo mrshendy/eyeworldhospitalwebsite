@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Topic;
+use Illuminate\Database\Seeder;
 
 class TopicSeeder extends Seeder
 {
@@ -16,51 +15,49 @@ class TopicSeeder extends Seeder
         //
         Topic::create([
             'ar' => [
-                'title' => 'نصائح للعناية اليومية بالعين'
+                'title' => 'نصائح للعناية اليومية بالعين',
             ],
             'en' => [
-                'title' => 'Daily Eye Care Tips'
-            ]
-        ]);
-        
-        Topic::create([
-            'ar' => [
-                'title' => 'التغذيه وصحه العين'
+                'title' => 'Daily Eye Care Tips',
             ],
-            'en' => [
-                'title' => 'Nutrition and Eye Health'
-            ]
-        ]);
-        
-        Topic::create([
-            'ar' => [
-                'title' => 'امراض العيون الشائعه'
-            ],
-            'en' => [
-                'title' => 'Common Eye Diseases'
-            ]
         ]);
 
+        Topic::create([
+            'ar' => [
+                'title' => 'التغذيه وصحه العين',
+            ],
+            'en' => [
+                'title' => 'Nutrition and Eye Health',
+            ],
+        ]);
 
+        Topic::create([
+            'ar' => [
+                'title' => 'امراض العيون الشائعه',
+            ],
+            'en' => [
+                'title' => 'Common Eye Diseases',
+            ],
+        ]);
 
         Topic::create([
             'type' => 'experiments',
             'ar' => [
-                'title' => 'مشاكل البصر وضعف الابصار '
+                'title' => 'مشاكل البصر وضعف الابصار ',
             ],
             'en' => [
-                'title' => 'Nutrition and Eye Health'
-            ]
+                'title' => 'Nutrition and Eye Health',
+            ],
         ]);
-        
+
         Topic::create([
             'type' => 'experiments',
             'ar' => [
-                'title' => 'التهابات العين المزمنه '
+                'title' => 'التهابات العين المزمنه ',
             ],
             'en' => [
-                'title' => 'Common Eye Diseases'
-            ]
+                'title' => 'Common Eye Diseases',
+            ],
         ]);
     }
 }

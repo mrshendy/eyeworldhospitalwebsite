@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Seo;
 use Alert;
+use App\Http\Controllers\Controller;
+use App\Models\Seo;
+use Illuminate\Http\Request;
 
 class SeoController extends Controller
 {
     public function index()
     {
         $seo = Seo::first();
-        return view('Admin.seo.index',compact('seo'));
+
+        return view('Admin.seo.index', compact('seo'));
     }
 
     public function update(Request $request)
     {
         $seo = Seo::first();
-        if (!$seo) {
+        if (! $seo) {
             $seo = Seo::create($request->all());
         } else {
             $seo->update($request->only(['meta_title', 'meta_description', 'meta_keywords']));
@@ -29,4 +30,3 @@ class SeoController extends Controller
 
     }
 }
-

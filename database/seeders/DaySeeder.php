@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Day;
+use Illuminate\Database\Seeder;
 
 class DaySeeder extends Seeder
 {
@@ -15,72 +14,72 @@ class DaySeeder extends Seeder
     {
         //
         Day::create([
-            'name' =>'Saturday',
-            'ar'=>[
-                'title' =>'السبت'
+            'name' => 'Saturday',
+            'ar' => [
+                'title' => 'السبت',
             ],
-            'en'=>[
-                'title' =>'Saturday'
-            ],
-        ]);
-        Day::create([
-            'name' =>'Sunday',
-
-            'ar'=>[
-                'title' =>'الاحد'
-            ],
-            'en'=>[
-                'title' =>'Sunday'
+            'en' => [
+                'title' => 'Saturday',
             ],
         ]);
         Day::create([
-            'name' =>'Monday',
+            'name' => 'Sunday',
 
-            'ar'=>[
-                'title' =>'الاتنين'
+            'ar' => [
+                'title' => 'الاحد',
             ],
-            'en'=>[
-                'title' =>'Monday'
+            'en' => [
+                'title' => 'Sunday',
             ],
         ]);
         Day::create([
-            'name' =>'Tuesday',
+            'name' => 'Monday',
 
-            'ar'=>[
-                'title' =>'الثلاثاء'
+            'ar' => [
+                'title' => 'الاتنين',
             ],
-            'en'=>[
-                'title' =>'Tuesday'
+            'en' => [
+                'title' => 'Monday',
             ],
         ]);
         Day::create([
-            'name' =>'Wednesday',
+            'name' => 'Tuesday',
 
-            'ar'=>[
-                'title' =>'الاربعاء'
+            'ar' => [
+                'title' => 'الثلاثاء',
             ],
-            'en'=>[
-                'title' =>'Wednesday'
+            'en' => [
+                'title' => 'Tuesday',
             ],
         ]);
         Day::create([
-            'name' =>'Thursday',
+            'name' => 'Wednesday',
 
-            'ar'=>[
-                'title' =>'الخميس'
+            'ar' => [
+                'title' => 'الاربعاء',
             ],
-            'en'=>[
-                'title' =>'Thursday'
+            'en' => [
+                'title' => 'Wednesday',
             ],
         ]);
         Day::create([
-            'name' =>'friday',
+            'name' => 'Thursday',
 
-            'ar'=>[
-                'title' =>'الجمعه'
+            'ar' => [
+                'title' => 'الخميس',
             ],
-            'en'=>[
-                'title' =>'friday'
+            'en' => [
+                'title' => 'Thursday',
+            ],
+        ]);
+        Day::create([
+            'name' => 'friday',
+
+            'ar' => [
+                'title' => 'الجمعه',
+            ],
+            'en' => [
+                'title' => 'friday',
             ],
         ]);
     }

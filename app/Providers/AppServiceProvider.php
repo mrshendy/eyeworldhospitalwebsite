@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Providers;
+
+use App\Models\Article;
+use App\Models\Conference;
+use App\Models\Doctor;
+use App\Models\MedicalAcademy;
+use App\Models\MedicalDevice;
 use App\Models\SocialMedia;
 use App\Models\Specialtie;
 use App\Models\SubSpecialtie;
-use App\Models\Conference;
-use App\Models\MedicalDevice;
-use App\Models\MedicalAcademy;
-use App\Models\Article;
-use App\Models\Doctor;
 use App\Observers\SlugObserver;
-
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

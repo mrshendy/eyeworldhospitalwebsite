@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\BookInfo;
 use App\Traits\fileTrait;
+use Illuminate\Http\Request;
 
 class BookInfoController extends Controller
 {
@@ -14,16 +14,19 @@ class BookInfoController extends Controller
     public function detail()
     {
         $data = BookInfo::first();
-        return view('Admin.services.books.detail',compact('data'));
+
+        return view('Admin.services.books.detail', compact('data'));
     }
 
     public function update(Request $request)
     {
         $info = BookInfo::first();
-        if($request->file!=null)
-            $request->merge(['img' => $this->MoveImage($request->file,'uploads/books')]);
+        if ($request->file != null) {
+            $request->merge(['img' => $this->MoveImage($request->file, 'uploads/books')]);
+        }
 
-        $info->update($request->except(['file', '_token','_method']));
+        $info->update($request->except(['file', '_token', '_method']));
+
         return redirect()->back();
 
     }

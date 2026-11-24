@@ -16,10 +16,9 @@ return new class extends Migration
 
             $table->unsignedBigInteger('specialtie_id');
             $table->foreign('specialtie_id')->references('id')->on('specialties')->onDelete('cascade');
-         
+
             $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
-
 
             $table->timestamps();
         });

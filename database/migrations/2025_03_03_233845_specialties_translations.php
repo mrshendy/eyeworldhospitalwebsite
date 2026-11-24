@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('detail_title')->nullable();
             $table->string('detail_subtitle')->nullable();
             $table->text('desc')->nullable();
-        
 
             $table->unique(['specialtie_id', 'locale']);
             $table->timestamps();

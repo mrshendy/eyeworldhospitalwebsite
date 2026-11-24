@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Right;
+use Illuminate\Database\Seeder;
 
 class RightSeeder extends Seeder
 {
@@ -15,90 +14,84 @@ class RightSeeder extends Seeder
     {
         //
         Right::create([
-            'ar'  =>[
-                 'title' => 'حق الحصول على رعاية صحية بجودة عالية',
-                 'desc'  => 'يحق لكل مريض الحصول على رعاية طبية باستخدام أحدث التقنيات والتزام كامل بمعايير الجودة والسلامة.'
+            'ar' => [
+                'title' => 'حق الحصول على رعاية صحية بجودة عالية',
+                'desc' => 'يحق لكل مريض الحصول على رعاية طبية باستخدام أحدث التقنيات والتزام كامل بمعايير الجودة والسلامة.',
             ],
-            'en'  =>[
+            'en' => [
                 'title' => 'The right to high-quality health care',
-                'desc'  => 'Every patient is entitled to medical care using the latest technology and full adherence to quality and safety standards.'
-           ]
+                'desc' => 'Every patient is entitled to medical care using the latest technology and full adherence to quality and safety standards.',
+            ],
         ]);
 
         Right::create([
-            'ar'  =>[
-                 'title' => 'حق الحصول على رعاية صحية بجودة عالية',
-                 'desc'  => 'يحق لكل مريض الحصول على رعاية طبية باستخدام أحدث التقنيات والتزام كامل بمعايير الجودة والسلامة.'
+            'ar' => [
+                'title' => 'حق الحصول على رعاية صحية بجودة عالية',
+                'desc' => 'يحق لكل مريض الحصول على رعاية طبية باستخدام أحدث التقنيات والتزام كامل بمعايير الجودة والسلامة.',
             ],
-            'en'  =>[
+            'en' => [
                 'title' => 'The right to high-quality health care',
-                'desc'  => 'Every patient is entitled to medical care using the latest technology and full adherence to quality and safety standards.'
-           ]
+                'desc' => 'Every patient is entitled to medical care using the latest technology and full adherence to quality and safety standards.',
+            ],
         ]);
 
         Right::create([
-            'ar'  =>[
-                 'title' => 'حق الحصول على رعاية صحية بجودة عالية',
-                 'desc'  => 'يحق لكل مريض الحصول على رعاية طبية باستخدام أحدث التقنيات والتزام كامل بمعايير الجودة والسلامة.'
+            'ar' => [
+                'title' => 'حق الحصول على رعاية صحية بجودة عالية',
+                'desc' => 'يحق لكل مريض الحصول على رعاية طبية باستخدام أحدث التقنيات والتزام كامل بمعايير الجودة والسلامة.',
             ],
-            'en'  =>[
+            'en' => [
                 'title' => 'The right to high-quality health care',
-                'desc'  => 'Every patient is entitled to medical care using the latest technology and full adherence to quality and safety standards.'
-           ]
+                'desc' => 'Every patient is entitled to medical care using the latest technology and full adherence to quality and safety standards.',
+            ],
         ]);
 
         Right::create([
-            'ar'  =>[
-                 'title' => 'حق الحصول على رعاية صحية بجودة عالية',
-                 'desc'  => 'يحق لكل مريض الحصول على رعاية طبية باستخدام أحدث التقنيات والتزام كامل بمعايير الجودة والسلامة.'
+            'ar' => [
+                'title' => 'حق الحصول على رعاية صحية بجودة عالية',
+                'desc' => 'يحق لكل مريض الحصول على رعاية طبية باستخدام أحدث التقنيات والتزام كامل بمعايير الجودة والسلامة.',
             ],
-            'en'  =>[
+            'en' => [
                 'title' => 'The right to high-quality health care',
-                'desc'  => 'Every patient is entitled to medical care using the latest technology and full adherence to quality and safety standards.'
-           ]
-        ]);
-
-
-        Right::create([
-            'type' => 'dutie',
-            'ar'  =>[
-                 'title' => 'واجبات المريض',
-                 'desc'  => 'يجب على المريض تزويد الفريق الطبي بكافة التفاصيل عن حالته الصحية لضمان التشخيص السليم.'
+                'desc' => 'Every patient is entitled to medical care using the latest technology and full adherence to quality and safety standards.',
             ],
-            'en'  =>[
-                'title' => 'patient duties',
-                'desc'  => 'The patient must provide the medical team with all details about his or her health condition to ensure an accurate diagnosis.'
-           ]
-        ]);
-
-
-        Right::create([
-            'type' => 'dutie',
-            'ar'  =>[
-                 'title' => 'واجبات المريض',
-                 'desc'  => 'يجب على المريض تزويد الفريق الطبي بكافة التفاصيل عن حالته الصحية لضمان التشخيص السليم.'
-            ],
-            'en'  =>[
-                'title' => 'patient duties',
-                'desc'  => 'The patient must provide the medical team with all details about his or her health condition to ensure an accurate diagnosis.'
-           ]
         ]);
 
         Right::create([
             'type' => 'dutie',
-            'ar'  =>[
-                 'title' => 'واجبات المريض',
-                 'desc'  => 'يجب على المريض تزويد الفريق الطبي بكافة التفاصيل عن حالته الصحية لضمان التشخيص السليم.'
+            'ar' => [
+                'title' => 'واجبات المريض',
+                'desc' => 'يجب على المريض تزويد الفريق الطبي بكافة التفاصيل عن حالته الصحية لضمان التشخيص السليم.',
             ],
-            'en'  =>[
+            'en' => [
                 'title' => 'patient duties',
-                'desc'  => 'The patient must provide the medical team with all details about his or her health condition to ensure an accurate diagnosis.'
-           ]
+                'desc' => 'The patient must provide the medical team with all details about his or her health condition to ensure an accurate diagnosis.',
+            ],
         ]);
 
+        Right::create([
+            'type' => 'dutie',
+            'ar' => [
+                'title' => 'واجبات المريض',
+                'desc' => 'يجب على المريض تزويد الفريق الطبي بكافة التفاصيل عن حالته الصحية لضمان التشخيص السليم.',
+            ],
+            'en' => [
+                'title' => 'patient duties',
+                'desc' => 'The patient must provide the medical team with all details about his or her health condition to ensure an accurate diagnosis.',
+            ],
+        ]);
 
-      
-        
+        Right::create([
+            'type' => 'dutie',
+            'ar' => [
+                'title' => 'واجبات المريض',
+                'desc' => 'يجب على المريض تزويد الفريق الطبي بكافة التفاصيل عن حالته الصحية لضمان التشخيص السليم.',
+            ],
+            'en' => [
+                'title' => 'patient duties',
+                'desc' => 'The patient must provide the medical team with all details about his or her health condition to ensure an accurate diagnosis.',
+            ],
+        ]);
 
     }
 }

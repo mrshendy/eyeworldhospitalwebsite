@@ -2,9 +2,15 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Article;
+use App\Models\Conference;
+use App\Models\Doctor;
+use App\Models\MedicalAcademy;
+use App\Models\MedicalDevice;
+use App\Models\Specialtie;
+use App\Models\SubSpecialtie;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use App\Models\{Specialtie, SubSpecialtie, Conference, MedicalDevice, MedicalAcademy, Doctor, Article};
 
 class GenerateSlugs extends Command
 {
@@ -49,25 +55,26 @@ class GenerateSlugs extends Command
         $doctors = Doctor::with('info')->get();
 
         if ($doctors->isEmpty()) {
-            $this->info("Doctor: No doctor records found");
+            $this->info('Doctor: No doctor records found');
+
             return;
         }
 
         $count = 0;
         foreach ($doctors as $doctor) {
             $title = null;
-            
+
             if ($doctor->info) {
                 // Try English first, then Arabic, then current locale
                 $enName = $doctor->info->translate('en')->name ?? null;
                 $arName = $doctor->info->translate('ar')->name ?? null;
                 $currentName = $doctor->info->translate(app()->getLocale())->name ?? null;
-                
+
                 $title = $enName ?: $arName ?: $currentName;
             }
 
-            if (!$title) {
-                $title = 'doctor-' . $doctor->id;
+            if (! $title) {
+                $title = 'doctor-'.$doctor->id;
             }
 
             // Generate slug
@@ -77,7 +84,7 @@ class GenerateSlugs extends Command
             $baseSlug = $slug;
             $counter = 1;
             while (Doctor::where('slug', $slug)->where('id', '!=', $doctor->id)->exists()) {
-                $slug = $baseSlug . '-' . $counter;
+                $slug = $baseSlug.'-'.$counter;
                 $counter++;
             }
 
@@ -95,7 +102,7 @@ class GenerateSlugs extends Command
     private function generateSlug($modelClass, $modelName, $titleField, $force = false)
     {
         $query = $modelClass::query();
-        if (!$force) {
+        if (! $force) {
             $query->whereNull('slug');
         }
 
@@ -103,6 +110,7 @@ class GenerateSlugs extends Command
 
         if ($records->isEmpty()) {
             $this->info("ℹ{$modelName}: No records need slug generation");
+
             return;
         }
 
@@ -116,12 +124,12 @@ class GenerateSlugs extends Command
                     $arTitle = $record->translate('ar')->$titleField ?? null;
                     $currentTitle = $record->translate(app()->getLocale())->$titleField ?? null;
 
-                    $title = $enTitle ?: $arTitle ?: $currentTitle ?: $record->$titleField ?: 'record-' . $record->id;
+                    $title = $enTitle ?: $arTitle ?: $currentTitle ?: $record->$titleField ?: 'record-'.$record->id;
                 } catch (\Exception $e) {
-                    $title = $record->$titleField ?? 'record-' . $record->id;
+                    $title = $record->$titleField ?? 'record-'.$record->id;
                 }
             } else {
-                $title = $record->$titleField ?? 'record-' . $record->id;
+                $title = $record->$titleField ?? 'record-'.$record->id;
             }
 
             // Generate slug
@@ -131,7 +139,7 @@ class GenerateSlugs extends Command
             $baseSlug = $slug;
             $counter = 1;
             while ($modelClass::where('slug', $slug)->where('id', '!=', $record->id)->exists()) {
-                $slug = $baseSlug . '-' . $counter;
+                $slug = $baseSlug.'-'.$counter;
                 $counter++;
             }
 

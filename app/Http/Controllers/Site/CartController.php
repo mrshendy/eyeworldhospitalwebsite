@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers\Site;
 
+use Alert;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\CartItem;
 use App\Models\Order;
-use App\Models\OrderItem;
-use Alert;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-
     public function index()
     {
         $data['cart'] = auth()->user()->cart()->with('items.book')->first();
+
         return view('Site.cart.cart')->with($data);
     }
 
@@ -29,10 +28,10 @@ class CartController extends Controller
         $user = auth()->user();
         $cart = $user->cart;
 
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'يجب تسجيل الدخول أولاً'
+                'message' => 'يجب تسجيل الدخول أولاً',
             ], 401);
         }
 
@@ -46,14 +45,12 @@ class CartController extends Controller
 
         $requestedQuantity = $existing ? $existing->quantity + 1 : 1;
 
-
-            if ($request->type === 'paper+pdf' && $requestedQuantity > $book->count) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => __('Quantity Not Available to confirm ur request')
-                ], 400);
-            }
-
+        if ($request->type === 'paper+pdf' && $requestedQuantity > $book->count) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('Quantity Not Available to confirm ur request'),
+            ], 400);
+        }
 
         if ($existing) {
             $existing->quantity += 1;
@@ -71,12 +68,11 @@ class CartController extends Controller
             return $item->price * $item->quantity;
         });
 
-
         $cart->save();
 
         return response()->json([
             'status' => 'success',
-            'message' => __('Book added to your cart Successfully')
+            'message' => __('Book added to your cart Successfully'),
         ]);
     }
 
@@ -85,14 +81,13 @@ class CartController extends Controller
         $cart = $item->cart;
         $item->delete();
 
-        $total_price = $cart->items->sum(fn($i) => $i->price * $i->quantity);
+        $total_price = $cart->items->sum(fn ($i) => $i->price * $i->quantity);
 
         $cart->update(['total_price' => $total_price]);
 
-
         return response()->json([
             'status' => 'success',
-            'total' => $total_price
+            'total' => $total_price,
         ]);
     }
 
@@ -106,17 +101,16 @@ class CartController extends Controller
         $item->save();
 
         $cart = $item->cart;
-        $totalCart = $cart ? $cart->items->sum(fn($i) => $i->price * $i->quantity) : 0;
+        $totalCart = $cart ? $cart->items->sum(fn ($i) => $i->price * $i->quantity) : 0;
 
         if ($cart) {
             $cart->update(['total_price' => $totalCart]);
         }
 
-
         return response()->json([
             'quantity' => $item->quantity,
             'total_item' => $item->quantity * $item->price,
-            'total_cart' => $totalCart
+            'total_cart' => $totalCart,
         ]);
     }
 
@@ -160,14 +154,15 @@ class CartController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'payment_method' => 'required|in:visa,whatsapp,apple_pay',
-            'address' => 'required'
+            'address' => 'required',
         ]);
 
         foreach ($cart->items as $item) {
             if ($item->type === 'paper+pdf') {
                 $book = $item->book;
                 if ($item->quantity > $book->count) {
-                    Alert::success(__('Error'),__('Quantity Not Available to confirm ur request'));
+                    Alert::success(__('Error'), __('Quantity Not Available to confirm ur request'));
+
                     return redirect()->back();
                 }
             }
@@ -202,9 +197,8 @@ class CartController extends Controller
         $cart->items()->delete();
         $cart->update(['total_price' => 0]);
 
-        Alert::success(__('Success'),__('Your Order has been submitted'));
+        Alert::success(__('Success'), __('Your Order has been submitted'));
 
         return redirect()->route('Site.cart.index');
     }
-
 }

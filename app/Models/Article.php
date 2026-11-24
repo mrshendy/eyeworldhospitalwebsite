@@ -4,16 +4,18 @@ namespace App\Models;
 
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
 
-
-class Article extends Model  implements TranslatableContract
+class Article extends Model implements TranslatableContract
 {
     //
     use Translatable;
-    public $translatedAttributes = ['title','article','desc'];
-    protected $guarded=[];
+
+    public $translatedAttributes = ['title', 'article', 'desc'];
+
+    protected $guarded = [];
+
     protected $hidden = ['translations'];
 
     public function getRouteKeyName()
@@ -24,10 +26,7 @@ class Article extends Model  implements TranslatableContract
     protected function img(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => asset('uploads/articles/' . $value)
+            get: fn (?string $value) => asset('uploads/articles/'.$value)
         );
     }
-
-
-    
 }

@@ -19,7 +19,7 @@ class SlugObserver
     public function creating($model)
     {
         // Skip automatic slug generation for doctors - handled manually in controller
-        if (!($model instanceof \App\Models\Doctor)) {
+        if (! ($model instanceof \App\Models\Doctor)) {
             $this->setSlug($model);
         }
     }
@@ -38,19 +38,19 @@ class SlugObserver
 
     public function setSlug($model)
     {
-        if (!empty($model->slug)) {
+        if (! empty($model->slug)) {
             return;
         }
 
         $class = get_class($model);
-        if (!isset($this->titleMap[$class])) {
+        if (! isset($this->titleMap[$class])) {
             return;
         }
 
         $field = $this->titleMap[$class];
 
         $value = null;
-        
+
         // Special handling for Doctor model
         if ($class === 'App\\Models\\Doctor') {
             if ($model->info) {
@@ -86,7 +86,7 @@ class SlugObserver
             }
         }
 
-        if (!$value) {
+        if (! $value) {
             return;
         }
 
@@ -95,7 +95,7 @@ class SlugObserver
         $counter = 1;
 
         while ($class::where('slug', $slug)->where('id', '!=', $model->id ?? 0)->exists()) {
-            $slug = $baseSlug . '-' . $counter;
+            $slug = $baseSlug.'-'.$counter;
             $counter++;
         }
 

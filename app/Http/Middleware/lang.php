@@ -2,11 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Validator;
-use App;
 
 class lang
 {
@@ -17,17 +17,18 @@ class lang
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $validator =Validator::make($request->header(), [
-            'lang'=>'required',
+        $validator = Validator::make($request->header(), [
+            'lang' => 'required',
         ]);
         if ($validator->fails()) {
-        return response()->json([
-            'message'=>$validator->messages()->first()
-        ],403);
+            return response()->json([
+                'message' => $validator->messages()->first(),
+            ], 403);
         }
-        $lang=$request->header('lang');
+        $lang = $request->header('lang');
 
         App::setLocale($lang);
+
         return $next($request);
     }
 }

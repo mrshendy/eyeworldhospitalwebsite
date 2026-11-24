@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     //
-    protected $guarded=[];
+    protected $guarded = [];
 
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
     }
-
 
     public function expatVisitDetails()
     {

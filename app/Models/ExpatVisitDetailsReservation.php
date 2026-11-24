@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExpatVisitDetailsReservation extends Model
 {
-
     protected $table = 'expat_visit_details_reservation';
 
     protected $guarded = [];
@@ -15,5 +14,4 @@ class ExpatVisitDetailsReservation extends Model
     {
         return $this->belongsTo(Reservation::class);
     }
-
 }

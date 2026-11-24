@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\SocialMedia;
+use Illuminate\Database\Seeder;
 
 class SocialMediaSeeder extends Seeder
 {
@@ -15,9 +14,9 @@ class SocialMediaSeeder extends Seeder
     {
         //
         SocialMedia::create([
-                 'img' => 'facebook.svg',
-                 'url' => 'https://www.facebook.com/?locale=ar_AR',
-                 'name' => 'facebook',
+            'img' => 'facebook.svg',
+            'url' => 'https://www.facebook.com/?locale=ar_AR',
+            'name' => 'facebook',
         ]);
 
         SocialMedia::create([
@@ -25,7 +24,6 @@ class SocialMediaSeeder extends Seeder
             'url' => 'https://www.facebook.com/?locale=ar_AR',
             'name' => 'instagram',
         ]);
-
 
         SocialMedia::create([
             'img' => 'twitter.svg',

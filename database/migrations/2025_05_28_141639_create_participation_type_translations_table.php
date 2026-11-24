@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('participation_type_id')->references('id')->on('participation_types')->onDelete('cascade');
             $table->string('locale')->index();
             $table->string('title');
-            $table->unique(['participation_type_id', 'locale'], "participation_type_id_locale_unique");
+            $table->unique(['participation_type_id', 'locale'], 'participation_type_id_locale_unique');
             $table->timestamps();
         });
     }

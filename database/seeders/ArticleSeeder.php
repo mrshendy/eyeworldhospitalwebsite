@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Article;
+use Illuminate\Database\Seeder;
 
 class ArticleSeeder extends Seeder
 {
@@ -15,24 +14,23 @@ class ArticleSeeder extends Seeder
     {
         //
         Article::create([
-            'img'=>'1.svg',
+            'img' => '1.svg',
             'ar' => [
-               'title' => 'أهمية الفحص المبكر للعيون',
-               'desc' => 'يساعد في اكتشاف مشاكل العين مثل الأورام والأمراض المختلفة في مراحلها الأولى، ما يسهل ويزيد من فرص الشفاء',
-               'article' => '',
+                'title' => 'أهمية الفحص المبكر للعيون',
+                'desc' => 'يساعد في اكتشاف مشاكل العين مثل الأورام والأمراض المختلفة في مراحلها الأولى، ما يسهل ويزيد من فرص الشفاء',
+                'article' => '',
             ],
 
             'en' => [
                 'title' => '',
                 'desc' => '',
                 'article' => '',
-             ],
+            ],
 
         ]);
 
-
         Article::create([
-            'img'=>'2.svg',
+            'img' => '2.svg',
             'ar' => [
                 'title' => 'طرق للحفاظ على صحة العين',
                 'article' => 'من خلال اتباع نظام غذائي صحي، والحفاظ على الراحة، وارتداء النظارات الواقية أثناء التعرض للأشعة أو الغبار',
@@ -44,13 +42,12 @@ class ArticleSeeder extends Seeder
                 'title' => '',
                 'desc' => 'من خلال اتباع نظام غذائي صحي، والحفاظ على الراحة، وارتداء النظارات الواقية أثناء التعرض للأشعة أو الغبار',
                 'article' => '',
-             ],
+            ],
 
         ]);
 
-
         Article::create([
-            'img'=>'3.svg',
+            'img' => '3.svg',
             'ar' => [
                 'title' => 'طرق للحفاظ على صحة العين',
                 'article' => 'من خلال اتباع نظام غذائي صحي، والحفاظ على الراحة، وارتداء النظارات الواقية أثناء التعرض للأشعة أو الغبار',
@@ -61,24 +58,23 @@ class ArticleSeeder extends Seeder
                 'title' => '',
                 'desc' => 'من خلال اتباع نظام غذائي صحي، والحفاظ على الراحة، وارتداء النظارات الواقية أثناء التعرض للأشعة أو الغبار',
                 'article' => '',
-             ],
+            ],
 
         ]);
 
-
         Article::create([
-            'img'=>'4.svg',
+            'img' => '4.svg',
             'ar' => [
                 'title' => 'العوامل التي تؤثر على صحة العين',
                 'desc' => 'العوامل الوراثية والتعرض للأشعة فوق البنفسجية يمكن أن تؤثر سلبًا على صحة العين.',
-                'article' => ''
+                'article' => '',
             ],
 
             'en' => [
                 'title' => '',
                 'desc' => '',
                 'article' => '',
-             ],
+            ],
 
         ]);
     }

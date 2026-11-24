@@ -60,8 +60,8 @@ class User extends Authenticatable
         static::created(function ($user) {
             Cart::create([
                 'user_id' => $user->id,
-                'total_price' => 0.00
-                ]);
+                'total_price' => 0.00,
+            ]);
         });
     }
 
@@ -69,5 +69,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
-
 }

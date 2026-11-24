@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('time_to')->nullable();
             $table->integer('avilable_count')->nullable();
             $table->boolean('stop_on_complete')->default(true);
-            $table->enum('timing',['am','pm']);
+            $table->enum('timing', ['am', 'pm']);
             $table->timestamps();
         });
     }

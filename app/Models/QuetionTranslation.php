@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class QuetionTranslation extends Model
 {
     //
-    protected $guarded=[];
+    protected $guarded = [];
 }

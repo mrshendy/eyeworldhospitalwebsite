@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\ExpatVisitDetailsReservation;
-
 use App\Models\Quetion;
+
 class SinglePageController extends Controller
 {
     public function faqs()
     {
         $data['questions'] = Quetion::all();
+
         return view('Site.singlePage.faqs')->with($data);
     }
 
@@ -29,5 +28,4 @@ class SinglePageController extends Controller
     {
         return view('Site.singlePage.contact');
     }
-
 }

@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class DoctorSubSpecialtie extends Model
 {
     //
-    protected $guarded=[];
+    protected $guarded = [];
 
-    public function subSpecialtie(){
+    public function subSpecialtie()
+    {
         return $this->belongsTo(SubSpecialtie::class);
     }
 }

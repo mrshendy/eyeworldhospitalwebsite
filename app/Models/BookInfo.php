@@ -9,16 +9,17 @@ use Illuminate\Database\Eloquent\Model;
 class BookInfo extends Model implements TranslatableContract
 {
     use Translatable;
+
     public $translatedAttributes = ['title', 'description', 'sub_title'];
+
     protected $guarded = [];
+
     protected $hidden = ['translations'];
 
     protected function img(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => asset('uploads/books/' . $value)
+            get: fn (?string $value) => asset('uploads/books/'.$value)
         );
     }
 }
-
-

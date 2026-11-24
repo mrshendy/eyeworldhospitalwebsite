@@ -1,41 +1,53 @@
 <?php
 
+use App\Http\Controllers\Site\AuthController;
+use App\Http\Controllers\Site\BookController;
+use App\Http\Controllers\Site\CartController;
+use App\Http\Controllers\Site\ConferenceController;
+use App\Http\Controllers\Site\EyeHealthInfoController;
+use App\Http\Controllers\Site\HomeController;
+use App\Http\Controllers\Site\MedicalAcademyController;
+use App\Http\Controllers\Site\MedicalDeviceController;
+use App\Http\Controllers\Site\MedicalTourismController;
+use App\Http\Controllers\Site\PartnerController;
+use App\Http\Controllers\Site\RateController;
+use App\Http\Controllers\Site\ReservationController;
+use App\Http\Controllers\Site\RightController;
+use App\Http\Controllers\Site\SinglePageController;
+use App\Http\Controllers\Site\SpecialtieController;
+use App\Http\Controllers\Site\TeamController;
+use App\Http\Controllers\Site\UserController;
+use App\Http\Controllers\Site\VideoController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Site\{HomeController,SpecialtieController,EyeHealthInfoController,
-    RateController,VideoController,PartnerController,RightController,TeamController,MedicalDeviceController, MedicalTourismController,ReservationController,
-    AuthController,ConferenceController, UserController, MedicalAcademyController,BookController, CartController, SinglePageController};
 
-Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
     Route::get('/download/book/{book}', [BookController::class, 'download'])->name('book.download');
 
     Route::resources([
         'home' => HomeController::class,
         'EyeHealthInfo' => EyeHealthInfoController::class,
-        'books' => BookController::class
+        'books' => BookController::class,
     ]);
 
+    Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-    Route::get('/' ,[HomeController::class, 'index'])->name('home.index');
+    Route::post('contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 
-    Route::post('contact-us' ,[HomeController::class, 'contactUs'])->name('contact-us');
+    Route::get('specialties/{slug}', [SpecialtieController::class, 'index'])->name('specialtie');
 
-    Route::get('specialties/{slug}' ,[SpecialtieController::class, 'index'])->name('specialtie');
+    Route::get('specialty/{slug}', [SpecialtieController::class, 'subSpecialtieDetail'])->name('specialtie-detail');
 
-    Route::get('specialty/{slug}' ,[SpecialtieController::class, 'subSpecialtieDetail'])->name('specialtie-detail');
+    Route::get('/customers-reviews', [RateController::class, 'index'])->name('rate.index');
 
-    Route::get('/customers-reviews' ,[RateController::class, 'index'])->name('rate.index');
+    Route::get('/articles/{slug}', [EyeHealthInfoController::class, 'getArticle'])->name('article.detail');
 
-    Route::get('/articles/{slug}' ,[EyeHealthInfoController::class, 'getArticle'])->name('article.detail');
+    Route::get('/videos/health/{topic}', [VideoController::class, 'healthVideo'])->name('video.health');
+    Route::get('/videos/experiments/{topic}', [VideoController::class, 'experimentsVideo'])->name('video.experiments');
 
-
-    Route::get('/videos/health/{topic}' ,[VideoController::class, 'healthVideo'])->name('video.health');
-    Route::get('/videos/experiments/{topic}' ,[VideoController::class, 'experimentsVideo'])->name('video.experiments');
-
-    Route::get('partners' ,[PartnerController::class, 'index'])->name('partners.index');
-    Route::get('rights' ,[RightController::class, 'index'])->name('rights.index');
-    Route::get('specialists/{specialty_slug}' ,[TeamController::class, 'index'])->name('teams.index');
-    Route::get('doctors/{doctor_slug}/{specialty_slug?}' ,[TeamController::class, 'profile'])->name('teams.profile');
-
+    Route::get('partners', [PartnerController::class, 'index'])->name('partners.index');
+    Route::get('rights', [RightController::class, 'index'])->name('rights.index');
+    Route::get('specialists/{specialty_slug}', [TeamController::class, 'index'])->name('teams.index');
+    Route::get('doctors/{doctor_slug}/{specialty_slug?}', [TeamController::class, 'profile'])->name('teams.profile');
 
     Route::get('medical-devices', [MedicalDeviceController::class, 'index'])->name('medicalDevices.index');
     Route::get('medical-devices/{slug}', [MedicalDeviceController::class, 'show'])->name('medicalDevices.show');
@@ -47,7 +59,6 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('conferences/{slug}', [ConferenceController::class, 'show'])->name('conference.show');
 
     Route::get('reservation/appoint_ment/{doctor_id}/{date}', [ReservationController::class, 'doctorAppointment'])->name('reservation.Appointment');
-
 
     Route::get('register', [AuthController::class, 'index'])->name('register.index');
     Route::post('register', [AuthController::class, 'register'])->name('register');
@@ -62,10 +73,6 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     Route::get('doctor/requests', [UserController::class, 'doctor_requests'])->name('doctor.requests');
     Route::get('doctor/requests/{order}', [UserController::class, 'show_order'])->name('doctor.order.show');
     Route::get('doctor/books', [UserController::class, 'doctor_books'])->name('doctor.books');
-
-
-
-
 
     Route::post('login', [AuthController::class, 'login'])->name('login');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');

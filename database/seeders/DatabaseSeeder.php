@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             MedicalAcademyInfoSeeder::class,
             BookSeeder::class,
             BookInfoSeeder::class,
-            SettingSeeder::class
+            SettingSeeder::class,
         ]);
     }
 }

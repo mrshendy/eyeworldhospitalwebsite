@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DayTranslation extends Model
 {
     //
-    protected $guarded=[];
-    public $timestamps = false;
+    protected $guarded = [];
 
+    public $timestamps = false;
 }

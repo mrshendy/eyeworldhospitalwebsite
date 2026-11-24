@@ -11,7 +11,9 @@ class MedicalAcademy extends Model implements TranslatableContract
     use Translatable;
 
     public $translatedAttributes = ['title', 'description'];
+
     protected $guarded = [];
+
     protected $hidden = ['translations'];
 
     public function getRouteKeyName()
@@ -22,7 +24,7 @@ class MedicalAcademy extends Model implements TranslatableContract
     protected function img(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => asset('uploads/medical_academies/' . $value)
+            get: fn (?string $value) => asset('uploads/medical_academies/'.$value)
         );
     }
 

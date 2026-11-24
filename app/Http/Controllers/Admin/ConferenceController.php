@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use DataTables;
-use Yajra\DataTables\Html\Builder;
-use App\Traits\fileTrait;
-use App\Models\Conference;
-use App\Models\ConferenceAdvantge;
-use App\Models\ConferenceImage;
 use App\Models\Chairity;
+use App\Models\Conference;
+use App\Models\ConferenceImage;
 use App\Models\Doctor;
+use App\Traits\fileTrait;
+use DataTables;
+use Illuminate\Http\Request;
+use Yajra\DataTables\Html\Builder;
 
 class ConferenceController extends Controller
 {
@@ -24,48 +23,50 @@ class ConferenceController extends Controller
      * Doctors for each conference, name, title, description, img,
      * there are global doctors and local doctors
      * Charity images
-    */
+     */
     use fileTrait;
 
-    public function index(Request $request,Builder $builder){
+    public function index(Request $request, Builder $builder)
+    {
 
         if (request()->ajax()) {
             return DataTables::of(Conference::query())
-            ->filter(function ($query) use ($request) {
-                if ($request->has('search') && !empty($request->input('search')['value'])) {
-                    $search = $request->input('search')['value'];
-                    $query->whereHas('translations', function ($q) use ($search) {
-                        $q->where('title', 'LIKE', "%{$search}%");
-                    });
-                }
-            })
-            ->addColumn('actions', function ($row) {
-                return '
+                ->filter(function ($query) use ($request) {
+                    if ($request->has('search') && ! empty($request->input('search')['value'])) {
+                        $search = $request->input('search')['value'];
+                        $query->whereHas('translations', function ($q) use ($search) {
+                            $q->where('title', 'LIKE', "%{$search}%");
+                        });
+                    }
+                })
+                ->addColumn('actions', function ($row) {
+                    return '
                     <a href="#" class="delete_btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-id="'.$row->id.'">
                         <i class="ri-delete-bin-6-line"></i>
                     </a>
-                    <a href="'.route('Admin.conferences.edit',$row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
-                    <a href="'.route('Admin.conferences.show',$row->id).'" class="edit_btn">   <i class="ri-eye-line"></i> </a>
-                    <a href="'.route('Admin.conferences.doctors.index',$row->id).'" class="btn btn-sm btn-primary">
+                    <a href="'.route('Admin.conferences.edit', $row->id).'" class="edit_btn">   <i class="ri-edit-line"></i> </a>
+                    <a href="'.route('Admin.conferences.show', $row->id).'" class="edit_btn">   <i class="ri-eye-line"></i> </a>
+                    <a href="'.route('Admin.conferences.doctors.index', $row->id).'" class="btn btn-sm btn-primary">
                         <i class="ri-user-add-line"></i>
                     </a>
 
                 ';
-            })
-            ->editColumn('created_at', function ($row) {
-                return \Carbon\Carbon::parse($row->created_at)->format('d-m-Y');
-            })
-            ->rawColumns(['actions'])
-            ->toJson();
+                })
+                ->editColumn('created_at', function ($row) {
+                    return \Carbon\Carbon::parse($row->created_at)->format('d-m-Y');
+                })
+                ->rawColumns(['actions'])
+                ->toJson();
         }
 
         $html = $builder->columns([
-            ['title' => __('system.id'), 'data' => 'id', 'footer' =>  __('system.id') , 'orderable' => true],
-            ['title' => __('title'), 'data' => 'title', 'footer' =>__('title') , 'searchable' => true],
-            ['title' => __('system.actions'), 'data' => 'actions', 'footer' =>  __('system.actions'), 'orderable' => false, 'searchable' => false]
+            ['title' => __('system.id'), 'data' => 'id', 'footer' => __('system.id'), 'orderable' => true],
+            ['title' => __('title'), 'data' => 'title', 'footer' => __('title'), 'searchable' => true],
+            ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false],
 
         ]);
-        return view('Admin.conferences.index',compact('html'));
+
+        return view('Admin.conferences.index', compact('html'));
     }
 
     /**
@@ -75,6 +76,7 @@ class ConferenceController extends Controller
     {
         $data['charities'] = Chairity::all();
         $data['doctors'] = Doctor::all();
+
         return view('Admin.conferences.create')->with($data);
     }
 
@@ -83,19 +85,19 @@ class ConferenceController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->file!=null)
-            $request->merge(['img' => $this->MoveImage($request->file,'uploads/conferences')]);
+        if ($request->file != null) {
+            $request->merge(['img' => $this->MoveImage($request->file, 'uploads/conferences')]);
+        }
 
         $data = $request->except('advantages', 'file', 'images', 'charities_ids', 'doctor_ids', 'doctor_roles', 'doctor_types');
         $conference = Conference::create($data);
-
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $fileName = $this->MoveImage($image, 'uploads/conferences');
                 ConferenceImage::create([
                     'conference_id' => $conference->id,
-                    'image' => $fileName
+                    'image' => $fileName,
                 ]);
             }
         }
@@ -119,15 +121,13 @@ class ConferenceController extends Controller
         return redirect()->route('Admin.conferences.index')->with('success', 'Conference created successfully!');
     }
 
-
     /**
      * Display the specified resource.
      */
-
     public function show(string $id)
     {
         return view('Admin.conferences.show', [
-            'conference' => Conference::with(['advantages', 'images', 'charities', "guests"])->findOrFail($id)
+            'conference' => Conference::with(['advantages', 'images', 'charities', 'guests'])->findOrFail($id),
         ]);
 
     }
@@ -140,6 +140,7 @@ class ConferenceController extends Controller
         $data['conference'] = Conference::findOrFail($id);
         $data['charities'] = Chairity::all();
         $data['doctors'] = Doctor::all();
+
         return view('Admin.conferences.edit')->with($data);
     }
 
@@ -148,11 +149,12 @@ class ConferenceController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        if($request->file!=null)
-            $request->merge(['img' => $this->MoveImage($request->file,'uploads/conferences')]);
+        if ($request->file != null) {
+            $request->merge(['img' => $this->MoveImage($request->file, 'uploads/conferences')]);
+        }
 
-        $conference =  Conference::findOrFail($id);
-        $conference->update($request->except(['id', '_token', '_method', 'file', 'advantages', "images", "deleted_images", 'charities_ids', 'old_images', 'doctor_ids']));
+        $conference = Conference::findOrFail($id);
+        $conference->update($request->except(['id', '_token', '_method', 'file', 'advantages', 'images', 'deleted_images', 'charities_ids', 'old_images', 'doctor_ids']));
 
         $submittedIds = [];
 
@@ -167,7 +169,7 @@ class ConferenceController extends Controller
                     ];
                 }
 
-                if (!empty($advantageData['id'])) {
+                if (! empty($advantageData['id'])) {
                     $adv = $conference->advantages()->find($advantageData['id']);
                     if ($adv) {
                         $adv->update($translations);
@@ -180,7 +182,7 @@ class ConferenceController extends Controller
             }
         }
 
-        //Delete any old advantages not in submitted form
+        // Delete any old advantages not in submitted form
         $conference->advantages()->whereNotIn('id', $submittedIds)->delete();
 
         // Handle deleted old images
@@ -188,7 +190,7 @@ class ConferenceController extends Controller
             foreach ($request->deleted_images as $imageId) {
                 $image = ConferenceImage::find($imageId);
                 if ($image) {
-                    \Storage::delete('uploads/conferences/' . $image->image);
+                    \Storage::delete('uploads/conferences/'.$image->image);
                     $image->delete();
                 }
             }
@@ -205,12 +207,12 @@ class ConferenceController extends Controller
         }
 
         Chairity::where('conference_id', $conference->id)
-        ->whereNotIn('id', $request->charities_ids ?? [])
-        ->update(['conference_id' => null]);
+            ->whereNotIn('id', $request->charities_ids ?? [])
+            ->update(['conference_id' => null]);
 
         if ($request->has('charities_ids')) {
-        Chairity::whereIn('id', $request->charities_ids)
-            ->update(['conference_id' => $conference->id]);
+            Chairity::whereIn('id', $request->charities_ids)
+                ->update(['conference_id' => $conference->id]);
         }
 
         return redirect()->back();
@@ -222,6 +224,7 @@ class ConferenceController extends Controller
     public function destroy(Request $request, $id)
     {
         Conference::find($request->id)->delete();
+
         return redirect()->route('Admin.conferences.index');
     }
 }

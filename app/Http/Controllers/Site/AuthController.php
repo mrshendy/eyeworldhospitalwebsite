@@ -2,33 +2,33 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Specialtie;
-Use Alert;
-use Auth;
+use Alert;
 use App\Enums\AcademicDegrees;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
+use App\Models\Specialtie;
+use App\Models\User;
+use Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $specialties = Specialtie::all();
         $degrees = AcademicDegrees::options();
-        return view('Site.Auth.register', compact('specialties','degrees'));
-    }
-    public function loginIndex(){
-        return view('Site.Auth.login');
+
+        return view('Site.Auth.register', compact('specialties', 'degrees'));
     }
 
+    public function loginIndex()
+    {
+        return view('Site.Auth.login');
+    }
 
     public function resetpassword()
     {
@@ -49,11 +49,12 @@ class AuthController extends Controller
             ['email' => $user->email],
             [
                 'token' => $token,
-                'created_at' => Carbon::now()
+                'created_at' => Carbon::now(),
             ]
         );
 
-        $link = url('/reset-password/form?token=' . $token . '&email=' . urlencode($user->email));
+        $link = url('/reset-password/form?token='.$token.'&email='.urlencode($user->email));
+
         return redirect($link);
     }
 
@@ -61,7 +62,7 @@ class AuthController extends Controller
     {
         return view('Site.Auth.reset_form', [
             'token' => $request->token,
-            'email' => $request->email
+            'email' => $request->email,
         ]);
     }
 
@@ -75,11 +76,12 @@ class AuthController extends Controller
 
         $reset = DB::table('password_resets')->where([
             'email' => $request->email,
-            'token' => $request->token
+            'token' => $request->token,
         ])->first();
 
-        if (!$reset) {
+        if (! $reset) {
             Alert::error(__('Error'), __('Invalid or expired token.'));
+
             return back();
         }
 
@@ -89,21 +91,23 @@ class AuthController extends Controller
 
         DB::table('password_resets')->where(['email' => $request->email])->delete();
         Alert::success(__('Success'), __('Password reset successfully'));
+
         return redirect()->route('Site.home.index');
     }
 
-    public function register(Request $request){
+    public function register(Request $request)
+    {
 
         $validated = $request->validate([
-         'name' => 'required|string|max:255',
-         'email' => 'required|email|unique:users,email',
-         'password' => 'required|min:8|confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
         ]);
-
 
         User::create($request->except(['password_confirmation']));
 
-        Alert::success(__('Success'),__('register success'));
+        Alert::success(__('Success'), __('register success'));
+
         return redirect()->route('Site.login.index');
 
     }
@@ -111,12 +115,12 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-        $credentials = request(['email','password']);
-
+        $credentials = request(['email', 'password']);
 
         if (Auth::guard('web')->attempt($credentials)) {
             return redirect()->route('Site.home.index');
         }
+
         return redirect()->route('Site.login.index')->withErrors(['credential' => __('Incorrect email or password')])->withInput();
     }
 
@@ -124,7 +128,7 @@ class AuthController extends Controller
     {
         Auth::guard('web')->logout();
         Alert::success(__('Success'), __('Logout Successfully'));
+
         return redirect()->route('Site.home.index');
     }
-
 }
