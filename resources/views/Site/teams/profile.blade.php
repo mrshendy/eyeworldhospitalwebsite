@@ -1,4 +1,31 @@
 @extends('site')
+
+@section('title', $doctor->info->name.' - '.($doctor->info->job_title ?? '').' | '.__('Dunia Al-Oyoun Hospital'))
+@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($doctor->info->breif ?: $doctor->info->desc), 155))
+
+@section('styles')
+@php
+    $physicianSchema = array_filter([
+        '@context' => 'https://schema.org',
+        '@type' => 'Physician',
+        'name' => $doctor->info->name,
+        'description' => \Illuminate\Support\Str::limit(strip_tags($doctor->info->desc ?: $doctor->info->breif), 300),
+        'image' => $doctor->img,
+        'url' => url()->current(),
+        'jobTitle' => $doctor->info->job_title,
+        'medicalSpecialty' => $Specialtie?->title,
+        'availableService' => $doctor->subspecialties->map(fn ($s) => $s->subSpecialtie?->main_title)->filter()->values()
+            ->map(fn ($name) => ['@type' => 'MedicalProcedure', 'name' => $name])->all() ?: null,
+        'worksFor' => [
+            '@type' => 'Hospital',
+            'name' => __('Dunia Al-Oyoun Hospital'),
+            'url' => url('/'),
+        ],
+    ]);
+@endphp
+<script type="application/ld+json">{!! json_encode($physicianSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}</script>
+@endsection
+
 @section('content')
 
 	<main id="main">

@@ -1,29 +1,21 @@
 User-agent: *
 Allow: /
 
-# Block admin and system paths
+# Dashboard, account and system pages (all site URLs start with /ar/ or /en/)
 Disallow: /admin/
 Disallow: /Admin/
-Disallow: /login
-Disallow: /register
-Disallow: /reset-password
-Disallow: /user/
-Disallow: /cart
-Disallow: /checkout
-Disallow: /reservation/
+Disallow: /*/Admin/
+Disallow: /*/login
+Disallow: /*/register
+Disallow: /*/reset-password
+Disallow: /*/user/
+Disallow: /*/user_reservations
+Disallow: /*/cart
+Disallow: /*/checkout
+Disallow: /*/reservation/
 Disallow: /api/
 Disallow: /storage/
 Disallow: /vendor/
+Disallow: /public/
 
-# Allow important user paths
-Allow: /books
-Allow: /customers-reviews
-Allow: /partners
-Allow: /faqs
-Allow: /contact-us
-
-# Sitemap - UPDATE THIS URL FOR PRODUCTION
-Sitemap: https://www.eyeworldhospital.com/sitemap.xml
-
-# Crawl delay (optional - be respectful to your server)
-Crawl-delay: 1
+Sitemap: https://eyeworldhospital.com/sitemap.xml

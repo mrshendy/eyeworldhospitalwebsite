@@ -93,7 +93,13 @@
 
                          <div class="form-group col-6">
                                 <label>{{ __('price') }}</label>
-                                <input class="form-control" name="price"   value="{{old('urgent_price')}}" type="number" required>
+                                <input class="form-control" name="price"   value="{{old('price')}}" type="number" required>
+                        </div>
+
+                        <div class="form-group col-6">
+                                <label>{{ __('Sort order') }}</label>
+                                <input class="form-control" name="sort_order" value="{{ old('sort_order', 0) }}" type="number" min="0">
+                                <small class="text-muted">{{ __('Lower numbers appear first.') }}</small>
                         </div>
 
 

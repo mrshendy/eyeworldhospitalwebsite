@@ -284,7 +284,7 @@
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="contact-image">
-                        <img src="{{asset('siteassets/images/contact/main.svg')}}" alt="Main">
+                        <img src="{{asset('siteassets/images/contact/main.webp')}}" alt="" loading="lazy">
                     </figure>
                 </div>
             </div>

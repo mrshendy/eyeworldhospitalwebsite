@@ -61,7 +61,7 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'file' => 'required',
+            'file' => 'required|image|max:2048',
         ]);
         if ($request->file != null) {
             $request->merge(['img' => $this->MoveImage($request->file, 'uploads/sliders')]);
@@ -82,8 +82,9 @@ class SliderController extends Controller
 
     public function update(Request $request, $id)
     {
+        // The image is optional on update: editing only the text must not require re-uploading the image.
         $request->validate([
-            'file' => 'required',
+            'file' => 'nullable|image|max:2048',
         ]);
         if ($request->file != null) {
             $request->merge(['img' => $this->MoveImage($request->file, 'uploads/sliders')]);
@@ -92,7 +93,7 @@ class SliderController extends Controller
         $slider = Slider::find($id);
         $slider->update($request->except(['id', '_token', '_method', 'file']));
 
-        return redirect()->back();
+        return redirect()->back()->with('success', __('Saved successfully'));
     }
 
     public function destroy(Request $request)

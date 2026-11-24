@@ -15,11 +15,4 @@ class Slider extends Model implements TranslatableContract
     protected $guarded = [];
 
     protected $hidden = ['translations'];
-
-    protected function img(): Attribute
-    {
-        return Attribute::make(
-            get: fn (?string $value) => asset('uploads/sliders/'.$value)
-        );
-    }
 }

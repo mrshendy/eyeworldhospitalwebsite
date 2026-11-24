@@ -505,6 +505,13 @@
             </li>
 
             <li class="menu-item">
+              <a href="{{route('Admin.home-content.index')}}" class="menu-link">
+                <i class="ri-home-4-line"> </i>
+                <div>{{__('Homepage content')}}</div>
+              </a>
+            </li>
+
+            <li class="menu-item">
               <a href="{{route('Admin.settings')}}" class="menu-link">
                 <i class="ri-settings-3-fill"> </i>
                 <div>{{__('Settings')}}</div>

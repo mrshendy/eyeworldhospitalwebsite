@@ -22,8 +22,21 @@
            @csrf
            @method('put')
 
+           @if (session('success'))
+               <div class="alert alert-success">{{ session('success') }}</div>
+           @endif
+           @if ($errors->any())
+               <div class="alert alert-danger">
+                   <ul class="mb-0">
+                       @foreach ($errors->all() as $error)
+                           <li>{{ $error }}</li>
+                       @endforeach
+                   </ul>
+               </div>
+           @endif
+
            <label for="input-file-max-fs">{{__('img')}}</label>
-           <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
+           <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ asset('uploads/sliders/'.$data->img) }}" @endisset  />
 
             @foreach (config('translatable.locales') as $locale)
                 <div class="col-12">

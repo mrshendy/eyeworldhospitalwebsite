@@ -37,7 +37,7 @@
 
 
                         <label for="input-file-max-fs">{{__('img')}}</label>
-                        <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($data) data-default-file="{{ $data->img }}" @endisset  />
+                        <input type="file" name="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M"  @isset($doctor) data-default-file="{{ $doctor->img }}" @endisset  />
 
 
 
@@ -87,6 +87,12 @@
                          <div class="form-group col-6">
                                 <label>{{ __('price') }}</label>
                                 <input class="form-control" name="price"   value="{{ isset($doctor) ? $doctor->price?->price : old('price')}}" type="number" required>
+                        </div>
+
+                        <div class="form-group col-6">
+                                <label>{{ __('Sort order') }}</label>
+                                <input class="form-control" name="sort_order" value="{{ old('sort_order', $doctor->sort_order ?? 0) }}" type="number" min="0">
+                                <small class="text-muted">{{ __('Lower numbers appear first.') }}</small>
                         </div>
 
 

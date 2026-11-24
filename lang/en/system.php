@@ -6,7 +6,7 @@ return [
     'answer' => 'answer',
     'created_at' => 'created at',
     'add' => 'add',
-    'Add_quetion' => 'اضافه سؤال',
+    'Add_quetion' => 'Add question',
     'edit' => 'edit',
     'delete' => 'delete',
     'close' => 'close',
