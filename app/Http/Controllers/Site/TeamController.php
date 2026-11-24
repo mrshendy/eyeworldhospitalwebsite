@@ -17,7 +17,7 @@ class TeamController extends Controller
         $Specialtie = Specialtie::where('slug', $specialty_slug)->firstOrFail();
         $doctors = Doctor::whereHas('specialtie', function ($q) use ($Specialtie) {
             $q->where('specialtie_id', $Specialtie->id);
-        })->get();
+        })->orderBy('sort_order')->orderBy('id')->get();
 
         return view('Site.teams.index', compact('info', 'Specialties', 'Specialtie', 'doctors', 'specialty_slug'));
     }

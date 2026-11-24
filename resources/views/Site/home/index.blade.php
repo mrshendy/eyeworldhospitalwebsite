@@ -35,8 +35,8 @@
                     <div class="container h-100">
                         <div class="slider-details h-100 flex-column">
                             <h4 class="slider-pre-title">
-                                <img src="{{asset('siteassets/images/slider/icon.svg')}}" alt="icon">
-                                <span>{{ $slider->title }} !</span>
+                                <img src="{{asset('siteassets/images/slider/icon.webp')}}" alt="" width="24" height="24">
+                                <span>{{ $slider->title }}</span>
                             </h4>
                             <h2 class="slider-title">
                                     {{ $slider->sub_title }}
@@ -57,40 +57,23 @@
     <!-- Achievement Section -->
     <article class="achievement text-center pd">
         <div class="container">
-            <h1 class="pre-title site-color">{{ __('Egypt\'s Leading Ophthalmology Center for Advanced Eye Care') }}</h1>
-            <h2 class="main-title">{{__('Dunia Al-Oyoun Hospital: Leading ophthalmology center in Egypt with amazing statistics.')}}</h2>
-            <p class="main-para">{{__('At Dunia Al-Oyoun Hospital, we are Egypt’s leading ophthalmology center. We specialize in cataract surgery, LASIK, retinal care, and advanced vision health services. Since 2004, we have delivered thousands of successful eye surgeries. We also provide medical examinations. This proves our commitment to premium patient care. We focus on long-term visual health.')}}</p>
+            <h1 class="pre-title site-color">{{ home_content('achievement.pre_title') }}</h1>
+            <h2 class="main-title">{{ home_content('achievement.title') }}</h2>
+            <p class="main-para">{!! nl2br(e(home_content('achievement.desc'))) !!}</p>
 
             <!-- Counter -->
+            @if (home_visible('counter'))
             <section class="counter flex-center pdt">
+                @foreach ([1, 2, 3, 4] as $n)
                 <div class="col-3 col-sm-6 col-xs-12">
                     <div class="counter-box">
-                        <strong class="number">1000+</strong>
-                        <p class="value">{{__("Successful surgical procedure.")}}</p>
+                        <strong class="number">{{ home_content("counter.$n.number") }}</strong>
+                        <p class="value">{{ home_content("counter.$n.label") }}</p>
                     </div>
                 </div>
-
-                <div class="col-3 col-sm-6 col-xs-12">
-                    <div class="counter-box">
-                        <strong class="number">5000+</strong>
-                        <p class="value"> {{__("Cataract surgery with utmost precision.")}}</p>
-                    </div>
-                </div>
-
-                <div class="col-3 col-sm-6 col-xs-12">
-                    <div class="counter-box">
-                        <strong class="number">748+</strong>
-                        <p class="value">{{__("LASIK surgery for vision correction.")}}</p>
-                    </div>
-                </div>
-
-                <div class="col-3 col-sm-6 col-xs-12">
-                    <div class="counter-box">
-                        <strong class="number">1+</strong>
-                        <p class="value">{{__("One million comprehensive medical examinations.")}}</p>
-                    </div>
-                </div>
+                @endforeach
             </section>
+            @endif
             <!-- Counter -->
 
             <!-- About  -->
@@ -106,7 +89,7 @@
                 </div>
                 <div class="col-6 col-md-6 col-sm-12">
                     <figure class="about-image">
-                        <img src="{{asset('siteassets/images/about.svg')}}" alt="About">
+                        <img src="{{ home_image('about.image') }}" alt="{{ $about->title }}" loading="lazy">
                     </figure>
                 </div>
             </section>
@@ -117,70 +100,40 @@
     <!-- Achievement Section -->
 
     <!-- Service Section -->
+    @if (home_visible('services'))
     <article class="services pd">
-        <div class="bk" style="background-image:url({{asset('siteassets/images/services.svg')}})"></div>
+        <div class="bk" style="background-image:url({{ home_image('services.image') }})"></div>
         <div class="container">
-            <h2 class="main-title site-color">{{ __('TOP CARE SERVICES') }}</h2>
+            <h2 class="main-title site-color">{{ home_content('services.title') }}</h2>
             <div class="flex-start pdb align-center">
                 <div class="col-6 col-md-12">
-                    <p class="main-para pdl">
-                       {{__("Medical services provided by Dunia Al-Oyoun Hospital, specialized in ophthalmology and eye surgery, offering healthcare for eye patients in diagnostic and therapeutic care, LASIK and laser treatments, and surgical procedures related to eye health and vision.")}}
-                    </p>
+                    <p class="main-para pdl">{!! nl2br(e(home_content('services.para1'))) !!}</p>
                 </div>
                 <div class="col-6 col-md-12">
-                    <p class="main-para pdr">
-                     {{__("It includes a distinguished group of professors and consultants specializing in various ophthalmic fields, such as cataracts, glaucoma, corneal and strabismus surgery, retinal diseases, tear duct and eyelid conditions, cosmetic surgeries, eye tumors, and pediatric retinal tumors (Retinoblastoma).")}}
-                    </p>
+                    <p class="main-para pdr">{!! nl2br(e(home_content('services.para2'))) !!}</p>
                 </div>
             </div>
-            <h4 class="h4">
-                 {{__("In addition to the mentioned ophthalmology services, other services include:")}}
-            </h4>
+            <h4 class="h4">{{ home_content('services.list_title') }}</h4>
             <ul class="list-unstyled flex-start services-list">
+                @foreach (home_lines('services.list') as $service)
                 <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
-                    {{__("Cosmetic surgeries for the face and head.")}}
+                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="" loading="lazy" width="16" height="16">
+                    {{ $service }}
                 </li>
-                <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
-                    {{__("Oral and maxillofacial surgeries")}}
-                </li>
-                <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
-                    {{__("Dermatology and laser services")}}
-                </li>
-                <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
-                    {{__("Nutrition services")}}
-                </li>
-                <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
-                    {{__("Laboratory services")}}
-                </li>
-                <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
-                    {{__("Pharmacy services")}}
-                </li>
-                <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
-                    {{__("Accommodation services")}}
-                </li>
-                <li>
-                    <img src="{{asset('siteassets/images/arrow-down.svg')}}" alt="Arrow Down">
-                    {{__("Other services")}}
-                </li>
-
+                @endforeach
             </ul>
         </div>
     </article>
+    @endif
     <!-- Service Section -->
 
     <!-- Discover Section -->
+    @if (home_visible('specialties'))
     <article class="discover pd">
         <div class="container">
-            <span class="pre-title site-color">{{__("Explore various medical specialties to meet your healthcare needs.")}}</span>
-            <h2 class="main-title">{{__("Choose the right medical specialty for your health needs from our diverse specialties.")}}</h2>
-            <p class="main-para">{{__("Description: We offer you a wide range of medical specialties, including ophthalmology, dentistry, dermatology, surgery, and more. Receive comprehensive healthcare from experienced specialists to help you maintain your health and well-being.")}}</p>
+            <span class="pre-title site-color">{{ home_content('specialties.pre_title') }}</span>
+            <h2 class="main-title">{{ home_content('specialties.title') }}</h2>
+            <p class="main-para">{!! nl2br(e(home_content('specialties.desc'))) !!}</p>
 
             <div class="flex-center discover-row pdt">
                 @foreach ($specialities as $spec)
@@ -198,22 +151,21 @@
 
         </div>
     </article>
-
+    @endif
     <!-- Discover Section -->
 
     <!-- Discover two Section -->
+    @if (home_visible('conferences'))
     <article class="discover pd">
         <div class="container">
             <div class="flex-between pdb">
                 <div>
-                    <span class="pre-title site-color">{{__("Explore our key achievements and participation in medical events and conferences.")}}</span>
-                    <h2 class="main-title">{{__("Our outstanding contributions and achievements in major medical")}}<br>{{__("and scientific events and conferences.")}}</h2>
+                    <span class="pre-title site-color">{{ home_content('conferences.pre_title') }}</span>
+                    <h2 class="main-title">{!! nl2br(e(home_content('conferences.title'))) !!}</h2>
                 </div>
                 <a href="{{ route('Site.conference.index') }}" class="site-color">{{ __("View All Upcoming Conferences") }}</a>
-                    {{__("View more events")}}
-                </a>
             </div>
-            <p class="main-para">{{__("We take pride in our participation in medical events and conferences, where we showcase the latest technologies")}}<br>{{__("and share our expertise with the medical community. Our goal is to exchange knowledge and highlight our leadership")}}<br>{{__("in ophthalmology and eye surgery through these distinguished events.")}}</p>
+            <p class="main-para">{!! nl2br(e(home_content('conferences.desc'))) !!}</p>
 
             <div class="flex-center discover-row pdt">
                 @foreach ($conferences as $conference)
@@ -222,7 +174,7 @@
                             <div class="discover-box-details">
                                 <h3>{{ $conference->title }}</h3>
                                 <p>{{ $conference->description }}</p>
-                                <a href="{{ route('Site.conference.show', $conference->slug) }}">{{ __("Learn about") }} {{ $conference->title }}</a>
+                                <a href="{{ route('Site.conference.show', $conference->slug) }}">
                                     {{__("Read more")}}
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </a>
@@ -234,30 +186,30 @@
             </div>
         </div>
     </article>
-
-
+    @endif
     <!-- Discover two Section -->
 
     <!-- Experience Section -->
+    @if (home_visible('app'))
     <article class="experience pd">
         <div class="container flex-center align-center">
             <div class="col-6 col-md-6 col-sm-12">
                 <figure class="experience-image">
-                    <img src="{{asset('siteassets/images/experience/main.svg')}}" alt="Main" >
+                    <img src="{{ home_image('app.image') }}" alt="" loading="lazy">
                 </figure>
             </div>
             <div class="col-6 col-md-6 col-sm-12">
                 <div class="experience-details">
-                    <span class="pre-title site-color">{{__('app 1')}}</span>
-                    <h2 class="main-title"> {{__('app 2')}}</h2>
-                    <p class="main-para">{{__('app 3')}}</p>
+                    <span class="pre-title site-color">{{ home_content('app.pre_title') }}</span>
+                    <h2 class="main-title">{{ home_content('app.title') }}</h2>
+                    <p class="main-para">{!! nl2br(e(home_content('app.desc'))) !!}</p>
 
                     <div class="btns flex-start align-center">
                         <a href="#" class="section-btn">
-                            <img src="{{asset('siteassets/images/experience/Badge.svg')}}" alt="Badge">
+                            <img src="{{asset('siteassets/images/experience/Badge.svg')}}" alt="App Store" loading="lazy">
                         </a>
                         <a href="#" class="section-btn">
-                            <img src="{{asset('siteassets/images/experience/app.svg')}}" alt="App">
+                            <img src="{{asset('siteassets/images/experience/app.svg')}}" alt="Google Play" loading="lazy">
                         </a>
                     </div>
 
@@ -265,21 +217,21 @@
             </div>
         </div>
     </article>
+    @endif
     <!-- Experience Section -->
 
     <!-- Faq Section -->
+    @if (home_visible('faq'))
     <article class="faq pd">
         <div class="container">
             <div class="flex-between pdb">
                 <div>
-                    <span class="pre-title site-color">{{__('quetion 1')}}</span>
-                    <h2 class="main-title">{{__('quetion 2')}}</h2>
+                    <span class="pre-title site-color">{{ home_content('faq.pre_title') }}</span>
+                    <h2 class="main-title">{{ home_content('faq.title') }}</h2>
                 </div>
                 <a href="{{ route('Site.faqs') }}" class="site-color">{{ __("Browse Frequently Asked Questions") }}</a>
-                   {{__("View more FAQs")}}
-                </a>
             </div>
-            <p class="main-para">{{__('quetion 3')}}</p>
+            <p class="main-para">{!! nl2br(e(home_content('faq.desc'))) !!}</p>
 
             <div class="questions pdt flex-start">
 
@@ -317,31 +269,32 @@
             </div>
         </div>
     </article>
+    @endif
     <!-- Faq Section -->
 
     <!-- Parteners Section -->
+    @if (home_visible('partners'))
     <article class="parteners pd">
         <div class="container">
             <div class="flex-between pdb">
                 <div>
-                    <span class="pre-title site-color">{{__('Our trusted partners')}}</span>
-                    <h2 class="main-title"> {{__('Insurance Partners: Renowned')}}</h2>
+                    <span class="pre-title site-color">{{ home_content('partners.pre_title') }}</span>
+                    <h2 class="main-title">{{ home_content('partners.title') }}</h2>
                 </div>
                 <a href="{{ route('Site.partners.index') }}" class="site-color">{{ __("Meet Our Trusted Partners") }}</a>
-                    {{__("View more Partners")}}
-                </a>
             </div>
-            <p class="main-para">{{__('Our company takes')}}</p>
+            <p class="main-para">{!! nl2br(e(home_content('partners.desc'))) !!}</p>
 
             <div class="flex-between align-center pdt">
                 @foreach ($insurance_partners as $partner)
-                    <img src="{{asset($partner->img)}}" alt="{{ $partner->name ?? 'Partner' }}">
+                    <img src="{{asset($partner->img)}}" alt="{{ $partner->name ?? 'Partner' }}" loading="lazy">
                 @endforeach
 
             </div>
 
         </div>
     </article>
+    @endif
     <!-- Parteners Section -->
 
     <!-- Contact us Section -->

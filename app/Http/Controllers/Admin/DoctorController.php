@@ -74,10 +74,11 @@ class DoctorController extends Controller
             ['title' => __('name'), 'data' => 'name', 'footer' => __('name'), 'searchable' => true],
             ['title' => __('job title'), 'data' => 'job_title', 'footer' => __('job title'), 'searchable' => true],
             ['title' => __('specialtie'), 'data' => 'specialtie', 'footer' => __('specialtie'), 'searchable' => true],
+            ['title' => __('Sort order'), 'data' => 'sort_order', 'footer' => __('Sort order'), 'orderable' => true, 'searchable' => false],
             ['title' => __('system.created_at'), 'data' => 'created_at', 'footer' => __('system.created_at')],
             ['title' => __('system.actions'), 'data' => 'actions', 'footer' => __('system.actions'), 'orderable' => false, 'searchable' => false],
         ])->parameters([
-            'order' => [[0, 'desc']],
+            'order' => [[4, 'asc']],
         ]);
 
         return view('Admin.doctors.index', compact('html'));
@@ -102,6 +103,7 @@ class DoctorController extends Controller
 
         $doctor = Doctor::create([
             'img' => $request->img,
+            'sort_order' => (int) $request->input('sort_order', 0),
         ]);
         $request->merge(['doctor_id' => $doctor->id]);
 
@@ -194,6 +196,7 @@ class DoctorController extends Controller
             $doctor->img = $request->img;
         }
 
+        $doctor->sort_order = (int) $request->input('sort_order', $doctor->sort_order);
         $doctor->save();
         $infodata = [];
         $serviceInfo = [];

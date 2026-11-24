@@ -8,13 +8,15 @@
     <meta property="og:description" content="@yield('meta_description', $seo?->meta_description ?? '')" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url()->current() }}" />
-    <meta property="og:image" content="{{ asset('siteassets/images/logo.svg') }}" />
+    <meta property="og:image" content="{{ asset('siteassets/images/og-image.jpg') }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="@yield('title', $seo?->meta_title ?? __('Eye World'))" />
     <meta name="twitter:description" content="@yield('meta_description', $seo?->meta_description ?? '')" />
-    <meta name="twitter:image" content="{{ asset('siteassets/images/logo.svg') }}" />
-    <link rel="icon" type="image/svg+xml" href="{{ asset('siteassets/images/logo.svg') }}">
-    <link rel="apple-touch-icon" href="{{ asset('siteassets/images/logo.svg') }}">
+    <meta name="twitter:image" content="{{ asset('siteassets/images/og-image.jpg') }}" />
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('siteassets/images/favicon-192.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('siteassets/images/apple-touch-icon.png') }}">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +41,7 @@
         "name": "Eye World Hospital",
         "url": "{{ config('app.url') }}",
         "logo": "{{ asset('uploads/settings/' . ($settings->logo ?? 'logo.svg')) }}",
-        "image": "{{ asset('siteassets/images/about.svg') }}",
+        "image": "{{ asset('siteassets/images/about.webp') }}",
         "description": "Eye World Hospital is a leading ophthalmology center in Egypt providing cataract, LASIK, retinal and eye care services.",
         "telephone": "{{ $settings->phone ?? '' }}",
         "email": "{{ $settings->email ?? 'info@eyeworldhospital.com' }}",

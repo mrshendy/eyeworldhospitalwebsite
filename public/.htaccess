@@ -1,3 +1,7 @@
+<IfModule mod_dir.c>
+    DirectorySlash Off
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
@@ -14,6 +18,8 @@
         AddOutputFilterByType DEFLATE application/rss+xml
         AddOutputFilterByType DEFLATE application/javascript
         AddOutputFilterByType DEFLATE application/x-javascript
+        AddOutputFilterByType DEFLATE image/svg+xml
+        AddOutputFilterByType DEFLATE application/json
     </IfModule>
 
     # Enable browser caching
@@ -29,18 +35,43 @@
         ExpiresByType application/javascript "access plus 1 month"
         ExpiresByType application/x-shockwave-flash "access plus 1 month"
         ExpiresByType image/x-icon "access plus 1 year"
+        ExpiresByType image/webp "access plus 1 month"
+        ExpiresByType image/svg+xml "access plus 1 month"
+        ExpiresByType font/woff2 "access plus 1 year"
+        # Pages must not be cached by the browser for days: they contain the
+        # login state and the security token of the forms (stale copies cause
+        # "Page Expired" errors and show old content).
+        ExpiresByType text/html "access plus 0 seconds"
         ExpiresDefault "access plus 2 days"
     </IfModule>
 
     RewriteEngine On
 
-    # Force HTTPS
+    # Force HTTPS.
+    # The address is taken from the original request (THE_REQUEST), not from
+    # %{REQUEST_URI}: when the domain points at the project folder, the root
+    # .htaccess has already rewritten the path to /public/..., and using it here
+    # sent visitors to https://.../public/...
     RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteCond %{THE_REQUEST} \s/+(?:public/)?([^\s?]*)
+    RewriteRule ^ https://%{HTTP_HOST}/%1 [L,R=301,NE]
 
     # Redirect www to non-www
-    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    RewriteCond %{HTTP_HOST}#%{THE_REQUEST} ^www\.([^#]+)#\S+\s/+(?:public/)?([^\s?]*) [NC]
+    RewriteRule ^ https://%1/%2 [L,R=301,NE]
+
+    # The site must never be reachable under /public/... (duplicate content).
+    # The real fix is pointing the domain's document root at the "public" folder;
+    # until then, redirect any /public/... address to the clean address.
+    RewriteCond %{THE_REQUEST} \s/+public(?:/([^\s?]*))?[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L,NE]
+
+    # "books" is also a real folder (book cover images), so Apache used to answer
+    # /books with a redirect to /public/books/ and then "403 Forbidden".
+    # Send the page address to Laravel instead; the images inside the folder still load.
+    # (DirectorySlash Off stops Apache from adding the "/" itself before Laravel sees the request.)
+    RewriteRule ^books/?$ index.php [L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

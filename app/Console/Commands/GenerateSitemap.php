@@ -95,26 +95,28 @@ class GenerateSitemap extends Command
      */
     private function addUrlWithAlternates(Sitemap $sitemap, string $url, float $priority, string $frequency)
     {
-        $urlTag = Url::create($url)->setPriority($priority)->setChangeFrequency($frequency);
-
         $locales = $this->getLocales();
         $defaultLocale = config('app.locale', 'en');
 
+        $alternates = [];
         foreach ($locales as $locale) {
-            $localizedUrl = $this->localizeUrl($url, $locale);
-            if ($localizedUrl) {
-                $urlTag->addAlternate($localizedUrl, $locale);
-            }
+            $alternates[$locale] = $this->localizeUrl($url, $locale) ?: $url;
         }
 
-        if (in_array($defaultLocale, $locales, true)) {
-            $xDefaultUrl = $this->localizeUrl($url, $defaultLocale, true);
-            if ($xDefaultUrl) {
-                $urlTag->addAlternate($xDefaultUrl, 'x-default');
-            }
-        }
+        // One <url> entry per language, each pointing at the final (already localized) address,
+        // so search engines never hit a redirect when they crawl the sitemap.
+        foreach ($alternates as $locale => $localizedUrl) {
+            $urlTag = Url::create($localizedUrl)->setPriority($priority)->setChangeFrequency($frequency);
 
-        $sitemap->add($urlTag);
+            foreach ($alternates as $altLocale => $altUrl) {
+                $urlTag->addAlternate($altUrl, $altLocale);
+            }
+            if (isset($alternates[$defaultLocale])) {
+                $urlTag->addAlternate($alternates[$defaultLocale], 'x-default');
+            }
+
+            $sitemap->add($urlTag);
+        }
     }
 
     private function getLocales(): array

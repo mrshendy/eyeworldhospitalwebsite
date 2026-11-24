@@ -45,3 +45,37 @@ function getSpecialtieIdAttribute()
 {
     return $this->specialtie?->specialtie_id;
 }
+
+if (! function_exists('home_content')) {
+    /** Editable homepage text (Dashboard > Homepage content). */
+    function home_content(string $key): string
+    {
+        return \App\Models\HomeContent::value($key);
+    }
+}
+
+if (! function_exists('home_visible')) {
+    /** Whether a homepage section is switched on in the dashboard. */
+    function home_visible(string $section): bool
+    {
+        return \App\Models\HomeContent::value($section.'.visible') === '1';
+    }
+}
+
+if (! function_exists('home_image')) {
+    /** URL of an editable homepage image (uploaded file or the original asset). */
+    function home_image(string $key): string
+    {
+        $value = \App\Models\HomeContent::value($key);
+
+        return str_starts_with($value, 'siteassets/') ? asset($value) : asset('uploads/home/'.$value);
+    }
+}
+
+if (! function_exists('home_lines')) {
+    /** Editable list (one item per line). */
+    function home_lines(string $key): array
+    {
+        return array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', home_content($key)))));
+    }
+}

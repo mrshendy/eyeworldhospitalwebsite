@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\DoctorAppointmentController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\EyeHealthInfoController;
 use App\Http\Controllers\Admin\EyeHealthVideoController;
+use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Admin\InsurancePartnerInfoController;
 use App\Http\Controllers\Admin\LiberaryTopicController;
 use App\Http\Controllers\Admin\MedicalAcademyController;
@@ -165,6 +166,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     Route::get('settings', [SettingController::class, 'index'])->name('settings');
     Route::post('settings-update', [SettingController::class, 'update'])->name('settings.update');
+
+    Route::get('home-content', [HomeContentController::class, 'index'])->name('home-content.index');
+    Route::post('home-content', [HomeContentController::class, 'update'])->name('home-content.update');
 
     Route::get('seo', [SeoController::class, 'index'])->name('seo.index');
     Route::post('seo-update', [SeoController::class, 'update'])->name('seo.update');

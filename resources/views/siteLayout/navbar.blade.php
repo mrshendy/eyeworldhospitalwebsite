@@ -4,7 +4,7 @@
 			<div class="flex-start align-center">
 				<figure class="logo">
 					<a href="{{route('Site.home.index')}}">
-						<img src="{{asset('siteassets/images/logo.svg')}}" alt="webiste logo">
+						<img src="{{asset('siteassets/images/logo.webp')}}" alt="{{ __('Dunia Al-Oyoun Hospital') }}" width="203" height="56">
 					</a>
 				</figure>
 				<nav class="flex-1">
